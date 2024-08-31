@@ -16,8 +16,8 @@ export const Layout = ({
   footer,
 }: {
   title: ReactNode;
-  topNav: ReactNode;
-  sideNav: ReactNode;
+  topNav?: ReactNode;
+  sideNav?: ReactNode;
   article: ReactNode;
   footer: ReactNode;
 }) => {
@@ -27,7 +27,11 @@ export const Layout = ({
   return (
     <div className={layoutTheme[dark]}>
       <Header title={title} topNav={topNav} sideNav={sideNav} />
-      <Main article={article} footer={footer} />
+      <Main
+        article={article}
+        footer={footer}
+        hasSideNav={sideNav ? true : false}
+      />
     </div>
   );
 };

@@ -1,13 +1,17 @@
-import {style} from '@vanilla-extract/css';
+import {style, styleVariants} from '@vanilla-extract/css';
 import {dimensions, theme} from '../../../index.css';
 import {large} from '../../../index.ts';
 
-export const main = style({
+const mainBase = style({
   display: 'flex',
   flex: 1,
   flexDirection: 'column',
   backgroundColor: theme.background,
   overflow: 'auto',
   paddingTop: dimensions.topNavHeight,
-  ...large({paddingLeft: dimensions.sideNavWidth}),
+});
+
+export const main = styleVariants({
+  0: [mainBase],
+  1: [mainBase, large({paddingLeft: dimensions.sideNavWidth})],
 });

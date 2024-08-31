@@ -10,8 +10,8 @@ const {createElement} = React;
 
 export const Ui = (props: {
   title: ReactNode;
-  topNav: ReactNode;
-  sideNav: ReactNode;
+  topNav?: ReactNode;
+  sideNav?: ReactNode;
   article: ReactNode;
   footer: ReactNode;
 }) => {

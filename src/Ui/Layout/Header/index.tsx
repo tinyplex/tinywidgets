@@ -16,16 +16,16 @@ export const Header = ({
   sideNav,
 }: {
   title: ReactNode;
-  topNav: ReactNode;
-  sideNav: ReactNode;
+  topNav?: ReactNode;
+  sideNav?: ReactNode;
 }) => {
   return (
     <header className={header}>
-      <SideNavButton />
+      {sideNav ? <SideNavButton /> : null}
       <Title title={title} />
       <TopNav topNav={topNav} />
       <DarkButton />
-      <SideNav sideNav={sideNav} />
+      {sideNav ? <SideNav sideNav={sideNav} /> : null}
     </header>
   );
 };
