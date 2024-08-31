@@ -1,10 +1,10 @@
 /** @jsx createElement */
 
 import React, { type ReactNode } from 'react';
-import { sideBar } from './index.css.ts';
+import { sideNav } from './index.css.ts';
 
 const {createElement} = React;
 
-export const SideBar = ({sideBar: sideBarComponents}: {sideBar: ReactNode}) => {
-  return <nav className={sideBar}>{sideBarComponents}</nav>;
+export const SideBar = ({sideNav: sideNavComponents}: {sideNav: ReactNode}) => {
+  return <nav className={sideNav}>{sideNavComponents}</nav>;
 };

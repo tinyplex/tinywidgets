@@ -5,10 +5,9 @@ import {
   themeDark,
   themeLight,
 } from '../../index.css.ts';
-import { large } from '../../index.ts';
 
 export const dimensions = {
-  sideBarWidth: '20rem',
+  sideNavWidth: '20rem',
   topBarHeight: '4rem',
 };
 
@@ -18,7 +17,6 @@ export const layout = style([
     height: '100vh',
     width: '100vw',
     color: theme.text,
-    ...large({flexDirection: 'row'}),
   },
 ]);
 

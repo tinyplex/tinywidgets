@@ -9,6 +9,8 @@ export const main = style([
   {
     flex: 1,
     overflow: 'scroll',
-    ...large({paddingTop: dimensions.topBarHeight}),
+    ...large({
+      paddingLeft: dimensions.sideNavWidth,
+    }),
   },
 ]);

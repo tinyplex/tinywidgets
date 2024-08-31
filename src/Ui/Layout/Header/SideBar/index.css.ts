@@ -4,15 +4,15 @@ import { large } from '../../../../index.ts';
 import { dimensions, layout } from '../../../Layout/index.css.ts';
 import { hamburger } from '../Hamburger/index.css.ts';
 
-export const sideBar = style([
+export const sideNav = style([
   padding1,
   background,
   {
-    width: dimensions.sideBarWidth,
+    width: dimensions.sideNavWidth,
     overflow: 'scroll',
     position: 'fixed',
     bottom: '0',
-    left: '-' + dimensions.sideBarWidth,
+    left: '-' + dimensions.sideNavWidth,
     top: dimensions.topBarHeight,
     transition: 'left 0.2s ease-in-out',
     background: 'blue',
