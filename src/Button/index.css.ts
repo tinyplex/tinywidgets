@@ -1,12 +1,12 @@
 import {style, styleVariants} from '@vanilla-extract/css';
-import {displayFlexColumn, radius, shadow} from '../atoms.css';
-import {theme} from '../index.css';
+import {dimensions, theme} from '../index.css';
 
 const buttonBase = style([
-  displayFlexColumn,
-  shadow,
-  radius,
   {
+    boxShadow: theme.shadow,
+    borderRadius: dimensions.radius,
+    display: 'flex',
+    flexDirection: 'column',
     border: `1px solid ${theme.border}`,
     padding: '0.5rem 1rem',
     cursor: 'pointer',

@@ -4,7 +4,29 @@ import {
   globalStyle,
 } from '@vanilla-extract/css';
 
-export const padding = '1rem';
+const light = {
+  background: 'hsl(0,0%,90%)',
+  backgroundHaze: 'hsla(0,0%,90%,0.5)',
+  backgroundHover: 'hsl(0,0%,85%)',
+  foreground: 'hsl(0,0%,10%)',
+  border: 'hsl(340,5%,80%)',
+  shadow: '0 1px 2px 0 hsla(340,5%,80%,0.5)',
+  accent: 'hsl(340,80%,50%)',
+  accentHover: 'hsl(340,80%,45%)',
+  accentContrast: 'hsl(0,0%,100%)',
+};
+
+const dark = {
+  background: 'hsl(0,0%,10%)',
+  backgroundHaze: 'hsla(0,0%,10%,0.5)',
+  backgroundHover: 'hsl(0,0%,15%)',
+  foreground: 'hsl(0,0%,90%)',
+  border: 'hsl(340,5%,20%)',
+  shadow: '0 1px 2px 0 hsla(0,0%,0%,0.5)',
+  accent: 'hsl(340,80%,50%)',
+  accentHover: 'hsl(340,80%,45%)',
+  accentContrast: 'hsl(0,0%,100%)',
+};
 
 export const squareButton = {
   display: 'inline-block',
@@ -17,6 +39,8 @@ export const squareButton = {
 } as const;
 
 export const dimensions = {
+  padding: '1rem',
+  radius: '0.5rem',
   sideNavWidth: '20rem',
   topNavHeight: '4rem',
   articleWidth: '60rem',
@@ -32,7 +56,6 @@ globalStyle('*', {
 globalStyle('html', {
   textRendering: 'optimizeLegibility',
   fontWeight: 400,
-  backgroundColor: 'hsl(0,0%,50%)',
 });
 
 globalStyle('h1,h2,h3,p', {
@@ -52,26 +75,12 @@ export const theme = createThemeContract({
   accentContrast: null,
 });
 
-export const themeLight = createTheme(theme, {
-  background: 'hsl(0,0%,90%)',
-  backgroundHaze: 'hsla(0,0%,90%,0.5)',
-  backgroundHover: 'hsl(0,0%,85%)',
-  foreground: 'hsl(0,0%,10%)',
-  border: 'hsl(340,5%,80%)',
-  shadow: 'hsla(340,5%,80%,0.5)',
-  accent: 'hsl(340,80%,50%)',
-  accentHover: 'hsl(340,80%,45%)',
-  accentContrast: 'hsl(0,0%,100%)',
+export const themeLight = createTheme(theme, light);
+globalStyle(`html:has(${themeLight})`, {
+  backgroundColor: light.background,
 });
 
-export const themeDark = createTheme(theme, {
-  background: 'hsl(0,0%,10%)',
-  backgroundHaze: 'hsla(0,0%,10%,0.5)',
-  backgroundHover: 'hsl(0,0%,15%)',
-  foreground: 'hsl(0,0%,90%)',
-  border: 'hsl(340,5%,20%)',
-  shadow: 'hsla(0,0%,0%,0.5)',
-  accent: 'hsl(340,80%,50%)',
-  accentHover: 'hsl(340,80%,45%)',
-  accentContrast: 'hsl(0,0%,100%)',
+export const themeDark = createTheme(theme, dark);
+globalStyle(`html:has(${themeDark})`, {
+  backgroundColor: dark.background,
 });

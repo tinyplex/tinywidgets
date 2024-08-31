@@ -1,20 +1,14 @@
 import {style} from '@vanilla-extract/css';
-import {
-  displayFlexRow,
-  justify,
-  padding1,
-  positionFixed,
-  shadow,
-} from '../../../atoms.css.ts';
 import {dimensions, theme} from '../../../index.css';
 
 export const header = style([
-  positionFixed,
-  displayFlexRow,
-  justify,
-  padding1,
-  shadow,
   {
+    position: 'fixed',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: dimensions.padding,
+    boxShadow: theme.shadow,
     backdropFilter: 'blur(8px)',
     backgroundColor: theme.backgroundHaze,
     left: 0,
