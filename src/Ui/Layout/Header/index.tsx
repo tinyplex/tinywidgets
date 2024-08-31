@@ -24,8 +24,8 @@ export const Header = ({
       <SideNavButton />
       <Title title={title} />
       <TopNav topNav={topNav} />
-      <SideNav sideNav={sideNav} />
       <DarkButton />
+      <SideNav sideNav={sideNav} />
     </header>
   );
 };

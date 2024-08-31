@@ -3,13 +3,11 @@ import {squareButton, theme} from '../../../../index.css';
 
 const darkButtonBase = style({
   ...squareButton,
-  userSelect: 'none',
   selectors: {
     '&::after': {
       ...squareButton,
       content: '',
       background: theme.foreground,
-      display: 'inline-block',
     },
   },
 });

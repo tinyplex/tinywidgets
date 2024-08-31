@@ -15,7 +15,6 @@ export const sideNavButton = style([
         ...squareButton,
         visibility: 'visible',
         content: '',
-        display: 'inline-block',
         background: theme.foreground,
         mask: `url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' stroke='black' stroke-width='4' fill='none'><path d='M20 30h60 M20 50h60 M20 70h60'/></svg>")`,
       },
