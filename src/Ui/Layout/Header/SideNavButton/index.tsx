@@ -1,6 +1,6 @@
 /** @jsx createElement */
 import React from 'react';
-import {useSetSideNav, useSideNav} from '../../../Store.tsx';
+import {useSetSideNav, useSideNav} from '../../../SessionStore.tsx';
 import {sideNavButton} from './index.css.ts';
 
 const {createElement} = React;

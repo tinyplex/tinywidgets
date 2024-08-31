@@ -3,7 +3,8 @@
 import React, {type ReactNode} from 'react';
 import {Provider} from 'tinybase/ui-react';
 import {Layout} from './Layout/index.tsx';
-import {Store} from './Store.tsx';
+import {LocalStore} from './LocalStore.tsx';
+import {SessionStore} from './SessionStore.tsx';
 
 const {createElement} = React;
 
@@ -17,7 +18,8 @@ export const Ui = (props: {
   return (
     <Provider>
       <Layout {...props} />
-      <Store />
+      <SessionStore />
+      <LocalStore />
     </Provider>
   );
 };

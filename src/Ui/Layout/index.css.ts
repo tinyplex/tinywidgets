@@ -7,7 +7,7 @@ export const layout = style([
   {
     height: '100vh',
     width: '100vw',
-    color: theme.text,
+    color: theme.foreground,
   },
 ]);
 

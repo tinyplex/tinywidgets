@@ -1,8 +1,9 @@
 import {style} from '@vanilla-extract/css';
 import {theme} from './index.css';
+import {padding} from './index.css.ts';
 
 export const padding1 = style({
-  padding: '1rem',
+  padding,
 });
 
 export const displayFlexRow = style({
@@ -33,4 +34,8 @@ export const overflowAuto = style({
 
 export const flex1 = style({
   flex: 1,
+});
+
+export const shadow = style({
+  boxShadow: '0 1px 2px 0 rgba(0,0,0,.05)',
 });

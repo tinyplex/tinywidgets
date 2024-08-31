@@ -5,7 +5,7 @@ import {
   justify,
   padding1,
 } from '../../../atoms.css.ts';
-import {dimensions} from '../../../index.ts';
+import {dimensions, theme} from '../../../index.css';
 
 export const header = style([
   displayFlexRow,
@@ -15,5 +15,6 @@ export const header = style([
   {
     gap: '1rem',
     height: dimensions.topNavHeight,
+    borderBottom: `1px solid ${theme.border}`,
   },
 ]);

@@ -5,7 +5,8 @@ import {
   padding1,
   positionFixed,
 } from '../../../../atoms.css.ts';
-import {dimensions, large} from '../../../../index.ts';
+import {dimensions, theme} from '../../../../index.css.ts';
+import {large} from '../../../../index.ts';
 import {layout} from '../../index.css.ts';
 import {sideNavButton} from '../SideNavButton/index.css.ts';
 
@@ -15,6 +16,7 @@ export const sideNav = style([
   background,
   overflowAuto,
   {
+    borderRight: `1px solid ${theme.border}`,
     width: dimensions.sideNavWidth,
     bottom: '0',
     left: '-' + dimensions.sideNavWidth,

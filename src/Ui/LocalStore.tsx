@@ -14,52 +14,41 @@ const {useEffect} = React;
 
 const PREFERS_DARK = matchMedia('(prefers-color-scheme: dark)');
 
-const UI_STORE = 'ui';
+const LOCAL_STORE = 'uiLocal';
 const DARK_PREFERENCE_VALUE = 'darkPreference';
 const DARK_CHOICE_VALUE = 'darkChoice';
-const SIDE_NAV_VALUE = 'sideNav';
 
 export const useDarkPreference = (): 0 | 1 =>
-  useValue(DARK_PREFERENCE_VALUE, UI_STORE) as any;
+  useValue(DARK_PREFERENCE_VALUE, LOCAL_STORE) as any;
 
 export const useDarkChoice = (): 0 | 1 | 2 =>
-  (useValue(DARK_CHOICE_VALUE, UI_STORE) ?? 2) as any;
+  (useValue(DARK_CHOICE_VALUE, LOCAL_STORE) ?? 2) as any;
 export const useNudgeDarkChoiceCallback = () =>
   useSetValueCallback(
     DARK_CHOICE_VALUE,
     () => (value) => (((value ?? 0) as number) + 1) % 3,
     [],
-    UI_STORE,
+    LOCAL_STORE,
   );
 
-export const useSideNav = () => useValue(SIDE_NAV_VALUE, UI_STORE) as any;
-export const useSetSideNav = () =>
-  useSetValueCallback(
-    SIDE_NAV_VALUE,
-    (e: React.ChangeEvent<HTMLInputElement>) => e.target.checked,
-    [],
-    UI_STORE,
-  );
-
-export const Store = () => {
-  const uiStore = useCreateStore(createStore);
+export const LocalStore = () => {
+  const localStore = useCreateStore(createStore);
   useCreatePersister(
-    uiStore,
-    (uiStore) => createLocalPersister(uiStore, UI_STORE),
+    localStore,
+    (localStore) => createLocalPersister(localStore, LOCAL_STORE),
     [],
     async (persister) => {
       await persister.startAutoLoad();
       await persister.startAutoSave();
     },
   );
-
   useEffect(() => {
     const preferenceListener = () =>
-      uiStore.setValue(DARK_PREFERENCE_VALUE, PREFERS_DARK.matches ? 1 : 0);
+      localStore.setValue(DARK_PREFERENCE_VALUE, PREFERS_DARK.matches ? 1 : 0);
     PREFERS_DARK.addEventListener('change', preferenceListener);
     return () => PREFERS_DARK.removeEventListener('change', preferenceListener);
-  }, [uiStore]);
+  }, [localStore]);
 
-  useProvideStore(UI_STORE, uiStore);
+  useProvideStore(LOCAL_STORE, localStore);
   return null;
 };

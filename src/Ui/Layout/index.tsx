@@ -1,7 +1,7 @@
 /** @jsx createElement */
 
 import React, {type ReactNode} from 'react';
-import {useDarkChoice, useDarkPreference} from '../Store.tsx';
+import {useDarkChoice, useDarkPreference} from '../LocalStore.tsx';
 import {Header} from './Header/index.tsx';
 import {layoutTheme} from './index.css.ts';
 import {Main} from './Main/index.tsx';

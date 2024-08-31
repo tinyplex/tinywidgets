@@ -1,16 +1,14 @@
 import {style, styleVariants} from '@vanilla-extract/css';
-import {squareButton} from '../../../../';
-import {theme} from '../../../../index.css';
+import {squareButton, theme} from '../../../../index.css';
 
 const darkButtonBase = style({
   ...squareButton,
   userSelect: 'none',
-  cursor: 'pointer',
   selectors: {
     '&::after': {
       ...squareButton,
       content: '',
-      background: theme.text,
+      background: theme.foreground,
       display: 'inline-block',
     },
   },

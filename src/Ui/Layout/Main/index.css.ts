@@ -5,7 +5,8 @@ import {
   flex1,
   overflowAuto,
 } from '../../../atoms.css.ts';
-import {dimensions, large} from '../../../index.ts';
+import {dimensions} from '../../../index.css';
+import {large} from '../../../index.ts';
 
 export const main = style([
   displayFlexColumn,

@@ -1,7 +1,10 @@
 /** @jsx createElement */
 
 import React from 'react';
-import {useDarkChoice, useNudgeDarkChoiceCallback} from '../../../Store.tsx';
+import {
+  useDarkChoice,
+  useNudgeDarkChoiceCallback,
+} from '../../../LocalStore.tsx';
 import {darkButton} from './index.css.ts';
 
 export const {createElement} = React;
