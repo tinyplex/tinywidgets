@@ -1,4 +1,4 @@
-import { style, styleVariants } from '@vanilla-extract/css';
+import {style, styleVariants} from '@vanilla-extract/css';
 
 const darkButtonBase = style({
   width: '1rem',

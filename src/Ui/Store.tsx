@@ -1,7 +1,7 @@
 /** @jsx createElement */
 import React from 'react';
-import { createStore } from 'tinybase';
-import { createLocalPersister } from 'tinybase/persisters/persister-browser';
+import {createStore} from 'tinybase';
+import {createLocalPersister} from 'tinybase/persisters/persister-browser';
 import {
   useCreatePersister,
   useCreateStore,

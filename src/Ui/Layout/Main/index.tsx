@@ -1,9 +1,9 @@
 /** @jsx createElement */
 
-import React, { type ReactNode } from 'react';
-import { Article } from './Article/index.tsx';
-import { Footer } from './Footer/index.tsx';
-import { main } from './index.css.ts';
+import React, {type ReactNode} from 'react';
+import {Article} from './Article/index.tsx';
+import {Footer} from './Footer/index.tsx';
+import {main} from './index.css.ts';
 
 const {createElement} = React;
 

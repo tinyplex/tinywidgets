@@ -1,4 +1,4 @@
-import { style, styleVariants } from '@vanilla-extract/css';
+import {style, styleVariants} from '@vanilla-extract/css';
 import {
   displayFlexColumn,
   theme,
@@ -8,7 +8,7 @@ import {
 
 export const dimensions = {
   sideNavWidth: '20rem',
-  topBarHeight: '4rem',
+  topNavHeight: '4rem',
 };
 
 export const layout = style([

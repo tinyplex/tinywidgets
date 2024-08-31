@@ -1,24 +1,19 @@
-import { style } from '@vanilla-extract/css';
-import { padding1, theme } from '../../../../index.css.ts';
-import { large } from '../../../../index.ts';
-import { dimensions } from '../../../Layout/index.css.ts';
+import {style} from '@vanilla-extract/css';
+import {padding1, theme} from '../../../../index.css.ts';
+import {large} from '../../../../index.ts';
 
-export const hamburger = style([
+export const sideNavButton = style([
   padding1,
   {
     display: 'block',
-    minWidth: dimensions.topBarHeight,
-    height: dimensions.topBarHeight,
     visibility: 'hidden',
-    marginRight: '-1rem',
     flex: 0,
+    minWidth: '2rem',
+    height: '2rem',
     ...large({display: 'none'}),
     selectors: {
       '&::after': {
         visibility: 'visible',
-        position: 'relative',
-        top: '1rem',
-        left: '1rem',
         width: '2rem',
         height: '2rem',
         content: '',

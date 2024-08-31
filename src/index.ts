@@ -1,4 +1,4 @@
-import type { StyleRule } from '@vanilla-extract/css';
+import type {StyleRule} from '@vanilla-extract/css';
 
 const LARGE = 'screen and (min-width: 1000px)';
 

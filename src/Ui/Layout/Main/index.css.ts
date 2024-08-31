@@ -1,7 +1,7 @@
-import { style } from '@vanilla-extract/css';
-import { background, displayFlexColumn } from '../../../index.css.ts';
-import { large } from '../../../index.ts';
-import { dimensions } from '../../Layout/index.css.ts';
+import {style} from '@vanilla-extract/css';
+import {background, displayFlexColumn} from '../../../index.css.ts';
+import {large} from '../../../index.ts';
+import {dimensions} from '../../Layout/index.css.ts';
 
 export const main = style([
   displayFlexColumn,

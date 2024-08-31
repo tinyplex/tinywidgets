@@ -1,7 +1,7 @@
 /** @jsx createElement */
 
-import React, { type ReactNode } from 'react';
-import { topNav } from './index.css.ts';
+import React, {type ReactNode} from 'react';
+import {topNav} from './index.css.ts';
 
 const {createElement} = React;
 
