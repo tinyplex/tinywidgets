@@ -27,8 +27,8 @@ export const background = style({
   backgroundColor: theme.background,
 });
 
-export const overflowScroll = style({
-  overflow: 'scroll',
+export const overflowAuto = style({
+  overflow: 'auto',
 });
 
 export const flex1 = style({

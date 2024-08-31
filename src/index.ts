@@ -7,3 +7,16 @@ export const large = (style: StyleRule) => ({
     [LARGE]: style,
   },
 });
+
+export const squareButton = {
+  width: '2rem',
+  minWidth: '2rem',
+  height: '2rem',
+  minHeight: '2rem',
+};
+
+export const dimensions = {
+  sideNavWidth: '20rem',
+  topNavHeight: '4rem',
+  articleWidth: '60rem',
+};

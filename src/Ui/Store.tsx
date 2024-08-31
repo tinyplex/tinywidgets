@@ -23,7 +23,7 @@ export const useDarkPreference = (): 0 | 1 =>
   useValue(DARK_PREFERENCE_VALUE, UI_STORE) as any;
 
 export const useDarkChoice = (): 0 | 1 | 2 =>
-  (useValue(DARK_CHOICE_VALUE, UI_STORE) ?? 0) as any;
+  (useValue(DARK_CHOICE_VALUE, UI_STORE) ?? 2) as any;
 export const useNudgeDarkChoiceCallback = () =>
   useSetValueCallback(
     DARK_CHOICE_VALUE,

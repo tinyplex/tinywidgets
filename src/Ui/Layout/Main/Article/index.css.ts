@@ -1,6 +1,6 @@
 import {style} from '@vanilla-extract/css';
 import {padding1} from '../../../../atoms.css.ts';
-import {dimensions} from '../../index.css.ts';
+import {dimensions} from '../../../../index.ts';
 
 export const article = style([
   padding1,

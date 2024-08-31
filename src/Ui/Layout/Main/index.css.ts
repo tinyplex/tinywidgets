@@ -3,15 +3,14 @@ import {
   background,
   displayFlexColumn,
   flex1,
-  overflowScroll,
+  overflowAuto,
 } from '../../../atoms.css.ts';
-import {large} from '../../../index.ts';
-import {dimensions} from '../../Layout/index.css.ts';
+import {dimensions, large} from '../../../index.ts';
 
 export const main = style([
   displayFlexColumn,
   background,
-  overflowScroll,
+  overflowAuto,
   flex1,
   {
     ...large({paddingLeft: dimensions.sideNavWidth}),

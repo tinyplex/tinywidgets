@@ -9,8 +9,8 @@ export const {createElement} = React;
 export const DarkButton = () => {
   return (
     <span
-      onClick={useNudgeDarkChoiceCallback()}
       className={darkButton[useDarkChoice()]}
+      onClick={useNudgeDarkChoiceCallback()}
     />
   );
 };

@@ -5,7 +5,7 @@ import {
   justify,
   padding1,
 } from '../../../atoms.css.ts';
-import {dimensions} from '../index.css.ts';
+import {dimensions} from '../../../index.ts';
 
 export const header = style([
   displayFlexRow,

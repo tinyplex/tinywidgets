@@ -1,19 +1,19 @@
 import {style} from '@vanilla-extract/css';
 import {
   background,
-  overflowScroll,
+  overflowAuto,
   padding1,
   positionFixed,
 } from '../../../../atoms.css.ts';
-import {large} from '../../../../index.ts';
-import {dimensions, layout} from '../../index.css.ts';
+import {dimensions, large} from '../../../../index.ts';
+import {layout} from '../../index.css.ts';
 import {sideNavButton} from '../SideNavButton/index.css.ts';
 
 export const sideNav = style([
   positionFixed,
   padding1,
   background,
-  overflowScroll,
+  overflowAuto,
   {
     width: dimensions.sideNavWidth,
     bottom: '0',
