@@ -1,10 +1,10 @@
 /** @jsx createElement */
 
 import React, { type ReactNode } from 'react';
-import { Header } from '../Header/index.tsx';
-import { Main } from '../Main/index.tsx';
 import { useDarkChoice, useDarkPreference } from '../Store.tsx';
+import { Header } from './Header/index.tsx';
 import { layoutTheme } from './index.css.ts';
+import { Main } from './Main/index.tsx';
 
 const {createElement} = React;
 

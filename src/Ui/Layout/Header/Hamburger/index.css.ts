@@ -1,7 +1,7 @@
 import { style } from '@vanilla-extract/css';
-import { padding1, theme } from '../../../index.css.ts';
-import { large } from '../../../index.ts';
-import { dimensions } from '../../Layout/index.css.ts';
+import { padding1, theme } from '../../../../index.css.ts';
+import { large } from '../../../../index.ts';
+import { dimensions } from '../../../Layout/index.css.ts';
 
 export const hamburger = style([
   padding1,

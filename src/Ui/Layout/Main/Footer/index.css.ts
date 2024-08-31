@@ -4,6 +4,6 @@ import {
   displayFlexRow,
   justify,
   padding1,
-} from '../../../index.css';
+} from '../../../../index.css';
 
 export const footer = style([displayFlexRow, justify, padding1, background]);

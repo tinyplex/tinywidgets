@@ -1,7 +1,7 @@
 import { style } from '@vanilla-extract/css';
-import { background, padding1 } from '../../../index.css.ts';
-import { large } from '../../../index.ts';
-import { dimensions, layout } from '../../Layout/index.css.ts';
+import { background, padding1 } from '../../../../index.css.ts';
+import { large } from '../../../../index.ts';
+import { dimensions, layout } from '../../../Layout/index.css.ts';
 import { hamburger } from '../Hamburger/index.css.ts';
 
 export const sideBar = style([

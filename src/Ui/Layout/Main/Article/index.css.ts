@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { background, padding1 } from '../../../index.css';
+import { background, padding1 } from '../../../../index.css';
 
 export const article = style([
   padding1,
