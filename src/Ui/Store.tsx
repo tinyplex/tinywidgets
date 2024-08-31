@@ -17,15 +17,26 @@ const PREFERS_DARK = matchMedia('(prefers-color-scheme: dark)');
 const UI_STORE = 'ui';
 const DARK_PREFERENCE_VALUE = 'darkPreference';
 const DARK_CHOICE_VALUE = 'darkChoice';
+const SIDE_NAV_VALUE = 'sideNav';
 
 export const useDarkPreference = (): 0 | 1 =>
   useValue(DARK_PREFERENCE_VALUE, UI_STORE) as any;
+
 export const useDarkChoice = (): 0 | 1 | 2 =>
   (useValue(DARK_CHOICE_VALUE, UI_STORE) ?? 0) as any;
 export const useNudgeDarkChoiceCallback = () =>
   useSetValueCallback(
     DARK_CHOICE_VALUE,
     () => (value) => (((value ?? 0) as number) + 1) % 3,
+    [],
+    UI_STORE,
+  );
+
+export const useSideNav = () => useValue(SIDE_NAV_VALUE, UI_STORE) as any;
+export const useSetSideNav = () =>
+  useSetValueCallback(
+    SIDE_NAV_VALUE,
+    (e: React.ChangeEvent<HTMLInputElement>) => e.target.checked,
     [],
     UI_STORE,
   );

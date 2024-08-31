@@ -17,7 +17,6 @@ export const sideNav = style([
     transition: 'left 0.2s ease-in-out',
     background: 'blue',
     ...large({
-      transition: 'unset',
       left: 0,
     }),
     selectors: {[`${layout}:has(${sideNavButton}:checked) &`]: {left: 0}},
