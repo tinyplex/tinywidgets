@@ -2,8 +2,8 @@
 
 import React, { type ReactNode } from 'react';
 import { Provider } from 'tinybase/ui-react';
-import { Store } from '../Store.tsx';
 import { Layout } from './Layout/index.tsx';
+import { Store } from './Store.tsx';
 
 const {createElement} = React;
 
