@@ -4,7 +4,7 @@ import {large} from '../../../../index.ts';
 
 export const title = style({
   display: 'flex',
-  justifyContent: 'space-between',
   alignItems: 'center',
-  ...large({width: dimensions.sideNavWidth, marginRight: '-1rem'}),
+  gap: dimensions.padding,
+  ...large({width: dimensions.titleWidth}),
 });

@@ -7,4 +7,6 @@ export const footer = style({
   alignItems: 'center',
   padding: dimensions.padding,
   background: theme.background,
+  borderTop: `1px solid ${theme.border}`,
+  height: dimensions.footerHeight,
 });

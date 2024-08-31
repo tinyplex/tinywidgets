@@ -4,6 +4,18 @@ import {
   globalStyle,
 } from '@vanilla-extract/css';
 
+export const theme = createThemeContract({
+  background: null,
+  backgroundHaze: null,
+  backgroundHover: null,
+  foreground: null,
+  border: null,
+  shadow: null,
+  accent: null,
+  accentHover: null,
+  accentContrast: null,
+});
+
 const light = {
   background: 'hsl(0,0%,90%)',
   backgroundHaze: 'hsla(0,0%,90%,0.5)',
@@ -41,9 +53,11 @@ export const squareButton = {
 export const dimensions = {
   padding: '1rem',
   radius: '0.5rem',
+  titleWidth: '18rem',
   sideNavWidth: '20rem',
   topNavHeight: '4rem',
   articleWidth: '60rem',
+  footerHeight: '10rem',
 };
 
 globalStyle('*', {
@@ -58,21 +72,9 @@ globalStyle('html', {
   fontWeight: 400,
 });
 
-globalStyle('h1,h2,h3,p', {
+globalStyle('article h1,article h2,article h3,article p', {
   margin: '1rem 0',
-  lineHeight: '1.5rem',
-});
-
-export const theme = createThemeContract({
-  background: null,
-  backgroundHaze: null,
-  backgroundHover: null,
-  foreground: null,
-  border: null,
-  shadow: null,
-  accent: null,
-  accentHover: null,
-  accentContrast: null,
+  lineHeight: '1.75rem',
 });
 
 export const themeLight = createTheme(theme, light);

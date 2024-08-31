@@ -13,7 +13,7 @@ export const header = style([
     backgroundColor: theme.backgroundHaze,
     left: 0,
     right: 0,
-    gap: '1rem',
+    gap: dimensions.padding,
     height: dimensions.topNavHeight,
     borderBottom: `1px solid ${theme.border}`,
     zIndex: 1,
