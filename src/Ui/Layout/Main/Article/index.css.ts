@@ -1,14 +1,13 @@
 import {style} from '@vanilla-extract/css';
-import {background, padding1} from '../../../../index.css';
+import {padding1} from '../../../../atoms.css.ts';
+import {dimensions} from '../../index.css.ts';
 
 export const article = style([
   padding1,
-  background,
   {
     flex: 1,
     width: '100%',
-    maxWidth: '80rem',
+    maxWidth: dimensions.articleWidth,
     margin: '0 auto',
-    backgroundColor: 'red',
   },
 ]);

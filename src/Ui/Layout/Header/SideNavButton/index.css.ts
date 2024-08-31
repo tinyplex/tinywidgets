@@ -1,5 +1,6 @@
 import {style} from '@vanilla-extract/css';
-import {padding1, theme} from '../../../../index.css.ts';
+import {padding1} from '../../../../atoms.css.ts';
+import {theme} from '../../../../index.css.ts';
 import {large} from '../../../../index.ts';
 
 export const sideNavButton = style([

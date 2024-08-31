@@ -4,6 +4,6 @@ import {
   displayFlexRow,
   justify,
   padding1,
-} from '../../../../index.css';
+} from '../../../../atoms.css.ts';
 
 export const footer = style([displayFlexRow, justify, padding1, background]);

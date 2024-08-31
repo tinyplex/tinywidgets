@@ -1,16 +1,19 @@
 import {style} from '@vanilla-extract/css';
-import {background, displayFlexColumn} from '../../../index.css.ts';
+import {
+  background,
+  displayFlexColumn,
+  flex1,
+  overflowScroll,
+} from '../../../atoms.css.ts';
 import {large} from '../../../index.ts';
 import {dimensions} from '../../Layout/index.css.ts';
 
 export const main = style([
   displayFlexColumn,
   background,
+  overflowScroll,
+  flex1,
   {
-    flex: 1,
-    overflow: 'scroll',
-    ...large({
-      paddingLeft: dimensions.sideNavWidth,
-    }),
+    ...large({paddingLeft: dimensions.sideNavWidth}),
   },
 ]);
