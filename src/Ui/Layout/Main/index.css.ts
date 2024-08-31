@@ -14,6 +14,7 @@ export const main = style([
   overflowAuto,
   flex1,
   {
+    paddingTop: dimensions.topNavHeight,
     ...large({paddingLeft: dimensions.sideNavWidth}),
   },
 ]);

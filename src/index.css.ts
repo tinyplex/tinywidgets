@@ -32,6 +32,7 @@ globalStyle('*', {
 globalStyle('html', {
   textRendering: 'optimizeLegibility',
   fontWeight: 400,
+  backgroundColor: 'hsl(0,0%,50%)',
 });
 
 globalStyle('h1,h2,h3,p', {
@@ -41,6 +42,7 @@ globalStyle('h1,h2,h3,p', {
 
 export const theme = createThemeContract({
   background: null,
+  backgroundHaze: null,
   backgroundHover: null,
   foreground: null,
   border: null,
@@ -52,6 +54,7 @@ export const theme = createThemeContract({
 
 export const themeLight = createTheme(theme, {
   background: 'hsl(0,0%,90%)',
+  backgroundHaze: 'hsla(0,0%,90%,0.5)',
   backgroundHover: 'hsl(0,0%,85%)',
   foreground: 'hsl(0,0%,10%)',
   border: 'hsl(340,5%,80%)',
@@ -63,6 +66,7 @@ export const themeLight = createTheme(theme, {
 
 export const themeDark = createTheme(theme, {
   background: 'hsl(0,0%,10%)',
+  backgroundHaze: 'hsla(0,0%,10%,0.5)',
   backgroundHover: 'hsl(0,0%,15%)',
   foreground: 'hsl(0,0%,90%)',
   border: 'hsl(340,5%,20%)',
