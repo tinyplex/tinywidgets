@@ -1,21 +1,18 @@
 import {style} from '@vanilla-extract/css';
-import {dimensions, theme} from '../../../index.css';
+import {dimensions, row, theme} from '../../../index.css';
 
 export const header = style([
+  row,
   {
     position: 'fixed',
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
     padding: dimensions.padding,
     boxShadow: theme.shadow,
     backdropFilter: 'blur(8px)',
     backgroundColor: theme.backgroundHaze,
     left: 0,
     right: 0,
-    gap: dimensions.padding,
     height: dimensions.topNavHeight,
     borderBottom: `1px solid ${theme.border}`,
-    zIndex: 1,
+    zIndex: 2,
   },
 ]);

@@ -18,8 +18,8 @@ export const Layout = ({
   title: ReactNode;
   topNav?: ReactNode;
   sideNav?: ReactNode;
-  article: ReactNode;
-  footer: ReactNode;
+  article?: ReactNode;
+  footer?: ReactNode;
 }) => {
   const darkPreference = useDarkPreference();
   const darkChoice = useDarkChoice();

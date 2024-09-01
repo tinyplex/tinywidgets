@@ -2,6 +2,7 @@ import {
   createTheme,
   createThemeContract,
   globalStyle,
+  style,
 } from '@vanilla-extract/css';
 
 export const theme = createThemeContract({
@@ -9,6 +10,7 @@ export const theme = createThemeContract({
   backgroundHaze: null,
   backgroundHover: null,
   foreground: null,
+  foreground2: null,
   border: null,
   shadow: null,
   accent: null,
@@ -21,8 +23,9 @@ const light = {
   backgroundHaze: 'hsla(0,0%,90%,0.5)',
   backgroundHover: 'hsl(0,0%,85%)',
   foreground: 'hsl(0,0%,10%)',
+  foreground2: 'hsl(0,0%,40%)',
   border: 'hsl(340,5%,80%)',
-  shadow: '0 1px 2px 0 hsla(340,5%,80%,0.5)',
+  shadow: '0 1px 2px 0 hsla(0,0%,70%,0.5)',
   accent: 'hsl(340,80%,50%)',
   accentHover: 'hsl(340,80%,45%)',
   accentContrast: 'hsl(0,0%,100%)',
@@ -33,6 +36,7 @@ const dark = {
   backgroundHaze: 'hsla(0,0%,10%,0.5)',
   backgroundHover: 'hsl(0,0%,15%)',
   foreground: 'hsl(0,0%,90%)',
+  foreground2: 'hsl(0,0%,60%)',
   border: 'hsl(340,5%,20%)',
   shadow: '0 1px 2px 0 hsla(0,0%,0%,0.5)',
   accent: 'hsl(340,80%,50%)',
@@ -48,6 +52,12 @@ export const squareButton = {
   minHeight: '1rem',
   userSelect: 'none',
   cursor: 'pointer',
+} as const;
+
+export const square2 = {
+  display: 'inline-block',
+  width: '2rem',
+  height: '2rem',
 } as const;
 
 export const dimensions = {
@@ -85,4 +95,11 @@ globalStyle(`html:has(${themeLight})`, {
 export const themeDark = createTheme(theme, dark);
 globalStyle(`html:has(${themeDark})`, {
   backgroundColor: dark.background,
+});
+
+export const row = style({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  gap: dimensions.padding,
 });

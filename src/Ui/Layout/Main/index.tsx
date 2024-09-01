@@ -12,14 +12,14 @@ export const Main = ({
   footer,
   hasSideNav,
 }: {
-  article: ReactNode;
-  footer: ReactNode;
+  article?: ReactNode;
+  footer?: ReactNode;
   hasSideNav: boolean;
 }) => {
   return (
     <main className={main[hasSideNav ? 1 : 0]}>
-      <Article article={article} />
-      <Footer footer={footer} />
+      {article ? <Article article={article} /> : null}
+      {footer ? <Footer footer={footer} /> : null}
     </main>
   );
 };

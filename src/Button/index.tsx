@@ -7,10 +7,16 @@ export const {createElement, Fragment} = React;
 
 export const Button = ({
   label,
+  onClick,
   variant = 'default',
 }: {
   label: string;
+  onClick?: () => void;
   variant?: keyof typeof button;
 }) => {
-  return <button className={button[variant]}>{label}</button>;
+  return (
+    <button className={button[variant]} onClick={onClick}>
+      {label}
+    </button>
+  );
 };

@@ -12,7 +12,7 @@ import {
 
 const {useEffect} = React;
 
-const PREFERS_DARK = matchMedia('(prefers-color-scheme: dark)');
+const PREFERS_DARK = matchMedia?.('(prefers-color-scheme: dark)');
 
 const LOCAL_STORE = 'uiLocal';
 const DARK_PREFERENCE_VALUE = 'darkPreference';

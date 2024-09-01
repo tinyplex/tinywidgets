@@ -12,8 +12,8 @@ export const Ui = (props: {
   title: ReactNode;
   topNav?: ReactNode;
   sideNav?: ReactNode;
-  article: ReactNode;
-  footer: ReactNode;
+  article?: ReactNode;
+  footer?: ReactNode;
 }) => {
   return (
     <Provider>
