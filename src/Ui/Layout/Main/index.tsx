@@ -1,9 +1,10 @@
 /** @jsx createElement */
 
 import React, {type ReactNode} from 'react';
+import {classNames} from '../../../index.ts';
 import {Article} from './Article/index.tsx';
 import {Footer} from './Footer/index.tsx';
-import {main} from './index.css.ts';
+import {main, mainHasSideNav} from './index.css.ts';
 
 const {createElement} = React;
 
@@ -17,7 +18,7 @@ export const Main = ({
   hasSideNav: boolean;
 }) => {
   return (
-    <main className={main[hasSideNav ? 1 : 0]}>
+    <main className={classNames(main, hasSideNav && mainHasSideNav)}>
       {article ? <Article article={article} /> : null}
       {footer ? <Footer footer={footer} /> : null}
     </main>

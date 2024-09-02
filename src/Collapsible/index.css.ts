@@ -1,5 +1,5 @@
 import {style} from '@vanilla-extract/css';
-import {borderLike, dimensions, radiusLike} from '../index.css';
+import {borderLike, dimensions, paddingLike, radiusLike} from '../index.css';
 
 export const collapsible = style([
   borderLike,
@@ -24,7 +24,4 @@ export const buttonOpen = style({
   borderBottomRightRadius: 0,
 });
 
-export const content = style({
-  padding: dimensions.padding,
-  overflow: 'hidden',
-});
+export const content = style([paddingLike, {overflow: 'hidden'}]);

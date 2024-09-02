@@ -18,15 +18,15 @@ const LOCAL_STORE = 'uiLocal';
 const DARK_PREFERENCE_VALUE = 'darkPreference';
 const DARK_CHOICE_VALUE = 'darkChoice';
 
-export const useDarkPreference = (): 0 | 1 =>
-  useValue(DARK_PREFERENCE_VALUE, LOCAL_STORE) as any;
+export const useDarkPreference = () =>
+  useValue(DARK_PREFERENCE_VALUE, LOCAL_STORE) as boolean;
 
-export const useDarkChoice = (): 0 | 1 | 2 =>
-  (useValue(DARK_CHOICE_VALUE, LOCAL_STORE) ?? 2) as any;
+export const useDarkChoice = () =>
+  (useValue(DARK_CHOICE_VALUE, LOCAL_STORE) ?? 2) as 0 | 1 | 2;
 export const useToggleDarkChoiceCallback = () =>
   useSetValueCallback(
     DARK_CHOICE_VALUE,
-    () => (value) => (((value ?? 0) as number) + 1) % 3,
+    () => (value) => (((value ?? 2) as number) + 1) % 3,
     [],
     LOCAL_STORE,
   );
@@ -44,8 +44,9 @@ export const LocalStore = () => {
   );
   useEffect(() => {
     const preferenceListener = () =>
-      localStore.setValue(DARK_PREFERENCE_VALUE, PREFERS_DARK.matches ? 1 : 0);
+      localStore.setValue(DARK_PREFERENCE_VALUE, PREFERS_DARK.matches);
     PREFERS_DARK.addEventListener('change', preferenceListener);
+    preferenceListener();
     return () => PREFERS_DARK.removeEventListener('change', preferenceListener);
   }, [localStore]);
 

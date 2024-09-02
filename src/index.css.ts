@@ -1,10 +1,18 @@
 import {
   createTheme,
   createThemeContract,
+  createVar,
+  fallbackVar,
   globalStyle,
 } from '@vanilla-extract/css';
 
+export const accent = createVar();
+export const accentContrast = createVar();
+
 export const theme = createThemeContract({
+  accent: null,
+  accentContrast: null,
+  underneath: null,
   background: null,
   backgroundHaze: null,
   backgroundHover: null,
@@ -12,35 +20,35 @@ export const theme = createThemeContract({
   foreground2: null,
   border: null,
   shadow: null,
-  accent: null,
   accentHover: null,
-  accentContrast: null,
 });
 
 const light = {
-  background: 'hsl(0,0%,90%)',
-  backgroundHaze: 'hsla(0,0%,90%,0.5)',
-  backgroundHover: 'hsl(0,0%,85%)',
-  foreground: 'hsl(0,0%,10%)',
-  foreground2: 'hsl(0,0%,40%)',
-  border: 'hsl(340,5%,80%)',
-  shadow: '0 1px 2px 0 hsla(0,0%,80%,0.5)',
-  accent: 'hsl(340,80%,50%)',
-  accentHover: 'hsl(340,80%,45%)',
-  accentContrast: 'hsl(0,0%,100%)',
+  accent: fallbackVar(accent, '#d81b60'),
+  accentContrast: fallbackVar(accentContrast, `#fff`),
+  underneath: '#fff',
+  background: `oklch(from ${theme.accent} 100% 1% h)`,
+  backgroundHaze: `oklch(from ${theme.background} l c h / .5)`,
+  backgroundHover: `oklch(from ${theme.accent} 95% 1% h)`,
+  foreground: `oklch(from ${theme.accent} 10% 1% h)`,
+  foreground2: `oklch(from ${theme.accent} 50% 1% h)`,
+  border: `oklch(from ${theme.accent} 90% 1% h)`,
+  shadow: '0 1px 4px 0 hsl(0 0 20 / .1)',
+  accentHover: `oklch(from ${theme.accent} calc(l * 90%) c h)`,
 };
 
 const dark = {
-  background: 'hsl(0,0%,10%)',
-  backgroundHaze: 'hsla(0,0%,10%,0.5)',
-  backgroundHover: 'hsl(0,0%,15%)',
-  foreground: 'hsl(0,0%,90%)',
-  foreground2: 'hsl(0,0%,60%)',
-  border: 'hsl(340,5%,20%)',
-  shadow: '0 1px 2px 0 hsla(0,0%,0%,0.5)',
-  accent: 'hsl(340,80%,50%)',
-  accentHover: 'hsl(340,80%,45%)',
-  accentContrast: 'hsl(0,0%,100%)',
+  accent: fallbackVar(accent, '#d81b60'),
+  accentContrast: fallbackVar(accentContrast, `#fff`),
+  underneath: '#000',
+  background: `oklch(from ${theme.accent} 10% 1% h)`,
+  backgroundHaze: `oklch(from ${theme.background} l c h / .5)`,
+  backgroundHover: `oklch(from ${theme.accent} 25% 1% h)`,
+  foreground: `oklch(from ${theme.accent} 100% 1% h)`,
+  foreground2: `oklch(from ${theme.accent} 50% 1% h)`,
+  border: `oklch(from ${theme.accent} 30% 1% h)`,
+  shadow: '0 1px 4px 0 #000',
+  accentHover: `oklch(from ${theme.accent} calc(l * 90%) c h)`,
 };
 
 export const dimensions = {
@@ -53,8 +61,12 @@ export const dimensions = {
   footerHeight: '10rem',
 };
 
-export const borderLike = {
+export const shadowLike = {
   boxShadow: theme.shadow,
+};
+
+export const borderLike = {
+  ...shadowLike,
   border: `1px solid ${theme.border}`,
 };
 
@@ -62,15 +74,11 @@ export const radiusLike = {
   borderRadius: dimensions.radius,
 };
 
-export const buttonLike = {
-  cursor: 'pointer',
-  padding: '0.5rem 1rem',
-  outlineOffset: '-2px',
-  backgroundColor: theme.background,
-  color: 'inherit',
+export const paddingLike = {
+  padding: dimensions.padding,
 };
 
-export const rowLike = {
+export const axisLike = {
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
@@ -96,10 +104,10 @@ globalStyle('article h1,article h2,article h3,article p', {
 
 export const themeLight = createTheme(theme, light);
 globalStyle(`html:has(${themeLight})`, {
-  backgroundColor: light.background,
+  backgroundColor: light.underneath,
 });
 
 export const themeDark = createTheme(theme, dark);
 globalStyle(`html:has(${themeDark})`, {
-  backgroundColor: dark.background,
+  backgroundColor: dark.underneath,
 });

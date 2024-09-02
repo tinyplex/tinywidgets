@@ -1,5 +1,5 @@
 import {style, styleVariants} from '@vanilla-extract/css';
-import {borderLike, buttonLike, radiusLike, rowLike, theme} from '../index.css';
+import {axisLike, borderLike, radiusLike, theme} from '../index.css';
 
 const ghostLike = {
   backgroundColor: 'transparent',
@@ -7,10 +7,17 @@ const ghostLike = {
 };
 
 export const button = style([
-  buttonLike,
-  rowLike,
+  axisLike,
   radiusLike,
   {
+    textAlign: 'left',
+    cursor: 'pointer',
+    padding: '0.5rem 1rem',
+    outlineOffset: '-2px',
+    backgroundColor: theme.background,
+    color: 'inherit',
+    overflow: 'hidden',
+    whiteSpace: 'nowrap',
     transition: 'background-color 0.2s,border-color 0.2s',
     selectors: {
       '&:hover': {
@@ -40,4 +47,10 @@ export const buttonVariant = styleVariants({
 
 export const highlight = style({
   backgroundColor: theme.backgroundHover,
+});
+
+export const labelStyle = style({
+  flex: 1,
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
 });
