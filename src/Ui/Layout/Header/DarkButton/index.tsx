@@ -9,7 +9,7 @@ import {
 } from '../../../LocalStore.tsx';
 
 const {createElement} = React;
-const icons = [Moon, Sun, SunMoon];
+const icons = [Sun, Moon, SunMoon];
 
 export const DarkButton = () => (
   <Button

@@ -1,9 +1,11 @@
 /** @jsx createElement */
 
 import React, {type ReactNode} from 'react';
+import {themeDark, themeLight} from '../../index.css.ts';
+import {classNames} from '../../index.ts';
 import {useDarkChoice, useDarkPreference} from '../LocalStore.tsx';
 import {Header} from './Header/index.tsx';
-import {layoutTheme} from './index.css.ts';
+import {layout} from './index.css.ts';
 import {Main} from './Main/index.tsx';
 
 const {createElement} = React;
@@ -25,9 +27,15 @@ export const Layout = ({
 }) => {
   const darkPreference = useDarkPreference();
   const darkChoice = useDarkChoice();
-  const dark = darkChoice == 1 || (darkChoice == 2 && darkPreference) ? 1 : 0;
   return (
-    <div className={layoutTheme[dark]}>
+    <div
+      className={classNames(
+        layout,
+        darkChoice == 1 || (darkChoice == 2 && darkPreference)
+          ? themeDark
+          : themeLight,
+      )}
+    >
       <Header
         title={title}
         topNavLeft={topNavLeft}

@@ -7,3 +7,6 @@ export const large = (style: StyleRule) => ({
     [LARGE]: style,
   },
 });
+
+export const classNames = (...classes: (string | boolean | undefined)[]) =>
+  classes.filter(Boolean).join(' ');

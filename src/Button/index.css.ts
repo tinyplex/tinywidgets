@@ -3,11 +3,10 @@ import {borderLike, buttonLike, radiusLike, rowLike, theme} from '../index.css';
 
 const ghostLike = {
   backgroundColor: 'transparent',
-  color: theme.foreground,
   border: 0,
 };
 
-const buttonBase = style([
+export const button = style([
   buttonLike,
   rowLike,
   radiusLike,
@@ -21,22 +20,24 @@ const buttonBase = style([
   },
 ]);
 
-export const button = styleVariants({
-  default: [buttonBase, borderLike],
-  accent: [
-    buttonBase,
-    borderLike,
-    {
-      backgroundColor: theme.accent,
-      color: theme.accentContrast,
-      border: 0,
-      selectors: {
-        '&:hover': {
-          backgroundColor: theme.accentHover,
-        },
+export const buttonVariant = styleVariants({
+  default: borderLike,
+  accent: {
+    ...borderLike,
+    backgroundColor: theme.accent,
+    color: theme.accentContrast,
+    border: 0,
+    selectors: {
+      '&:hover': {
+        backgroundColor: theme.accentHover,
       },
     },
-  ],
-  ghost: [buttonBase, ghostLike],
-  icon: [buttonBase, ghostLike, {padding: '0.25rem'}],
+  },
+  ghost: ghostLike,
+  item: {...ghostLike, width: '100%'},
+  icon: {...ghostLike, padding: '0.25rem'},
+});
+
+export const highlight = style({
+  backgroundColor: theme.backgroundHover,
 });

@@ -67,7 +67,7 @@ export const buttonLike = {
   padding: '0.5rem 1rem',
   outlineOffset: '-2px',
   backgroundColor: theme.background,
-  color: theme.foreground,
+  color: 'inherit',
 };
 
 export const rowLike = {

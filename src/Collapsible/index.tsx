@@ -1,8 +1,16 @@
 /** @jsx createElement */
 
 import React from 'react';
+import {ChevronDown, ChevronRight} from 'lucide-react';
 import {Button} from '../Button/index.tsx';
-import {button, collapsible, content} from './index.css.ts';
+import {classNames} from '../index.ts';
+import {
+  button,
+  buttonOpen,
+  collapsible,
+  collapsibleOpen,
+  content,
+} from './index.css.ts';
 
 const {createElement, useState, useCallback, useRef} = React;
 
@@ -16,28 +24,29 @@ export const Collapsible = ({
   label?: React.ReactNode;
   labelRight?: React.ReactNode;
   children: React.ReactNode;
-  variant?: keyof typeof collapsible;
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [hasContent, setHasContent] = useState(false);
+  const [render, setRender] = useState(false);
   const timer = useRef<Timer>();
 
   const toggle = useCallback(() => {
     setIsOpen(!isOpen);
     clearTimeout(timer.current);
-    timer.current = setTimeout(() => setHasContent(!isOpen), isOpen ? 200 : 0);
+    timer.current = setTimeout(() => setRender(!isOpen), isOpen ? 200 : 0);
   }, [isOpen]);
 
   return (
-    <div className={collapsible[isOpen ? 1 : 0]}>
+    <div className={classNames(collapsible, isOpen && collapsibleOpen)}>
       <Button
         onClick={toggle}
         icon={Icon}
         label={label}
         labelRight={labelRight}
-        className={button}
+        iconRight={isOpen ? ChevronDown : ChevronRight}
+        className={classNames(button, isOpen && buttonOpen)}
+        current={render}
       />
-      {hasContent ? <div className={content}>{children}</div> : null}
+      {render ? <div className={content}>{children}</div> : null}
     </div>
   );
 };

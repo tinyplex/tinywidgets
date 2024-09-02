@@ -1,7 +1,7 @@
-import {style, styleVariants} from '@vanilla-extract/css';
+import {style} from '@vanilla-extract/css';
 import {borderLike, dimensions, radiusLike} from '../index.css';
 
-const collapsibleBase = style([
+export const collapsible = style([
   borderLike,
   radiusLike,
   {
@@ -13,14 +13,15 @@ const collapsibleBase = style([
   },
 ]);
 
-export const collapsible = styleVariants({
-  0: [collapsibleBase],
-  1: [collapsibleBase, {gridTemplateRows: '2rem minmax(0, 1fr)'}],
-});
+export const collapsibleOpen = style({gridTemplateRows: '2rem minmax(0, 1fr)'});
 
 export const button = style({
   margin: '-1px',
-  zIndex: 100,
+});
+
+export const buttonOpen = style({
+  borderBottomLeftRadius: 0,
+  borderBottomRightRadius: 0,
 });
 
 export const content = style({
