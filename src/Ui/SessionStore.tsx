@@ -12,10 +12,10 @@ const SESSION_STORE = 'uiSession';
 const SIDE_NAV_VALUE = 'sideNav';
 
 export const useSideNav = () => useValue(SIDE_NAV_VALUE, SESSION_STORE) as any;
-export const useSetSideNav = () =>
+export const useToggleSideNav = () =>
   useSetValueCallback(
     SIDE_NAV_VALUE,
-    (event: any) => event.target.checked,
+    () => (value) => !value,
     [],
     SESSION_STORE,
   );

@@ -3,7 +3,7 @@
 import React from 'react';
 import {avatar} from './index.css.ts';
 
-export const {createElement, Fragment} = React;
+const {createElement} = React;
 
 export const Avatar = ({
   src,

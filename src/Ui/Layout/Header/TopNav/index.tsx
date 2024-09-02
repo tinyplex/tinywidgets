@@ -5,6 +5,15 @@ import {topNav} from './index.css.ts';
 
 const {createElement} = React;
 
-export const TopNav = ({topNav: topNavComponents}: {topNav: ReactNode}) => {
-  return <nav className={topNav}>{topNavComponents}</nav>;
-};
+export const TopNav = ({
+  topNavLeft = <div />,
+  topNavRight = <div />,
+}: {
+  topNavLeft?: ReactNode;
+  topNavRight?: ReactNode;
+}) => (
+  <nav className={topNav}>
+    {topNavLeft}
+    {topNavRight}
+  </nav>
+);

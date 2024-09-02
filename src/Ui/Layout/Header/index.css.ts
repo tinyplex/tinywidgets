@@ -1,9 +1,9 @@
 import {style} from '@vanilla-extract/css';
-import {dimensions, row, theme} from '../../../index.css';
+import {dimensions, rowLike, theme} from '../../../index.css';
 
 export const header = style([
-  row,
   {
+    ...rowLike,
     position: 'fixed',
     padding: dimensions.padding,
     boxShadow: theme.shadow,

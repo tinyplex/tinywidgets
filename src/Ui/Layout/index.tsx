@@ -10,13 +10,15 @@ const {createElement} = React;
 
 export const Layout = ({
   title,
-  topNav,
+  topNavLeft,
+  topNavRight,
   sideNav,
   article,
   footer,
 }: {
   title: ReactNode;
-  topNav?: ReactNode;
+  topNavLeft?: ReactNode;
+  topNavRight?: ReactNode;
   sideNav?: ReactNode;
   article?: ReactNode;
   footer?: ReactNode;
@@ -26,7 +28,12 @@ export const Layout = ({
   const dark = darkChoice == 1 || (darkChoice == 2 && darkPreference) ? 1 : 0;
   return (
     <div className={layoutTheme[dark]}>
-      <Header title={title} topNav={topNav} sideNav={sideNav} />
+      <Header
+        title={title}
+        topNavLeft={topNavLeft}
+        topNavRight={topNavRight}
+        sideNav={sideNav}
+      />
       <Main
         article={article}
         footer={footer}

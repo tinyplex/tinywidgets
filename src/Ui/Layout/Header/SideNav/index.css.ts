@@ -1,10 +1,8 @@
-import {style} from '@vanilla-extract/css';
+import {style, styleVariants} from '@vanilla-extract/css';
 import {dimensions, theme} from '../../../../index.css.ts';
 import {large} from '../../../../index.ts';
-import {layout} from '../../index.css.ts';
-import {sideNavButton} from '../SideNavButton/index.css.ts';
 
-export const sideNav = style({
+const sideNavBase = style({
   position: 'fixed',
   padding: dimensions.padding,
   backgroundColor: theme.background,
@@ -17,7 +15,11 @@ export const sideNav = style({
   top: dimensions.topNavHeight,
   height: `calc(100vh - ${dimensions.topNavHeight})`,
   overscrollBehavior: 'contain',
-  transition: 'left 0.2s ease-in-out',
+  transition: 'left .2s ease-in-out',
   ...large({left: 0}),
-  selectors: {[`${layout}:has(${sideNavButton}:checked) &`]: {left: 0}},
+});
+
+export const sideNav = styleVariants({
+  0: [sideNavBase],
+  1: [sideNavBase, {left: 0}],
 });

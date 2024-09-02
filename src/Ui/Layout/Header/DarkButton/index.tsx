@@ -1,19 +1,20 @@
 /** @jsx createElement */
 
 import React from 'react';
+import {Moon, Sun, SunMoon} from 'lucide-react';
+import {Button} from '../../../../Button/index.tsx';
 import {
   useDarkChoice,
-  useNudgeDarkChoiceCallback,
+  useToggleDarkChoiceCallback,
 } from '../../../LocalStore.tsx';
-import {darkButton} from './index.css.ts';
 
-export const {createElement} = React;
+const {createElement} = React;
+const icons = [Moon, Sun, SunMoon];
 
-export const DarkButton = () => {
-  return (
-    <span
-      className={darkButton[useDarkChoice()]}
-      onClick={useNudgeDarkChoiceCallback()}
-    />
-  );
-};
+export const DarkButton = () => (
+  <Button
+    variant="icon"
+    onClick={useToggleDarkChoiceCallback()}
+    icon={icons[useDarkChoice()]}
+  />
+);

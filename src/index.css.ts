@@ -2,7 +2,6 @@ import {
   createTheme,
   createThemeContract,
   globalStyle,
-  style,
 } from '@vanilla-extract/css';
 
 export const theme = createThemeContract({
@@ -25,7 +24,7 @@ const light = {
   foreground: 'hsl(0,0%,10%)',
   foreground2: 'hsl(0,0%,40%)',
   border: 'hsl(340,5%,80%)',
-  shadow: '0 1px 2px 0 hsla(0,0%,70%,0.5)',
+  shadow: '0 1px 2px 0 hsla(0,0%,80%,0.5)',
   accent: 'hsl(340,80%,50%)',
   accentHover: 'hsl(340,80%,45%)',
   accentContrast: 'hsl(0,0%,100%)',
@@ -44,22 +43,6 @@ const dark = {
   accentContrast: 'hsl(0,0%,100%)',
 };
 
-export const squareButton = {
-  display: 'inline-block',
-  width: '1rem',
-  minWidth: '1rem',
-  height: '1rem',
-  minHeight: '1rem',
-  userSelect: 'none',
-  cursor: 'pointer',
-} as const;
-
-export const square2 = {
-  display: 'inline-block',
-  width: '2rem',
-  height: '2rem',
-} as const;
-
 export const dimensions = {
   padding: '1rem',
   radius: '0.5rem',
@@ -68,6 +51,30 @@ export const dimensions = {
   topNavHeight: '4rem',
   articleWidth: '60rem',
   footerHeight: '10rem',
+};
+
+export const borderLike = {
+  boxShadow: theme.shadow,
+  border: `1px solid ${theme.border}`,
+};
+
+export const radiusLike = {
+  borderRadius: dimensions.radius,
+};
+
+export const buttonLike = {
+  cursor: 'pointer',
+  padding: '0.5rem 1rem',
+  outlineOffset: '-2px',
+  backgroundColor: theme.background,
+  color: theme.foreground,
+};
+
+export const rowLike = {
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  gap: dimensions.padding,
 };
 
 globalStyle('*', {
@@ -95,11 +102,4 @@ globalStyle(`html:has(${themeLight})`, {
 export const themeDark = createTheme(theme, dark);
 globalStyle(`html:has(${themeDark})`, {
   backgroundColor: dark.background,
-});
-
-export const row = style({
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  gap: dimensions.padding,
 });

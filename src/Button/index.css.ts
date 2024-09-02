@@ -1,18 +1,17 @@
 import {style, styleVariants} from '@vanilla-extract/css';
-import {dimensions, theme} from '../index.css';
+import {borderLike, buttonLike, radiusLike, rowLike, theme} from '../index.css';
+
+const ghostLike = {
+  backgroundColor: 'transparent',
+  color: theme.foreground,
+  border: 0,
+};
 
 const buttonBase = style([
+  buttonLike,
+  rowLike,
+  radiusLike,
   {
-    boxShadow: theme.shadow,
-    borderRadius: dimensions.radius,
-    display: 'flex',
-    flexDirection: 'column',
-    border: `1px solid ${theme.border}`,
-    padding: '0.5rem 1rem',
-    cursor: 'pointer',
-    lineHeight: '1rem',
-    backgroundColor: theme.background,
-    color: theme.foreground,
     transition: 'background-color 0.2s,border-color 0.2s',
     selectors: {
       '&:hover': {
@@ -23,9 +22,10 @@ const buttonBase = style([
 ]);
 
 export const button = styleVariants({
-  default: [buttonBase],
+  default: [buttonBase, borderLike],
   accent: [
     buttonBase,
+    borderLike,
     {
       backgroundColor: theme.accent,
       color: theme.accentContrast,
@@ -37,4 +37,6 @@ export const button = styleVariants({
       },
     },
   ],
+  ghost: [buttonBase, ghostLike],
+  icon: [buttonBase, ghostLike, {padding: '0.25rem'}],
 });

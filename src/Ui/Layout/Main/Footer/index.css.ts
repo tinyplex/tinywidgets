@@ -1,9 +1,9 @@
 import {style} from '@vanilla-extract/css';
-import {dimensions, row, theme} from '../../../../index.css.ts';
+import {dimensions, rowLike, theme} from '../../../../index.css';
 
 export const footer = style([
-  row,
   {
+    ...rowLike,
     padding: dimensions.padding,
     background: theme.background,
     height: dimensions.footerHeight,

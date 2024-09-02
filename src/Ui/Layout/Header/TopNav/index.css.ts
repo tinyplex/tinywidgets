@@ -1,9 +1,9 @@
 import {style} from '@vanilla-extract/css';
-import {row} from '../../../../index.css';
+import {rowLike} from '../../../../index.css';
 
 export const topNav = style([
-  row,
   {
+    ...rowLike,
     flex: 1,
   },
 ]);

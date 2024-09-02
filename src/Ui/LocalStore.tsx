@@ -23,7 +23,7 @@ export const useDarkPreference = (): 0 | 1 =>
 
 export const useDarkChoice = (): 0 | 1 | 2 =>
   (useValue(DARK_CHOICE_VALUE, LOCAL_STORE) ?? 2) as any;
-export const useNudgeDarkChoiceCallback = () =>
+export const useToggleDarkChoiceCallback = () =>
   useSetValueCallback(
     DARK_CHOICE_VALUE,
     () => (value) => (((value ?? 0) as number) + 1) % 3,

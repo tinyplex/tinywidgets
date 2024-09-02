@@ -1,9 +1,11 @@
 import {style, styleVariants} from '@vanilla-extract/css';
-import {square2, theme} from '../index.css';
+import {theme} from '../index.css';
 
 const avatarBase = style([
   {
-    ...square2,
+    display: 'inline-block',
+    width: '2rem',
+    height: '2rem',
     boxShadow: theme.shadow,
     borderRadius: '50%',
     border: `1px solid ${theme.border}`,

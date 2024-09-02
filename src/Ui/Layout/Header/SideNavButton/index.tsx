@@ -1,17 +1,15 @@
 /** @jsx createElement */
 import React from 'react';
-import {useSetSideNav, useSideNav} from '../../../SessionStore.tsx';
-import {sideNavButton} from './index.css.ts';
+import {Menu, X} from 'lucide-react';
+import {Button} from '../../../../Button/index.tsx';
+import {useSideNav, useToggleSideNav} from '../../../SessionStore.tsx';
 
 const {createElement} = React;
 
-export const SideNavButton = () => {
-  return (
-    <input
-      className={sideNavButton}
-      type="checkbox"
-      checked={useSideNav() ?? false}
-      onChange={useSetSideNav()}
-    />
-  );
-};
+export const SideNavButton = () => (
+  <Button
+    variant="icon"
+    onClick={useToggleSideNav()}
+    icon={useSideNav() ? X : Menu}
+  />
+);

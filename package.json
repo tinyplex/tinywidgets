@@ -3,13 +3,7 @@
   "version": "0.0.0",
   "author": "jamesgpearce",
   "repository": "github:tinyplex/tinywidgets",
-  "description": "reserved",
-  "license": "MIT",
   "module": "index.ts",
-  "exports": {
-    ".": "./index.ts",
-    "./css": "./index.css.ts"
-  },
   "devDependencies": {
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
@@ -25,5 +19,14 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "tinybase": "^5.1.0"
+  },
+  "exports": {
+    ".": "./index.ts",
+    "./css": "./index.css.ts"
+  },
+  "description": "reserved",
+  "license": "MIT",
+  "dependencies": {
+    "lucide-react": "^0.438.0"
   }
 }

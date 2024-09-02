@@ -12,18 +12,20 @@ const {createElement} = React;
 
 export const Header = ({
   title,
-  topNav,
+  topNavLeft,
+  topNavRight,
   sideNav,
 }: {
   title: ReactNode;
-  topNav?: ReactNode;
+  topNavLeft?: ReactNode;
+  topNavRight?: ReactNode;
   sideNav?: ReactNode;
 }) => {
   return (
     <header className={header}>
       {sideNav ? <SideNavButton /> : null}
       <Title title={title} />
-      <TopNav topNav={topNav} />
+      <TopNav topNavLeft={topNavLeft} topNavRight={topNavRight} />
       <DarkButton />
       {sideNav ? <SideNav sideNav={sideNav} /> : null}
     </header>
