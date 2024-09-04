@@ -1,11 +1,9 @@
 /** @jsx createElement */
 
-import React, {type ReactNode} from 'react';
-import {classNames} from '../../../../index.ts';
+import {type ReactNode} from 'react';
+import {classNames, createElement} from '../../../../index.ts';
 import {useSideNavOpen} from '../../../SessionStore.tsx';
 import {open, sideNav} from './index.css.ts';
-
-const {createElement} = React;
 
 export const SideNav = ({sideNav: sideNavComponents}: {sideNav: ReactNode}) => {
   return (

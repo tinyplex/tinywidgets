@@ -1,16 +1,14 @@
 /** @jsx createElement */
 
-import React from 'react';
-import {classNames} from '../';
+import type {ReactNode} from 'react';
+import {classNames, createElement} from '../';
 import {detailCell, detailRow, detailTable} from './index.css';
-
-const {createElement} = React;
 
 export const Detail = ({
   data,
   className,
 }: {
-  data: Record<string, React.ReactNode>;
+  data: Record<string, ReactNode>;
   className?: string;
 }) => {
   return (

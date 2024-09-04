@@ -1,11 +1,9 @@
 /** @jsx createElement */
 
-import React from 'react';
-import {classNames} from '../';
+import type {ComponentType, ReactNode} from 'react';
+import {classNames, createElement} from '../';
 import {Avatar} from '../Avatar';
 import {summary, summaryContent, summaryImage} from './index.css';
-
-const {createElement} = React;
 
 export const Summary = ({
   icon: Icon,
@@ -14,10 +12,10 @@ export const Summary = ({
   children,
   className,
 }: {
-  icon?: React.ComponentType<{className?: string}>;
+  icon?: ComponentType<{className?: string}>;
   src?: string;
-  label: React.ReactNode;
-  children: React.ReactNode;
+  label: ReactNode;
+  children: ReactNode;
   className?: string;
 }) => (
   <div className={classNames(summary, className)}>

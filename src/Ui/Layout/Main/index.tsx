@@ -1,12 +1,10 @@
 /** @jsx createElement */
 
-import React, {type ReactNode} from 'react';
-import {classNames} from '../../../index.ts';
+import type {ReactNode} from 'react';
+import {classNames, createElement} from '../../../index.ts';
 import {Article} from './Article/index.tsx';
 import {Footer} from './Footer/index.tsx';
 import {main, mainHasSideNav} from './index.css.ts';
-
-const {createElement} = React;
 
 export const Main = ({
   article,

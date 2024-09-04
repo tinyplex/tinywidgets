@@ -20,3 +20,8 @@ export const tagVariant = styleVariants({
     color: theme.accentContrast,
   },
 });
+
+export const tagIcon = style({
+  width: '0.7rem',
+  height: '0.7rem',
+});

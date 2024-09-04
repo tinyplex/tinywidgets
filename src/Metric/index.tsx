@@ -1,11 +1,9 @@
 /** @jsx createElement */
 
-import React from 'react';
-import {classNames} from '../';
+import type {ComponentType, ReactNode} from 'react';
+import {classNames, createElement} from '../';
 import {iconSize} from '../index.css';
 import {metric, metricLabel, metricNumber} from './index.css';
-
-const {createElement} = React;
 
 export const Metric = ({
   icon: Icon,
@@ -13,9 +11,9 @@ export const Metric = ({
   number,
   className,
 }: {
-  icon?: React.ComponentType<{className?: string}>;
-  label: React.ReactNode;
-  number: React.ReactNode;
+  icon?: ComponentType<{className?: string}>;
+  label: ReactNode;
+  number: ReactNode;
   className?: string;
 }) => (
   <div className={classNames(metric, className)}>

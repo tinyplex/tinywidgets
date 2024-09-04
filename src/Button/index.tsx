@@ -1,12 +1,10 @@
 /** @jsx createElement */
 /** @jsxFrag Fragment */
 
-import React from 'react';
+import type {ComponentType, ReactNode, Ref} from 'react';
 import {iconSize} from '../index.css.ts';
-import {classNames} from '../index.ts';
+import {classNames, createElement, forwardRef, useCallback} from '../index.ts';
 import {button, buttonVariant, highlight, labelStyle} from './index.css.ts';
-
-const {createElement, useCallback, forwardRef} = React;
 
 export const Button = forwardRef(
   (
@@ -22,10 +20,10 @@ export const Button = forwardRef(
       title,
       current,
     }: {
-      icon?: React.ComponentType<{className?: string}>;
-      label?: React.ReactNode;
-      labelRight?: React.ReactNode;
-      iconRight?: React.ComponentType<{className?: string}>;
+      icon?: ComponentType<{className?: string}>;
+      label?: ReactNode;
+      labelRight?: ReactNode;
+      iconRight?: ComponentType<{className?: string}>;
       onClick?: () => void;
       variant?: keyof typeof buttonVariant;
       className?: string;
@@ -33,7 +31,7 @@ export const Button = forwardRef(
       title?: string;
       current?: boolean;
     },
-    ref: React.Ref<HTMLButtonElement>,
+    ref: Ref<HTMLButtonElement>,
   ) => {
     const icon = Icon ? <Icon className={iconSize} /> : null;
     const iconRight = IconRight ? <IconRight className={iconSize} /> : null;

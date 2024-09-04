@@ -1,9 +1,15 @@
 /** @jsx createElement */
 
-import React from 'react';
+import type {ComponentType, ReactNode} from 'react';
 import {ChevronDown, ChevronRight} from 'lucide-react';
 import {Button} from '../Button/index.tsx';
-import {classNames} from '../index.ts';
+import {
+  classNames,
+  createElement,
+  useCallback,
+  useRef,
+  useState,
+} from '../index.ts';
 import {
   useCollapsibleOpen,
   useSetCollapsibleOpen,
@@ -16,8 +22,6 @@ import {
   content,
 } from './index.css.ts';
 
-const {createElement, useState, useCallback, useRef} = React;
-
 export const Collapsible = ({
   id = '',
   icon: Icon,
@@ -27,11 +31,11 @@ export const Collapsible = ({
   children,
 }: {
   id?: string;
-  icon?: React.ComponentType<{className?: string}>;
-  label?: React.ReactNode;
-  labelRight?: React.ReactNode;
+  icon?: ComponentType<{className?: string}>;
+  label?: ReactNode;
+  labelRight?: ReactNode;
   className?: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }) => {
   // State is in session Store if id is present, otherwise here in component.
   const storedIsOpen = useCollapsibleOpen(id) ?? false;
@@ -42,7 +46,7 @@ export const Collapsible = ({
   const setIsOpen = id ? setStoredIsOpen : setStateIsOpen;
 
   const [render, setRender] = useState(isOpen);
-  const timer = useRef<Timer>();
+  const timer = useRef<NodeJS.Timeout>();
 
   const toggle = useCallback(() => {
     setIsOpen(!isOpen);

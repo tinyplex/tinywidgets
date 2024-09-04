@@ -1,14 +1,12 @@
 /** @jsx createElement */
 
-import React, {type ReactNode} from 'react';
+import type {ReactNode} from 'react';
 import {themeDark, themeLight} from '../../index.css.ts';
-import {classNames} from '../../index.ts';
+import {classNames, createElement} from '../../index.ts';
 import {useDarkChoice, useDarkPreference} from '../LocalStore.tsx';
 import {Header} from './Header/index.tsx';
 import {layout} from './index.css.ts';
 import {Main} from './Main/index.tsx';
-
-const {createElement} = React;
 
 export const Layout = ({
   title,

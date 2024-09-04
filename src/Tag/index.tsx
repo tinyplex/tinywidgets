@@ -1,12 +1,9 @@
 /** @jsx createElement */
 
-import React from 'react';
-import {classNames} from '../';
+import type {ComponentType, ReactNode} from 'react';
+import {classNames, createElement} from '../';
 import {Axis} from '../Axis';
-import {iconSize} from '../index.css';
-import {tag, tagVariant} from './index.css';
-
-const {createElement} = React;
+import {tag, tagIcon, tagVariant} from './index.css';
 
 export const Tag = ({
   icon: Icon,
@@ -14,12 +11,12 @@ export const Tag = ({
   title,
   variant = 'default',
 }: {
-  icon?: React.ComponentType<{className?: string}>;
-  label?: React.ReactNode;
+  icon?: ComponentType<{className?: string}>;
+  label?: ReactNode;
   title?: string;
   variant?: keyof typeof tagVariant;
 }) => {
-  const icon = Icon ? <Icon className={iconSize} /> : null;
+  const icon = Icon ? <Icon className={tagIcon} /> : null;
   return (
     <Axis className={classNames(tag, tagVariant[variant])} title={title}>
       {icon}

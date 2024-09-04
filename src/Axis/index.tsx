@@ -1,10 +1,8 @@
 /** @jsx createElement */
 
-import React from 'react';
-import {classNames} from '../';
+import type {ReactNode} from 'react';
+import {classNames, createElement} from '../';
 import {axis, gapStyle, justifyStyle, verticalStyle} from './index.css';
-
-const {createElement} = React;
 
 export const Axis = ({
   justify = true,
@@ -17,7 +15,7 @@ export const Axis = ({
   justify?: boolean;
   gap?: boolean;
   vertical?: boolean;
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
   title?: string;
 }) => {

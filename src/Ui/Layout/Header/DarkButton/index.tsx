@@ -1,14 +1,13 @@
 /** @jsx createElement */
 
-import React from 'react';
 import {Moon, Sun, SunMoon} from 'lucide-react';
 import {Button} from '../../../../Button/index.tsx';
+import {createElement} from '../../../../index.ts';
 import {
   useDarkChoice,
   useToggleDarkChoiceCallback,
 } from '../../../LocalStore.tsx';
 
-const {createElement} = React;
 const icons = [Sun, Moon, SunMoon];
 
 export const DarkButton = () => (
