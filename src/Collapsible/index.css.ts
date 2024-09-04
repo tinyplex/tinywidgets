@@ -6,14 +6,21 @@ export const collapsible = style([
   radiusLike,
   {
     display: 'grid',
-    gridTemplateRows: '2rem minmax(0, 0fr)',
+    gridTemplateRows: 'max-content minmax(0, 0fr)',
     transition: '.2s grid-template-rows ease-in-out',
     overflow: 'hidden',
     marginBottom: dimensions.padding,
+    selectors: {
+      '&:last-child': {
+        marginBottom: 0,
+      },
+    },
   },
 ]);
 
-export const collapsibleOpen = style({gridTemplateRows: '2rem minmax(0, 1fr)'});
+export const collapsibleOpen = style({
+  gridTemplateRows: 'max-content minmax(0, 1fr)',
+});
 
 export const button = style({
   margin: '-1px',

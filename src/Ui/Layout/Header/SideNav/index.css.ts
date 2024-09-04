@@ -6,8 +6,7 @@ export const sideNav = style([
   paddingLike,
   {
     position: 'fixed',
-    backgroundColor: theme.background,
-    boxShadow: theme.shadow,
+    backgroundColor: theme.background2,
     overflow: 'auto',
     borderRight: `1px solid ${theme.border}`,
     width: dimensions.sideNavWidth,

@@ -8,7 +8,7 @@ export const avatar = style({
   boxShadow: theme.shadow,
   borderRadius: '50%',
   border: `1px solid ${theme.border}`,
-  cursor: 'pointer',
+  flexShrink: 0,
   selectors: {
     '&:hover': {
       backgroundColor: theme.backgroundHover,

@@ -6,14 +6,14 @@ export const tag = style({
   lineHeight: '0.625rem',
   padding: '0.1rem 0.25rem',
   borderRadius: '0.25rem',
-  gap: '0.1rem',
+  gap: '0.25rem',
   flexShrink: 0,
 });
 
 export const tagVariant = styleVariants({
   default: {
-    backgroundColor: theme.foreground2,
-    color: theme.background,
+    backgroundColor: theme.backgroundHover,
+    color: theme.foreground2,
   },
   accent: {
     backgroundColor: theme.accent,

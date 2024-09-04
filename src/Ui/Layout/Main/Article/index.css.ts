@@ -7,7 +7,7 @@ export const article = style([
     paddingTop: dimensions.padding,
     flex: 1,
     width: '100%',
-    maxWidth: dimensions.articleWidth,
+    // maxWidth: dimensions.articleWidth,
     margin: '0 auto',
   },
 ]);

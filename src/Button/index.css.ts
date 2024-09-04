@@ -19,6 +19,7 @@ export const button = style([
     overflow: 'hidden',
     whiteSpace: 'nowrap',
     transition: 'background-color 0.2s,border-color 0.2s',
+    flexShrink: 0,
     selectors: {
       '&:hover': {
         backgroundColor: theme.backgroundHover,

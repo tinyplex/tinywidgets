@@ -2,19 +2,21 @@
 
 import React from 'react';
 import {classNames} from '../';
-import {axis, flushStyle, verticalStyle} from './index.css';
+import {axis, gapStyle, justifyStyle, verticalStyle} from './index.css';
 
 const {createElement} = React;
 
 export const Axis = ({
+  justify = true,
+  gap = true,
   vertical,
-  flush,
   children,
   className,
   title,
 }: {
+  justify?: boolean;
+  gap?: boolean;
   vertical?: boolean;
-  flush?: boolean;
   children: React.ReactNode;
   className?: string;
   title?: string;
@@ -23,8 +25,9 @@ export const Axis = ({
     <div
       className={classNames(
         axis,
+        justify && justifyStyle,
         vertical && verticalStyle,
-        flush && flushStyle,
+        gap && gapStyle,
         className,
       )}
       title={title}
