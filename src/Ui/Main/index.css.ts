@@ -1,6 +1,6 @@
-import {style} from '@vanilla-extract/css';
-import {dimensions, theme} from '../../../index.css';
-import {large} from '../../../index.ts';
+import { style } from '@vanilla-extract/css';
+import { dimensions, theme } from '../../index.css.ts';
+import { large } from '../../index.ts';
 
 export const main = style({
   display: 'flex',

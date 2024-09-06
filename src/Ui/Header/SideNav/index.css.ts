@@ -1,6 +1,6 @@
-import {style} from '@vanilla-extract/css';
-import {dimensions, paddingLike, theme} from '../../../../index.css.ts';
-import {large} from '../../../../index.ts';
+import { style } from '@vanilla-extract/css';
+import { dimensions, paddingLike, theme } from '../../../index.css.ts';
+import { large } from '../../../index.ts';
 
 export const sideNav = style([
   paddingLike,

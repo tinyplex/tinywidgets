@@ -1,5 +1,5 @@
-import {style} from '@vanilla-extract/css';
-import {dimensions, paddingLike} from '../../../../index.css';
+import { style } from '@vanilla-extract/css';
+import { dimensions, paddingLike } from '../../../index.css';
 
 export const article = style([
   paddingLike,

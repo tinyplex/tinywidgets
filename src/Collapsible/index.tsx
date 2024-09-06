@@ -13,7 +13,7 @@ import {
 import {
   useCollapsibleOpen,
   useSetCollapsibleOpen,
-} from '../Ui/SessionStore.tsx';
+} from '../stores/SessionStore.tsx';
 import {
   button,
   buttonOpen,
@@ -27,6 +27,7 @@ export const Collapsible = ({
   icon: Icon,
   label = <div />,
   labelRight = <div />,
+  startOpen = false,
   className,
   children,
 }: {
@@ -34,19 +35,20 @@ export const Collapsible = ({
   icon?: ComponentType<{className?: string}>;
   label?: ReactNode;
   labelRight?: ReactNode;
+  startOpen?: boolean;
   className?: string;
   children: ReactNode;
 }) => {
   // State is in session Store if id is present, otherwise here in component.
-  const storedIsOpen = useCollapsibleOpen(id) ?? false;
+  const storedIsOpen = useCollapsibleOpen(id) ?? startOpen;
   const setStoredIsOpen = useSetCollapsibleOpen(id);
-  const [stateIsOpen, setStateIsOpen] = useState(false);
+  const [stateIsOpen, setStateIsOpen] = useState(startOpen);
 
   const isOpen = id ? storedIsOpen : stateIsOpen;
   const setIsOpen = id ? setStoredIsOpen : setStateIsOpen;
 
   const [render, setRender] = useState(isOpen);
-  const timer = useRef<NodeJS.Timeout>();
+  const timer = useRef<Timer>();
 
   const toggle = useCallback(() => {
     setIsOpen(!isOpen);

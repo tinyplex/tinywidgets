@@ -10,7 +10,7 @@ import {
   useValue,
 } from 'tinybase/ui-react';
 
-const SESSION_STORE = 'uiSession';
+const SESSION_STORE = 'tinywidgets/Session';
 
 const COLLAPSIBLE_TABLE = 'collapsible';
 const COLLAPSIBLE_OPEN_CELL = 'open';

@@ -1,5 +1,5 @@
-import {style} from '@vanilla-extract/css';
-import {axisLike, dimensions, paddingLike, theme} from '../../../../index.css';
+import { style } from '@vanilla-extract/css';
+import { axisLike, dimensions, paddingLike, theme } from '../../../index.css';
 
 export const footer = style([
   {

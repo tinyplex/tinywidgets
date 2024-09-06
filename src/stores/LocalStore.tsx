@@ -11,7 +11,7 @@ import {useEffect} from '../';
 
 const PREFERS_DARK = matchMedia?.('(prefers-color-scheme: dark)');
 
-const LOCAL_STORE = 'uiLocal';
+const LOCAL_STORE = 'tinywidgets/Local';
 const DARK_PREFERENCE_VALUE = 'darkPreference';
 const DARK_CHOICE_VALUE = 'darkChoice';
 

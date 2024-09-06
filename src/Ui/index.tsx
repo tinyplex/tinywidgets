@@ -1,13 +1,21 @@
 /** @jsx createElement */
 
-import type {ReactNode} from 'react';
-import {Provider} from 'tinybase/ui-react';
-import {createElement} from '../index.ts';
-import {Layout} from './Layout/index.tsx';
-import {LocalStore} from './LocalStore.tsx';
-import {SessionStore} from './SessionStore.tsx';
+import type { ReactNode } from 'react';
+import { themeDark, themeLight } from '../index.css.ts';
+import { classNames, createElement } from '../index.ts';
+import { useDarkChoice, useDarkPreference } from '../stores/LocalStore.tsx';
+import { Header } from './Header/index.tsx';
+import { ui } from './index.css.ts';
+import { Main } from './Main/index.tsx';
 
-export const Ui = (props: {
+export const Ui = ({
+  title,
+  topNavLeft,
+  topNavRight,
+  sideNav,
+  article,
+  footer,
+}: {
   title: ReactNode;
   topNavLeft?: ReactNode;
   topNavRight?: ReactNode;
@@ -15,11 +23,28 @@ export const Ui = (props: {
   article?: ReactNode;
   footer?: ReactNode;
 }) => {
+  const darkPreference = useDarkPreference();
+  const darkChoice = useDarkChoice();
   return (
-    <Provider>
-      <Layout {...props} />
-      <SessionStore />
-      <LocalStore />
-    </Provider>
+    <div
+      className={classNames(
+        ui,
+        darkChoice == 1 || (darkChoice == 2 && darkPreference)
+          ? themeDark
+          : themeLight,
+      )}
+    >
+      <Header
+        title={title}
+        topNavLeft={topNavLeft}
+        topNavRight={topNavRight}
+        sideNav={sideNav}
+      />
+      <Main
+        article={article}
+        footer={footer}
+        hasSideNav={sideNav ? true : false}
+      />
+    </div>
   );
 };
