@@ -6,12 +6,16 @@ import {
   globalStyle,
   style,
 } from '@vanilla-extract/css';
+import {small} from './';
 
-export const accent = createVar();
-export const accentContrast = createVar();
+export const accentHue = createVar();
 
 export const theme = createThemeContract({
+  accentHue: null,
+  backgroundHue: null,
   accent: null,
+  accentLight: null,
+  accentHover: null,
   accentContrast: null,
   underneath: null,
   background: null,
@@ -22,37 +26,41 @@ export const theme = createThemeContract({
   foreground2: null,
   border: null,
   shadow: null,
-  accentHover: null,
 });
 
+const themeCommon = {
+  accentHue: fallbackVar(accentHue, '8'),
+  backgroundHue: `calc(${theme.accentHue} + 180)`,
+  accent: `oklch(50% .11 ${theme.accentHue})`,
+  accentLight: `oklch(71% .16 ${theme.accentHue})`,
+  accentHover: `oklch(45% .1 ${theme.accentHue})`,
+  accentContrast: '#fff',
+};
+
 const light = {
-  accent: fallbackVar(accent, '#d81b60'),
-  accentContrast: fallbackVar(accentContrast, `#fff`),
+  ...themeCommon,
   underneath: '#fff',
-  background: `oklch(from ${theme.accent} 98% 1% calc(h + 180))`,
-  background2: `oklch(from ${theme.accent} 95% 1% calc(h + 180))`,
-  backgroundHaze: `oklch(from ${theme.background} l c h / .5)`,
-  backgroundHover: `oklch(from ${theme.accent} 90% 1% calc(h + 180))`,
-  foreground: `oklch(from ${theme.accent} 30% 1% h)`,
-  foreground2: `oklch(from ${theme.accent} 50% 1% h)`,
-  border: `oklch(from ${theme.accent} 90% 1% calc(h + 180))`,
+  background: `oklch(99% .01 ${theme.backgroundHue})`,
+  background2: `oklch(95% .01 ${theme.backgroundHue})`,
+  backgroundHaze: `oklch(99% .01 ${theme.backgroundHue} / .5)`,
+  backgroundHover: `oklch(90% .01 ${theme.backgroundHue})`,
+  foreground: `oklch(30% .01 ${theme.accentHue})`,
+  foreground2: `oklch(50% .01 ${theme.accentHue})`,
+  border: `oklch(90% .01 ${theme.backgroundHue})`,
   shadow: '0 1px 4px 0 hsl(0 0 20 / .1)',
-  accentHover: `oklch(from ${theme.accent} calc(l * 90%) c h)`,
 };
 
 const dark = {
-  accent: fallbackVar(accent, '#d81b60'),
-  accentContrast: fallbackVar(accentContrast, `#fff`),
+  ...themeCommon,
   underneath: '#000',
-  background: `oklch(from ${theme.accent} 20% 1% calc(h + 180))`,
-  background2: `oklch(from ${theme.accent} 15% 1% calc(h + 180))`,
-  backgroundHaze: `oklch(from ${theme.background} 21% 0% h / .5)`,
-  backgroundHover: `oklch(from ${theme.accent} 25% 1% calc(h + 180))`,
-  foreground: `oklch(from ${theme.accent} 90% 1% h)`,
-  foreground2: `oklch(from ${theme.accent} 50% 1% h)`,
-  border: `oklch(from ${theme.accent} 30% 1% calc(h + 180))`,
+  background: `oklch(20% .01 ${theme.backgroundHue})`,
+  background2: `oklch(15% .01 ${theme.backgroundHue})`,
+  backgroundHaze: `oklch(21% 0% ${theme.backgroundHue} / .5)`,
+  backgroundHover: `oklch(25% .01 ${theme.backgroundHue})`,
+  foreground: `oklch(90% .01 ${theme.accentHue})`,
+  foreground2: `oklch(50% .01 ${theme.accentHue})`,
+  border: `oklch(30% .01 ${theme.backgroundHue})`,
   shadow: '0 1px 4px 0 #000',
-  accentHover: `oklch(from ${theme.accent} calc(l * 90%) c h)`,
 };
 
 export const dimensions = {
@@ -60,6 +68,7 @@ export const dimensions = {
   radius: '0.5rem',
   titleWidth: '18rem',
   sideNavWidth: '20rem',
+  sideNavWidthHidden: '-30rem',
   topNavHeight: '4rem',
   articleWidth: '60rem',
   footerHeight: '10rem',
@@ -103,6 +112,9 @@ globalStyle('html', {
   lineHeight: '1.5em',
   textRendering: 'optimizeLegibility',
   fontWeight: 400,
+  ...small({
+    fontSize: '11px',
+  }),
 });
 
 globalStyle('h1', {fontSize: '1.5rem'});

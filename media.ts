@@ -1,1 +1,1 @@
-export {large} from './src/index.ts';
+export {large, small} from './src/index.ts';

@@ -1,6 +1,6 @@
-import { style } from '@vanilla-extract/css';
-import { dimensions, paddingLike, theme } from '../../../index.css.ts';
-import { large } from '../../../index.ts';
+import {style} from '@vanilla-extract/css';
+import {dimensions, paddingLike, theme} from '../../../index.css.ts';
+import {large} from '../../../index.ts';
 
 export const sideNav = style([
   paddingLike,
@@ -11,9 +11,9 @@ export const sideNav = style([
     borderRight: `1px solid ${theme.border}`,
     width: dimensions.sideNavWidth,
     bottom: 0,
-    left: '-' + dimensions.sideNavWidth,
+    left: dimensions.sideNavWidthHidden,
     top: dimensions.topNavHeight,
-    height: `calc(100vh - ${dimensions.topNavHeight})`,
+    height: `calc(100dvh - ${dimensions.topNavHeight})`,
     overscrollBehavior: 'contain',
     transition: 'left .2s ease-in-out',
   },

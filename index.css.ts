@@ -1,1 +1,1 @@
-export {accent, accentContrast, theme} from './src/index.css.ts';
+export {accentHue, theme} from './src/index.css.ts';
