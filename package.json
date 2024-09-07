@@ -1,6 +1,6 @@
 {
   "name": "tinywidgets",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "author": "jamesgpearce",
   "repository": "github:tinyplex/tinywidgets",
   "module": "index.ts",
