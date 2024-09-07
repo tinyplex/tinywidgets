@@ -113,7 +113,7 @@ globalStyle('html', {
   textRendering: 'optimizeLegibility',
   fontWeight: 400,
   ...small({
-    fontSize: '11px',
+    fontSize: '12px',
   }),
 });
 
