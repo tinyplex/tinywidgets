@@ -1,5 +1,5 @@
 import {style} from '@vanilla-extract/css';
-import {theme} from '../index.css';
+import {colors} from '../common/colors.css';
 
 export const detailTable = style({
   width: '100%',
@@ -8,7 +8,7 @@ export const detailTable = style({
 });
 
 export const detailRow = style({
-  borderBottom: `1px solid ${theme.border}`,
+  borderBottom: `1px solid ${colors.border}`,
   selectors: {'&:last-child': {borderBottom: 'none'}},
 });
 

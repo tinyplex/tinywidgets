@@ -1,5 +1,5 @@
 import {style, styleVariants} from '@vanilla-extract/css';
-import {theme} from '../index.css';
+import {colors} from '../common/colors.css';
 
 export const tag = style({
   fontSize: '0.625rem',
@@ -12,12 +12,12 @@ export const tag = style({
 
 export const tagVariant = styleVariants({
   default: {
-    backgroundColor: theme.backgroundHover,
-    color: theme.foreground2,
+    backgroundColor: colors.backgroundHover,
+    color: colors.foreground2,
   },
   accent: {
-    backgroundColor: theme.accent,
-    color: theme.accentContrast,
+    backgroundColor: colors.accent,
+    color: colors.accentContrast,
   },
 });
 

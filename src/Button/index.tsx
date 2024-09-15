@@ -1,9 +1,7 @@
-/** @jsx createElement */
-/** @jsxFrag Fragment */
-
 import type {ComponentType, ReactNode, Ref} from 'react';
-import {iconSize} from '../index.css.ts';
-import {classNames, createElement, forwardRef, useCallback} from '../index.ts';
+import React, {forwardRef, useCallback} from 'react';
+import {iconSize} from '../common/dimensions.css.ts';
+import {classNames} from '../index.ts';
 import {button, buttonVariant, highlight, labelStyle} from './index.css.ts';
 
 export const Button = forwardRef(

@@ -1,5 +1,5 @@
 import {style} from '@vanilla-extract/css';
-import {dimensions} from '../index.css';
+import {dimensions} from '../common/dimensions.css';
 
 export const axis = style({
   display: 'flex',

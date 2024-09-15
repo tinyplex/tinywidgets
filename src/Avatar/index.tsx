@@ -1,6 +1,5 @@
-/** @jsx createElement */
-
-import {classNames, createElement} from '../index.ts';
+import React from 'react';
+import {classNames} from '../index.ts';
 import {avatar} from './index.css.ts';
 
 export const Avatar = ({

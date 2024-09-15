@@ -1,3 +1,4 @@
+import {useEffect} from 'react';
 import {createStore} from 'tinybase';
 import {createLocalPersister} from 'tinybase/persisters/persister-browser';
 import {
@@ -7,7 +8,6 @@ import {
   useSetValueCallback,
   useValue,
 } from 'tinybase/ui-react';
-import {useEffect} from '../';
 
 const PREFERS_DARK = matchMedia?.('(prefers-color-scheme: dark)');
 

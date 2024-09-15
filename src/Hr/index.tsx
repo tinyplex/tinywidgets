@@ -1,6 +1,4 @@
-/** @jsx createElement */
-
-import {createElement} from '../';
+import React from 'react';
 import {hr} from './index.css';
 
 export const Hr = () => {

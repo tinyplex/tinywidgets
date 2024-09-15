@@ -1,15 +1,8 @@
-/** @jsx createElement */
-
 import type {ComponentType, ReactNode} from 'react';
+import React, {useCallback, useRef, useState} from 'react';
 import {ChevronDown, ChevronRight} from 'lucide-react';
 import {Button} from '../Button/index.tsx';
-import {
-  classNames,
-  createElement,
-  useCallback,
-  useRef,
-  useState,
-} from '../index.ts';
+import {classNames} from '../index.ts';
 import {
   useCollapsibleOpen,
   useSetCollapsibleOpen,
@@ -48,7 +41,7 @@ export const Collapsible = ({
   const setIsOpen = id ? setStoredIsOpen : setStateIsOpen;
 
   const [render, setRender] = useState(isOpen);
-  const timer = useRef<Timer>();
+  const timer = useRef<ReturnType<typeof setTimeout>>();
 
   const toggle = useCallback(() => {
     setIsOpen(!isOpen);

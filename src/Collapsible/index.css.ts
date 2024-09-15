@@ -1,5 +1,6 @@
 import {style} from '@vanilla-extract/css';
-import {borderLike, dimensions, paddingLike, radiusLike} from '../index.css';
+import {borderLike} from '../common/colors.css';
+import {dimensions, paddingLike, radiusLike} from '../common/dimensions.css';
 
 export const collapsible = style([
   borderLike,

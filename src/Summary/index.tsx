@@ -1,7 +1,6 @@
-/** @jsx createElement */
-
 import type {ComponentType, ReactNode} from 'react';
-import {classNames, createElement} from '../';
+import React from 'react';
+import {classNames} from '../';
 import {Avatar} from '../Avatar';
 import {summary, summaryContent, summaryImage} from './index.css';
 

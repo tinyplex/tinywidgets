@@ -1,8 +1,7 @@
-/** @jsx createElement */
-
 import type {ComponentType, ReactNode} from 'react';
-import {classNames, createElement} from '../';
-import {iconSize} from '../index.css';
+import React from 'react';
+import {classNames} from '../';
+import {iconSize} from '../common/dimensions.css';
 import {metric, metricLabel, metricNumber} from './index.css';
 
 export const Metric = ({
