@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 130" style="background:oklch(50% .1 240)">
+  <rect fill="#fff" x="10" y="10" width="30" height="30" />
+  <rect fill="#fff" x="10" y="50" width="30" height="30" />
+  <rect fill="#fff" x="10" y="90" width="30" height="30" />
+  <rect fill="#fff" x="50" y="90" width="30" height="30" />
+  <rect fill="#fff" x="90" y="90" width="30" height="30" />
+  <rect fill="#fff" x="90" y="50" width="30" height="30" />
+  <rect fill="#fff" x="90" y="10" width="30" height="30" />
+  <path fill="#fff" d="M50 80l15 -30l15 30 " />
+</svg>

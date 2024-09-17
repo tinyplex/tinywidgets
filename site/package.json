@@ -1,0 +1,28 @@
+{
+  "name": "tinywidgets-demo",
+  "version": "0.0.0",
+  "scripts": {
+    "extractDocs": "bun extractDocs.ts",
+    "dev": "bun run extractDocs && vite --force",
+    "build": "bun run extractDocs && tsc && vite build"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.1.9",
+    "@types/node": "^22.5.5",
+    "@types/react-dom": "^18.3.0",
+    "@vanilla-extract/vite-plugin": "^4.0.15",
+    "@vitejs/plugin-react": "^4.3.1",
+    "typescript": "^5.6.2",
+    "vite": "^5.4.5",
+    "typedoc": "^0.26.7",
+    "vite-plugin-minify": "^2.0.0"
+  },
+  "dependencies": {
+    "@types/prismjs": "^1.26.4",
+    "marked": "^14.1.2",
+    "prismjs": "^1.29.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tinywidgets": "file:../dist"
+  }
+}
