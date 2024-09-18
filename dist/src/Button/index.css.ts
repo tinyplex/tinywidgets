@@ -17,6 +17,8 @@ export const button = style({
   whiteSpace: 'nowrap',
   transition: 'background-color 0.2s,border-color 0.2s',
   flexShrink: 0,
+  border: 0,
+  background: 'none',
   selectors: {
     '&:hover': {
       backgroundColor: colors.backgroundHover,
@@ -34,27 +36,24 @@ export const buttonVariant = styleVariants({
     boxShadow: colors.shadow,
     backgroundColor: colors.accent,
     color: colors.accentContrast,
-    border: 0,
+
     selectors: {
       '&:hover': {
         backgroundColor: colors.accentHover,
       },
     },
   },
-  ghost: {
-    backgroundColor: 'transparent',
-    border: 0,
-  },
-  item: {backgroundColor: 'transparent', border: 0, width: '100%'},
-  icon: {backgroundColor: 'transparent', border: 0, padding: '0.25rem'},
+  ghost: {},
+  item: {width: '100%'},
+  icon: {padding: '0.25rem'},
 });
 
 export const highlight = style({
   backgroundColor: colors.backgroundHover,
 });
 
-export const labelStyle = style({
-  flex: 1,
+export const titleStyle = style({
+  flex: '1 1 auto',
   overflow: 'hidden',
   textOverflow: 'ellipsis',
 });

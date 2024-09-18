@@ -54,8 +54,8 @@ export const Collapsible = ({
       <Button
         onClick={toggle}
         icon={Icon}
-        label={label}
-        labelRight={labelRight}
+        title={label}
+        titleRight={labelRight}
         iconRight={isOpen ? ChevronDown : ChevronRight}
         className={classNames(button, render && buttonOpen)}
         current={render}

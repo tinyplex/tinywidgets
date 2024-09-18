@@ -9,6 +9,7 @@ export const [dimensionsClass, dimensions] = createTheme({
 });
 
 export const iconSize = style({
+  flexShrink: 0,
   height: dimensions.icon,
   width: dimensions.icon,
 });

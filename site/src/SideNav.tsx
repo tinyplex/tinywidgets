@@ -20,7 +20,7 @@ const Link = ({route}: {route: string}) => {
   return (
     <Button
       variant="item"
-      label={ROUTES[route]?.[0]}
+      title={ROUTES[route]?.[0]}
       onClick={() => setRoute(route)}
     />
   );

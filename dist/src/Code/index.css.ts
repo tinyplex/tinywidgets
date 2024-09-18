@@ -1,89 +1,46 @@
-import {style} from '@vanilla-extract/css';
+import {globalStyle, style} from '@vanilla-extract/css';
+import {code} from '../common/code.css';
 import {colors} from '../common/colors.css';
 import {dimensions} from '../common/dimensions.css';
 
-export const pre = style([
-  {
-    padding: dimensions.padding,
-    borderRadius: dimensions.radius,
-    boxShadow: colors.shadow,
-    border: colors.border,
-    lineHeight: '1.25rem',
-  },
-]);
+export const pre = style({
+  padding: dimensions.padding,
+  borderRadius: dimensions.radius,
+  boxShadow: colors.shadow,
+  border: colors.border,
+  lineHeight: '1.25rem',
+  overflowX: 'auto',
+});
 
-// pre {
-//   --mono-1: hsl(220, 14%, 71%);
-//   --mono-3: hsl(220, 10%, 40%);
-//   --hue-1: hsl(187, 47%, 55%);
-//   --hue-2: hsl(207, 82%, 66%);
-//   --hue-3: hsl(286, 60%, 67%);
-//   --hue-4: hsl(95, 38%, 62%);
-//   --hue-5: hsl(355, 65%, 65%);
-//   --hue-5-2: hsl(5, 48%, 51%);
-//   --hue-6: hsl(29, 54%, 61%);
+globalStyle('.token.comment, .token.prolog, .token.cdata', {
+  color: code['mono-3'],
+});
 
-//   display: block;
-//   margin: 2rem 0;
-//   overflow-x: auto;
-//   padding: 1rem;
+globalStyle('.token.doctype, .token.punctuation, .token.entity', {
+  color: code['mono-1'],
+});
 
-//   .doctype,
-//   .punctuation,
-//   .entity {
-//     color: var(--mono-1);
-//   }
+globalStyle(
+  '.token.attr-name, .token.class-name, .token.boolean, .token.constant, .token.number, .token.atrule',
+  {color: code['hue-6']},
+);
 
-//   .comment,
-//   .prolog,
-//   .cdata {
-//     color: var(--mono-3);
-//     font-style: italic;
-//   }
+globalStyle('.token.keyword', {color: code['hue-3']});
 
-//   .attr-name,
-//   .boolean,
-//   .constant,
-//   .number,
-//   .atrule {
-//     color: var(--hue-6);
-//   }
+globalStyle(
+  '.token.property, .token.tag, .token.symbol, .token.deleted, .token.important',
+  {color: code['hue-5']},
+);
 
-//   .operator,
-//   .keyword {
-//     color: var(--hue-3);
-//   }
+globalStyle(
+  '.token.selector, .token.string, .token.char, .token.builtin, .token.inserted, .token.regex, .token.attr-value, .token.attr-value > .token.punctuation',
+  {color: code['hue-4']},
+);
 
-//   .literal-property,
-//   .property,
-//   .tag,
-//   .symbol,
-//   .deleted,
-//   .important {
-//     color: var(--hue-5);
-//   }
+globalStyle('.token.variable, .token.operator, .token.function', {
+  color: code['hue-2'],
+});
 
-//   .selector,
-//   .string,
-//   .char,
-//   .builtin,
-//   .inserted,
-//   .regex,
-//   .attr-value,
-//   .attr-value > .punctuation {
-//     color: var(--hue-4);
-//   }
-
-//   .variable {
-//     color: var(--hue-2);
-//   }
-
-//   .url {
-//     color: var(--hue-1);
-//   }
-
-//   .function,
-//   .class-name {
-//     color: var(--hue-1);
-//   }
-// }
+globalStyle('.token.url', {
+  color: code['hue-1'],
+});

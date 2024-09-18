@@ -11,8 +11,8 @@ import {image, imageVariant} from './index.css.ts';
  * ```tsx
  * <Image
  *   src="/favicon.svg"
- *   title="TinyWidgets"
  *   onClick={() => alert('Clicked!')}
+ *   alt="TinyWidgets"
  * />
  * ```
  * This example shows the `default` variant of the Image component.
@@ -20,7 +20,6 @@ import {image, imageVariant} from './index.css.ts';
  * ```tsx
  * <Image
  *   src="/favicon.svg"
- *   title="TinyWidgets"
  *   variant="logo"
  * />
  * ```
@@ -29,7 +28,6 @@ import {image, imageVariant} from './index.css.ts';
  * ```tsx
  * <Image
  *   src="/favicon.svg"
- *   title="TinyWidgets"
  *   variant="avatar"
  * />
  * ```
@@ -38,7 +36,6 @@ import {image, imageVariant} from './index.css.ts';
  * ```tsx
  * <Image
  *   src="/favicon.svg"
- *   title="TinyWidgets"
  *   variant="icon"
  * />
  * ```
@@ -46,25 +43,21 @@ import {image, imageVariant} from './index.css.ts';
  */
 export const Image = ({
   src,
-  title,
   onClick,
   variant = 'default',
   className,
+  alt,
 }: {
   /**
    * The source of the image.
    */
   src: string;
   /**
-   * A title shown when the user hovers over the component.
-   */
-  title?: string;
-  /**
-   * A handler called when the user clicks on the component.
+   * A handler called when the user clicks on the image.
    */
   onClick?: () => void;
   /**
-   * A common variant of the component, one of:
+   * A common variant of the image, one of:
    * - default
    * - logo
    * - avatar
@@ -72,15 +65,19 @@ export const Image = ({
    */
   variant?: keyof typeof imageVariant;
   /**
-   * An extra CSS class name for the component.
+   * An extra CSS class name for the image.
    */
   className?: string;
+  /**
+   * Alternative text shown when the user hovers over the image.
+   */
+  alt?: string;
 }) => {
   return (
     <img
       src={src}
-      title={title}
       onClick={onClick}
+      alt={alt}
       className={classNames(image, imageVariant[variant], className)}
     />
   );

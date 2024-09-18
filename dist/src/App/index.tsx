@@ -3,6 +3,7 @@ import React from 'react';
 import {Menu, Moon, Sun, SunMoon, X} from 'lucide-react';
 import {Provider} from 'tinybase/ui-react';
 import {Button} from '../Button/index.tsx';
+import {codeDark, codeLight} from '../common/code.css.ts';
 import {colorsDark, colorsLight} from '../common/colors.css.ts';
 import {classNames, renderComponentOrNode} from '../common/utils.tsx';
 import {
@@ -52,27 +53,28 @@ const darkIcons = [Sun, Moon, SunMoon];
  */
 export const App = (props: {
   /**
-   * A component, element, or string which renders the top left title of the
-   * app.
+   * An optional component, element, or string which renders the top left title
+   * of the application.
    */
   title?: ComponentType | ReactNode;
   /**
-   * A component, element, or string which renders navigation on the left side
-   * of the top navigation bar.
+   * An optional component, element, or string which renders navigation on the
+   * left side of the top navigation bar of the application.
    */
   topNavLeft?: ComponentType | ReactNode;
   /**
-   * A component, element, or string which renders navigation on the right side
-   * of the top navigation bar.
+   * An optional component, element, or string which renders navigation on the
+   * right side of the top navigation bar of the application.
    */
   topNavRight?: ComponentType | ReactNode;
   /**
-   * A component, element, or string which renders the left side bar.
+   * An optional component, element, or string which renders the left side bar
+   * of the application.
    */
   sideNav?: ComponentType | ReactNode;
   /**
-   * A component, element, or string which renders the main part of the
-   * application.
+   * An optional component, element, or string which renders the main part of
+   * the application.
    */
   main?: ComponentType | ReactNode;
 }) => {
@@ -101,6 +103,7 @@ const Layout = ({
   const toggleSideNavIsOpen = useToggleSideNavIsOpenCallback();
   const sideNavIsOpen = useSideNavIsOpen();
 
+  const dark = darkChoice == 1 || (darkChoice == 2 && darkPreference);
   const hasLayout = [
     titleComponentOrNode,
     topNavLeftComponentOrNode,
@@ -115,9 +118,8 @@ const Layout = ({
       className={classNames(
         app,
         hasLayout && appLayout,
-        darkChoice == 1 || (darkChoice == 2 && darkPreference)
-          ? colorsDark
-          : colorsLight,
+        dark ? colorsDark : colorsLight,
+        dark ? codeDark : codeLight,
       )}
     >
       {hasLayout ? (

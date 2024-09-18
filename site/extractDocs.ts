@@ -105,6 +105,7 @@ const componentFile: string[] = [
   `import {Routes} from '..';`,
   `import {Code} from 'tinywidgets';`,
   `import {Component} from './Component';`,
+  `import * as Lucide from 'lucide-react';`,
   `export const COMPONENT_ROUTES: Routes = {};`,
 ];
 

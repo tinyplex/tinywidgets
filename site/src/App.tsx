@@ -8,7 +8,7 @@ import {SideNav} from './SideNav';
 
 const Title = () => (
   <>
-    <Image src="/favicon.svg" title="TinyWidgets" variant="logo" />
+    <Image src="/favicon.svg" variant="logo" alt="TinyWidgets" />
     <h1>TinyWidgets</h1>
   </>
 );

@@ -55,23 +55,21 @@ export const title = style({
   }),
 });
 
-export const sideNav = style([
-  {
-    position: 'fixed',
-    padding: dimensions.padding,
-    backgroundColor: colors.background2,
-    overflow: 'auto',
-    borderRight: colors.border,
-    width: layout.sideNavWidth,
-    bottom: 0,
-    left: `calc(-1.2 * ${layout.sideNavWidth})`,
-    top: layout.topNavHeight,
-    height: `calc(100dvh - ${layout.topNavHeight})`,
-    overscrollBehavior: 'contain',
-    transition: 'left .2s ease-in-out',
-  },
-  large({left: 0}),
-]);
+export const sideNav = style({
+  position: 'fixed',
+  padding: dimensions.padding,
+  backgroundColor: colors.background2,
+  overflow: 'auto',
+  borderRight: colors.border,
+  width: layout.sideNavWidth,
+  bottom: 0,
+  left: `calc(-1.2 * ${layout.sideNavWidth})`,
+  top: layout.topNavHeight,
+  height: `calc(100dvh - ${layout.topNavHeight})`,
+  overscrollBehavior: 'contain',
+  transition: 'left .2s ease-in-out',
+  ...large({left: 0}),
+});
 
 export const sideNavOpen = style({left: 0});
 
