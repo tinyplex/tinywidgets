@@ -1,6 +1,6 @@
 import React from 'react';
 import {classNames} from '../common/utils.tsx';
-import {image, imageVariant} from './index.css.ts';
+import {image, imageVariants} from './index.css.ts';
 
 /**
  * The Image component displays an image, with a number of common variants.
@@ -57,13 +57,13 @@ export const Image = ({
    */
   onClick?: () => void;
   /**
-   * A common variant of the image, one of:
+   * A variant of the image, one of:
    * - default
    * - logo
    * - avatar
    * - icon
    */
-  variant?: keyof typeof imageVariant;
+  variant?: keyof typeof imageVariants;
   /**
    * An extra CSS class name for the image.
    */
@@ -78,7 +78,7 @@ export const Image = ({
       src={src}
       onClick={onClick}
       alt={alt}
-      className={classNames(image, imageVariant[variant], className)}
+      className={classNames(image, imageVariants[variant], className)}
     />
   );
 };

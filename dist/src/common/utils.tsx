@@ -1,8 +1,8 @@
 import React, {ComponentType, ReactNode} from 'react';
 import type {StyleRule} from '@vanilla-extract/css';
 
-const LARGE = 'screen and (min-width: 768px)';
-const SMALL = 'screen and (max-width: 450px)';
+const LARGE = 768;
+const SMALL = 450;
 
 export const renderComponentOrNode = (
   ComponentOrNode: ComponentType | ReactNode,
@@ -15,11 +15,19 @@ export const renderComponentOrNode = (
   );
 
 export const large = (style: StyleRule) => ({
-  '@media': {[LARGE]: style},
+  '@media': {[`screen and (min-width: ${LARGE}px)`]: style},
+});
+
+export const notLarge = (style: StyleRule) => ({
+  '@media': {[`screen and (max-width: ${LARGE}px)`]: style},
 });
 
 export const small = (style: StyleRule) => ({
-  '@media': {[SMALL]: style},
+  '@media': {[`screen and (min-width: ${SMALL}px)`]: style},
+});
+
+export const notSmall = (style: StyleRule) => ({
+  '@media': {[`screen and (max-width: ${SMALL}px)`]: style},
 });
 
 export const classNames = (

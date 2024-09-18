@@ -14,7 +14,7 @@ export const image = style({
   },
 });
 
-export const imageVariant = styleVariants({
+export const imageVariants = styleVariants({
   default: {
     borderRadius: dimensions.radius,
   },

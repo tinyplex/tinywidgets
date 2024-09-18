@@ -1,8 +1,8 @@
-import type { ComponentType, ReactNode, Ref } from 'react';
-import React, { forwardRef, useCallback } from 'react';
-import { iconSize } from '../common/dimensions.css.ts';
-import { classNames, renderComponentOrNode } from '../common/utils.tsx';
-import { button, buttonVariant, highlight, titleStyle } from './index.css.ts';
+import type {ComponentType, ReactNode, Ref} from 'react';
+import React, {forwardRef, useCallback} from 'react';
+import {iconSize} from '../common/dimensions.css.ts';
+import {classNames, renderComponentOrNode} from '../common/utils.tsx';
+import {button, buttonVariants, highlight, titleStyle} from './index.css.ts';
 
 /**
  * The Button component displays an button, with a number of common variants.
@@ -55,6 +55,17 @@ import { button, buttonVariant, highlight, titleStyle } from './index.css.ts';
  * @example
  * ```tsx
  * <Button
+ *   title="tinybase.org"
+ *   iconRight={Lucide.SquareArrowOutUpRight}
+ *   variant="accent"
+ *   href="https://tinybase.org"
+ * />
+ * ```
+ * This example shows the `accent` variant of the Button component with an icon,
+ * and that launches a new link.
+ * @example
+ * ```tsx
+ * <Button
  *   title="TinyWidgets"
  *   variant="ghost"
  * />
@@ -95,8 +106,8 @@ export const Button = forwardRef(
       onClick,
       variant = 'default',
       current,
-      className,
       href,
+      className,
       alt,
     }: {
       /**
@@ -124,28 +135,28 @@ export const Button = forwardRef(
        */
       onClick?: () => void;
       /**
-       * A common variant of the button, one of:
+       * A variant of the button, one of:
        * - default
        * - icon
        * - accent
        * - ghost
        * - item
        */
-      variant?: keyof typeof buttonVariant;
+      variant?: keyof typeof buttonVariants;
       /**
        * A flag that indicates that an `item` button is 'current' and therefore
        * highlighted.
        */
       current?: boolean;
       /**
-       * An extra CSS class name for the button.
-       */
-      className?: string;
-      /**
        * A URL that can be used instead of an `onClick` to launch a new web
        * page, much like a link.
        */
       href?: string;
+      /**
+       * An extra CSS class name for the button.
+       */
+      className?: string;
       /**
        * Alternative text shown when the user hovers over the button.
        */
@@ -162,7 +173,7 @@ export const Button = forwardRef(
       <button
         className={classNames(
           button,
-          buttonVariant[variant],
+          buttonVariants[variant],
           current && highlight,
           className,
         )}

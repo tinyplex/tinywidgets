@@ -26,7 +26,7 @@ export const button = style({
   },
 });
 
-export const buttonVariant = styleVariants({
+export const buttonVariants = styleVariants({
   default: {
     boxShadow: colors.shadow,
     border: colors.border,

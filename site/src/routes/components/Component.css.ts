@@ -18,4 +18,5 @@ export const exampleExec = style({
 
 export const exampleComment = style({
   flex: 1,
+  overflow: 'hidden',
 });

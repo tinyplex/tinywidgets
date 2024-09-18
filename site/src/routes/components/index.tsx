@@ -5,6 +5,96 @@ import {Component} from './Component';
 import * as Lucide from 'lucide-react';
 export const COMPONENT_ROUTES: Routes = {};
 
+import {Row} from 'tinywidgets';
+COMPONENT_ROUTES['components/Row'] = ['Row', () => (<Component 
+  title='Row'
+  comments={<><p>The Row component displays a row of &#39;cell&#39; components, with a number of
+common variants representing the relative &#39;cell&#39; sizes within it.</p>
+</>}
+  props={{
+variant:<><p>A variant of the row, representing the relative &#39;cell&#39; sizes within it, one
+of:</p>
+<ul>
+<li>1|1</li>
+<li>1|2</li>
+<li>2|1</li>
+<li>1|1|1</li>
+<li>1|3</li>
+<li>3|1</li>
+<li>1|1|1|1</li>
+</ul>
+</>,
+className:<><p>An extra CSS class name for the row.</p>
+</>,
+children:<><p>The children of the row, each occupying one &#39;cell&#39;</p>
+</>,
+}}
+  examples={[
+[<><Code code={`<Row>
+  <div style={{background: 'oklch(50% 0.11 0)'}}>1</div>
+  <div style={{background: 'oklch(50% 0.11 180)'}}>1</div>
+</Row>`} /><p>This example shows the default <code>1|1</code> variant of the Row component.</p>
+</>,<Row>
+  <div style={{background: 'oklch(50% 0.11 0)'}}>1</div>
+  <div style={{background: 'oklch(50% 0.11 180)'}}>1</div>
+</Row>],
+[<><Code code={`<Row variant="1|2">
+  <div style={{background: 'oklch(50% 0.11 0)'}}>1</div>
+  <div style={{background: 'oklch(50% 0.11 180)'}}>2</div>
+</Row>`} /><p>This example shows the <code>1|2</code> variant of the Row component.</p>
+</>,<Row variant="1|2">
+  <div style={{background: 'oklch(50% 0.11 0)'}}>1</div>
+  <div style={{background: 'oklch(50% 0.11 180)'}}>2</div>
+</Row>],
+[<><Code code={`<Row variant="2|1">
+  <div style={{background: 'oklch(50% 0.11 0)'}}>2</div>
+  <div style={{background: 'oklch(50% 0.11 180)'}}>1</div>
+</Row>`} /><p>This example shows the <code>2|1</code> variant of the Row component.</p>
+</>,<Row variant="2|1">
+  <div style={{background: 'oklch(50% 0.11 0)'}}>2</div>
+  <div style={{background: 'oklch(50% 0.11 180)'}}>1</div>
+</Row>],
+[<><Code code={`<Row variant="1|1|1">
+  <div style={{background: 'oklch(50% 0.11 0)'}}>1</div>
+  <div style={{background: 'oklch(50% 0.11 120)'}}>1</div>
+  <div style={{background: 'oklch(50% 0.11 240)'}}>1</div>
+</Row>`} /><p>This example shows the <code>1|1|1</code> variant of the Row component.</p>
+</>,<Row variant="1|1|1">
+  <div style={{background: 'oklch(50% 0.11 0)'}}>1</div>
+  <div style={{background: 'oklch(50% 0.11 120)'}}>1</div>
+  <div style={{background: 'oklch(50% 0.11 240)'}}>1</div>
+</Row>],
+[<><Code code={`<Row variant="1|3">
+  <div style={{background: 'oklch(50% 0.11 0)'}}>1</div>
+  <div style={{background: 'oklch(50% 0.11 180)'}}>3</div>
+</Row>`} /><p>This example shows the <code>1|3</code> variant of the Row component.</p>
+</>,<Row variant="1|3">
+  <div style={{background: 'oklch(50% 0.11 0)'}}>1</div>
+  <div style={{background: 'oklch(50% 0.11 180)'}}>3</div>
+</Row>],
+[<><Code code={`<Row variant="3|1">
+  <div style={{background: 'oklch(50% 0.11 0)'}}>3</div>
+  <div style={{background: 'oklch(50% 0.11 180)'}}>1</div>
+</Row>`} /><p>This example shows the <code>3|1</code> variant of the Row component.</p>
+</>,<Row variant="3|1">
+  <div style={{background: 'oklch(50% 0.11 0)'}}>3</div>
+  <div style={{background: 'oklch(50% 0.11 180)'}}>1</div>
+</Row>],
+[<><Code code={`<Row variant="1|1|1|1">
+  <div style={{background: 'oklch(50% 0.11 0)'}}>1</div>
+  <div style={{background: 'oklch(50% 0.11 90)'}}>1</div>
+  <div style={{background: 'oklch(50% 0.11 180)'}}>1</div>
+  <div style={{background: 'oklch(50% 0.11 270)'}}>1</div>
+</Row>`} /><p>This example shows the <code>1|1|1|1</code> variant of the Row component.</p>
+</>,<Row variant="1|1|1|1">
+  <div style={{background: 'oklch(50% 0.11 0)'}}>1</div>
+  <div style={{background: 'oklch(50% 0.11 90)'}}>1</div>
+  <div style={{background: 'oklch(50% 0.11 180)'}}>1</div>
+  <div style={{background: 'oklch(50% 0.11 270)'}}>1</div>
+</Row>],
+  ]}
+/>)];
+
 import {Image} from 'tinywidgets';
 COMPONENT_ROUTES['components/Image'] = ['Image', () => (<Component 
   title='Image'
@@ -15,7 +105,7 @@ src:<><p>The source of the image.</p>
 </>,
 onClick:<><p>A handler called when the user clicks on the image.</p>
 </>,
-variant:<><p>A common variant of the image, one of:</p>
+variant:<><p>A variant of the image, one of:</p>
 <ul>
 <li>default</li>
 <li>logo</li>
@@ -66,6 +156,40 @@ alt:<><p>Alternative text shown when the user hovers over the image.</p>
   ]}
 />)];
 
+import {App} from 'tinywidgets';
+COMPONENT_ROUTES['components/App'] = ['App', () => (<Component 
+  title='App'
+  comments={<><p>The App component is the root component of a TinyWidgets application.</p>
+<p>It can be provided with optional components for different parts of the app
+layout, including the top left title, the side bar and the main content.</p>
+<p>If none of these props are present, the TinyWidgets layout won&#39;t be used, but
+you will still be able to enjoy its state management features, and any
+components within it will be correctly styled.</p>
+</>}
+  props={{
+title:<><p>An optional component, element, or string which renders the top left title
+of the application.</p>
+</>,
+topNavLeft:<><p>An optional component, element, or string which renders navigation on the
+left side of the top navigation bar of the application.</p>
+</>,
+topNavRight:<><p>An optional component, element, or string which renders navigation on the
+right side of the top navigation bar of the application.</p>
+</>,
+sideNav:<><p>An optional component, element, or string which renders the left side bar
+of the application.</p>
+</>,
+main:<><p>An optional component, element, or string which renders the main part of
+the application.</p>
+</>,
+}}
+  examples={[
+[<><Code code={`<App />`} /><p>This shows an empty App, but if you visit tinywidgets.org you&#39;ll see one in
+its full glory!</p>
+</>,<App />],
+  ]}
+/>)];
+
 import {Button} from 'tinywidgets';
 COMPONENT_ROUTES['components/Button'] = ['Button', () => (<Component 
   title='Button'
@@ -86,7 +210,7 @@ which must accept a className prop.</p>
 </>,
 onClick:<><p>A handler called when the user clicks on the button.</p>
 </>,
-variant:<><p>A common variant of the button, one of:</p>
+variant:<><p>A variant of the button, one of:</p>
 <ul>
 <li>default</li>
 <li>icon</li>
@@ -98,10 +222,12 @@ variant:<><p>A common variant of the button, one of:</p>
 current:<><p>A flag that indicates that an <code>item</code> button is &#39;current&#39; and therefore
 highlighted.</p>
 </>,
-className:<><p>An extra CSS class name for the component.</p>
+href:<><p>A URL that can be used instead of an <code>onClick</code> to launch a new web
+page, much like a link.</p>
 </>,
-href:<></>,
-alt:<><p>Alternative text shown when the user hovers over the component.</p>
+className:<><p>An extra CSS class name for the button.</p>
+</>,
+alt:<><p>Alternative text shown when the user hovers over the button.</p>
 </>,
 }}
   examples={[
@@ -149,6 +275,19 @@ used without a title.</p>
   variant="accent"
 />],
 [<><Code code={`<Button
+  title="tinybase.org"
+  iconRight={Lucide.SquareArrowOutUpRight}
+  variant="accent"
+  href="https://tinybase.org"
+/>`} /><p>This example shows the <code>accent</code> variant of the Button component with an icon,
+and that launches a new link.</p>
+</>,<Button
+  title="tinybase.org"
+  iconRight={Lucide.SquareArrowOutUpRight}
+  variant="accent"
+  href="https://tinybase.org"
+/>],
+[<><Code code={`<Button
   title="TinyWidgets"
   variant="ghost"
 />`} /><p>This example shows the <code>ghost</code> variant of the Button component.</p>
@@ -185,39 +324,5 @@ navigational list, such as a side bar.</p>
   title="TinyWidgets"
   current={true}
 />],
-  ]}
-/>)];
-
-import {App} from 'tinywidgets';
-COMPONENT_ROUTES['components/App'] = ['App', () => (<Component 
-  title='App'
-  comments={<><p>The App component is the root component of a TinyWidgets application.</p>
-<p>It can be provided with optional components for different parts of the app
-layout, including the top left title, the side bar and the main content.</p>
-<p>If none of these props are present, the TinyWidgets layout won&#39;t be used, but
-you will still be able to enjoy its state management features, and any
-components within it will be correctly styled.</p>
-</>}
-  props={{
-title:<><p>An optional component, element, or string which renders the top left title
-of the application.</p>
-</>,
-topNavLeft:<><p>An optional component, element, or string which renders navigation on the
-left side of the top navigation bar of the application.</p>
-</>,
-topNavRight:<><p>An optional component, element, or string which renders navigation on the
-right side of the top navigation bar of the application.</p>
-</>,
-sideNav:<><p>An optional component, element, or string which renders the left side bar
-of the application.</p>
-</>,
-main:<><p>An optional component, element, or string which renders the main part of
-the application.</p>
-</>,
-}}
-  examples={[
-[<><Code code={`<App />`} /><p>This shows an empty App, but if you visit tinywidgets.org you&#39;ll see one in
-its full glory!</p>
-</>,<App />],
   ]}
 />)];
