@@ -1,8 +1,8 @@
-import type {ComponentType, ReactNode, Ref} from 'react';
-import React, {forwardRef, useCallback} from 'react';
-import {iconSize} from '../common/dimensions.css.ts';
-import {classNames, renderComponentOrNode} from '../common/utils.tsx';
-import {button, buttonVariant, highlight, titleStyle} from './index.css.ts';
+import type { ComponentType, ReactNode, Ref } from 'react';
+import React, { forwardRef, useCallback } from 'react';
+import { iconSize } from '../common/dimensions.css.ts';
+import { classNames, renderComponentOrNode } from '../common/utils.tsx';
+import { button, buttonVariant, highlight, titleStyle } from './index.css.ts';
 
 /**
  * The Button component displays an button, with a number of common variants.
@@ -39,7 +39,6 @@ import {button, buttonVariant, highlight, titleStyle} from './index.css.ts';
  * ```tsx
  * <Button
  *   icon={Lucide.Sun}
- *   title="Sun"
  *   variant="icon"
  * />
  * ```
@@ -74,6 +73,17 @@ import {button, buttonVariant, highlight, titleStyle} from './index.css.ts';
  * This example shows the `item` variant of the Button component with both left
  * and right titles and icons. This is suitable for use as a link in a
  * navigational list, such as a side bar.
+ * @example
+ * ```tsx
+ * <Button
+ *   variant="item"
+ *   icon={Lucide.Grid3x3}
+ *   title="TinyWidgets"
+ *   current={true}
+ * />
+ * ```
+ * This example shows the `item` variant of the Button component, marked as
+ * 'current'.
  */
 export const Button = forwardRef(
   (
@@ -123,16 +133,21 @@ export const Button = forwardRef(
        */
       variant?: keyof typeof buttonVariant;
       /**
-       * An extra CSS class name for the component.
+       * A flag that indicates that an `item` button is 'current' and therefore
+       * highlighted.
        */
       current?: boolean;
       /**
-       * An extra CSS class name for the component.
+       * An extra CSS class name for the button.
        */
       className?: string;
+      /**
+       * A URL that can be used instead of an `onClick` to launch a new web
+       * page, much like a link.
+       */
       href?: string;
       /**
-       * Alternative text shown when the user hovers over the component.
+       * Alternative text shown when the user hovers over the button.
        */
       alt?: string;
     },
