@@ -1,34 +1,37 @@
 import React from 'react';
-import {App as AppBase, Image} from 'tinywidgets';
+import {App as AppBase, Button, Card, Image} from 'tinywidgets';
 import {useRoute} from 'tinywidgets/utils';
+import {SiGithub} from '@icons-pack/react-simple-icons';
 import {article} from './App.css.ts';
 import {Home} from './routes/Home.tsx';
 import {ROUTES} from './routes/index.ts';
 import {SideNav} from './SideNav';
 
-const Title = () => (
-  <>
-    <Image src="/favicon.svg" variant="logo" alt="TinyWidgets" />
-    <h1>TinyWidgets</h1>
-  </>
-);
-
-const TopNavRight = () => <i>TopNavRight</i>;
-
-const Main = () => {
-  const Route = ROUTES[useRoute()]?.[1] ?? Home;
-  return (
-    <article className={article}>
-      <Route />
-    </article>
-  );
-};
-
 export const App = () => (
   <AppBase
-    title={Title}
-    topNavRight={TopNavRight}
+    title={
+      <>
+        <Image src="/favicon.svg" variant="logo" alt="TinyWidgets" />
+        <h1>TinyWidgets</h1>
+      </>
+    }
+    topNavRight={
+      <Button
+        title="GitHub"
+        icon={SiGithub}
+        href="https://github.com/tinyplex/tinywidgets"
+      />
+    }
     sideNav={SideNav}
     main={Main}
   />
 );
+
+const Main = () => {
+  const Route = ROUTES[useRoute()]?.[1] ?? Home;
+  return (
+    <Card className={article}>
+      <Route />
+    </Card>
+  );
+};

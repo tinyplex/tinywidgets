@@ -74,9 +74,7 @@ export const sideNav = style({
 export const sideNavOpen = style({left: 0});
 
 export const main = style({
-  display: 'flex',
   flex: 1,
-  flexDirection: 'column',
   backgroundColor: colors.background,
   overflow: 'auto',
   padding: dimensions.padding,

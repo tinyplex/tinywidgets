@@ -3,7 +3,7 @@ import {colors} from '../common/colors.css';
 import {dimensions} from '../common/dimensions.css';
 
 export const button = style({
-  display: 'flex',
+  display: 'inline-flex',
   justifyContent: 'space-between',
   alignItems: 'center',
   gap: dimensions.padding,
@@ -15,9 +15,10 @@ export const button = style({
   color: 'inherit',
   overflow: 'hidden',
   whiteSpace: 'nowrap',
-  transition: 'background-color 0.2s,border-color 0.2s',
+  transition: 'background-color 0.1s,border-color 0.1s',
   flexShrink: 0,
   border: 0,
+  alignSelf: 'center',
   background: 'none',
   selectors: {
     '&:hover': {
@@ -56,4 +57,9 @@ export const titleStyle = style({
   flex: '1 1 auto',
   overflow: 'hidden',
   textOverflow: 'ellipsis',
+});
+
+export const titleStyleRight = style({
+  flex: '0 1 auto',
+  overflow: 'hidden',
 });

@@ -15,5 +15,5 @@ export const detailRow = style({
 export const detailCell = style({
   padding: '0.5rem 1rem',
   verticalAlign: 'top',
-  selectors: {'&:is(th)': {textAlign: 'right'}},
+  selectors: {'&:is(th)': {textAlign: 'right', width: '30%'}},
 });

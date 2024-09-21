@@ -40,13 +40,14 @@ import {image, imageVariants} from './index.css.ts';
  * />
  * ```
  * This example shows the `icon` variant of the Image component.
+ * @icon Lucide.Image
  */
 export const Image = ({
   src,
   onClick,
   variant = 'default',
-  className,
   alt,
+  className,
 }: {
   /**
    * The source of the image.
@@ -58,20 +59,20 @@ export const Image = ({
   onClick?: () => void;
   /**
    * A variant of the image, one of:
-   * - default
-   * - logo
-   * - avatar
-   * - icon
+   * - `default`
+   * - `logo`
+   * - `avatar`
+   * - `icon`
    */
   variant?: keyof typeof imageVariants;
-  /**
-   * An extra CSS class name for the image.
-   */
-  className?: string;
   /**
    * Alternative text shown when the user hovers over the image.
    */
   alt?: string;
+  /**
+   * An extra CSS class name for the component.
+   */
+  className?: string;
 }) => {
   return (
     <img

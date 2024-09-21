@@ -1,22 +1,16 @@
-import {dimensions} from 'tinywidgets/css';
+import {colors, dimensions} from 'tinywidgets/css';
 import {style} from '@vanilla-extract/css';
-
-export const exampleCard = style({
-  display: 'flex',
-  gap: dimensions.padding,
-  marginBottom: dimensions.padding,
-});
 
 export const exampleExec = style({
   padding: '2rem',
-  textAlign: 'center',
-  width: '30%',
   display: 'flex',
-  alignItems: 'baseline',
+  alignItems: 'center',
   justifyContent: 'center',
+  overflow: 'hidden',
 });
 
 export const exampleComment = style({
-  flex: 1,
+  borderLeft: colors.border,
+  paddingLeft: dimensions.padding,
   overflow: 'hidden',
 });

@@ -2,7 +2,13 @@ import type {ComponentType, ReactNode, Ref} from 'react';
 import React, {forwardRef, useCallback} from 'react';
 import {iconSize} from '../common/dimensions.css.ts';
 import {classNames, renderComponentOrNode} from '../common/utils.tsx';
-import {button, buttonVariants, highlight, titleStyle} from './index.css.ts';
+import {
+  button,
+  buttonVariants,
+  highlight,
+  titleStyle,
+  titleStyleRight,
+} from './index.css.ts';
 
 /**
  * The Button component displays an button, with a number of common variants.
@@ -95,6 +101,7 @@ import {button, buttonVariants, highlight, titleStyle} from './index.css.ts';
  * ```
  * This example shows the `item` variant of the Button component, marked as
  * 'current'.
+ * @icon Lucide.RectangleHorizontal
  */
 export const Button = forwardRef(
   (
@@ -107,8 +114,8 @@ export const Button = forwardRef(
       variant = 'default',
       current,
       href,
-      className,
       alt,
+      className,
     }: {
       /**
        * An optional component which renders an icon for the button, and which
@@ -136,11 +143,11 @@ export const Button = forwardRef(
       onClick?: () => void;
       /**
        * A variant of the button, one of:
-       * - default
-       * - icon
-       * - accent
-       * - ghost
-       * - item
+       * - `default`
+       * - `icon`
+       * - `accent`
+       * - `ghost`
+       * - `item`
        */
       variant?: keyof typeof buttonVariants;
       /**
@@ -154,13 +161,13 @@ export const Button = forwardRef(
        */
       href?: string;
       /**
-       * An extra CSS class name for the button.
-       */
-      className?: string;
-      /**
        * Alternative text shown when the user hovers over the button.
        */
       alt?: string;
+      /**
+       * An extra CSS class name for the component.
+       */
+      className?: string;
     },
     ref: Ref<HTMLButtonElement>,
   ) => {
@@ -188,7 +195,7 @@ export const Button = forwardRef(
           </span>
         ) : null}
         {titleRightComponentOrNode ? (
-          <span className={titleStyle}>
+          <span className={titleStyleRight}>
             {renderComponentOrNode(titleRightComponentOrNode)}
           </span>
         ) : null}

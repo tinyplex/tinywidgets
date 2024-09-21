@@ -1,8 +1,7 @@
 import React from 'react';
-import {Button, Collapsible, Hr} from 'tinywidgets';
-import {useSetRouteCallback} from '../../dist/src/utils';
-import {ROUTES} from './routes';
+import {Collapsible, Hr} from 'tinywidgets';
 import {COMPONENT_ROUTES} from './routes/components';
+import {RouteButton} from './routes/RouteLink';
 
 type Navigation = readonly (
   | string
@@ -15,31 +14,20 @@ export const NAVIGATION: Navigation = [
   ['Components', Object.keys(COMPONENT_ROUTES).sort()],
 ];
 
-const Link = ({route}: {route: string}) => {
-  const setRoute = useSetRouteCallback();
-  return (
-    <Button
-      variant="item"
-      title={ROUTES[route]?.[0]}
-      onClick={() => setRoute(route)}
-    />
-  );
-};
-
 export const SideNav = () =>
   NAVIGATION.map((routeOrRoutes, key) => {
     if (routeOrRoutes instanceof Array) {
       const [label, routes] = routeOrRoutes;
       return (
-        <Collapsible label={label} startOpen key={key}>
+        <Collapsible title={label} startOpen key={key}>
           {routes.map((route, key) => (
-            <Link route={route} key={key} />
+            <RouteButton route={route} key={key} />
           ))}
         </Collapsible>
       );
     } else {
       return routeOrRoutes ? (
-        <Link route={routeOrRoutes} key={key} />
+        <RouteButton route={routeOrRoutes} key={key} />
       ) : (
         <Hr key={key} />
       );

@@ -1,4 +1,5 @@
 import {Glob} from 'bun';
+import {watch} from 'fs';
 import {marked} from 'marked';
 import ts, {isVariableDeclaration} from 'typescript';
 
@@ -42,7 +43,9 @@ const extract = async (file: string, allDocs: {[variable: string]: any}) => {
               const tagName = tag.tagName.getText();
               const comment = ts.getTextOfJSDocComment(tag.comment);
               objEnsure(docs, tagName, []).push(
-                tagName == 'example' ? comment : marked(comment ?? ''),
+                tagName == 'example' || tagName == 'icon'
+                  ? comment
+                  : marked(comment ?? ''),
               );
             }
           });
@@ -80,54 +83,61 @@ const extract = async (file: string, allDocs: {[variable: string]: any}) => {
   visit(sourceFile);
 };
 
-const allDocs: any = {};
-await Promise.all(
-  [...new Glob('../dist/src/**/*.*').scanSync()].map(async (file) => {
-    await extract(file, allDocs);
-  }),
-);
-
-// ---
-
-marked.use({
-  extensions: [
-    {
-      name: 'code',
-      renderer: (token) => {
-        return `<Code code={\`${token.text.replaceAll(/`/g, '\\`')}\`} />`;
-      },
-    },
-  ],
-});
-
-const componentFile: string[] = [
-  `import React from 'react';`,
-  `import {Routes} from '..';`,
-  `import {Code} from 'tinywidgets';`,
-  `import {Component} from './Component';`,
-  `import * as Lucide from 'lucide-react';`,
-  `export const COMPONENT_ROUTES: Routes = {};`,
-];
-
-Object.entries(allDocs.components).forEach(([name, docs]: [string, any]) => {
-  componentFile.push(
-    ``,
-    `import {${name}} from 'tinywidgets';`,
-    `COMPONENT_ROUTES['components/${name}'] = ['${name}', () => (<Component `,
-    `  title='${name}'`,
-    `  comments={<>${docs.comments?.map(marked)}</>}`,
-    `  props={{`,
-    ...Object.entries(docs.props).map(
-      ([prop, comments]) => `${prop}:<>${comments as any}</>,`,
-    ),
-    `}}`,
-    `  examples={[`,
-    ...(docs.example ?? [])?.map((example: string) => {
-      return `[<>${marked(example)}</>,${example.match(TSX)?.[1]}],`;
+const extractAll = async () => {
+  const allDocs: any = {};
+  await Promise.all(
+    [...new Glob('../dist/src/**/*.*').scanSync()].map(async (file) => {
+      await extract(file, allDocs);
     }),
-    `  ]}`,
-    `/>)];`,
   );
-});
 
-Bun.write(`src/routes/components/index.tsx`, componentFile.join('\n'));
+  marked.use({
+    extensions: [
+      {
+        name: 'code',
+        renderer: (token) => {
+          return `<Code code={\`${token.text.replaceAll(/`/g, '\\`')}\`} />`;
+        },
+      },
+    ],
+  });
+
+  const componentFile: string[] = [
+    `import React from 'react';`,
+    `import {Routes} from '..';`,
+    `import {Component} from './Component';`,
+    `import * as Lucide from 'lucide-react';`,
+    `export const COMPONENT_ROUTES: Routes = {};`,
+  ];
+
+  Object.entries(allDocs.components).forEach(([name, docs]: [string, any]) => {
+    componentFile.push(
+      ``,
+      `import {${name}} from 'tinywidgets';`,
+      `COMPONENT_ROUTES['components/${name}'] = ['${name}', () => (<Component `,
+      `  title='${name}'`,
+      `  comments={<>${docs.comments?.map(marked)}</>}`,
+      `  icon={${docs.icon?.[0]}}`,
+      `  props={{`,
+      ...Object.entries(docs.props || {}).map(
+        ([prop, comments]) => `${prop}:<>${comments as any}</>,`,
+      ),
+      `}}`,
+      `  examples={[`,
+      ...(docs.example ?? [])?.map((example: string) => {
+        return `[<>${marked(example)}</>,${example.match(TSX)?.[1]}],`;
+      }),
+      `  ]}`,
+      `/>), ${docs.icon?.[0]}];`,
+    );
+  });
+
+  Bun.write(`src/routes/components/index.tsx`, componentFile.join('\n'));
+};
+
+if (process.argv[2] == '--watch') {
+  console.log('Watching');
+  watch('../dist/src', {recursive: true}, extractAll);
+} else {
+  extractAll();
+}

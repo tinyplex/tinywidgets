@@ -12,7 +12,7 @@ export const tag = style({
   flexShrink: 0,
 });
 
-export const tagVariant = styleVariants({
+export const tagVariants = styleVariants({
   default: {
     backgroundColor: colors.backgroundHover,
     color: colors.foreground2,

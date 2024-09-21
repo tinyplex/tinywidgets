@@ -4,6 +4,7 @@ import {colors} from '../common/colors.css';
 import {dimensions} from '../common/dimensions.css';
 
 export const pre = style({
+  width: '100%',
   padding: dimensions.padding,
   borderRadius: dimensions.radius,
   boxShadow: colors.shadow,

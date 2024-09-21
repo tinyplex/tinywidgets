@@ -5,7 +5,7 @@ import {row, rowVariants} from './index.css';
 
 /**
  * The Row component displays a row of 'cell' components, with a number of
- * common variants representing the relative 'cell' sizes within it.
+ * common variants representing the relative sizes of those cells within it.
  *
  * @param props The props for the component.
  * @returns The Row component.
@@ -68,6 +68,7 @@ import {row, rowVariants} from './index.css';
  * </Row>
  * ```
  * This example shows the `1|1|1|1` variant of the Row component.
+ * @icon Lucide.Columns3
  */
 export const Row = ({
   variant = '1|1',
@@ -77,21 +78,21 @@ export const Row = ({
   /**
    * A variant of the row, representing the relative 'cell' sizes within it, one
    * of:
-   * - 1|1
-   * - 1|2
-   * - 2|1
-   * - 1|1|1
-   * - 1|3
-   * - 3|1
-   * - 1|1|1|1
+   * - `1|1`
+   * - `1|2`
+   * - `2|1`
+   * - `1|1|1`
+   * - `1|3`
+   * - `3|1`
+   * - `1|1|1|1`
    */
   variant?: keyof typeof rowVariants;
   /**
-   * An extra CSS class name for the row.
+   * An extra CSS class name for the component.
    */
   className?: string;
   /**
-   * The children of the row, each occupying one 'cell'
+   * The children of the component, each occupying one 'cell'.
    */
   children: ReactNode;
 }) => {

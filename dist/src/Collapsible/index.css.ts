@@ -3,6 +3,8 @@ import {colors} from '../common/colors.css';
 import {dimensions} from '../common/dimensions.css';
 
 export const collapsible = style({
+  width: '100%',
+  alignSelf: 'start',
   borderRadius: dimensions.radius,
   boxShadow: colors.shadow,
   border: colors.border,

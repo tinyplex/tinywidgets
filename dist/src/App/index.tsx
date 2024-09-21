@@ -48,8 +48,9 @@ const darkIcons = [Sun, Moon, SunMoon];
  * ```tsx
  * <App />
  * ```
- * This shows an empty App, but if you visit tinywidgets.org you'll see one in
- * its full glory!
+ * This shows an empty App, but if you visit [the TinyWidgets
+ * website](https://tinywidgets.org) you'll see one in its full glory!
+ * @icon Lucide.PanelsTopLeft
  */
 export const App = (props: {
   /**
@@ -77,6 +78,10 @@ export const App = (props: {
    * the application.
    */
   main?: ComponentType | ReactNode;
+  /**
+   * An extra CSS class name for the component.
+   */
+  className?: string;
 }) => {
   return (
     <Provider>
@@ -94,6 +99,7 @@ const Layout = ({
   topNavRight: topNavRightComponentOrNode,
   sideNav: sideNavComponentOrNode,
   main: mainComponentOrNode,
+  className,
 }: Parameters<typeof App>[0]) => {
   const darkPreference = useDarkPreference();
 
@@ -120,6 +126,7 @@ const Layout = ({
         hasLayout && appLayout,
         dark ? colorsDark : colorsLight,
         dark ? codeDark : codeLight,
+        className,
       )}
     >
       {hasLayout ? (
