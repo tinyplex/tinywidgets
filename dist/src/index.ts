@@ -1,13 +1,13 @@
 import './common/global.css.ts';
 
-export {App} from './App/index.tsx';
-export {Button} from './Button/index.tsx';
-export {Card} from './Card/index.tsx';
-export {Code} from './Code/index.tsx';
-export {Collapsible} from './Collapsible/index.tsx';
-export {Detail} from './Detail/index.tsx';
-export {Hr} from './Hr/index.tsx';
-export {Image} from './Image/index.tsx';
-export {Metric} from './Metric/index.tsx';
-export {Row} from './Row/index.tsx';
-export {Tag} from './Tag/index.tsx';
+export {App} from './components/App/index.tsx';
+export {Button} from './components/Button/index.tsx';
+export {Card} from './components/Card/index.tsx';
+export {Code} from './components/Code/index.tsx';
+export {Collapsible} from './components/Collapsible/index.tsx';
+export {Detail} from './components/Detail/index.tsx';
+export {Hr} from './components/Hr/index.tsx';
+export {Image} from './components/Image/index.tsx';
+export {Metric} from './components/Metric/index.tsx';
+export {Row} from './components/Row/index.tsx';
+export {Tag} from './components/Tag/index.tsx';

@@ -1,5 +1,6 @@
 import React from 'react';
 import {Collapsible, Hr} from 'tinywidgets';
+import {useRoute} from 'tinywidgets/utils';
 import {COMPONENT_ROUTES} from './routes/components';
 import {RouteButton} from './routes/RouteLink';
 
@@ -14,22 +15,32 @@ export const NAVIGATION: Navigation = [
   ['Components', Object.keys(COMPONENT_ROUTES).sort()],
 ];
 
-export const SideNav = () =>
-  NAVIGATION.map((routeOrRoutes, key) => {
+export const SideNav = () => {
+  const currentRoute = useRoute();
+  return NAVIGATION.map((routeOrRoutes, key) => {
     if (routeOrRoutes instanceof Array) {
       const [label, routes] = routeOrRoutes;
       return (
         <Collapsible title={label} startOpen key={key}>
           {routes.map((route, key) => (
-            <RouteButton route={route} key={key} />
+            <RouteButton
+              route={route}
+              current={currentRoute === route}
+              key={key}
+            />
           ))}
         </Collapsible>
       );
     } else {
       return routeOrRoutes ? (
-        <RouteButton route={routeOrRoutes} key={key} />
+        <RouteButton
+          route={routeOrRoutes}
+          current={currentRoute === routeOrRoutes}
+          key={key}
+        />
       ) : (
         <Hr key={key} />
       );
     }
   });
+};

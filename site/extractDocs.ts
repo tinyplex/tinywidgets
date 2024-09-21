@@ -22,6 +22,8 @@ const extract = async (file: string, allDocs: {[variable: string]: any}) => {
   );
 
   const visit = (node: ts.Node) => {
+    let type;
+
     if (isVariableDeclaration(node)) {
       const commentsAndTags = ts.getJSDocCommentsAndTags(node);
       if (commentsAndTags.length > 0) {
