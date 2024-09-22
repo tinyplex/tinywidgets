@@ -1,8 +1,8 @@
 import {style} from '@vanilla-extract/css';
-import {colors} from '../../common/colors.css.ts';
-import {dimensions, dimensionsClass} from '../../common/dimensions.css.ts';
-import {layout, layoutClass} from '../../common/layout.css.ts';
-import {large} from '../../common/utils.tsx';
+import {colors} from '../../css/colors.css.ts';
+import {dimensions, dimensionsClass} from '../../css/dimensions.css.ts';
+import {layout, layoutClass} from '../../css/layout.css.ts';
+import {large} from '../../css/queries.ts';
 
 export const app = style([
   dimensionsClass,

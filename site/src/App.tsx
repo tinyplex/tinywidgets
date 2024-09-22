@@ -1,19 +1,19 @@
 import React from 'react';
-import {App as AppBase, Button, Card, Image} from 'tinywidgets';
-import {useRoute} from 'tinywidgets/utils';
+import {App as AppBase, Button, Image, useRoute} from 'tinywidgets';
 import {SiGithub} from '@icons-pack/react-simple-icons';
 import {article} from './App.css.ts';
-import {Home} from './routes/Home.tsx';
-import {ROUTES} from './routes/index.ts';
+import {titleStyle} from './index.css.ts';
+import {Home} from './pages/Home.tsx';
+import {ROUTES} from './pages/index.ts';
 import {SideNav} from './SideNav';
 
 export const App = () => (
   <AppBase
     title={
-      <>
+      <h1 className={titleStyle}>
         <Image src="/favicon.svg" variant="logo" alt="TinyWidgets" />
-        <h1>TinyWidgets</h1>
-      </>
+        TinyWidgets
+      </h1>
     }
     topNavRight={
       <Button
@@ -28,10 +28,10 @@ export const App = () => (
 );
 
 const Main = () => {
-  const Route = ROUTES[useRoute()]?.[1] ?? Home;
+  const Component = ROUTES[useRoute()]?.[1] ?? Home;
   return (
-    <Card className={article}>
-      <Route />
-    </Card>
+    <article className={article}>
+      <Component />
+    </article>
   );
 };

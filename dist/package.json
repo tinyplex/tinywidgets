@@ -19,7 +19,6 @@
   },
   "exports": {
     ".": "./src/index.ts",
-    "./utils": "./src/utils.ts",
     "./css": "./src/index.css.ts"
   },
   "description": "reserved",

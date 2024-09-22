@@ -1,6 +1,6 @@
 import {style, styleVariants} from '@vanilla-extract/css';
-import {colors} from '../../common/colors.css';
-import {dimensions} from '../../common/dimensions.css';
+import {colors} from '../../css/colors.css';
+import {dimensions} from '../../css/dimensions.css';
 
 export const button = style({
   display: 'inline-flex',
@@ -23,6 +23,7 @@ export const button = style({
   selectors: {
     '&:hover': {
       backgroundColor: colors.backgroundHover,
+      color: colors.foregroundBright,
     },
   },
 });
@@ -37,7 +38,6 @@ export const buttonVariants = styleVariants({
     boxShadow: colors.shadow,
     backgroundColor: colors.accent,
     color: colors.accentContrast,
-
     selectors: {
       '&:hover': {
         backgroundColor: colors.accentHover,
@@ -49,8 +49,9 @@ export const buttonVariants = styleVariants({
   icon: {padding: '0.25rem'},
 });
 
-export const highlight = style({
+export const currentStyle = style({
   backgroundColor: colors.backgroundHover,
+  color: colors.foregroundBright,
 });
 
 export const titleStyle = style({

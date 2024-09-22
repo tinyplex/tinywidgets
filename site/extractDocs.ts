@@ -22,25 +22,26 @@ const extract = async (file: string, allDocs: {[variable: string]: any}) => {
   );
 
   const visit = (node: ts.Node) => {
-    let type;
-
     if (isVariableDeclaration(node)) {
       const commentsAndTags = ts.getJSDocCommentsAndTags(node);
       if (commentsAndTags.length > 0) {
         const name = node.name.getText();
-        const docs = objEnsure(objEnsure(allDocs, 'components', {}), name, {});
+        const docs = objEnsure(allDocs, name, {
+          type: file.includes('/components/') ? 'component' : 'hook',
+          comments: [],
+          example: [],
+          icon: [],
+          params: {},
+          props: {},
+        });
 
         commentsAndTags.forEach((commentOrTag) => {
-          objEnsure(docs, 'comments', []).push(
-            ts.getTextOfJSDocComment(commentOrTag.comment),
-          );
+          docs.comments.push(ts.getTextOfJSDocComment(commentOrTag.comment));
           ts.getJSDocTags(node).forEach((tag) => {
             if (ts.isJSDocParameterTag(tag)) {
-              objEnsure(
-                objEnsure(docs, 'params', {}),
-                tag.name.getText(),
-                [],
-              ).push(ts.getTextOfJSDocComment(tag.comment));
+              objEnsure(docs.params, tag.name.getText(), []).push(
+                ts.getTextOfJSDocComment(tag.comment),
+              );
             } else {
               const tagName = tag.tagName.getText();
               const comment = ts.getTextOfJSDocComment(tag.comment);
@@ -55,11 +56,7 @@ const extract = async (file: string, allDocs: {[variable: string]: any}) => {
           const visitProps = (node: ts.Node) => {
             if (ts.isPropertySignature(node)) {
               const propName = node.name.getText();
-              const propDocs = objEnsure(
-                objEnsure(docs, 'props', {}),
-                propName,
-                [],
-              );
+              const propDocs = objEnsure(docs.props, propName, []);
               const commentsAndTags = ts.getJSDocCommentsAndTags(node);
               if (commentsAndTags.length > 0) {
                 commentsAndTags.forEach((commentOrTag) => {
@@ -104,7 +101,7 @@ const extractAll = async () => {
     ],
   });
 
-  const componentFile: string[] = [
+  const apiFile: string[] = [
     `import React from 'react';`,
     `import {Routes} from '..';`,
     `import {Component} from './Component';`,
@@ -112,32 +109,36 @@ const extractAll = async () => {
     `export const COMPONENT_ROUTES: Routes = {};`,
   ];
 
-  Object.entries(allDocs.components).forEach(([name, docs]: [string, any]) => {
-    componentFile.push(
-      ``,
-      `import {${name}} from 'tinywidgets';`,
-      `COMPONENT_ROUTES['components/${name}'] = ['${name}', () => (<Component `,
-      `  title='${name}'`,
-      `  comments={<>${docs.comments?.map(marked)}</>}`,
-      `  icon={${docs.icon?.[0]}}`,
-      `  props={{`,
-      ...Object.entries(docs.props || {}).map(
-        ([prop, comments]) => `${prop}:<>${comments as any}</>,`,
-      ),
-      `}}`,
-      `  examples={[`,
-      ...(docs.example ?? [])?.map((example: string) => {
-        return `[<>${marked(example)}</>,${example.match(TSX)?.[1]}],`;
-      }),
-      `  ]}`,
-      `/>), ${docs.icon?.[0]}];`,
-    );
+  Object.entries(allDocs).forEach(([name, docs]: [string, any]) => {
+    if (docs.type == 'component') {
+      apiFile.push(
+        ``,
+        `import {${name}} from 'tinywidgets';`,
+        `COMPONENT_ROUTES['components/${name}'] = ['${name}', () => (<Component `,
+        `  title='${name}'`,
+        `  comments={<>${docs.comments.map(marked)}</>}`,
+        `  icon={${docs.icon[0]}}`,
+        `  props={{`,
+        ...Object.entries(docs.props || {}).map(
+          ([prop, comments]) => `${prop}:<>${comments as any}</>,`,
+        ),
+        `}}`,
+        `  examples={[`,
+        ...docs.example?.map((example: string) => {
+          return `[<>${marked(example)}</>,${example.match(TSX)?.[1]}],`;
+        }),
+        `  ]}`,
+        `/>), ${docs.icon[0]}];`,
+      );
+    }
   });
 
-  Bun.write(`src/routes/components/index.tsx`, componentFile.join('\n'));
+  console.log(process.argv);
+  Bun.write(`src/pages/api.tsx`, apiFile.join('\n'));
 };
 
 if (process.argv[2] == '--watch') {
+  extractAll();
   console.log('Watching');
   watch('../dist/src', {recursive: true}, extractAll);
 } else {

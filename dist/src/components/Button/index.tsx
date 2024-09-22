@@ -1,11 +1,11 @@
 import type {ComponentType, ReactNode, Ref} from 'react';
 import React, {forwardRef, useCallback} from 'react';
-import {iconSize} from '../../common/dimensions.css.ts';
-import {classNames, renderComponentOrNode} from '../../common/utils.tsx';
+import {iconSize} from '../../css/dimensions.css.ts';
+import {classNames, renderComponentOrNode} from '../../css/render.tsx';
 import {
   button,
   buttonVariants,
-  highlight,
+  currentStyle,
   titleStyle,
   titleStyleRight,
 } from './index.css.ts';
@@ -181,7 +181,7 @@ export const Button = forwardRef(
         className={classNames(
           button,
           buttonVariants[variant],
-          current && highlight,
+          current && currentStyle,
           className,
         )}
         onClick={onClick ?? hrefClick}

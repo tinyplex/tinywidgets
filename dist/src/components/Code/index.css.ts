@@ -1,7 +1,7 @@
 import {globalStyle, style} from '@vanilla-extract/css';
-import {code} from '../../common/code.css';
-import {colors} from '../../common/colors.css';
-import {dimensions} from '../../common/dimensions.css';
+import {code} from '../../css/code.css';
+import {colors} from '../../css/colors.css';
+import {dimensions} from '../../css/dimensions.css';
 
 export const pre = style({
   width: '100%',

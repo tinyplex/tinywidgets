@@ -1,8 +1,7 @@
 import React from 'react';
-import {Collapsible, Hr} from 'tinywidgets';
-import {useRoute} from 'tinywidgets/utils';
-import {COMPONENT_ROUTES} from './routes/components';
-import {RouteButton} from './routes/RouteLink';
+import {Collapsible, Hr, useRoute} from 'tinywidgets';
+import {COMPONENT_ROUTES} from './pages/components';
+import {RouteButton} from './pages/RouteLink';
 
 type Navigation = readonly (
   | string
@@ -16,7 +15,7 @@ export const NAVIGATION: Navigation = [
 ];
 
 export const SideNav = () => {
-  const currentRoute = useRoute();
+  const currentRoute = useRoute() || 'home';
   return NAVIGATION.map((routeOrRoutes, key) => {
     if (routeOrRoutes instanceof Array) {
       const [label, routes] = routeOrRoutes;

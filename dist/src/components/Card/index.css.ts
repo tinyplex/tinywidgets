@@ -1,6 +1,6 @@
 import {style} from '@vanilla-extract/css';
-import {colors} from '../../common/colors.css';
-import {dimensions} from '../../common/dimensions.css';
+import {colors} from '../../css/colors.css';
+import {dimensions} from '../../css/dimensions.css';
 
 export const card = style({
   padding: dimensions.padding,

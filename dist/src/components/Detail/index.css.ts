@@ -1,5 +1,5 @@
 import {style} from '@vanilla-extract/css';
-import {colors} from '../../common/colors.css';
+import {colors} from '../../css/colors.css';
 
 export const detailTable = style({
   width: '100%',

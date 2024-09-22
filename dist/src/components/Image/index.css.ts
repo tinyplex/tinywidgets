@@ -1,12 +1,11 @@
 import {style, styleVariants} from '@vanilla-extract/css';
-import {colors} from '../../common/colors.css';
-import {dimensions} from '../../common/dimensions.css';
+import {colors} from '../../css/colors.css';
+import {dimensions} from '../../css/dimensions.css';
 
 export const image = style({
   display: 'inline-block',
-  boxShadow: colors.shadow,
-  border: colors.border,
   flexShrink: 0,
+  maxHeight: 'inherit',
   selectors: {
     '&:hover': {
       backgroundColor: colors.backgroundHover,
@@ -17,6 +16,7 @@ export const image = style({
 export const imageVariants = styleVariants({
   default: {
     borderRadius: dimensions.radius,
+    boxShadow: colors.shadow,
   },
   logo: {
     width: dimensions.logo,
@@ -24,10 +24,13 @@ export const imageVariants = styleVariants({
   },
   avatar: {
     borderRadius: '50%',
+    border: colors.border,
     width: dimensions.avatar,
     height: dimensions.avatar,
+    boxShadow: colors.shadow,
   },
   icon: {
+    border: colors.border,
     width: dimensions.icon,
     height: dimensions.icon,
   },

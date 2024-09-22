@@ -1,6 +1,6 @@
 import {style} from '@vanilla-extract/css';
-import {colors} from '../../common/colors.css';
-import {dimensions} from '../../common/dimensions.css';
+import {colors} from '../../css/colors.css';
+import {dimensions} from '../../css/dimensions.css';
 
 export const collapsible = style({
   width: '100%',
@@ -26,6 +26,7 @@ export const collapsibleOpen = style({
 
 export const button = style({
   margin: '-1px',
+  boxShadow: 'none',
 });
 
 export const buttonOpen = style({

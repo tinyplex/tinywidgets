@@ -4,7 +4,7 @@ import 'prismjs/components/prism-typescript';
 import 'prismjs/components/prism-tsx';
 import React from 'react';
 import Prism from 'prismjs';
-import {classNames} from '../../utils';
+import {classNames} from '../../css/render.tsx';
 import {pre} from './index.css';
 
 const {highlight, languages} = Prism;
@@ -14,27 +14,10 @@ const {highlight, languages} = Prism;
  * to parse its syntax. The coloring is based on the prism-one-dark and
  * prism-one-light themes.
  *
- * This component supports the default PrismJS languages:
- *
- * - `markup`
- * - `html`
- * - `xml`
- * - `svg`
- * - `mathml`
- * - `ssml`
- * - `atom`
- * - `rss`
- * - `css`
- * - `clike`
- * - `javascript`, `js`
- *
- * It also supports the following additional languages:
- *
- * - `jsx`
- * - `typescript`, `ts`
- * - `tsx`
- *
- * Others can be added if there is demand! Please open an issue on the GitHub.
+ * This component supports the default PrismJS languages (`markup`, `html`
+ * , `xml`, `svg`, `mathml`, `ssml`, `atom`, `rss`, `css`, `clike`, `javascript`
+ * , `js`), and specific additional languages (`jsx`, `typescript`, `ts`, `tsx`).
+ * Others can be added if there is demand! Please open an issue on GitHub.
  *
  * @param props The props for the component.
  * @returns The Code component.

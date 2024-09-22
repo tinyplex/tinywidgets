@@ -1,3 +1,3 @@
-export {colors} from './common/colors.css.ts';
-export {code} from './common/code.css.ts';
-export {dimensions} from './common/dimensions.css.ts';
+export {colors} from './css/colors.css.ts';
+export {code} from './css/code.css.ts';
+export {dimensions} from './css/dimensions.css.ts';

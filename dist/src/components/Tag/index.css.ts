@@ -1,5 +1,5 @@
 import {style, styleVariants} from '@vanilla-extract/css';
-import {colors} from '../../common/colors.css';
+import {colors} from '../../css/colors.css';
 
 export const tag = style({
   display: 'flex',
@@ -15,11 +15,12 @@ export const tag = style({
 export const tagVariants = styleVariants({
   default: {
     backgroundColor: colors.backgroundHover,
-    color: colors.foreground2,
+    color: colors.foregroundDim,
   },
   accent: {
     backgroundColor: colors.accent,
     color: colors.accentContrast,
+    boxShadow: colors.shadow,
   },
 });
 

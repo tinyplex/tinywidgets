@@ -8,7 +8,8 @@ globalStyle('pre', {
 });
 
 export const titleStyle = style({
-  display: 'flex',
+  display: 'inline-flex',
   alignItems: 'center',
   gap: '0.5rem',
+  color: colors.foregroundBright,
 });

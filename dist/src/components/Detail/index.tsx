@@ -1,6 +1,6 @@
 import type {ReactNode} from 'react';
 import React from 'react';
-import {classNames} from '../../common/utils';
+import {classNames} from '../../css/render';
 import {detailCell, detailRow, detailTable} from './index.css';
 
 /**

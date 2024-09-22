@@ -18,7 +18,10 @@ export const Component = ({
 }) => {
   return (
     <>
-      <h1 className={titleStyle}>{title}</h1>
+      <h1 className={titleStyle}>
+        <Icon />
+        {title}
+      </h1>
       <Code code={`import {${title}} from 'tinywidgets';`} />
       {comments}
       <Hr />
