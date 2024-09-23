@@ -19,9 +19,9 @@ export const SideNav = () => {
   const currentRoute = useRoute() || 'home';
   return NAVIGATION.map((routeOrRoutes, key) => {
     if (routeOrRoutes instanceof Array) {
-      const [label, routes] = routeOrRoutes;
+      const [title, routes] = routeOrRoutes;
       return (
-        <Collapsible title={label} startOpen key={key}>
+        <Collapsible title={title} id={title} startOpen key={key}>
           {routes.map((route, key) => (
             <RouteButton
               route={route}

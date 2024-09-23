@@ -9,11 +9,13 @@ import {
   LocalStore,
   useDark,
   useDarkChoice,
+  useLocalStoreIsReady,
   useToggleDarkChoiceCallback,
 } from '../../stores/LocalStore.tsx';
-import {RouteStore} from '../../stores/RouteStore.tsx';
+import {RouteStore, useRouteStoreIsReady} from '../../stores/RouteStore.tsx';
 import {
   SessionStore,
+  useSessionStoreIsReady,
   useSideNavIsOpen,
   useToggleSideNavIsOpenCallback,
 } from '../../stores/SessionStore.tsx';
@@ -102,6 +104,10 @@ const Layout = ({
   main: mainComponentOrNode,
   className,
 }: Parameters<typeof App>[0]) => {
+  const sessionStoreIsReady = useSessionStoreIsReady();
+  const routeStoreIsReady = useRouteStoreIsReady();
+  const localStoreIsReady = useLocalStoreIsReady();
+
   const toggleDarkChoice = useToggleDarkChoiceCallback();
 
   const toggleSideNavIsOpen = useToggleSideNavIsOpenCallback();
@@ -119,7 +125,7 @@ const Layout = ({
   ].some((componentOrNode) => componentOrNode);
   const hasSideNav = sideNavComponentOrNode != null;
 
-  return (
+  return sessionStoreIsReady && routeStoreIsReady && localStoreIsReady ? (
     <div
       className={classNames(
         app,
@@ -167,5 +173,5 @@ const Layout = ({
         </>
       ) : null}
     </div>
-  );
+  ) : null;
 };

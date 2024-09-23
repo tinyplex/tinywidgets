@@ -28,7 +28,9 @@ export const App = () => (
 );
 
 const Main = () => {
-  const Component = ROUTES[useRoute()]?.[1] ?? Home;
+  const route = useRoute();
+
+  const Component = ROUTES[route]?.[1] ?? Home;
   return (
     <article className={article}>
       <Component />

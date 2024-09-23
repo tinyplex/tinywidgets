@@ -93,7 +93,7 @@ export const Home = () => {
         </p>
         <p>
           Of course, this site is itself a demo of TinyWidgets, showing off the
-          components and layout in action! But check out the individual
+          components and layout in action. But check out the individual
           components by navigating the API documentation in this demo site.
         </p>
       </div>

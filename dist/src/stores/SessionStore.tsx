@@ -1,6 +1,25 @@
-import {createStore, type Id} from 'tinybase';
-import {createSessionPersister} from 'tinybase/persisters/persister-browser';
-import {
+import {createSessionPersister} from 'tinybase/persisters/persister-browser/with-schemas';
+import * as UiReact from 'tinybase/ui-react/with-schemas';
+import {createStore} from 'tinybase/with-schemas';
+import {READY, READY_SCHEMA} from './common';
+
+const SESSION_STORE = 'tinywidgets/Session';
+const COLLAPSIBLE = 'collapsible';
+const IS_OPEN = 'isOpen';
+const SIDE_NAV_IS_OPEN = 'sideNavIsOpen';
+
+const TABLES_SCHEMA = {
+  [COLLAPSIBLE]: {
+    [IS_OPEN]: {type: 'boolean', default: false},
+  },
+} as const;
+const VALUES_SCHEMA = {
+  ...READY_SCHEMA,
+  [SIDE_NAV_IS_OPEN]: {type: 'boolean', default: false},
+} as const;
+type Schemas = [typeof TABLES_SCHEMA, typeof VALUES_SCHEMA];
+
+const {
   useCell,
   useCreatePersister,
   useCreateStore,
@@ -8,46 +27,39 @@ import {
   useSetCellCallback,
   useSetValueCallback,
   useValue,
-} from 'tinybase/ui-react';
+} = UiReact as UiReact.WithSchemas<Schemas>;
 
-const SESSION_STORE = 'tinywidgets/Session';
+export const useCollapsibleIsOpen = (collapsibleId: string) =>
+  useCell(COLLAPSIBLE, collapsibleId, IS_OPEN, SESSION_STORE) as any;
 
-const COLLAPSIBLE_TABLE = 'collapsible';
-const COLLAPSIBLE_IS_OPEN_CELL = 'isOpen';
-
-const SIDE_NAV_IS_OPEN_VALUE = 'sideNavIsOpen';
-
-export const useCollapsibleIsOpen = (collapsibleId: Id) =>
-  useCell(
-    COLLAPSIBLE_TABLE,
-    collapsibleId,
-    COLLAPSIBLE_IS_OPEN_CELL,
-    SESSION_STORE,
-  ) as any;
-
-export const useSetCollapsibleIsOpenCallback = (collapsibleId: Id) =>
+export const useSetCollapsibleIsOpenCallback = (collapsibleId: string) =>
   useSetCellCallback(
-    COLLAPSIBLE_TABLE,
+    COLLAPSIBLE,
     collapsibleId,
-    COLLAPSIBLE_IS_OPEN_CELL,
+    IS_OPEN,
     (open: boolean) => open,
     [collapsibleId],
     SESSION_STORE,
   );
 
 export const useSideNavIsOpen = () =>
-  useValue(SIDE_NAV_IS_OPEN_VALUE, SESSION_STORE) as any;
+  useValue(SIDE_NAV_IS_OPEN, SESSION_STORE) as any;
 
 export const useToggleSideNavIsOpenCallback = () =>
   useSetValueCallback(
-    SIDE_NAV_IS_OPEN_VALUE,
+    SIDE_NAV_IS_OPEN,
     () => (value) => !value,
     [],
     SESSION_STORE,
   );
 
+export const useSessionStoreIsReady = () =>
+  useValue(READY, SESSION_STORE) as boolean;
+
 export const SessionStore = () => {
-  const sessionStore = useCreateStore(createStore);
+  const sessionStore = useCreateStore(() =>
+    createStore().setSchema(TABLES_SCHEMA, VALUES_SCHEMA),
+  );
   useCreatePersister(
     sessionStore,
     (sessionStore) => createSessionPersister(sessionStore, SESSION_STORE),
@@ -55,6 +67,7 @@ export const SessionStore = () => {
     async (persister) => {
       await persister.startAutoLoad();
       await persister.startAutoSave();
+      persister.getStore().setValue(READY, true);
     },
   );
   useProvideStore(SESSION_STORE, sessionStore);

@@ -111,7 +111,7 @@ export const Collapsible = ({
     setIsOpen(!isOpen);
     clearTimeout(timer.current);
     timer.current = setTimeout(() => setRender(!isOpen), isOpen ? 200 : 0);
-  }, [id, isOpen]);
+  }, [setIsOpen, isOpen]);
 
   return (
     <div className={classNames(collapsible, isOpen && collapsibleOpen)}>

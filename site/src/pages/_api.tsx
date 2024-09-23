@@ -58,146 +58,100 @@ className:<><p>An extra CSS class name for the component.</p>
 />);
 }, Lucide.RectangleEllipsis];
 
-import {Collapsible} from 'tinywidgets';
-COMPONENT_ROUTES['components/Collapsible'] = ['Collapsible', () => {
+import {Hr} from 'tinywidgets';
+COMPONENT_ROUTES['components/Hr'] = ['Hr', () => {
 return (<Api 
-  title='Collapsible'
-  comments={<><p>The Collapsible component displays a titled box that can be expanded or
-collapsed. If the <code>id</code> prop is provided, its state is preserved between page
-reloads.</p>
+  title='Hr'
+  comments={<><p>The Hr component displays a styled horizontal rule.</p>
 </>}
-  icon={Lucide.PanelTopOpen}
+  icon={Lucide.Minus}
   params={{
 props:<>The props for the component.</>,
 }}
   props={{
-icon:<><p>An optional component which renders an icon for the top of the collapsible
-component, and which must accept a className prop.</p>
+className:<><p>An extra CSS class name for the component.</p>
+</>,
+}}
+  examples={[
+[<><Code code={`<Hr />`} /><p>This example shows the basic Hr component.</p>
+</>,<Hr />],
+  ]}
+/>);
+}, Lucide.Minus];
+
+import {Metric} from 'tinywidgets';
+COMPONENT_ROUTES['components/Metric'] = ['Metric', () => {
+return (<Api 
+  title='Metric'
+  comments={<><p>The Metric component displays a metric as a prominent numerical value with a
+label above.</p>
+</>}
+  icon={Lucide.SquareSigma}
+  params={{
+props:<>The props for the component.</>,
+}}
+  props={{
+icon:<><p>An optional component which renders an icon for the metric panel, and which
+must accept a className prop.</p>
 </>,
 title:<><p>An optional component, element, or string which renders the title of
-the top of the component.</p>
+the metric panel.</p>
 </>,
-titleRight:<><p>An optional component, element, or string which renders a second title
-on the right side of the top of the component.</p>
-</>,
-startOpen:<><p>Whether the section should start opened up.</p>
-</>,
-id:<><p>An Id which will allow the state to be preserved between page reloads.</p>
+number:<><p>An optional component, element, or string which renders the number of
+the metric panel.</p>
 </>,
 className:<><p>An extra CSS class name for the component.</p>
 </>,
-children:<><p>The children of the component, that go inside the collapsible section.</p>
-</>,
 }}
   examples={[
-[<><Code code={`<Collapsible
-  title="TinyWidgets"
->
- <p>Peekaboo!</p>
-</Collapsible>`} /><p>This example shows the basic Collapsible component.</p>
-</>,<Collapsible
-  title="TinyWidgets"
->
- <p>Peekaboo!</p>
-</Collapsible>],
-[<><Code code={`<Collapsible
-  title="TinyWidgets"
-  icon={Lucide.Grid3x3}
-  startOpen={true}
->
- <p>Already open</p>
-</Collapsible>`} /><p>This example shows a Collapsible component with an icon and which starts
-open.</p>
-</>,<Collapsible
-  title="TinyWidgets"
-  icon={Lucide.Grid3x3}
-  startOpen={true}
->
- <p>Already open</p>
-</Collapsible>],
-[<><Code code={`<Collapsible
-  title="TinyWidgets"
-  id="example"
->
- <p>Reload the window</p>
-</Collapsible>`} /><p>This example shows a Collapsible component where its state is preserved
-between page reloads.</p>
-</>,<Collapsible
-  title="TinyWidgets"
-  id="example"
->
- <p>Reload the window</p>
-</Collapsible>],
+[<><Code code={`<Metric
+  icon={Lucide.ChartLine}
+  title="Number"
+  number="57"
+/>`} /><p>This example shows the basic usage of the Metric component.</p>
+</>,<Metric
+  icon={Lucide.ChartLine}
+  title="Number"
+  number="57"
+/>],
   ]}
 />);
-}, Lucide.PanelTopOpen];
+}, Lucide.SquareSigma];
 
-import {Image} from 'tinywidgets';
-COMPONENT_ROUTES['components/Image'] = ['Image', () => {
+import {Detail} from 'tinywidgets';
+COMPONENT_ROUTES['components/Detail'] = ['Detail', () => {
 return (<Api 
-  title='Image'
-  comments={<><p>The Image component displays an image, with a number of common variants.</p>
+  title='Detail'
+  comments={<><p>The Detail component displays a set of key-value pairs in a two-column table.</p>
 </>}
-  icon={Lucide.Image}
+  icon={Lucide.Table}
   params={{
 props:<>The props for the component.</>,
 }}
   props={{
-src:<><p>The source of the image.</p>
-</>,
-onClick:<><p>A handler called when the user clicks on the image.</p>
-</>,
-variant:<><p>A variant of the image, one of:</p>
-<ul>
-<li><code>default</code></li>
-<li><code>logo</code></li>
-<li><code>avatar</code></li>
-<li><code>icon</code></li>
-</ul>
-</>,
-alt:<><p>Alternative text shown when the user hovers over the image.</p>
+data:<><p>The data to display in the detail table. The values can be any React node.</p>
 </>,
 className:<><p>An extra CSS class name for the component.</p>
 </>,
 }}
   examples={[
-[<><Code code={`<Image
-  src="/favicon.svg"
-  onClick={() => alert('Clicked!')}
-  alt="TinyWidgets"
-/>`} /><p>This example shows the <code>default</code> variant of the Image component.</p>
-</>,<Image
-  src="/favicon.svg"
-  onClick={() => alert('Clicked!')}
-  alt="TinyWidgets"
-/>],
-[<><Code code={`<Image
-  src="/favicon.svg"
-  variant="logo"
-/>`} /><p>This example shows the <code>logo</code> variant of the Image component.</p>
-</>,<Image
-  src="/favicon.svg"
-  variant="logo"
-/>],
-[<><Code code={`<Image
-  src="/favicon.svg"
-  variant="avatar"
-/>`} /><p>This example shows the <code>avatar</code> variant of the Image component.</p>
-</>,<Image
-  src="/favicon.svg"
-  variant="avatar"
-/>],
-[<><Code code={`<Image
-  src="/favicon.svg"
-  variant="icon"
-/>`} /><p>This example shows the <code>icon</code> variant of the Image component.</p>
-</>,<Image
-  src="/favicon.svg"
-  variant="icon"
+[<><Code code={`<Detail
+ data={{
+   normal: 'lorem ipsum',
+   italic: <i>lorem ipsum</i>,
+   underline: <u>lorem ipsum</u>,
+ }}
+/>`} /><p>This example shows the basic Collapsible component.</p>
+</>,<Detail
+ data={{
+   normal: 'lorem ipsum',
+   italic: <i>lorem ipsum</i>,
+   underline: <u>lorem ipsum</u>,
+ }}
 />],
   ]}
 />);
-}, Lucide.Image];
+}, Lucide.Table];
 
 import {Row} from 'tinywidgets';
 COMPONENT_ROUTES['components/Row'] = ['Row', () => {
@@ -295,27 +249,6 @@ children:<><p>The children of the component, each occupying one &#39;cell&#39;.<
 />);
 }, Lucide.Columns3];
 
-import {Hr} from 'tinywidgets';
-COMPONENT_ROUTES['components/Hr'] = ['Hr', () => {
-return (<Api 
-  title='Hr'
-  comments={<><p>The Hr component displays a styled horizontal rule.</p>
-</>}
-  icon={Lucide.Minus}
-  params={{
-props:<>The props for the component.</>,
-}}
-  props={{
-className:<><p>An extra CSS class name for the component.</p>
-</>,
-}}
-  examples={[
-[<><Code code={`<Hr />`} /><p>This example shows the basic Hr component.</p>
-</>,<Hr />],
-  ]}
-/>);
-}, Lucide.Minus];
-
 import {classNames} from 'tinywidgets';
 HOOK_ROUTES['components/classNames'] = ['classNames', () => {
 return (<Api 
@@ -339,40 +272,28 @@ mode.</p>
 />);
 }, Lucide.SquareFunction];
 
-import {Detail} from 'tinywidgets';
-COMPONENT_ROUTES['components/Detail'] = ['Detail', () => {
+import {useDark} from 'tinywidgets';
+HOOK_ROUTES['components/useDark'] = ['useDark', () => {
 return (<Api 
-  title='Detail'
-  comments={<><p>The Detail component displays a set of key-value pairs in a two-column table.</p>
+  title='useDark'
+  comments={<><p>The useDark hook returns whether the user is viewing the application in dark
+mode.</p>
 </>}
-  icon={Lucide.Table}
+  icon={Lucide.SquareFunction}
   params={{
-props:<>The props for the component.</>,
 }}
   props={{
-data:<><p>The data to display in the detail table. The values can be any React node.</p>
-</>,
-className:<><p>An extra CSS class name for the component.</p>
-</>,
 }}
   examples={[
-[<><Code code={`<Detail
- data={{
-   normal: 'lorem ipsum',
-   italic: <i>lorem ipsum</i>,
-   underline: <u>lorem ipsum</u>,
- }}
-/>`} /><p>This example shows the basic Collapsible component.</p>
-</>,<Detail
- data={{
-   normal: 'lorem ipsum',
-   italic: <i>lorem ipsum</i>,
-   underline: <u>lorem ipsum</u>,
- }}
-/>],
+[<><Code code={`<Card>
+  Currently in {useDark() ? 'dark' : 'light'} mode
+</Card>`} /><p>This example shows the hook returning the current mode.</p>
+</>,<Card>
+  Currently in {useDark() ? 'dark' : 'light'} mode
+</Card>],
   ]}
 />);
-}, Lucide.Table];
+}, Lucide.SquareFunction];
 
 import {Button} from 'tinywidgets';
 COMPONENT_ROUTES['components/Button'] = ['Button', () => {
@@ -517,45 +438,6 @@ navigational list, such as a side bar.</p>
 />);
 }, Lucide.RectangleHorizontal];
 
-import {Metric} from 'tinywidgets';
-COMPONENT_ROUTES['components/Metric'] = ['Metric', () => {
-return (<Api 
-  title='Metric'
-  comments={<><p>The Metric component displays a metric as a prominent numerical value with a
-label above.</p>
-</>}
-  icon={Lucide.SquareSigma}
-  params={{
-props:<>The props for the component.</>,
-}}
-  props={{
-icon:<><p>An optional component which renders an icon for the metric panel, and which
-must accept a className prop.</p>
-</>,
-title:<><p>An optional component, element, or string which renders the title of
-the metric panel.</p>
-</>,
-number:<><p>An optional component, element, or string which renders the number of
-the metric panel.</p>
-</>,
-className:<><p>An extra CSS class name for the component.</p>
-</>,
-}}
-  examples={[
-[<><Code code={`<Metric
-  icon={Lucide.ChartLine}
-  title="Number"
-  number="57"
-/>`} /><p>This example shows the basic usage of the Metric component.</p>
-</>,<Metric
-  icon={Lucide.ChartLine}
-  title="Number"
-  number="57"
-/>],
-  ]}
-/>);
-}, Lucide.SquareSigma];
-
 import {Card} from 'tinywidgets';
 COMPONENT_ROUTES['components/Card'] = ['Card', () => {
 return (<Api 
@@ -586,6 +468,80 @@ children:<><p>The children of the component, that go inside the card.</p>
   ]}
 />);
 }, Lucide.Square];
+
+import {Collapsible} from 'tinywidgets';
+COMPONENT_ROUTES['components/Collapsible'] = ['Collapsible', () => {
+return (<Api 
+  title='Collapsible'
+  comments={<><p>The Collapsible component displays a titled box that can be expanded or
+collapsed. If the <code>id</code> prop is provided, its state is preserved between page
+reloads.</p>
+</>}
+  icon={Lucide.PanelTopOpen}
+  params={{
+props:<>The props for the component.</>,
+}}
+  props={{
+icon:<><p>An optional component which renders an icon for the top of the collapsible
+component, and which must accept a className prop.</p>
+</>,
+title:<><p>An optional component, element, or string which renders the title of
+the top of the component.</p>
+</>,
+titleRight:<><p>An optional component, element, or string which renders a second title
+on the right side of the top of the component.</p>
+</>,
+startOpen:<><p>Whether the section should start opened up.</p>
+</>,
+id:<><p>An Id which will allow the state to be preserved between page reloads.</p>
+</>,
+className:<><p>An extra CSS class name for the component.</p>
+</>,
+children:<><p>The children of the component, that go inside the collapsible section.</p>
+</>,
+}}
+  examples={[
+[<><Code code={`<Collapsible
+  title="TinyWidgets"
+>
+ <p>Peekaboo!</p>
+</Collapsible>`} /><p>This example shows the basic Collapsible component.</p>
+</>,<Collapsible
+  title="TinyWidgets"
+>
+ <p>Peekaboo!</p>
+</Collapsible>],
+[<><Code code={`<Collapsible
+  title="TinyWidgets"
+  icon={Lucide.Grid3x3}
+  startOpen={true}
+>
+ <p>Already open</p>
+</Collapsible>`} /><p>This example shows a Collapsible component with an icon and which starts
+open.</p>
+</>,<Collapsible
+  title="TinyWidgets"
+  icon={Lucide.Grid3x3}
+  startOpen={true}
+>
+ <p>Already open</p>
+</Collapsible>],
+[<><Code code={`<Collapsible
+  title="TinyWidgets"
+  id="example"
+>
+ <p>Reload the window</p>
+</Collapsible>`} /><p>This example shows a Collapsible component where its state is preserved
+between page reloads.</p>
+</>,<Collapsible
+  title="TinyWidgets"
+  id="example"
+>
+ <p>Reload the window</p>
+</Collapsible>],
+  ]}
+/>);
+}, Lucide.PanelTopOpen];
 
 import {App} from 'tinywidgets';
 COMPONENT_ROUTES['components/App'] = ['App', () => {
@@ -628,6 +584,68 @@ website</a> you&#39;ll see one in its full glory!</p>
   ]}
 />);
 }, Lucide.PanelsTopLeft];
+
+import {useRoute} from 'tinywidgets';
+HOOK_ROUTES['components/useRoute'] = ['useRoute', () => {
+return (<Api 
+  title='useRoute'
+  comments={<><p>The useRoute hook returns the current route, assuming the app is using the
+basic TinyWidgets routing system.</p>
+<p>This &#39;system&#39; simply involves using this hook to get a string which may have
+been persisted to the hash part of the browser&#39;s URL.</p>
+</>}
+  icon={Lucide.SquareFunction}
+  params={{
+}}
+  props={{
+}}
+  examples={[
+[<><Code code={`<Card>
+  Current route
+  <Hr />
+  <code>{useRoute()}</code>
+</Card>`} /><p>This example shows the hook returning the current route.</p>
+</>,<Card>
+  Current route
+  <Hr />
+  <code>{useRoute()}</code>
+</Card>],
+  ]}
+/>);
+}, Lucide.SquareFunction];
+
+import {useSetRouteCallback} from 'tinywidgets';
+HOOK_ROUTES['components/useSetRouteCallback'] = ['useSetRouteCallback', () => {
+const setRoute = useSetRouteCallback();
+return (<Api 
+  title='useSetRouteCallback'
+  comments={<><p>The useSetRouteCallback hook a callback for setting the current route,
+assuming the app is using the basic TinyWidgets routing system.</p>
+<p>This &#39;system&#39; simply involves using this hook to set a string to be persisted
+to the hash part of the browser&#39;s URL.</p>
+</>}
+  icon={Lucide.SquareFunction}
+  params={{
+}}
+  props={{
+}}
+  examples={[
+[<><Code code={`const setRoute = useSetRouteCallback();
+// ...
+<Button
+  icon={Lucide.Home}
+  title="Home"
+  onClick={() => setRoute('home')}
+/>`} /><p>This example shows the hook returning a callback that will change the current
+route when called as a click handler.</p>
+</>,<Button
+  icon={Lucide.Home}
+  title="Home"
+  onClick={() => setRoute('home')}
+/>],
+  ]}
+/>);
+}, Lucide.SquareFunction];
 
 import {Code} from 'tinywidgets';
 COMPONENT_ROUTES['components/Code'] = ['Code', () => {
@@ -702,88 +720,70 @@ const a: number = 1;
 />);
 }, Lucide.SquareCode];
 
-import {useRoute} from 'tinywidgets';
-HOOK_ROUTES['components/useRoute'] = ['useRoute', () => {
+import {Image} from 'tinywidgets';
+COMPONENT_ROUTES['components/Image'] = ['Image', () => {
 return (<Api 
-  title='useRoute'
-  comments={<><p>The useRoute hook returns the current route, assuming the app is using the
-basic TinyWidgets routing system.</p>
-<p>This &#39;system&#39; simply involves using this hook to get a string which may have
-been persisted to the hash part of the browser&#39;s URL.</p>
+  title='Image'
+  comments={<><p>The Image component displays an image, with a number of common variants.</p>
 </>}
-  icon={Lucide.SquareFunction}
+  icon={Lucide.Image}
   params={{
+props:<>The props for the component.</>,
 }}
   props={{
+src:<><p>The source of the image.</p>
+</>,
+onClick:<><p>A handler called when the user clicks on the image.</p>
+</>,
+variant:<><p>A variant of the image, one of:</p>
+<ul>
+<li><code>default</code></li>
+<li><code>logo</code></li>
+<li><code>avatar</code></li>
+<li><code>icon</code></li>
+</ul>
+</>,
+alt:<><p>Alternative text shown when the user hovers over the image.</p>
+</>,
+className:<><p>An extra CSS class name for the component.</p>
+</>,
 }}
   examples={[
-[<><Code code={`<Card>
-  Current route
-  <Hr />
-  <code>{useRoute()}</code>
-</Card>`} /><p>This example shows the hook returning the current route.</p>
-</>,<Card>
-  Current route
-  <Hr />
-  <code>{useRoute()}</code>
-</Card>],
-  ]}
-/>);
-}, Lucide.SquareFunction];
-
-import {useSetRouteCallback} from 'tinywidgets';
-HOOK_ROUTES['components/useSetRouteCallback'] = ['useSetRouteCallback', () => {
-const setRoute = useSetRouteCallback();
-return (<Api 
-  title='useSetRouteCallback'
-  comments={<><p>The useSetRouteCallback hook a callback for setting the current route,
-assuming the app is using the basic TinyWidgets routing system.</p>
-<p>This &#39;system&#39; simply involves using this hook to set a string to be persisted
-to the hash part of the browser&#39;s URL.</p>
-</>}
-  icon={Lucide.SquareFunction}
-  params={{
-}}
-  props={{
-}}
-  examples={[
-[<><Code code={`const setRoute = useSetRouteCallback();
-// ...
-<Button
-  icon={Lucide.Home}
-  title="Home"
-  onClick={() => setRoute('home')}
-/>`} /><p>This example shows the hook returning a callback that will change the current
-route when called as a click handler.</p>
-</>,<Button
-  icon={Lucide.Home}
-  title="Home"
-  onClick={() => setRoute('home')}
+[<><Code code={`<Image
+  src="/favicon.svg"
+  onClick={() => alert('Clicked!')}
+  alt="TinyWidgets"
+/>`} /><p>This example shows the <code>default</code> variant of the Image component.</p>
+</>,<Image
+  src="/favicon.svg"
+  onClick={() => alert('Clicked!')}
+  alt="TinyWidgets"
+/>],
+[<><Code code={`<Image
+  src="/favicon.svg"
+  variant="logo"
+/>`} /><p>This example shows the <code>logo</code> variant of the Image component.</p>
+</>,<Image
+  src="/favicon.svg"
+  variant="logo"
+/>],
+[<><Code code={`<Image
+  src="/favicon.svg"
+  variant="avatar"
+/>`} /><p>This example shows the <code>avatar</code> variant of the Image component.</p>
+</>,<Image
+  src="/favicon.svg"
+  variant="avatar"
+/>],
+[<><Code code={`<Image
+  src="/favicon.svg"
+  variant="icon"
+/>`} /><p>This example shows the <code>icon</code> variant of the Image component.</p>
+</>,<Image
+  src="/favicon.svg"
+  variant="icon"
 />],
   ]}
 />);
-}, Lucide.SquareFunction];
-
-import {useDark} from 'tinywidgets';
-HOOK_ROUTES['components/useDark'] = ['useDark', () => {
-return (<Api 
-  title='useDark'
-  comments={<><p>The useDark hook returns whether the user is viewing the application in dark
-mode.</p>
-</>}
-  icon={Lucide.SquareFunction}
-  params={{
-}}
-  props={{
-}}
-  examples={[
-[<><Code code={`<Card>
-  Currently in {useDark() ? 'dark' : 'light'} mode
-</Card>`} /><p>This example shows the hook returning the current mode.</p>
-</>,<Card>
-  Currently in {useDark() ? 'dark' : 'light'} mode
-</Card>],
-  ]}
-/>);
-}, Lucide.SquareFunction];
+}, Lucide.Image];
 Object.assign(ROUTES, COMPONENT_ROUTES, HOOK_ROUTES);
