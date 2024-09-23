@@ -2,7 +2,7 @@ import React from 'react';
 import * as Lucide from 'lucide-react';
 import {Card, Hr, Image, Row} from 'tinywidgets';
 import {titleStyle} from '../index.css.ts';
-import {COMPONENT_ROUTES} from './components/index.tsx';
+import {COMPONENT_ROUTES, HOOK_ROUTES} from './_api.tsx';
 import {button, home, hr, logo, narrower} from './Home.css.ts';
 import {ROUTES} from './index.ts';
 import {RouteButton} from './RouteLink.tsx';
@@ -25,8 +25,21 @@ export const Home = () => {
 
       <Row variant="1|1">
         <Card>
-          <h2>The Components</h2>
+          <h2>Components</h2>
           {Object.keys(COMPONENT_ROUTES)
+            .sort()
+            .map((route, key) => (
+              <RouteButton
+                route={route}
+                variant="default"
+                key={key}
+                className={button}
+              />
+            ))}
+        </Card>
+        <Card>
+          <h2>Hooks</h2>
+          {Object.keys(HOOK_ROUTES)
             .sort()
             .map((route, key) => {
               return (
@@ -38,9 +51,6 @@ export const Home = () => {
                 />
               );
             })}
-        </Card>
-        <Card>
-          <h2>Utilities</h2>
         </Card>
       </Row>
 

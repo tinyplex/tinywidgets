@@ -15,11 +15,28 @@ const LOCAL_STORE = 'tinywidgets/Local';
 const DARK_PREFERENCE_VALUE = 'darkPreference';
 const DARK_CHOICE_VALUE = 'darkChoice';
 
-export const useDarkPreference = () =>
-  useValue(DARK_PREFERENCE_VALUE, LOCAL_STORE) as boolean;
+/**
+ * The useDark hook returns whether the user is viewing the application in dark
+ * mode.
+ *
+ * @returns A boolean where `true` means 'dark' and `false` means 'light' mode.
+ * @example
+ * ```tsx
+ * <Card>
+ *   Currently in {useDark() ? 'dark' : 'light'} mode
+ * </Card>
+ * ```
+ * This example shows the hook returning the current mode.
+ */
+export const useDark = () => {
+  const darkChoice = useDarkChoice();
+  const darkPreference = useValue(DARK_PREFERENCE_VALUE, LOCAL_STORE);
+  return darkChoice == 1 || (darkChoice == 2 && darkPreference);
+};
 
 export const useDarkChoice = () =>
   (useValue(DARK_CHOICE_VALUE, LOCAL_STORE) ?? 2) as 0 | 1 | 2;
+
 export const useToggleDarkChoiceCallback = () =>
   useSetValueCallback(
     DARK_CHOICE_VALUE,

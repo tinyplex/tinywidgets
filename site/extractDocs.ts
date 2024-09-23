@@ -3,7 +3,8 @@ import {watch} from 'fs';
 import {marked} from 'marked';
 import ts, {isVariableDeclaration} from 'typescript';
 
-const TSX = /```tsx\n(.*?)\n```/ms;
+const TS = /```tsx\n(.*?)(<|(\/\/))/ms;
+const TSX = /```tsx.*?\n(<.*?)\n```/ms;
 
 const objEnsure = (obj: any, key: string, value: any) => {
   if (!obj[key]) {
@@ -27,7 +28,11 @@ const extract = async (file: string, allDocs: {[variable: string]: any}) => {
       if (commentsAndTags.length > 0) {
         const name = node.name.getText();
         const docs = objEnsure(allDocs, name, {
-          type: file.includes('/components/') ? 'component' : 'hook',
+          type: file.includes('/components/')
+            ? 'component'
+            : file.includes('/stores/')
+              ? 'hook'
+              : 'function',
           comments: [],
           example: [],
           icon: [],
@@ -103,38 +108,51 @@ const extractAll = async () => {
 
   const apiFile: string[] = [
     `import React from 'react';`,
-    `import {Routes} from '..';`,
-    `import {Component} from './Component';`,
+    `import type {Routes} from './index.ts';`,
+    `import {ROUTES} from './index.ts';`,
+    `import {Api} from './Api.tsx';`,
     `import * as Lucide from 'lucide-react';`,
     `export const COMPONENT_ROUTES: Routes = {};`,
+    `export const HOOK_ROUTES: Routes = {};`,
   ];
 
   Object.entries(allDocs).forEach(([name, docs]: [string, any]) => {
-    if (docs.type == 'component') {
-      apiFile.push(
-        ``,
-        `import {${name}} from 'tinywidgets';`,
-        `COMPONENT_ROUTES['components/${name}'] = ['${name}', () => (<Component `,
-        `  title='${name}'`,
-        `  comments={<>${docs.comments.map(marked)}</>}`,
-        `  icon={${docs.icon[0]}}`,
-        `  props={{`,
-        ...Object.entries(docs.props || {}).map(
-          ([prop, comments]) => `${prop}:<>${comments as any}</>,`,
-        ),
-        `}}`,
-        `  examples={[`,
-        ...docs.example?.map((example: string) => {
-          return `[<>${marked(example)}</>,${example.match(TSX)?.[1]}],`;
-        }),
-        `  ]}`,
-        `/>), ${docs.icon[0]}];`,
-      );
-    }
+    const icon = docs.icon[0] || 'Lucide.SquareFunction';
+    const route = docs.type == 'component' ? 'COMPONENT' : 'HOOK';
+    apiFile.push(
+      ``,
+      `import {${name}} from 'tinywidgets';`,
+      `${route}_ROUTES['components/${name}'] = ['${name}', () => {`,
+      ...docs.example
+        ?.map((example: string) => example.match(TS)?.[1].trim())
+        .filter(Boolean),
+      `return (<Api `,
+      `  title='${name}'`,
+      `  comments={<>${docs.comments.map(marked)}</>}`,
+      `  icon={${icon}}`,
+      `  params={{`,
+      ...Object.entries(docs.params || {}).map(
+        ([param, comments]) => `${param}:<>${comments as any}</>,`,
+      ),
+      `}}`,
+      `  props={{`,
+      ...Object.entries(docs.props || {}).map(
+        ([prop, comments]) => `${prop}:<>${comments as any}</>,`,
+      ),
+      `}}`,
+      `  examples={[`,
+      ...docs.example?.map(
+        (example: string) =>
+          `[<>${marked(example)}</>,${example.match(TSX)?.[1]}],`,
+      ),
+      `  ]}`,
+      `/>);`,
+      `}, ${icon}];`,
+    );
   });
+  apiFile.push(`Object.assign(ROUTES, COMPONENT_ROUTES, HOOK_ROUTES);`);
 
-  console.log(process.argv);
-  Bun.write(`src/pages/api.tsx`, apiFile.join('\n'));
+  Bun.write(`src/pages/_api.tsx`, apiFile.join('\n'));
 };
 
 if (process.argv[2] == '--watch') {

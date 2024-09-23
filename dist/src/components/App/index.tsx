@@ -7,8 +7,8 @@ import {colorsDark, colorsLight} from '../../css/colors.css.ts';
 import {classNames, renderComponentOrNode} from '../../css/render.tsx';
 import {
   LocalStore,
+  useDark,
   useDarkChoice,
-  useDarkPreference,
   useToggleDarkChoiceCallback,
 } from '../../stores/LocalStore.tsx';
 import {RouteStore} from '../../stores/RouteStore.tsx';
@@ -32,6 +32,7 @@ import {
 } from './index.css.ts';
 
 const darkIcons = [Sun, Moon, SunMoon];
+const darkChoices = ['Light always', 'Dark always', 'Auto'];
 
 /**
  * The App component is the root component of a TinyWidgets application.
@@ -101,15 +102,14 @@ const Layout = ({
   main: mainComponentOrNode,
   className,
 }: Parameters<typeof App>[0]) => {
-  const darkPreference = useDarkPreference();
-
   const toggleDarkChoice = useToggleDarkChoiceCallback();
-  const darkChoice = useDarkChoice();
 
   const toggleSideNavIsOpen = useToggleSideNavIsOpenCallback();
   const sideNavIsOpen = useSideNavIsOpen();
 
-  const dark = darkChoice == 1 || (darkChoice == 2 && darkPreference);
+  const darkChoice = useDarkChoice();
+  const dark = useDark();
+
   const hasLayout = [
     titleComponentOrNode,
     topNavLeftComponentOrNode,
@@ -151,6 +151,7 @@ const Layout = ({
               variant="icon"
               onClick={toggleDarkChoice}
               icon={darkIcons[darkChoice]}
+              alt={darkChoices[darkChoice]}
             />
             {hasSideNav ? (
               <nav

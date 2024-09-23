@@ -1,5 +1,4 @@
 import {ComponentType} from 'react';
-import {COMPONENT_ROUTES} from './components';
 
 export type Routes = {
   [route: string]: [
@@ -9,6 +8,4 @@ export type Routes = {
   ];
 };
 
-export const ROUTES: Routes = {
-  ...COMPONENT_ROUTES,
-};
+export const ROUTES: Routes = {};
