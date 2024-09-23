@@ -5,6 +5,62 @@ import {
   globalStyle,
 } from '@vanilla-extract/css';
 
+/**
+ * The `colors` object exposes the CSS variables used by TinyWidgets for color
+ * theming, so that you can use them directly in your own application.
+ *
+ * The full set of members is:
+ * - `accentHue`
+ * - `backgroundHue`
+ * - `accent`
+ * - `accentLight`
+ * - `accentHover`
+ * - `accentContrast`
+ * - `background`
+ * - `background2`
+ * - `backgroundHaze`
+ * - `backgroundHover`
+ * - `foreground`
+ * - `foregroundBright`
+ * - `foregroundDim`
+ * - `border`
+ * - `shadow`
+ *
+ * You can use these variables directly in React components that take style
+ * attributes, like this:
+ *
+ * ```tsx
+ * <div style={{color: colors.accent}}>Accent</div>
+ * ```
+ *
+ * And if you are using Vanilla-Extract for your app's styles, use them in your
+ * style declarations like this:
+ *
+ * ```tsx
+ * export const titleStyle = style({color: colors.accent});
+ * ```
+ *
+ * @example
+ * ```tsx
+ * <Card>
+ *   <Code code={colors.accentHue} />
+ *   <Hr />
+ *   <div style={{
+ *     color: colors.accent,
+ *     background: colors.background2,
+ *     border: colors.border,
+ *     boxShadow: colors.shadow,
+ *     textAlign: 'center',
+ *   }}>
+ *     Accent on a background
+ *   </div>
+ * </Card>
+ * ```
+ * This example shows one of the values within the `colors` object, and then
+ * applies some of them to a custom component. Change the dark mode to see the
+ * background respond.
+ * @icon Lucide.Palette
+ */
 export const colors = createThemeContract({
   accentHue: null,
   backgroundHue: null,

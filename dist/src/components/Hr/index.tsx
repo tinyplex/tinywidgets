@@ -1,9 +1,9 @@
 import React from 'react';
-import {classNames} from '../../common';
+import {classNames} from '../../common/functions';
 import {hr} from './index.css';
 
 /**
- * The Hr component displays a styled horizontal rule.
+ * The `Hr` component displays a styled horizontal rule.
  *
  * @param props The props for the component.
  * @returns The Hr component.

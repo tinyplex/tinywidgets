@@ -4,15 +4,14 @@ import 'prismjs/components/prism-typescript';
 import 'prismjs/components/prism-tsx';
 import React from 'react';
 import Prism from 'prismjs';
-import {classNames} from '../../common.tsx';
+import {classNames} from '../../common/functions.tsx';
 import {pre} from './index.css';
 
 const {highlight, languages} = Prism;
 
 /**
- * The Code component displays a block of pre-formatted code, and uses PrismJS
- * to parse its syntax. The coloring is based on the prism-one-dark and
- * prism-one-light themes.
+ * The `Code` component displays a block of pre-formatted code, and uses PrismJS
+ * to parse its syntax. The coloring is based on the [prism-one-dark](https://github.com/PrismJS/prism-themes/blob/master/themes/prism-one-dark.css) and [prism-one-light](https://github.com/PrismJS/prism-themes/blob/master/themes/prism-one-light.css) themes.
  *
  * This component supports the default PrismJS languages (`markup`, `html`
  * , `xml`, `svg`, `mathml`, `ssml`, `atom`, `rss`, `css`, `clike`, `javascript`

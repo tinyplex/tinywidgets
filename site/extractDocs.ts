@@ -28,11 +28,7 @@ const extract = async (file: string, allDocs: {[variable: string]: any}) => {
       if (commentsAndTags.length > 0) {
         const name = node.name.getText();
         const docs = objEnsure(allDocs, name, {
-          type: file.includes('/components/')
-            ? 'component'
-            : file.includes('/stores/')
-              ? 'hook'
-              : 'function',
+          file,
           comments: [],
           example: [],
           icon: [],
@@ -114,20 +110,46 @@ const extractAll = async () => {
     `import * as Lucide from 'lucide-react';`,
     `export const COMPONENT_ROUTES: Routes = {};`,
     `export const HOOK_ROUTES: Routes = {};`,
+    `export const FUNCTION_ROUTES: Routes = {};`,
+    `export const CSS_ROUTES: Routes = {};`,
+    `export const OBJECT_ROUTES: Routes = {};`,
   ];
 
-  Object.entries(allDocs).forEach(([name, docs]: [string, any]) => {
-    const icon = docs.icon[0] || 'Lucide.SquareFunction';
-    const route = docs.type == 'component' ? 'COMPONENT' : 'HOOK';
+  Object.entries(allDocs).forEach(([title, docs]: [string, any]) => {
+    const file = docs.file;
+    const type = file.includes('/components')
+      ? 'COMPONENT'
+      : file.includes('/stores')
+        ? 'HOOK'
+        : file.includes('/functions')
+          ? 'FUNCTION'
+          : file.includes('/css')
+            ? 'CSS'
+            : 'OBJECT';
+    const icon =
+      docs.icon[0] ??
+      (type == 'COMPONENT'
+        ? 'Lucide.Square'
+        : type == 'HOOK'
+          ? 'Lucide.SquareFunction'
+          : type == 'FUNCTION'
+            ? 'Lucide.SquarePi'
+            : type == 'CSS'
+              ? 'Lucide.Paintbrush'
+              : 'Lucide.Braces');
+    const importLine = `import {${title}} from 'tinywidgets${type == 'CSS' ? '/css' : ''}';`;
+
     apiFile.push(
       ``,
-      `import {${name}} from 'tinywidgets';`,
-      `${route}_ROUTES['components/${name}'] = ['${name}', () => {`,
+      importLine,
+      `${type}_ROUTES['${type.toLowerCase()}/${title}'] = ['${title}', () => {`,
       ...docs.example
         ?.map((example: string) => example.match(TS)?.[1].trim())
         .filter(Boolean),
       `return (<Api `,
-      `  title='${name}'`,
+      `  type='${type}'`,
+      `  importLine="${importLine}"`,
+      `  title='${title}'`,
       `  comments={<>${docs.comments.map(marked)}</>}`,
       `  icon={${icon}}`,
       `  params={{`,
@@ -150,7 +172,10 @@ const extractAll = async () => {
       `}, ${icon}];`,
     );
   });
-  apiFile.push(`Object.assign(ROUTES, COMPONENT_ROUTES, HOOK_ROUTES);`);
+  apiFile.push(
+    `Object.assign(ROUTES, COMPONENT_ROUTES, HOOK_ROUTES, `,
+    `FUNCTION_ROUTES, CSS_ROUTES, OBJECT_ROUTES);`,
+  );
 
   Bun.write(`src/pages/_api.tsx`, apiFile.join('\n'));
 };

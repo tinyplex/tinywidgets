@@ -1,9 +1,14 @@
 import React from 'react';
 import * as Lucide from 'lucide-react';
 import {Card, Hr, Image, Row} from 'tinywidgets';
-import {titleStyle} from '../index.css.ts';
-import {COMPONENT_ROUTES, HOOK_ROUTES} from './_api.tsx';
-import {button, home, hr, logo, narrower} from './Home.css.ts';
+import {
+  COMPONENT_ROUTES,
+  CSS_ROUTES,
+  FUNCTION_ROUTES,
+  HOOK_ROUTES,
+  OBJECT_ROUTES,
+} from './_api.tsx';
+import {button, home, hr, logo, narrower, title} from './Home.css.ts';
 import {ROUTES} from './index.ts';
 import {RouteButton} from './RouteLink.tsx';
 
@@ -11,21 +16,20 @@ export const Home = () => {
   return (
     <div className={home}>
       <div className={narrower}>
-        <h1 className={titleStyle}>
+        <h1 className={title}>
           <Image src="/favicon.svg" variant="logo" className={logo} />
           TinyWidgets
         </h1>
         <p>
-          TinyWidgets is a collection of tiny, reusable, React components, all
-          optionally wrapped up in a helpful app layout, with header, side bar,
-          and dark mode.
+          A collection of tiny, reusable, React components, all optionally
+          wrapped up in a helpful app layout, with header, side bar, and dark
+          mode.
         </p>
       </div>
       <Hr className={hr} />
-
-      <Row variant="1|1">
+      <Row>
         <Card>
-          <h2>Components:</h2>
+          <h2>Components</h2>
           {Object.keys(COMPONENT_ROUTES)
             .sort()
             .map((route, key) => (
@@ -38,8 +42,13 @@ export const Home = () => {
             ))}
         </Card>
         <Card>
-          <h2>Hooks:</h2>
-          {Object.keys(HOOK_ROUTES)
+          <h2>Hooks, Functions, & Objects</h2>
+          {Object.keys({
+            ...HOOK_ROUTES,
+            ...FUNCTION_ROUTES,
+            ...CSS_ROUTES,
+            ...OBJECT_ROUTES,
+          })
             .sort()
             .map((route, key) => {
               return (
@@ -76,7 +85,6 @@ export const Home = () => {
           variant="logo"
           className={logo}
         />
-        <h2>No nonsense.</h2>
         <p>
           TinyWidgets uses <a href="https://react.dev/">React</a> for DOM
           manipulation,{' '}

@@ -1,7 +1,7 @@
 import type {ComponentType, ReactNode} from 'react';
 import React, {useCallback, useRef, useState} from 'react';
 import {ChevronDown, ChevronRight} from 'lucide-react';
-import {classNames} from '../../common.tsx';
+import {classNames} from '../../common/functions.tsx';
 import {
   useCollapsibleIsOpen,
   useSetCollapsibleIsOpenCallback,
@@ -16,7 +16,7 @@ import {
 } from './index.css.ts';
 
 /**
- * The Collapsible component displays a titled box that can be expanded or
+ * The `Collapsible` component displays a titled box that can be expanded or
  * collapsed. If the `id` prop is provided, its state is preserved between page
  * reloads.
  *

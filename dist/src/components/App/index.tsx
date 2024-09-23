@@ -2,7 +2,7 @@ import type {ComponentType, ReactNode} from 'react';
 import React from 'react';
 import {Menu, Moon, Sun, SunMoon, X} from 'lucide-react';
 import {Provider} from 'tinybase/ui-react';
-import {classNames, renderComponentOrNode} from '../../common.tsx';
+import {classNames, renderComponentOrNode} from '../../common/functions.tsx';
 import {codeDark, codeLight} from '../../css/code.css.ts';
 import {colorsDark, colorsLight} from '../../css/colors.css.ts';
 import {
@@ -37,7 +37,7 @@ const darkIcons = [Sun, Moon, SunMoon];
 const darkChoices = ['Light always', 'Dark always', 'Auto'];
 
 /**
- * The App component is the root component of a TinyWidgets application.
+ * The `App` component is the root component of a TinyWidgets application.
  *
  * It can be provided with optional components for different parts of the app
  * layout, including the top left title, the side bar and the main content.

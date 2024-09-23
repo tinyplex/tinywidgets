@@ -5,6 +5,8 @@ import {exampleComment, exampleExec} from './Api.css.ts';
 
 export const Api = ({
   title,
+  type,
+  importLine,
   icon: Icon,
   comments,
   params,
@@ -12,23 +14,36 @@ export const Api = ({
   examples,
 }: {
   title: string;
+  type: string;
+  importLine: string;
   icon?: any;
   comments: any;
   params: any;
   props: any;
   examples: any;
 }) => {
+  const exampleCount = Object.entries(examples).length;
   return (
     <>
       <h1 className={titleStyle}>
         <Icon />
         {title}
       </h1>
-      <Code code={`import {${title}} from 'tinywidgets';`} />
+      <Code code={importLine} />
       {comments}
+      {type == 'CSS' ? (
+        <p>
+          Note that this constant needs to be imported from TinyWidgets'{' '}
+          <code>/css</code> sub-module.
+        </p>
+      ) : null}
       <Hr />
-      {Object.entries(examples).length > 0 ? (
-        <Collapsible title="Examples" id="examples" startOpen>
+      {exampleCount > 0 ? (
+        <Collapsible
+          title={'Example' + (exampleCount > 1 ? 's' : '')}
+          id="examples"
+          startOpen
+        >
           {examples.map(([comment, exec]: any, key: number) => (
             <Fragment key={key}>
               {key == 0 ? null : <Hr />}
@@ -41,7 +56,7 @@ export const Api = ({
         </Collapsible>
       ) : null}
       {Object.entries(params).length > 0 ? (
-        <Collapsible title="Params" id="params" startOpen>
+        <Collapsible title="Parameters" id="params" startOpen>
           <Detail data={params} />
         </Collapsible>
       ) : null}

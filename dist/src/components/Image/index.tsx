@@ -1,9 +1,9 @@
 import React from 'react';
-import {classNames} from '../../common.tsx';
+import {classNames} from '../../common/functions.tsx';
 import {image, imageVariants} from './index.css.ts';
 
 /**
- * The Image component displays an image, with a number of common variants.
+ * The `Image` component displays an image, with a number of common variants.
  *
  * @param props The props for the component.
  * @returns The Image component.

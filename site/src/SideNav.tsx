@@ -1,6 +1,12 @@
 import React from 'react';
 import {Collapsible, Hr, useRoute} from 'tinywidgets';
-import {COMPONENT_ROUTES, HOOK_ROUTES} from './pages/_api.tsx';
+import {
+  COMPONENT_ROUTES,
+  CSS_ROUTES,
+  FUNCTION_ROUTES,
+  HOOK_ROUTES,
+  OBJECT_ROUTES,
+} from './pages/_api.tsx';
 import {RouteButton} from './pages/RouteLink';
 
 type Navigation = readonly (
@@ -12,7 +18,11 @@ export const NAVIGATION: Navigation = [
   'home',
   null,
   ['Components', Object.keys(COMPONENT_ROUTES).sort()],
-  ['Hooks', Object.keys(HOOK_ROUTES).sort()],
+  [
+    'Hooks & Functions',
+    Object.keys({...HOOK_ROUTES, ...FUNCTION_ROUTES}).sort(),
+  ],
+  ['Objects', Object.keys({...OBJECT_ROUTES, ...CSS_ROUTES}).sort()],
 ];
 
 export const SideNav = () => {

@@ -1,10 +1,10 @@
 import type {ReactNode} from 'react';
 import React from 'react';
-import {classNames} from '../../common';
+import {classNames} from '../../common/functions';
 import {card} from './index.css';
 
 /**
- * The Card component displays a simple rectangular container.
+ * The `Card` component displays a simple rectangular container.
  *
  * @param props The props for the component.
  * @returns Card Row component.
@@ -12,7 +12,7 @@ import {card} from './index.css';
  * ```tsx
  * <Card>
  *   <h1>Welcome</h1>
- *   <hr />
+ *   <Hr />
  *   <p>We hope you enjoy TinyWidgets</p>
  * </Card>
  * ```

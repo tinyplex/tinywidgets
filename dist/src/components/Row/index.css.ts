@@ -1,5 +1,5 @@
 import {style, styleVariants} from '@vanilla-extract/css';
-import {notLarge} from '../../common.tsx';
+import {notLarge} from '../../common/functions.tsx';
 import {dimensions} from '../../css/dimensions.css';
 
 export const row = style({

@@ -14,4 +14,4 @@ export {Tag} from './components/Tag/index.tsx';
 
 export {useRoute, useSetRouteCallback} from './stores/RouteStore.tsx';
 export {useDark} from './stores/LocalStore.tsx';
-export {classNames, LARGE_BREAK, SMALL_BREAK} from './common.tsx';
+export {classNames} from './common/functions.tsx';

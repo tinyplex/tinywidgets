@@ -1,11 +1,9 @@
 import React, {ComponentType, ReactNode} from 'react';
 import type {StyleRule} from '@vanilla-extract/css';
-
-export const LARGE_BREAK = 768;
-export const SMALL_BREAK = 448;
+import {breaks} from '../css/breaks';
 
 /**
- * The classNames function returns a concatenated list of class names, filtering
+ * The `classNames` function returns a concatenated list of class names, filtering
  * out any `null` or `undefined` values.
  *
  * This allows you to easily toggle classes based on conditions.
@@ -19,9 +17,9 @@ export const SMALL_BREAK = 448;
  *   true && 'class3',
  * );
  * // ...
- * <div className={classes}>
+ * <Card className={classes}>
  *   <code>{classes}</code>
- * </div>
+ * </Card>
  * ```
  * This example shows the function returning a class name list.
  */
@@ -40,17 +38,17 @@ export const renderComponentOrNode = (
   );
 
 export const large = (style: StyleRule) => ({
-  '@media': {[`screen and (min-width: ${LARGE_BREAK}px)`]: style},
+  '@media': {[`screen and (min-width: ${breaks.large}px)`]: style},
 });
 
 export const notLarge = (style: StyleRule) => ({
-  '@media': {[`screen and (max-width: ${LARGE_BREAK}px)`]: style},
+  '@media': {[`screen and (max-width: ${breaks.large}px)`]: style},
 });
 
 export const small = (style: StyleRule) => ({
-  '@media': {[`screen and (min-width: ${SMALL_BREAK}px)`]: style},
+  '@media': {[`screen and (max-width: ${breaks.small}px)`]: style},
 });
 
 export const notSmall = (style: StyleRule) => ({
-  '@media': {[`screen and (max-width: ${SMALL_BREAK}px)`]: style},
+  '@media': {[`screen and (min-width: ${breaks.small}px)`]: style},
 });

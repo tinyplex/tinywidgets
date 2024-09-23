@@ -1,10 +1,10 @@
 import type {ComponentType, ReactNode} from 'react';
 import React from 'react';
-import {classNames, renderComponentOrNode} from '../../common';
+import {classNames, renderComponentOrNode} from '../../common/functions';
 import {tag, tagIcon, tagVariants} from './index.css';
 
 /**
- * The Tag component displays a small rectangular tag, suitable for minimal
+ * The `Tag` component displays a small rectangular tag, suitable for minimal
  * amounts of metadata, such as a notification count.
  *
  * @param props The props for the component.

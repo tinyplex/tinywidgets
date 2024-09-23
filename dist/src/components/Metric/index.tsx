@@ -1,11 +1,11 @@
 import type {ComponentType, ReactNode} from 'react';
 import React from 'react';
-import {classNames, renderComponentOrNode} from '../../common';
+import {classNames, renderComponentOrNode} from '../../common/functions';
 import {iconSize} from '../../css/dimensions.css';
 import {metric, metricLabel, metricNumber} from './index.css';
 
 /**
- * The Metric component displays a metric as a prominent numerical value with a
+ * The `Metric` component displays a metric as a prominent numerical value with a
  * label above.
  *
  * @param props The props for the component.

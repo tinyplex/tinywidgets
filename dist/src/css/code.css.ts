@@ -1,5 +1,58 @@
 import {createTheme, createThemeContract} from '@vanilla-extract/css';
 
+/**
+ * The `code` object exposes the CSS variables used by TinyWidgets for coloring
+ * the code blocks, so that you can use them directly in your own application.
+ *
+ * The values are derived from the [prism-one-dark](https://github.com/PrismJS/prism-themes/blob/master/themes/prism-one-dark.css) and [prism-one-light](https://github.com/PrismJS/prism-themes/blob/master/themes/prism-one-light.css) themes. The full set of members is:
+ * - `mono-1`
+ * - `mono-2`
+ * - `mono-3`
+ * - `hue-1`
+ * - `hue-2`
+ * - `hue-3`
+ * - `hue-4`
+ * - `hue-5`
+ * - `hue-5-2`
+ * - `hue-6`
+ * - `hue-6-2`
+ * - `syntax-fg`
+ * - `syntax-bg`
+ * - `syntax-gutter`
+ * - `syntax-guide`
+ * - `syntax-accent`
+ *
+ * You can use these variables directly in React components that take style
+ * attributes, like this:
+ *
+ * ```tsx
+ * <code style={{color: code['hue-2']}}>function</code>
+ * ```
+ *
+ * And if you are using Vanilla-Extract for your app's styles, use them in your
+ * style declarations like this:
+ *
+ * ```tsx
+ * export const functionStyle = style({color: code['hue-2']});
+ * ```
+ *
+ * @example
+ * ```tsx
+ * <Card>
+ *   <Code code={code['mono-1']} />
+ *   <Hr />
+ *   <Row variant="1|1|1">
+ *     <code style={{color: code['hue-2']}}>function</code>
+ *     <code style={{color: code['hue-3']}}>keyword</code>
+ *     <code style={{color: code['hue-4']}}>string</code>
+ *   </Row>
+ * </Card>
+ * ```
+ * This example shows one of the values within the `code` object, and then
+ * applies some of them to custom code components. Change the dark mode to see
+ * the colors respond.
+ * @icon Lucide.Palette
+ */
 export const code = createThemeContract({
   'mono-1': null,
   'mono-2': null,

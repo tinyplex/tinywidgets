@@ -1,10 +1,11 @@
 import type {ReactNode} from 'react';
 import React from 'react';
-import {classNames} from '../../common';
+import {classNames} from '../../common/functions';
 import {detailCell, detailRow, detailTable} from './index.css';
 
 /**
- * The Detail component displays a set of key-value pairs in a two-column table.
+ * The `Detail` component displays a set of key-value pairs in a two-column
+ * table.
  *
  * @param props The props for the component.
  * @returns The Detail component.

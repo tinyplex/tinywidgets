@@ -1,10 +1,10 @@
 import type {ReactNode} from 'react';
 import React from 'react';
-import {classNames} from '../../common';
+import {classNames} from '../../common/functions';
 import {row, rowVariants} from './index.css';
 
 /**
- * The Row component displays a row of 'cell' components, with a number of
+ * The `Row` component displays a row of 'cell' components, with a number of
  * common variants representing the relative sizes of those cells within it.
  *
  * @param props The props for the component.
