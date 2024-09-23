@@ -4,7 +4,7 @@ import 'prismjs/components/prism-typescript';
 import 'prismjs/components/prism-tsx';
 import React from 'react';
 import Prism from 'prismjs';
-import {classNames} from '../../css/render.tsx';
+import {classNames} from '../../common.tsx';
 import {pre} from './index.css';
 
 const {highlight, languages} = Prism;

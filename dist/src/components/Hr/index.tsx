@@ -1,5 +1,5 @@
 import React from 'react';
-import {classNames} from '../../css/render';
+import {classNames} from '../../common';
 import {hr} from './index.css';
 
 /**

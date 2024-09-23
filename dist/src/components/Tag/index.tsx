@@ -1,6 +1,6 @@
 import type {ComponentType, ReactNode} from 'react';
 import React from 'react';
-import {classNames, renderComponentOrNode} from '../../css/render';
+import {classNames, renderComponentOrNode} from '../../common';
 import {tag, tagIcon, tagVariants} from './index.css';
 
 /**

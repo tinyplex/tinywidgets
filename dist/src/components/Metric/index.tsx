@@ -1,7 +1,7 @@
 import type {ComponentType, ReactNode} from 'react';
 import React from 'react';
+import {classNames, renderComponentOrNode} from '../../common';
 import {iconSize} from '../../css/dimensions.css';
-import {classNames, renderComponentOrNode} from '../../css/render';
 import {metric, metricLabel, metricNumber} from './index.css';
 
 /**

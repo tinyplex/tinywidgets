@@ -1,6 +1,6 @@
 import {style, styleVariants} from '@vanilla-extract/css';
+import {notLarge} from '../../common.tsx';
 import {dimensions} from '../../css/dimensions.css';
-import {notLarge} from '../../css/queries';
 
 export const row = style({
   display: 'grid',

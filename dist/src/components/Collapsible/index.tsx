@@ -1,7 +1,7 @@
 import type {ComponentType, ReactNode} from 'react';
 import React, {useCallback, useRef, useState} from 'react';
 import {ChevronDown, ChevronRight} from 'lucide-react';
-import {classNames} from '../../css/render.tsx';
+import {classNames} from '../../common.tsx';
 import {
   useCollapsibleIsOpen,
   useSetCollapsibleIsOpenCallback,

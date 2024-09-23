@@ -1,6 +1,6 @@
 import type {ReactNode} from 'react';
 import React from 'react';
-import {classNames} from '../../css/render';
+import {classNames} from '../../common';
 import {row, rowVariants} from './index.css';
 
 /**

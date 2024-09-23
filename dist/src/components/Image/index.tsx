@@ -1,5 +1,5 @@
 import React from 'react';
-import {classNames} from '../../css/render.tsx';
+import {classNames} from '../../common.tsx';
 import {image, imageVariants} from './index.css.ts';
 
 /**

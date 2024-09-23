@@ -1,7 +1,7 @@
 import type {ComponentType, ReactNode, Ref} from 'react';
 import React, {forwardRef, useCallback} from 'react';
+import {classNames, renderComponentOrNode} from '../../common.tsx';
 import {iconSize} from '../../css/dimensions.css.ts';
-import {classNames, renderComponentOrNode} from '../../css/render.tsx';
 import {
   button,
   buttonVariants,

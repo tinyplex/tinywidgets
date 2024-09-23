@@ -25,7 +25,7 @@ export const Home = () => {
 
       <Row variant="1|1">
         <Card>
-          <h2>Components</h2>
+          <h2>Components:</h2>
           {Object.keys(COMPONENT_ROUTES)
             .sort()
             .map((route, key) => (
@@ -38,7 +38,7 @@ export const Home = () => {
             ))}
         </Card>
         <Card>
-          <h2>Hooks</h2>
+          <h2>Hooks:</h2>
           {Object.keys(HOOK_ROUTES)
             .sort()
             .map((route, key) => {
@@ -76,14 +76,15 @@ export const Home = () => {
           variant="logo"
           className={logo}
         />
+        <h2>No nonsense.</h2>
         <p>
           TinyWidgets uses <a href="https://react.dev/">React</a> for DOM
           manipulation,{' '}
           <a href="https://vanilla-extract.style/">Vanilla-Extract</a> for
           styling and theming, <a href="https://lucide.dev/">Lucide</a> for
           icons, and <a href="https://tinybase.org">TinyBase</a> for state
-          management, and its philosophy is one of simplicity, decent defaults,
-          and concise styling.
+          management. Its philosophy is all about simplicity, decent defaults, a
+          streamlined DOM, and concise styling.
         </p>
         <p>
           But, just to be clear - that doesn't mean <i>you</i> need to use
@@ -94,7 +95,7 @@ export const Home = () => {
         <p>
           Of course, this site is itself a demo of TinyWidgets, showing off the
           components and layout in action. But check out the individual
-          components by navigating the API documentation in this demo site.
+          components by navigating the API documentation in the side bar.
         </p>
       </div>
     </div>

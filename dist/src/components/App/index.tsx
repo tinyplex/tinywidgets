@@ -2,9 +2,9 @@ import type {ComponentType, ReactNode} from 'react';
 import React from 'react';
 import {Menu, Moon, Sun, SunMoon, X} from 'lucide-react';
 import {Provider} from 'tinybase/ui-react';
+import {classNames, renderComponentOrNode} from '../../common.tsx';
 import {codeDark, codeLight} from '../../css/code.css.ts';
 import {colorsDark, colorsLight} from '../../css/colors.css.ts';
-import {classNames, renderComponentOrNode} from '../../css/render.tsx';
 import {
   LocalStore,
   useDark,
