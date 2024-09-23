@@ -1,3 +1,4 @@
+import '../pages/Installation.tsx';
 import React from 'react';
 import {Collapsible, Hr, useRoute} from 'tinywidgets';
 import {
@@ -6,18 +7,20 @@ import {
   FUNCTION_ROUTES,
   HOOK_ROUTES,
   OBJECT_ROUTES,
-} from './pages/_api.tsx';
-import {RouteButton} from './pages/RouteLink';
+} from '../pages/_api.tsx';
+import {RouteButton} from './RouteLink.tsx';
 
 type Navigation = readonly (
   | string
   | null
-  | [label: string, routes: readonly string[]]
+  | [label: string, routes: readonly string[], startOpen?: boolean]
 )[];
 export const NAVIGATION: Navigation = [
   'home',
   null,
-  ['Components', Object.keys(COMPONENT_ROUTES).sort()],
+  'installation',
+  null,
+  ['Components', Object.keys(COMPONENT_ROUTES).sort(), true],
   [
     'Hooks & Functions',
     Object.keys({...HOOK_ROUTES, ...FUNCTION_ROUTES}).sort(),
@@ -29,9 +32,9 @@ export const SideNav = () => {
   const currentRoute = useRoute() || 'home';
   return NAVIGATION.map((routeOrRoutes, key) => {
     if (routeOrRoutes instanceof Array) {
-      const [title, routes] = routeOrRoutes;
+      const [title, routes, startOpen] = routeOrRoutes;
       return (
-        <Collapsible title={title} id={title} startOpen key={key}>
+        <Collapsible title={title} id={title} startOpen={startOpen} key={key}>
           {routes.map((route, key) => (
             <RouteButton
               route={route}

@@ -1,20 +1,20 @@
 import React from 'react';
-import {App as AppBase, Button, Image, useRoute} from 'tinywidgets';
+import {
+  App as AppBase,
+  Button,
+  Image,
+  useRoute,
+  useSetRouteCallback,
+} from 'tinywidgets';
 import {SiGithub} from '@icons-pack/react-simple-icons';
-import {article} from './App.css.ts';
-import {titleStyle} from './index.css.ts';
+import {article, title} from './App.css.ts';
+import {SideNav} from './components/SideNav.tsx';
 import {Home} from './pages/Home.tsx';
 import {ROUTES} from './pages/index.ts';
-import {SideNav} from './SideNav';
 
 export const App = () => (
   <AppBase
-    title={
-      <h1 className={titleStyle}>
-        <Image src="/favicon.svg" variant="logo" alt="TinyWidgets" />
-        TinyWidgets
-      </h1>
-    }
+    title={Title}
     topNavRight={
       <Button
         title="GitHub"
@@ -26,6 +26,16 @@ export const App = () => (
     main={Main}
   />
 );
+
+const Title = () => {
+  const setRoute = useSetRouteCallback();
+  return (
+    <h1 className={title} onClick={() => setRoute('')}>
+      <Image src="/favicon.svg" variant="logo" alt="TinyWidgets" />
+      TinyWidgets
+    </h1>
+  );
+};
 
 const Main = () => {
   const route = useRoute();

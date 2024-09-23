@@ -1,6 +1,7 @@
 import React from 'react';
 import * as Lucide from 'lucide-react';
 import {Card, Hr, Image, Row} from 'tinywidgets';
+import {RouteButton} from '../components/RouteLink.tsx';
 import {
   COMPONENT_ROUTES,
   CSS_ROUTES,
@@ -10,7 +11,6 @@ import {
 } from './_api.tsx';
 import {button, home, hr, logo, narrower, title} from './Home.css.ts';
 import {ROUTES} from './index.ts';
-import {RouteButton} from './RouteLink.tsx';
 
 export const Home = () => {
   return (

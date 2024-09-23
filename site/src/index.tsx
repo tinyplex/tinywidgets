@@ -1,5 +1,5 @@
+import './components/Title.css.ts';
 import './index.css';
-import './index.css.ts';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {App} from './App';

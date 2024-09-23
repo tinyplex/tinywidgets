@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
 import {Code, Collapsible, Detail, Hr, Row} from 'tinywidgets';
-import {titleStyle} from '../index.css.ts';
+import {Title} from '../components/Title.tsx';
 import {exampleComment, exampleExec} from './Api.css.ts';
 
 export const Api = ({
@@ -25,10 +25,10 @@ export const Api = ({
   const exampleCount = Object.entries(examples).length;
   return (
     <>
-      <h1 className={titleStyle}>
+      <Title>
         <Icon />
         {title}
-      </h1>
+      </Title>
       <Code code={importLine} />
       {comments}
       {type == 'CSS' ? (
