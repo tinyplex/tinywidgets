@@ -1,8 +1,8 @@
 import type {ComponentType, ReactNode} from 'react';
+import {image, summary} from './index.css';
+import {Image} from '../Image';
 import React from 'react';
 import {classNames} from '../../common/functions';
-import {Image} from '../Image';
-import {image, summary} from './index.css';
 
 /**
  * The `Summary` component displays an image on the left, and other content
@@ -30,19 +30,19 @@ export const Summary = ({
    * An optional component which renders an icon for the summary, and which
    * must accept a className prop.
    */
-  icon?: ComponentType<{className?: string}>;
+  readonly icon?: ComponentType<{className?: string}>;
   /**
    * The source of the image, which used if the `icon` prop is not present.
    */
-  src?: string;
+  readonly src?: string;
   /**
    * An extra CSS class name for the component.
    */
-  className?: string;
+  readonly className?: string;
   /**
    * The children of the component, shown to the right of the image.
    */
-  children: ReactNode;
+  readonly children: ReactNode;
 }) => {
   return (
     <div className={classNames(summary, className)}>

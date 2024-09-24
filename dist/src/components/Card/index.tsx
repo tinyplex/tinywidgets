@@ -1,7 +1,7 @@
-import type {ReactNode} from 'react';
 import React from 'react';
-import {classNames} from '../../common/functions';
+import type {ReactNode} from 'react';
 import {card} from './index.css';
+import {classNames} from '../../common/functions';
 
 /**
  * The `Card` component displays a simple rectangular container.
@@ -26,9 +26,9 @@ export const Card = ({
   /**
    * An extra CSS class name for the component.
    */
-  className?: string;
+  readonly className?: string;
   /**
    * The children of the component, that go inside the card.
    */
-  children: ReactNode;
+  readonly children: ReactNode;
 }) => <div className={classNames(card, className)}>{children}</div>;

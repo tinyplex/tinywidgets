@@ -1,6 +1,6 @@
+import {image, imageVariants} from './index.css.ts';
 import React from 'react';
 import {classNames} from '../../common/functions.tsx';
-import {image, imageVariants} from './index.css.ts';
 
 /**
  * The `Image` component displays an image, with a number of common variants.
@@ -52,11 +52,11 @@ export const Image = ({
   /**
    * The source of the image.
    */
-  src: string;
+  readonly src: string;
   /**
    * A handler called when the user clicks on the image.
    */
-  onClick?: () => void;
+  readonly onClick?: () => void;
   /**
    * A variant of the image, one of:
    * - `default`
@@ -64,15 +64,15 @@ export const Image = ({
    * - `avatar`
    * - `icon`
    */
-  variant?: keyof typeof imageVariants;
+  readonly variant?: keyof typeof imageVariants;
   /**
    * Alternative text shown when the user hovers over the image.
    */
-  alt?: string;
+  readonly alt?: string;
   /**
    * An extra CSS class name for the component.
    */
-  className?: string;
+  readonly className?: string;
 }) => {
   return (
     <img

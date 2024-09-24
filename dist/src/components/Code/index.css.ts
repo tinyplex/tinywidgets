@@ -21,6 +21,7 @@ globalStyle('.token.doctype, .token.punctuation, .token.entity', {
 });
 
 globalStyle(
+  // eslint-disable-next-line max-len
   '.token.attr-name, .token.class-name, .token.boolean, .token.constant, .token.number, .token.atrule',
   {color: code['hue-6']},
 );
@@ -28,11 +29,13 @@ globalStyle(
 globalStyle('.token.keyword', {color: code['hue-3']});
 
 globalStyle(
+  // eslint-disable-next-line max-len
   '.token.property, .token.tag, .token.symbol, .token.deleted, .token.important',
   {color: code['hue-5']},
 );
 
 globalStyle(
+  // eslint-disable-next-line max-len
   '.token.selector, .token.string, .token.char, .token.builtin, .token.inserted, .token.regex, .token.attr-value, .token.attr-value > .token.punctuation',
   {color: code['hue-4']},
 );

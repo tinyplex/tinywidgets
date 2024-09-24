@@ -1,12 +1,6 @@
+import {ChevronDown, ChevronRight} from 'lucide-react';
 import type {ComponentType, ReactNode} from 'react';
 import React, {useCallback, useRef, useState} from 'react';
-import {ChevronDown, ChevronRight} from 'lucide-react';
-import {classNames} from '../../common/functions.tsx';
-import {
-  useCollapsibleIsOpen,
-  useSetCollapsibleIsOpenCallback,
-} from '../../stores/SessionStore.tsx';
-import {Button} from '../Button/index.tsx';
 import {
   button,
   buttonOpen,
@@ -14,6 +8,12 @@ import {
   collapsibleOpen,
   content,
 } from './index.css.ts';
+import {
+  useCollapsibleIsOpen,
+  useSetCollapsibleIsOpenCallback,
+} from '../../stores/SessionStore.tsx';
+import {Button} from '../Button/index.tsx';
+import {classNames} from '../../common/functions.tsx';
 
 /**
  * The `Collapsible` component displays a titled box that can be expanded or
@@ -58,8 +58,8 @@ import {
  */
 export const Collapsible = ({
   icon: Icon,
-  title = <div />,
-  titleRight = <div />,
+  title,
+  titleRight,
   startOpen = false,
   id = '',
   className,
@@ -69,33 +69,33 @@ export const Collapsible = ({
    * An optional component which renders an icon for the top of the collapsible
    * component, and which must accept a className prop.
    */
-  icon?: ComponentType<{className?: string}>;
+  readonly icon?: ComponentType<{className?: string}>;
   /**
    * An optional component, element, or string which renders the title of
    * the top of the component.
    */
-  title?: ComponentType | ReactNode;
+  readonly title?: ComponentType | ReactNode;
   /**
    * An optional component, element, or string which renders a second title
    * on the right side of the top of the component.
    */
-  titleRight?: ComponentType | ReactNode;
+  readonly titleRight?: ComponentType | ReactNode;
   /**
    * Whether the section should start opened up.
    */
-  startOpen?: boolean;
+  readonly startOpen?: boolean;
   /**
    * An Id which will allow the state to be preserved between page reloads.
    */
-  id?: string;
+  readonly id?: string;
   /**
    * An extra CSS class name for the component.
    */
-  className?: string;
+  readonly className?: string;
   /**
    * The children of the component, that go inside the collapsible section.
    */
-  children: ReactNode;
+  readonly children: ReactNode;
 }) => {
   const storedIsOpen = useCollapsibleIsOpen(id) ?? startOpen;
   const setStoredIsOpen = useSetCollapsibleIsOpenCallback(id);

@@ -1,7 +1,7 @@
-import type {ReactNode} from 'react';
-import React from 'react';
-import {classNames} from '../../common/functions';
 import {detailCell, detailRow, detailTable} from './index.css';
+import React from 'react';
+import type {ReactNode} from 'react';
+import {classNames} from '../../common/functions';
 
 /**
  * The `Detail` component displays a set of key-value pairs in a two-column
@@ -29,11 +29,11 @@ export const Detail = ({
   /**
    * The data to display in the detail table. The values can be any React node.
    */
-  data: Record<string, ReactNode>;
+  readonly data: Record<string, ReactNode>;
   /**
    * An extra CSS class name for the component.
    */
-  className?: string;
+  readonly className?: string;
 }) => (
   <table className={classNames(detailTable, className)}>
     <tbody>

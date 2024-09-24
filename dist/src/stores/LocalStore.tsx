@@ -1,8 +1,8 @@
-import {useEffect} from 'react';
-import {createLocalPersister} from 'tinybase/persisters/persister-browser/with-schemas';
 import * as UiReact from 'tinybase/ui-react/with-schemas';
-import {createStore, type NoTablesSchema} from 'tinybase/with-schemas';
 import {CHANGE, READY, READY_SCHEMA} from './common';
+import {type NoTablesSchema, createStore} from 'tinybase/with-schemas';
+import {createLocalPersister} from 'tinybase/persisters/persister-browser/with-schemas';
+import {useEffect} from 'react';
 
 const PREFERS_DARK = matchMedia?.('(prefers-color-scheme: dark)');
 

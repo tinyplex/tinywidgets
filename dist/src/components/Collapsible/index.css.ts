@@ -1,6 +1,6 @@
-import {style} from '@vanilla-extract/css';
 import {colors} from '../../css/colors.css';
 import {dimensions} from '../../css/dimensions.css';
+import {style} from '@vanilla-extract/css';
 
 export const collapsible = style({
   width: '100%',

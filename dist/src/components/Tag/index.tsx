@@ -1,7 +1,7 @@
 import type {ComponentType, ReactNode} from 'react';
-import React from 'react';
 import {classNames, renderComponentOrNode} from '../../common/functions';
 import {tag, tagIcon, tagVariants} from './index.css';
+import React from 'react';
 
 /**
  * The `Tag` component displays a small rectangular tag, suitable for minimal
@@ -39,26 +39,26 @@ export const Tag = ({
    * An optional component which renders an icon for the tag, and which
    * must accept a className prop.
    */
-  icon?: ComponentType<{className?: string}>;
+  readonly icon?: ComponentType<{className?: string}>;
   /**
    * An optional component, element, or string which renders the title of
    * the tag.
    */
-  title?: ComponentType | ReactNode;
+  readonly title?: ComponentType | ReactNode;
   /**
    * A variant of the tag, one of:
    * - `default`
    * - `accent`
    */
-  variant?: keyof typeof tagVariants;
+  readonly variant?: keyof typeof tagVariants;
   /**
    * Alternative text shown when the user hovers over the component.
    */
-  alt?: string;
+  readonly alt?: string;
   /**
    * An extra CSS class name for the component.
    */
-  className?: string;
+  readonly className?: string;
 }) => {
   const icon = Icon ? <Icon className={tagIcon} /> : null;
   return (

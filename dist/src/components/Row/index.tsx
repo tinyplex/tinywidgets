@@ -1,7 +1,7 @@
-import type {ReactNode} from 'react';
-import React from 'react';
-import {classNames} from '../../common/functions';
 import {row, rowVariants} from './index.css';
+import React from 'react';
+import type {ReactNode} from 'react';
+import {classNames} from '../../common/functions';
 
 /**
  * The `Row` component displays a row of 'cell' components, with a number of
@@ -86,15 +86,15 @@ export const Row = ({
    * - `3|1`
    * - `1|1|1|1`
    */
-  variant?: keyof typeof rowVariants;
+  readonly variant?: keyof typeof rowVariants;
   /**
    * An extra CSS class name for the component.
    */
-  className?: string;
+  readonly className?: string;
   /**
    * The children of the component, each occupying one 'cell'.
    */
-  children: ReactNode;
+  readonly children: ReactNode;
 }) => {
   return (
     <div className={classNames(row, rowVariants[variant], className)}>

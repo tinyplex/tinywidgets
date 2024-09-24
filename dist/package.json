@@ -3,7 +3,7 @@
   "description": "A collection of tiny, reusable, React components",
   "version": "0.0.11",
   "scripts": {
-    "prePublishPackage": "eslint . && tsc && vite build"
+    "prePublishPackage": "eslint . && tsc"
   },
   "author": "jamesgpearce",
   "repository": "github:tinyplex/tinywidgets",

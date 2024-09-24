@@ -1,7 +1,5 @@
 import type {ComponentType, ReactNode, Ref} from 'react';
 import React, {forwardRef, useCallback} from 'react';
-import {classNames, renderComponentOrNode} from '../../common/functions.tsx';
-import {iconSize} from '../../css/dimensions.css.ts';
 import {
   button,
   buttonVariants,
@@ -9,6 +7,8 @@ import {
   titleStyle,
   titleStyleRight,
 } from './index.css.ts';
+import {classNames, renderComponentOrNode} from '../../common/functions.tsx';
+import {iconSize} from '../../css/dimensions.css.ts';
 
 /**
  * The `Button` component displays an button, with a number of common variants.
@@ -121,26 +121,26 @@ export const Button = forwardRef(
        * An optional component which renders an icon for the button, and which
        * must accept a className prop.
        */
-      icon?: ComponentType<{className?: string}>;
+      readonly icon?: ComponentType<{className?: string}>;
       /**
        * An optional component, element, or string which renders the title of
        * the button.
        */
-      title?: ComponentType | ReactNode;
+      readonly title?: ComponentType | ReactNode;
       /**
        * An optional component, element, or string which renders a second title
        * on the right side of the button.
        */
-      titleRight?: ComponentType | ReactNode;
+      readonly titleRight?: ComponentType | ReactNode;
       /**
        * An optional component which renders a second icon for the button, and
        * which must accept a className prop.
        */
-      iconRight?: ComponentType<{className?: string}>;
+      readonly iconRight?: ComponentType<{className?: string}>;
       /**
        * A handler called when the user clicks on the button.
        */
-      onClick?: () => void;
+      readonly onClick?: () => void;
       /**
        * A variant of the button, one of:
        * - `default`
@@ -149,25 +149,25 @@ export const Button = forwardRef(
        * - `ghost`
        * - `item`
        */
-      variant?: keyof typeof buttonVariants;
+      readonly variant?: keyof typeof buttonVariants;
       /**
        * A flag that indicates that an `item` button is 'current' and therefore
        * highlighted.
        */
-      current?: boolean;
+      readonly current?: boolean;
       /**
        * A URL that can be used instead of an `onClick` to launch a new web
        * page, much like a link.
        */
-      href?: string;
+      readonly href?: string;
       /**
        * Alternative text shown when the user hovers over the button.
        */
-      alt?: string;
+      readonly alt?: string;
       /**
        * An extra CSS class name for the component.
        */
-      className?: string;
+      readonly className?: string;
     },
     ref: Ref<HTMLButtonElement>,
   ) => {

@@ -1,10 +1,4 @@
 import type {ComponentType, ReactNode} from 'react';
-import React from 'react';
-import {Menu, Moon, Sun, SunMoon, X} from 'lucide-react';
-import {Provider} from 'tinybase/ui-react';
-import {classNames, renderComponentOrNode} from '../../common/functions.tsx';
-import {codeDark, codeLight} from '../../css/code.css.ts';
-import {colorsDark, colorsLight} from '../../css/colors.css.ts';
 import {
   LocalStore,
   useDark,
@@ -12,6 +6,7 @@ import {
   useLocalStoreIsReady,
   useToggleDarkChoiceCallback,
 } from '../../stores/LocalStore.tsx';
+import {Menu, Moon, Sun, SunMoon, X} from 'lucide-react';
 import {RouteStore, useRouteStoreIsReady} from '../../stores/RouteStore.tsx';
 import {
   SessionStore,
@@ -19,7 +14,6 @@ import {
   useSideNavIsOpen,
   useToggleSideNavIsOpenCallback,
 } from '../../stores/SessionStore.tsx';
-import {Button} from '../Button/index.tsx';
 import {
   app,
   appLayout,
@@ -32,6 +26,12 @@ import {
   title,
   topNav,
 } from './index.css.ts';
+import {classNames, renderComponentOrNode} from '../../common/functions.tsx';
+import {codeDark, codeLight} from '../../css/code.css.ts';
+import {colorsDark, colorsLight} from '../../css/colors.css.ts';
+import {Button} from '../Button/index.tsx';
+import {Provider} from 'tinybase/ui-react';
+import React from 'react';
 
 const darkIcons = [Sun, Moon, SunMoon];
 const darkChoices = ['Light always', 'Dark always', 'Auto'];
@@ -60,31 +60,31 @@ export const App = (props: {
    * An optional component, element, or string which renders the top left title
    * of the application.
    */
-  title?: ComponentType | ReactNode;
+  readonly title?: ComponentType | ReactNode;
   /**
    * An optional component, element, or string which renders navigation on the
    * left side of the top navigation bar of the application.
    */
-  topNavLeft?: ComponentType | ReactNode;
+  readonly topNavLeft?: ComponentType | ReactNode;
   /**
    * An optional component, element, or string which renders navigation on the
    * right side of the top navigation bar of the application.
    */
-  topNavRight?: ComponentType | ReactNode;
+  readonly topNavRight?: ComponentType | ReactNode;
   /**
    * An optional component, element, or string which renders the left side bar
    * of the application.
    */
-  sideNav?: ComponentType | ReactNode;
+  readonly sideNav?: ComponentType | ReactNode;
   /**
    * An optional component, element, or string which renders the main part of
    * the application.
    */
-  main?: ComponentType | ReactNode;
+  readonly main?: ComponentType | ReactNode;
   /**
    * An extra CSS class name for the component.
    */
-  className?: string;
+  readonly className?: string;
 }) => {
   return (
     <Provider>

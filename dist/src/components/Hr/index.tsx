@@ -20,7 +20,7 @@ export const Hr = ({
   /**
    * An extra CSS class name for the component.
    */
-  className?: string;
+  readonly className?: string;
 }) => {
   return <hr className={classNames(hr, className)} />;
 };

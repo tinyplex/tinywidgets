@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import {createTheme, createThemeContract} from '@vanilla-extract/css';
 
 /**

@@ -1,9 +1,10 @@
+/* eslint-disable max-len */
 import 'prismjs';
 import 'prismjs/components/prism-jsx';
 import 'prismjs/components/prism-typescript';
 import 'prismjs/components/prism-tsx';
-import React from 'react';
 import Prism from 'prismjs';
+import React from 'react';
 import {classNames} from '../../common/functions.tsx';
 import {pre} from './index.css';
 
@@ -15,7 +16,8 @@ const {highlight, languages} = Prism;
  *
  * This component supports the default PrismJS languages (`markup`, `html`
  * , `xml`, `svg`, `mathml`, `ssml`, `atom`, `rss`, `css`, `clike`, `javascript`
- * , `js`), and specific additional languages (`jsx`, `typescript`, `ts`, `tsx`).
+ * , `js`), and specific additional languages (`jsx`, `typescript`, `ts`
+ * , `tsx`).
  * Others can be added if there is demand! Please open an issue on GitHub.
  *
  * @param props The props for the component.
@@ -64,19 +66,20 @@ export const Code = ({
   /**
    * The code to display, as a string.
    */
-  code: string;
+  readonly code: string;
   /**
    * An optional indication of the language. Defaults to `jsx`.
    */
-  language?: string;
+  readonly language?: string;
   /**
    * An extra CSS class name for the component.
    */
-  className?: string;
+  readonly className?: string;
 }) => {
   return (
     <pre className={classNames(pre, className)}>
       <code
+        // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{
           __html: highlight(code.trim(), languages[language], language),
         }}
