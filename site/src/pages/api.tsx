@@ -1,7 +1,7 @@
-import React, {Fragment} from 'react';
 import {Code, Collapsible, Detail, Hr, Row} from 'tinywidgets';
-import {Title} from '../components/Title.tsx';
+import React, {Fragment} from 'react';
 import {exampleComment, exampleExec} from './Api.css.ts';
+import {Title} from '../components/Title.tsx';
 
 export const Api = ({
   title,
@@ -13,14 +13,14 @@ export const Api = ({
   props,
   examples,
 }: {
-  title: string;
-  type: string;
-  importLine: string;
-  icon?: any;
-  comments: any;
-  params: any;
-  props: any;
-  examples: any;
+  readonly title: string;
+  readonly type: string;
+  readonly importLine: string;
+  readonly icon?: any;
+  readonly comments: any;
+  readonly params: any;
+  readonly props: any;
+  readonly examples: any;
 }) => {
   const exampleCount = Object.entries(examples).length;
   return (
@@ -33,7 +33,7 @@ export const Api = ({
       {comments}
       {type == 'CSS' ? (
         <p>
-          Note that this constant needs to be imported from TinyWidgets'{' '}
+          Note that this constant needs to be imported from TinyWidgets{`' `}
           <code>/css</code> sub-module.
         </p>
       ) : null}

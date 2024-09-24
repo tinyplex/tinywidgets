@@ -1,7 +1,4 @@
-import React from 'react';
 import * as Lucide from 'lucide-react';
-import {Card, Hr, Image, Row} from 'tinywidgets';
-import {RouteButton} from '../components/RouteLink.tsx';
 import {
   COMPONENT_ROUTES,
   CSS_ROUTES,
@@ -9,8 +6,11 @@ import {
   HOOK_ROUTES,
   OBJECT_ROUTES,
 } from './_api.tsx';
+import {Card, Hr, Image, Row} from 'tinywidgets';
 import {button, home, hr, logo, narrower, title} from './Home.css.ts';
 import {ROUTES} from './index.ts';
+import React from 'react';
+import {RouteButton} from '../components/RouteLink.tsx';
 
 export const Home = () => {
   return (
@@ -66,11 +66,13 @@ export const Home = () => {
       <Hr className={hr} />
       <div className={narrower}>
         <Image
+          // eslint-disable-next-line max-len
           src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg"
           variant="logo"
           className={logo}
         />
         <Image
+          // eslint-disable-next-line max-len
           src="https://raw.githubusercontent.com/vanilla-extract-css/vanilla-extract/refs/heads/master/site/logo.svg"
           variant="logo"
           className={logo}
@@ -95,7 +97,7 @@ export const Home = () => {
           streamlined DOM, and concise styling.
         </p>
         <p>
-          But, just to be clear - that doesn't mean <i>you</i> need to use
+          But, just to be clear - that doesn&apos;t mean <i>you</i> need to use
           Vanilla-Extract, Lucide, or Tinybase in the apps you build with these
           widgets. You can set arbitrary class names (from Tailwind, for
           example!) on all components, for instance.

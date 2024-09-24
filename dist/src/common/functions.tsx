@@ -1,10 +1,10 @@
-import React, {ComponentType, ReactNode} from 'react';
+import React, {type ComponentType, type ReactNode} from 'react';
 import type {StyleRule} from '@vanilla-extract/css';
 import {screens} from '../css/screens';
 
 /**
- * The `classNames` function returns a concatenated list of class names, filtering
- * out any `null` or `undefined` values.
+ * The `classNames` function returns a concatenated list of class names,
+ * filtering out any `null` or `undefined` values.
  *
  * This allows you to easily toggle classes based on conditions.
  *

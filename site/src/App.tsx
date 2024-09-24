@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   App as AppBase,
   Button,
@@ -6,11 +5,12 @@ import {
   useRoute,
   useSetRouteCallback,
 } from 'tinywidgets';
-import {SiGithub} from '@icons-pack/react-simple-icons';
+import React, {useCallback} from 'react';
 import {article, title} from './App.css.ts';
-import {SideNav} from './components/SideNav.tsx';
 import {Home} from './pages/Home.tsx';
 import {ROUTES} from './pages/index.ts';
+import {SiGithub} from '@icons-pack/react-simple-icons';
+import {SideNav} from './components/SideNav.tsx';
 
 export const App = () => (
   <AppBase
@@ -29,8 +29,9 @@ export const App = () => (
 
 const Title = () => {
   const setRoute = useSetRouteCallback();
+  const setHome = useCallback(() => setRoute(''), [setRoute]);
   return (
-    <h1 className={title} onClick={() => setRoute('')}>
+    <h1 className={title} onClick={setHome}>
       <Image src="/favicon.svg" variant="logo" alt="TinyWidgets" />
       TinyWidgets
     </h1>

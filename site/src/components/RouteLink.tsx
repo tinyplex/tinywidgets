@@ -1,5 +1,5 @@
-import React, {ComponentProps} from 'react';
 import {Button, useSetRouteCallback} from 'tinywidgets';
+import React, {ComponentProps, useCallback} from 'react';
 import {ROUTES} from '../pages';
 
 export const RouteButton = ({
@@ -8,18 +8,20 @@ export const RouteButton = ({
   current,
   className,
 }: {
-  route: string;
-  variant?: ComponentProps<typeof Button>['variant'];
-  current?: boolean;
-  className?: string;
+  readonly route: string;
+  readonly variant?: ComponentProps<typeof Button>['variant'];
+  readonly current?: boolean;
+  readonly className?: string;
 }) => {
   const setRoute = useSetRouteCallback();
+  const onClick = useCallback(() => setRoute(route), [setRoute, route]);
+
   return (
     <Button
       variant={variant}
       title={ROUTES[route]?.[0]}
       icon={ROUTES[route]?.[2]}
-      onClick={() => setRoute(route)}
+      onClick={onClick}
       className={className}
       current={current}
     />

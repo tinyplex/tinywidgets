@@ -19,7 +19,7 @@ export default defineConfig({
   },
 
   plugins: [
-    react(),
+    react({jsxRuntime: 'classic'}),
     vanillaExtractPlugin(),
     ViteMinifyPlugin({minifyJS: {toplevel: true}}),
   ],

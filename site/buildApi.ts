@@ -1,7 +1,7 @@
-import {Glob} from 'bun';
-import {watch} from 'fs';
-import {marked} from 'marked';
 import ts, {isVariableDeclaration} from 'typescript';
+import {Glob} from 'bun';
+import {marked} from 'marked';
+import {watch} from 'fs';
 
 const TS = /```tsx\n(.*?)(<|(\/\/))/ms;
 const TSX = /```tsx.*?\n(<.*?)\n```/ms;
@@ -83,7 +83,7 @@ const extract = async (file: string, allDocs: {[variable: string]: any}) => {
   visit(sourceFile);
 };
 
-const extractAll = async () => {
+const buildApi = async () => {
   const allDocs: any = {};
   await Promise.all(
     [...new Glob('../dist/src/**/*.*').scanSync()].map(async (file) => {
@@ -103,6 +103,7 @@ const extractAll = async () => {
   });
 
   const apiFile: string[] = [
+    `/* eslint-disable */`,
     `import React from 'react';`,
     `import type {Routes} from './index.ts';`,
     `import {ROUTES} from './index.ts';`,
@@ -137,14 +138,16 @@ const extractAll = async () => {
             : type == 'CSS'
               ? 'Lucide.Paintbrush'
               : 'Lucide.Braces');
-    const importLine = `import {${title}} from 'tinywidgets${type == 'CSS' ? '/css' : ''}';`;
+    const importLine =
+      `import {${title}} from ` +
+      `'tinywidgets${type == 'CSS' ? '/css' : ''}';`;
 
     apiFile.push(
       ``,
       importLine,
       `${type}_ROUTES['${type.toLowerCase()}/${title}'] = ['${title}', () => {`,
-      ...docs.example
-        ?.map((example: string) => example.match(TS)?.[1].trim())
+      ...(docs.example ?? [])
+        .map((example: string) => example.match(TS)?.[1].trim())
         .filter(Boolean),
       `return (<Api `,
       `  type='${type}'`,
@@ -163,7 +166,7 @@ const extractAll = async () => {
       ),
       `}}`,
       `  examples={[`,
-      ...docs.example?.map(
+      ...(docs.example ?? []).map(
         (example: string) =>
           `[<>${marked(example)}</>,${example.match(TSX)?.[1]}],`,
       ),
@@ -181,9 +184,8 @@ const extractAll = async () => {
 };
 
 if (process.argv[2] == '--watch') {
-  extractAll();
-  console.log('Watching');
-  watch('../dist/src', {recursive: true}, extractAll);
+  buildApi();
+  watch('../dist/src', {recursive: true}, buildApi);
 } else {
-  extractAll();
+  buildApi();
 }

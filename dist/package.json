@@ -1,14 +1,18 @@
 {
   "name": "tinywidgets",
+  "description": "A collection of tiny, reusable, React components",
   "version": "0.0.11",
+  "scripts": {
+    "prePublishPackage": "eslint . && tsc && vite build"
+  },
   "author": "jamesgpearce",
   "repository": "github:tinyplex/tinywidgets",
-  "module": "index.ts",
+  "module": "./src/index.ts",
   "devDependencies": {
-    "@types/react": "^18.3.5",
+    "@types/react": "^18.3.8",
     "@types/react-dom": "^18.3.0",
-    "@typescript-eslint/eslint-plugin": "^8.5.0",
-    "@typescript-eslint/parser": "^8.5.0",
+    "@typescript-eslint/eslint-plugin": "^8.7.0",
+    "@typescript-eslint/parser": "^8.7.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react": "^7.36.1",
@@ -21,14 +25,14 @@
     ".": "./src/index.ts",
     "./css": "./src/index.css.ts"
   },
-  "description": "reserved",
   "license": "MIT",
   "dependencies": {
-    "lucide-react": "^0.441.0",
+    "eslint-plugin-react-refresh": "^0.4.12",
+    "lucide-react": "^0.445.0",
     "prism-react-renderer": "^2.4.0",
     "prismjs": "^1.29.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "tinybase": "^5.3.0"
+    "tinybase": "^5.3.1"
   }
 }
