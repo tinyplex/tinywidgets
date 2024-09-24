@@ -4,10 +4,9 @@ import {colors} from '../../css/colors.css';
 import {dimensions} from '../../css/dimensions.css';
 
 export const pre = style({
-  width: '100%',
   padding: dimensions.padding,
   borderRadius: dimensions.radius,
-  boxShadow: colors.shadow,
+  background: colors.background2,
   border: colors.border,
   lineHeight: '1.25rem',
   overflowX: 'auto',

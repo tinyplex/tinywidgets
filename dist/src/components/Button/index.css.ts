@@ -61,6 +61,6 @@ export const titleStyle = style({
 });
 
 export const titleStyleRight = style({
-  flex: '0 1 auto',
+  flex: '0 0 auto',
   overflow: 'hidden',
 });

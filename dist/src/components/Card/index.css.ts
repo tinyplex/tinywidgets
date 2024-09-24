@@ -8,4 +8,5 @@ export const card = style({
   boxShadow: colors.shadow,
   border: colors.border,
   height: 'fit-content',
+  overflow: 'auto',
 });

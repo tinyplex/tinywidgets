@@ -78,7 +78,7 @@ export const Image = ({
     <img
       src={src}
       onClick={onClick}
-      alt={alt}
+      title={alt}
       className={classNames(image, imageVariants[variant], className)}
     />
   );

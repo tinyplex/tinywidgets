@@ -5,6 +5,7 @@ import {dimensions} from '../../css/dimensions.css';
 export const image = style({
   display: 'inline-block',
   flexShrink: 0,
+  width: '100%',
   maxHeight: 'inherit',
   selectors: {
     '&:hover': {
