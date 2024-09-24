@@ -1,4 +1,4 @@
-import {breaks, colors} from 'tinywidgets/css';
+import {colors, screens} from 'tinywidgets/css';
 import {style} from '@vanilla-extract/css';
 
 export const home = style({
@@ -12,7 +12,7 @@ export const title = style({
   color: colors.foregroundBright,
   fontSize: '2.4rem',
   '@media': {
-    [`screen and (min-width: ${breaks.large}px)`]: {fontSize: '3.2rem'},
+    [`screen and (min-width: ${screens.large}px)`]: {fontSize: '3.2rem'},
   },
 });
 

@@ -1,6 +1,6 @@
 import React, {ComponentType, ReactNode} from 'react';
 import type {StyleRule} from '@vanilla-extract/css';
-import {breaks} from '../css/breaks';
+import {screens} from '../css/screens';
 
 /**
  * The `classNames` function returns a concatenated list of class names, filtering
@@ -38,17 +38,17 @@ export const renderComponentOrNode = (
   );
 
 export const large = (style: StyleRule) => ({
-  '@media': {[`screen and (min-width: ${breaks.large}px)`]: style},
+  '@media': {[`screen and (min-width: ${screens.large}px)`]: style},
 });
 
 export const notLarge = (style: StyleRule) => ({
-  '@media': {[`screen and (max-width: ${breaks.large}px)`]: style},
+  '@media': {[`screen and (max-width: ${screens.large}px)`]: style},
 });
 
 export const small = (style: StyleRule) => ({
-  '@media': {[`screen and (max-width: ${breaks.small}px)`]: style},
+  '@media': {[`screen and (max-width: ${screens.small}px)`]: style},
 });
 
 export const notSmall = (style: StyleRule) => ({
-  '@media': {[`screen and (min-width: ${breaks.small}px)`]: style},
+  '@media': {[`screen and (min-width: ${screens.small}px)`]: style},
 });

@@ -1,11 +1,11 @@
 @font-face {
   font-family: inter;
-  src: url(/inter.woff2) format('woff2');
+  src: url(inter.woff2) format('woff2');
 }
 
 @font-face {
   font-family: inconsolata;
-  src: url(/inconsolata.woff2) format('woff2');
+  src: url(inconsolata.woff2) format('woff2');
 }
 
 :root {
