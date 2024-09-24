@@ -6,7 +6,7 @@ import {
   HOOK_ROUTES,
   OBJECT_ROUTES,
 } from './_api.tsx';
-import {Card, Hr, Image, Row} from 'tinywidgets';
+import {Card, Hr, Image, Row} from '../../../package/src/index.ts';
 import {button, home, hr, logo, narrower, title} from './Home.css.ts';
 import {ROUTES} from './index.ts';
 import React from 'react';

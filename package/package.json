@@ -1,7 +1,7 @@
 {
   "name": "tinywidgets",
   "description": "A collection of tiny, reusable, React components",
-  "version": "0.0.11",
+  "version": "1.0.0",
   "scripts": {
     "prePublishPackage": "eslint . && tsc"
   },

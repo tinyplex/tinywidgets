@@ -1,4 +1,4 @@
-import {colors} from 'tinywidgets/css';
+import {colors} from '../../../package/src/index.css';
 import {style} from '@vanilla-extract/css';
 
 export const title = style({

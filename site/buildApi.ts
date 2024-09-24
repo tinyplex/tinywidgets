@@ -86,7 +86,7 @@ const extract = async (file: string, allDocs: {[variable: string]: any}) => {
 const buildApi = async () => {
   const allDocs: any = {};
   await Promise.all(
-    [...new Glob('../dist/src/**/*.*').scanSync()].map(async (file) => {
+    [...new Glob('../package/src/**/*.*').scanSync()].map(async (file) => {
       await extract(file, allDocs);
     }),
   );
@@ -188,7 +188,7 @@ const buildApi = async () => {
 
 if (process.argv[2] == '--watch') {
   buildApi();
-  watch('../dist/src', {recursive: true}, buildApi);
+  watch('../package/src', {recursive: true}, buildApi);
 } else {
   buildApi();
 }

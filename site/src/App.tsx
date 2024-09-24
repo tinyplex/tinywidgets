@@ -4,7 +4,7 @@ import {
   Image,
   useRoute,
   useSetRouteCallback,
-} from 'tinywidgets';
+} from '../../package/src/index.ts';
 import React, {useCallback} from 'react';
 import {article, title} from './App.css.ts';
 import {Home} from './pages/Home.tsx';

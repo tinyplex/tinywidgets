@@ -6,7 +6,7 @@ import {
   HOOK_ROUTES,
   OBJECT_ROUTES,
 } from '../pages/_api.tsx';
-import {Collapsible, Hr, useRoute} from 'tinywidgets';
+import {Collapsible, Hr, useRoute} from '../../../package/src/index.ts';
 import React from 'react';
 import {RouteButton} from './RouteLink.tsx';
 

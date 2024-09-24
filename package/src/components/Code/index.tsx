@@ -6,7 +6,7 @@ import 'prismjs/components/prism-tsx';
 import Prism from 'prismjs';
 import React from 'react';
 import {classNames} from '../../common/functions.tsx';
-import {pre} from './index.css';
+import {pre} from './index.css.ts';
 
 const {highlight, languages} = Prism;
 

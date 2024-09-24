@@ -1,4 +1,4 @@
-import {colors, screens} from 'tinywidgets/css';
+import {colors, screens} from '../../../package/src/index.css';
 import {style} from '@vanilla-extract/css';
 
 export const home = style({

@@ -1,4 +1,4 @@
-import {Button, useSetRouteCallback} from 'tinywidgets';
+import {Button, useSetRouteCallback} from '../../../package/src';
 import React, {ComponentProps, useCallback} from 'react';
 import {ROUTES} from '../pages';
 

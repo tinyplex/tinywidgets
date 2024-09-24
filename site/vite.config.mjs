@@ -1,7 +1,7 @@
-import {defineConfig} from 'vite';
 import {ViteMinifyPlugin} from 'vite-plugin-minify';
-import {vanillaExtractPlugin} from '@vanilla-extract/vite-plugin';
+import {defineConfig} from 'vite';
 import react from '@vitejs/plugin-react';
+import {vanillaExtractPlugin} from '@vanilla-extract/vite-plugin';
 
 export default defineConfig({
   build: {
