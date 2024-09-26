@@ -1,8 +1,8 @@
 import * as UiReact from 'tinybase/ui-react/with-schemas';
 import {CHANGE, READY, READY_SCHEMA} from './common';
 import {type NoTablesSchema, createStore} from 'tinybase/with-schemas';
+import {useCallback, useEffect} from 'react';
 import {createLocalPersister} from 'tinybase/persisters/persister-browser/with-schemas';
-import {useEffect} from 'react';
 
 const PREFERS_DARK = matchMedia?.('(prefers-color-scheme: dark)');
 
@@ -62,6 +62,12 @@ export const LocalStore = () => {
   const localStore = useCreateStore(() =>
     createStore().setValuesSchema(VALUES_SCHEMA),
   );
+
+  const preferenceListener = useCallback(
+    () => localStore.setValue(DARK_PREFERENCE, PREFERS_DARK.matches),
+    [localStore],
+  );
+
   useCreatePersister(
     localStore,
     (localStore) => createLocalPersister(localStore, LOCAL_STORE),
@@ -69,16 +75,17 @@ export const LocalStore = () => {
     async (persister) => {
       await persister.startAutoLoad();
       await persister.startAutoSave();
+      preferenceListener();
       persister.getStore().setValue(READY, true);
     },
+    [preferenceListener],
   );
+
   useEffect(() => {
-    const preferenceListener = () =>
-      localStore.setValue(DARK_PREFERENCE, PREFERS_DARK.matches);
     PREFERS_DARK.addEventListener(CHANGE, preferenceListener);
     preferenceListener();
     return () => PREFERS_DARK.removeEventListener(CHANGE, preferenceListener);
-  }, [localStore]);
+  }, [localStore, preferenceListener]);
 
   useProvideStore(LOCAL_STORE, localStore);
   return null;

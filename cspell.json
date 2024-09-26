@@ -1,0 +1,17 @@
+{
+  "ignorePaths": [
+    "bun.lockb"
+  ],
+  "words": [
+    "atrule",
+    "clike",
+    "jamesgpearce",
+    "mathml",
+    "oklch",
+    "prismjs",
+    "ssml",
+    "tinybase",
+    "tinyplex",
+    "tinywidgets"
+  ]
+}

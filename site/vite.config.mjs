@@ -12,7 +12,7 @@ export default defineConfig({
       output: {
         manualChunks: {
           'react-dom': ['react-dom'],
-          tinywidgets: ['tinywidgets'],
+          //          tinywidgets: ['tinywidgets'],
         },
       },
     },

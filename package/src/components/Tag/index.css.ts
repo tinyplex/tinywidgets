@@ -20,7 +20,6 @@ export const tagVariants = styleVariants({
   accent: {
     backgroundColor: colors.accent,
     color: colors.accentContrast,
-    boxShadow: colors.shadow,
   },
 });
 

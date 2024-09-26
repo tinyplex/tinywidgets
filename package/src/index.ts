@@ -1,5 +1,3 @@
-import './css/global.css.ts';
-
 export {App} from './components/App/index.tsx';
 export {Button} from './components/Button/index.tsx';
 export {Card} from './components/Card/index.tsx';

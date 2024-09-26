@@ -1,9 +1,9 @@
 {
   "name": "tinywidgets",
   "description": "A collection of tiny, reusable, React components",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "scripts": {
-    "prePublishPackage": "eslint . && tsc"
+    "prePublishPackage": "eslint . && cspell --quiet . && tsc"
   },
   "author": "jamesgpearce",
   "repository": "github:tinyplex/tinywidgets",
@@ -13,6 +13,7 @@
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^8.7.0",
     "@typescript-eslint/parser": "^8.7.0",
+    "cspell": "^8.14.4",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react": "^7.36.1",

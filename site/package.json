@@ -1,32 +1,31 @@
 {
-  "name": "tinywidgets-demo",
+  "name": "tinywidgets-site",
   "version": "1.0.0",
   "scripts": {
     "buildApi": "bun buildApi.ts",
     "buildApiWatch": "bun --watch buildApi.ts --watch",
     "dev": "bun run buildApi && vite --force",
-    "prePublishPackage": "bun run buildApi && eslint . && tsc && vite build"
+    "prePublish": "bun run buildApi && eslint . && tsc && vite build"
   },
   "devDependencies": {
     "@types/bun": "^1.1.10",
-    "@types/node": "^22.6.1",
+    "@types/node": "^22.7.2",
+    "@types/prismjs": "^1.26.4",
     "@types/react-dom": "^18.3.0",
     "@vanilla-extract/vite-plugin": "^4.0.15",
     "@vitejs/plugin-react": "^4.3.1",
+    "eslint-plugin-react-refresh": "^0.4.12",
     "typescript": "^5.6.2",
-    "vite": "^5.4.7",
-    "typedoc": "^0.26.7",
-    "vite-plugin-minify": "^2.0.0"
+    "vite-plugin-minify": "^2.0.0",
+    "vite": "^5.4.8"
   },
   "dependencies": {
     "@icons-pack/react-simple-icons": "^10.0.0",
-    "@types/prismjs": "^1.26.4",
-    "eslint-plugin-react-refresh": "^0.4.12",
-    "lucide-react": "^0.445.0",
+    "lucide-react": "^0.446.0",
     "marked": "^14.1.2",
     "prismjs": "^1.29.0",
-    "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react": "^18.3.1",
     "tinywidgets": "file:../package"
   }
 }

@@ -33,11 +33,10 @@ export const topNav = style({
   justifyContent: 'space-between',
   alignItems: 'center',
   gap: dimensions.padding,
-
   flex: 1,
 });
 
-export const sideNavButton = style(large({display: 'none'}));
+export const sideNavButton = style(large({display: 'none!important'}));
 
 export const title = style({
   display: 'flex',
