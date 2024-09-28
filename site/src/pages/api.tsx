@@ -1,13 +1,7 @@
-import {
-  Code,
-  Collapsible,
-  Detail,
-  Hr,
-  Row,
-} from '../../../package/src/index.ts';
 import React, {Fragment} from 'react';
-import {exampleComment, exampleExec} from './Api.css.ts';
+import {Code, Collapsible, Detail, Hr, Row} from 'tinywidgets';
 import {Title} from '../components/Title.tsx';
+import {exampleComment, exampleExec} from './Api.css.ts';
 
 export const Api = ({
   title,

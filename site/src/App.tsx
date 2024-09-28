@@ -1,16 +1,16 @@
+import React, {useCallback} from 'react';
 import {
   App as AppBase,
   Button,
   Image,
   useRoute,
   useSetRouteCallback,
-} from '../../package/src/index.ts';
-import React, {useCallback} from 'react';
-import {article, title} from './App.css.ts';
+} from 'tinywidgets';
+import {SiGithub} from '@icons-pack/react-simple-icons';
+import {article, title} from './App.css';
+import {SideNav} from './components/SideNav.tsx';
 import {Home} from './pages/Home.tsx';
 import {ROUTES} from './pages/index.ts';
-import {SiGithub} from '@icons-pack/react-simple-icons';
-import {SideNav} from './components/SideNav.tsx';
 
 export const App = () => (
   <AppBase

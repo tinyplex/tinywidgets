@@ -9,8 +9,7 @@
   },
   "devDependencies": {
     "@types/bun": "^1.1.10",
-    "@types/node": "^22.7.2",
-    "@types/prismjs": "^1.26.4",
+    "@types/node": "^22.7.4",
     "@types/react-dom": "^18.3.0",
     "@vanilla-extract/vite-plugin": "^4.0.15",
     "@vitejs/plugin-react": "^4.3.1",
@@ -23,7 +22,6 @@
     "@icons-pack/react-simple-icons": "^10.0.0",
     "lucide-react": "^0.446.0",
     "marked": "^14.1.2",
-    "prismjs": "^1.29.0",
     "react-dom": "^18.3.1",
     "react": "^18.3.1",
     "tinywidgets": "1.0.8"

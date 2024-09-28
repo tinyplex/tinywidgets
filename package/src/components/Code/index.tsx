@@ -1,9 +1,8 @@
 /* eslint-disable max-len */
-import 'prismjs';
-import 'prismjs/components/prism-jsx';
-import 'prismjs/components/prism-typescript';
-import 'prismjs/components/prism-tsx';
-import Prism from 'prismjs';
+// import 'prismjs/components/prism-jsx';
+// import 'prismjs/components/prism-typescript';
+// import 'prismjs/components/prism-tsx';
+import {Prism} from 'prismjs';
 import React from 'react';
 import {classNames} from '../../common/functions.tsx';
 import {pre} from './index.css.ts';
@@ -81,7 +80,7 @@ export const Code = ({
       <code
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{
-          __html: highlight(code.trim(), languages[language], language),
+          __html: highlight(code.trim(), languages['clike'], 'clike'),
         }}
       />
     </pre>

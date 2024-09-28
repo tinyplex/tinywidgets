@@ -1,7 +1,7 @@
-import ts, {isVariableDeclaration} from 'typescript';
 import {Glob} from 'bun';
-import {marked} from 'marked';
 import {watch} from 'fs';
+import {marked} from 'marked';
+import ts, {isVariableDeclaration} from 'typescript';
 
 const TS = /```tsx\n(.*?)(<|(\/\/))/ms;
 const TSX = /```tsx.*?\n(<.*?)\n```/ms;
@@ -124,23 +124,23 @@ const buildApi = async () => {
       const type = file.includes('/components')
         ? 'COMPONENT'
         : file.includes('/stores')
-          ? 'HOOK'
-          : file.includes('/functions')
-            ? 'FUNCTION'
-            : file.includes('/css')
-              ? 'CSS'
-              : 'OBJECT';
+        ? 'HOOK'
+        : file.includes('/functions')
+        ? 'FUNCTION'
+        : file.includes('/css')
+        ? 'CSS'
+        : 'OBJECT';
       const icon =
         docs.icon[0] ??
         (type == 'COMPONENT'
           ? 'Lucide.Square'
           : type == 'HOOK'
-            ? 'Lucide.SquareFunction'
-            : type == 'FUNCTION'
-              ? 'Lucide.SquarePi'
-              : type == 'CSS'
-                ? 'Lucide.Paintbrush'
-                : 'Lucide.Braces');
+          ? 'Lucide.SquareFunction'
+          : type == 'FUNCTION'
+          ? 'Lucide.SquarePi'
+          : type == 'CSS'
+          ? 'Lucide.Paintbrush'
+          : 'Lucide.Braces');
       const importLine =
         `import {${name}} from ` +
         `'tinywidgets${type == 'CSS' ? '/css' : ''}';`;

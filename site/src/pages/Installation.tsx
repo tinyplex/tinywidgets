@@ -1,8 +1,8 @@
-import * as Lucide from 'lucide-react';
-import {Code} from '../../../package/src/index.ts';
-import {ROUTES} from './index.ts';
 import React from 'react';
+import * as Lucide from 'lucide-react';
+import {Code} from 'tinywidgets';
 import {Title} from '../components/Title.tsx';
+import {ROUTES} from './index.ts';
 
 export const Installation = () => {
   return (
