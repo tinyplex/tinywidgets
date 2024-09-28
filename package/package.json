@@ -1,13 +1,13 @@
 {
   "name": "tinywidgets",
   "description": "A collection of tiny, reusable, React components",
-  "version": "1.0.4",
+  "version": "1.0.8",
   "scripts": {
     "prePublishPackage": "eslint . && cspell --quiet . && tsc"
   },
   "author": "jamesgpearce",
   "repository": "github:tinyplex/tinywidgets",
-  "module": "./src/index.ts",
+  "type": "module",
   "devDependencies": {
     "@types/react": "^18.3.8",
     "@types/react-dom": "^18.3.0",
@@ -18,6 +18,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react": "^7.36.1",
     "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.12",
     "prettier": "^3.3.3",
     "typescript": "^5.6.2",
     "@vanilla-extract/css": "^1.15.5"
@@ -28,9 +29,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "eslint-plugin-react-refresh": "^0.4.12",
     "lucide-react": "^0.445.0",
-    "prism-react-renderer": "^2.4.0",
     "prismjs": "^1.29.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
