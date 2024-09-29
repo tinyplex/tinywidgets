@@ -1,8 +1,9 @@
 /* eslint-disable max-len */
-// import 'prismjs/components/prism-jsx';
-// import 'prismjs/components/prism-typescript';
-// import 'prismjs/components/prism-tsx';
-import {Prism} from 'prismjs';
+import 'prismjs';
+import 'prismjs/components/prism-jsx';
+import 'prismjs/components/prism-typescript';
+import 'prismjs/components/prism-tsx';
+import Prism from 'prismjs';
 import React from 'react';
 import {classNames} from '../../common/functions.tsx';
 import {pre} from './index.css.ts';
@@ -54,7 +55,7 @@ const {highlight, languages} = Prism;
  *   language="typescript"
  * />
  * ```
- * This example shows the use of the `tsx` language.
+ * This example shows the use of the `typescript` language.
  * @icon Lucide.SquareCode
  */
 export const Code = ({
@@ -80,7 +81,7 @@ export const Code = ({
       <code
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{
-          __html: highlight(code.trim(), languages['clike'], 'clike'),
+          __html: highlight(code.trim(), languages[language], language),
         }}
       />
     </pre>

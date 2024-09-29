@@ -1,7 +1,7 @@
-import {Glob} from 'bun';
-import {watch} from 'fs';
-import {marked} from 'marked';
 import ts, {isVariableDeclaration} from 'typescript';
+import {Glob} from 'bun';
+import {marked} from 'marked';
+import {watch} from 'fs';
 
 const TS = /```tsx\n(.*?)(<|(\/\/))/ms;
 const TSX = /```tsx.*?\n(<.*?)\n```/ms;

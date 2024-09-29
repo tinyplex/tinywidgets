@@ -1,5 +1,5 @@
-import React, {ComponentProps, useCallback} from 'react';
 import {Button, useSetRouteCallback} from 'tinywidgets';
+import React, {ComponentProps, useCallback} from 'react';
 import {ROUTES} from '../pages';
 
 export const RouteButton = ({

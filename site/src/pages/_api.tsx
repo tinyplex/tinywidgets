@@ -296,7 +296,7 @@ h1 {
 const a: number = 1;
   \`}
   language="typescript"
-/>`} /><p>This example shows the use of the <code>tsx</code> language.</p>
+/>`} /><p>This example shows the use of the <code>typescript</code> language.</p>
 </>,<Code
   code={`
 const a: number = 1;
