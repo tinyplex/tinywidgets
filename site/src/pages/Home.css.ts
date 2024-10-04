@@ -8,7 +8,7 @@ export const home = style({
 export const title = style({
   display: 'inline-flex',
   alignItems: 'center',
-  gap: '0.5rem',
+  gap: 0,
   color: colors.foregroundBright,
   fontSize: '2.4rem',
   '@media': {

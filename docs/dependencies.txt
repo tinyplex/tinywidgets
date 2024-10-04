@@ -170,7 +170,7 @@ SOFTWARE.
 ---
 
 Name: tinywidgets
-Version: 1.0.13
+Version: 1.0.14
 License: MIT
 Private: false
 Description: A collection of tiny, reusable, React components
