@@ -1,4 +1,5 @@
 /* eslint-disable */
+import 'prismjs';
 import React from 'react';
 import type {Routes} from './index.ts';
 import {ROUTES} from './index.ts';
@@ -239,12 +240,11 @@ return (<Api
   importLine="import {Code} from 'tinywidgets';"
   title='Code'
   comments={<><p>The <code>Code</code> component displays a block of pre-formatted code, and uses PrismJS
-to parse its syntax. The coloring is based on the <a href="https://github.com/PrismJS/prism-themes/blob/master/themes/prism-one-dark.css">prism-one-dark</a> and <a href="https://github.com/PrismJS/prism-themes/blob/master/themes/prism-one-light.css">prism-one-light</a> themes.</p>
-<p>This component supports the default PrismJS languages (<code>markup</code>, <code>html</code>
-, <code>xml</code>, <code>svg</code>, <code>mathml</code>, <code>ssml</code>, <code>atom</code>, <code>rss</code>, <code>css</code>, <code>clike</code>, <code>javascript</code>
-, <code>js</code>), and specific additional languages (<code>jsx</code>, <code>typescript</code>, <code>ts</code>
-, <code>tsx</code>).
-Others can be added if there is demand! Please open an issue on GitHub.</p>
+to parse its syntax if you have imported it globally. The coloring is based
+on the <a href="https://github.com/PrismJS/prism-themes/blob/master/themes/prism-one-dark.css">prism-one-dark</a> and <a href="https://github.com/PrismJS/prism-themes/blob/master/themes/prism-one-light.css">prism-one-light</a> themes.</p>
+<p>PrismJS is not included in the TinyWidgets bundle, so you need to include it
+in your project, and, if you want to highlight one of the non-default Prism
+languages, you will need to explicitly include that too.</p>
 </>}
   icon={Lucide.SquareCode}
   params={{
@@ -253,7 +253,7 @@ props:<>The props for the component.</>,
   props={{
 code:<><p>The code to display, as a string.</p>
 </>,
-language:<><p>An optional indication of the language. Defaults to <code>jsx</code>.</p>
+language:<><p>An optional indication of the language. Defaults to <code>javascript</code>.</p>
 </>,
 className:<><p>An extra CSS class name for the component.</p>
 </>,
@@ -261,12 +261,38 @@ className:<><p>An extra CSS class name for the component.</p>
   examples={[
 [<><Code code={`<Code
   code={\`
+const a = 1;
+  \`}
+/>`} /><p>This example shows a simple block of code, defaulting to the <code>javascript</code>
+language.</p>
+</>,<Code
+  code={`
+const a = 1;
+  `}
+/>],
+[<><Code code={`<Code
+  code={\`
+const a: number = 1;
+  \`}
+  language="typescript"
+/>`} /><p>This example shows the use of the <code>typescript</code> language, which has been
+explicitly imported in addition to the Prism default languages</p>
+</>,<Code
+  code={`
+const a: number = 1;
+  `}
+  language="typescript"
+/>],
+[<><Code code={`<Code
+  code={\`
 import React from 'react';
 const App = () => (
   <div>Hello, world!</div>
 );
   \`}
-/>`} /><p>This example shows a simple block of code, defaulting to the <code>jsx</code> language.</p>
+  language="tsx"
+/>`} /><p>This example shows a simple block of code, defaulting to the <code>jsx</code> language,
+similarly imported explicitly.</p>
 </>,<Code
   code={`
 import React from 'react';
@@ -274,6 +300,7 @@ const App = () => (
   <div>Hello, world!</div>
 );
   `}
+  language="tsx"
 />],
 [<><Code code={`<Code
   code={\`
@@ -290,18 +317,6 @@ h1 {
 }
   `}
   language="css"
-/>],
-[<><Code code={`<Code
-  code={\`
-const a: number = 1;
-  \`}
-  language="typescript"
-/>`} /><p>This example shows the use of the <code>typescript</code> language.</p>
-</>,<Code
-  code={`
-const a: number = 1;
-  `}
-  language="typescript"
 />],
   ]}
 />);

@@ -47,7 +47,7 @@ export const Api = ({
           {examples.map(([comment, exec]: any, key: number) => (
             <Fragment key={key}>
               {key == 0 ? null : <Hr />}
-              <Row variant="1|2">
+              <Row>
                 <div className={exampleExec}>{exec}</div>
                 <div className={exampleComment}>{comment}</div>
               </Row>

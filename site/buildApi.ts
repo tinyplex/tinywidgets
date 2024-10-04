@@ -104,6 +104,7 @@ const buildApi = async () => {
 
   const apiFile: string[] = [
     `/* eslint-disable */`,
+    `import 'prismjs';`,
     `import React from 'react';`,
     `import type {Routes} from './index.ts';`,
     `import {ROUTES} from './index.ts';`,
@@ -124,23 +125,23 @@ const buildApi = async () => {
       const type = file.includes('/components')
         ? 'COMPONENT'
         : file.includes('/stores')
-        ? 'HOOK'
-        : file.includes('/functions')
-        ? 'FUNCTION'
-        : file.includes('/css')
-        ? 'CSS'
-        : 'OBJECT';
+          ? 'HOOK'
+          : file.includes('/functions')
+            ? 'FUNCTION'
+            : file.includes('/css')
+              ? 'CSS'
+              : 'OBJECT';
       const icon =
         docs.icon[0] ??
         (type == 'COMPONENT'
           ? 'Lucide.Square'
           : type == 'HOOK'
-          ? 'Lucide.SquareFunction'
-          : type == 'FUNCTION'
-          ? 'Lucide.SquarePi'
-          : type == 'CSS'
-          ? 'Lucide.Paintbrush'
-          : 'Lucide.Braces');
+            ? 'Lucide.SquareFunction'
+            : type == 'FUNCTION'
+              ? 'Lucide.SquarePi'
+              : type == 'CSS'
+                ? 'Lucide.Paintbrush'
+                : 'Lucide.Braces');
       const importLine =
         `import {${name}} from ` +
         `'tinywidgets${type == 'CSS' ? '/css' : ''}';`;

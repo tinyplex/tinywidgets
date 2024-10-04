@@ -1,3 +1,4 @@
+import * as UiReact from 'tinybase/ui-react/with-schemas';
 import type {ComponentType, ReactNode} from 'react';
 import {
   LocalStore,
@@ -30,8 +31,10 @@ import {classNames, renderComponentOrNode} from '../../common/functions.tsx';
 import {codeDark, codeLight} from '../../css/code.css.ts';
 import {colorsDark, colorsLight} from '../../css/colors.css.ts';
 import {Button} from '../Button/index.tsx';
-import {Provider} from 'tinybase/ui-react';
+import {OptionalSchemas} from 'tinybase/with-schemas';
 import React from 'react';
+
+const {Provider} = UiReact as UiReact.WithSchemas<OptionalSchemas>;
 
 const darkIcons = [Sun, Moon, SunMoon];
 const darkChoices = ['Light always', 'Dark always', 'Auto'];

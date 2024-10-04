@@ -5,6 +5,7 @@ export const exampleExec = style({
   alignItems: 'center',
   justifyContent: 'center',
   overflow: 'hidden',
+  padding: '2rem',
 });
 
 export const exampleComment = style({
