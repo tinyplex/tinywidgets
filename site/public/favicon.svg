@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 130" style="background:oklch(50% .1 240)">
-  <rect fill="#fff" x="10" y="10" width="30" height="30" />
-  <rect fill="#fff" x="10" y="50" width="30" height="30" />
-  <rect fill="#fff" x="10" y="90" width="30" height="30" />
-  <rect fill="#fff" x="50" y="90" width="30" height="30" />
-  <rect fill="#fff" x="90" y="90" width="30" height="30" />
-  <rect fill="#fff" x="90" y="50" width="30" height="30" />
-  <rect fill="#fff" x="90" y="10" width="30" height="30" />
-  <path fill="#fff" d="M50 80l15 -30l15 30 " />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="5 2.4 90 90" stroke="#fff" stroke-width="4" stroke-linecap="round"
+  stroke-linejoin="round">
+  <path d="M30 52.36l20 10v22.36l-20-10V52.36" fill="oklch(30% .1 240)" />
+  <path d="M50 62.36l20-10v22.36l-20 10V62.36" fill="oklch(50% .1 240)" />
+  <path d="M10 20l20-10 20 10-20 10-20-10" fill="oklch(70% .1 240)" />
+  <path d="M30 30l20-10 20 10-20 10-20-10" fill="oklch(70% .1 240)" />
+  <path d="M50 20l20-10 20 10-20 10-20-10" fill="oklch(70% .1 240)" />
+  <path d="M10 20l20 10v22.36l-20-10V20M30 30l20 10v22.36l-20-10V30" fill="oklch(30% .1 240)" />
+  <path d="M50 40l20-10v22.36l-20 10V40M70 30l20-10v22.36l-20 10V30" fill="oklch(50% .1 240)" />
 </svg>

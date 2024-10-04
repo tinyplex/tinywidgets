@@ -55,7 +55,8 @@ export const Api = ({
           ))}
         </Collapsible>
       ) : null}
-      {Object.entries(params).length > 0 ? (
+      {Object.entries(params).length > 0 &&
+      Object.entries(props).length == 0 ? (
         <Collapsible title="Parameters" id="params" startOpen>
           <Detail data={params} />
         </Collapsible>
