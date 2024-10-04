@@ -18,9 +18,11 @@ export default defineConfig({
             ? 'react'
             : id.includes('node_modules/tinybase')
               ? 'tinybase'
-              : id.includes('package')
-                ? 'tinywidgets'
-                : null,
+              : id.includes('node_modules/prismjs')
+                ? 'prismjs'
+                : id.includes('package')
+                  ? 'tinywidgets'
+                  : null,
       },
     },
   },
