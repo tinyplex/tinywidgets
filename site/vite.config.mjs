@@ -1,5 +1,6 @@
 import {ViteMinifyPlugin} from 'vite-plugin-minify';
 import {defineConfig} from 'vite';
+import {join} from 'path';
 import license from 'rollup-plugin-license';
 import prismjs from 'vite-plugin-prismjs';
 import react from '@vitejs/plugin-react';
@@ -26,12 +27,15 @@ export default defineConfig({
       },
     },
   },
+  esbuild: {legalComments: 'none'},
 
   plugins: [
     prismjs({languages: ['css', 'typescript', 'tsx']}),
-    react({jsxRuntime: 'classic'}),
+    react(),
     vanillaExtractPlugin(),
-    license({}),
+    license({
+      thirdParty: {output: join(__dirname, '../docs', 'dependencies.txt')},
+    }),
     ViteMinifyPlugin({minifyJS: {toplevel: true}}),
   ],
 });
