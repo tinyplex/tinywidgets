@@ -1,4 +1,5 @@
 import '../pages/Installation.tsx';
+import '../pages/Configuration.tsx';
 import {
   COMPONENT_ROUTES,
   CSS_ROUTES,
@@ -19,6 +20,7 @@ export const NAVIGATION: Navigation = [
   'home',
   null,
   'installation',
+  'configuration',
   null,
   ['Components', Object.keys(COMPONENT_ROUTES).sort(), true],
   [

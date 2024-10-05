@@ -30,7 +30,7 @@ export default defineConfig({
   esbuild: {legalComments: 'none'},
 
   plugins: [
-    prismjs({languages: ['css', 'typescript', 'tsx']}),
+    prismjs({languages: ['css', 'typescript', 'tsx', 'sh']}),
     react(),
     vanillaExtractPlugin(),
     license({

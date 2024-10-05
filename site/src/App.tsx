@@ -17,9 +17,9 @@ export const App = () => (
     title={Title}
     topNavRight={
       <Button
-        title="GitHub"
         icon={SiGithub}
         href="https://github.com/tinyplex/tinywidgets"
+        variant="icon"
       />
     }
     sideNav={SideNav}
@@ -29,7 +29,7 @@ export const App = () => (
 
 const Title = () => {
   const setRoute = useSetRouteCallback();
-  const setHome = useCallback(() => setRoute(''), [setRoute]);
+  const setHome = useCallback(() => setRoute('home'), [setRoute]);
   return (
     <h1 className={title} onClick={setHome}>
       <Image src="/favicon.svg" variant="logo" alt="TinyWidgets" />

@@ -7,5 +7,5 @@ globalStyle('*', {
   boxSizing: 'border-box',
   color: 'inherit',
   fontSize: 'inherit',
-  ...small({fontSize: '0.85rem'}),
+  ...small({fontSize: '0.9rem'}),
 });

@@ -7,6 +7,10 @@ export const image = style({
   flexShrink: 0,
   width: '100%',
   maxHeight: 'inherit',
+});
+
+export const clickable = style({
+  cursor: 'pointer',
   selectors: {
     '&:hover': {
       backgroundColor: colors.backgroundHover,

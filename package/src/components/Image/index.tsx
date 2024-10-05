@@ -1,5 +1,5 @@
-import {image, imageVariants} from './index.css.ts';
-import React from 'react';
+import React, {useCallback} from 'react';
+import {clickable, image, imageVariants} from './index.css.ts';
 import {classNames} from '../../common/functions.tsx';
 
 /**
@@ -46,6 +46,7 @@ export const Image = ({
   src,
   onClick,
   variant = 'default',
+  href,
   alt,
   className,
 }: {
@@ -66,6 +67,11 @@ export const Image = ({
    */
   readonly variant?: keyof typeof imageVariants;
   /**
+   * A URL that can be used instead of an `onClick` to launch a new web
+   * page, much like a link.
+   */
+  readonly href?: string;
+  /**
    * Alternative text shown when the user hovers over the image.
    */
   readonly alt?: string;
@@ -74,12 +80,22 @@ export const Image = ({
    */
   readonly className?: string;
 }) => {
+  const hrefClick = useCallback(
+    () => (href ? open(href, '_blank', 'noreferrer') : null),
+    [href],
+  );
+
   return (
     <img
       src={src}
-      onClick={onClick}
+      onClick={onClick ?? hrefClick}
       title={alt}
-      className={classNames(image, imageVariants[variant], className)}
+      className={classNames(
+        image,
+        imageVariants[variant],
+        (onClick || href) && clickable,
+        className,
+      )}
     />
   );
 };

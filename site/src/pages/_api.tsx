@@ -484,6 +484,9 @@ variant:<><p>A variant of the image, one of:</p>
 <li><code>icon</code></li>
 </ul>
 </>,
+href:<><p>A URL that can be used instead of an <code>onClick</code> to launch a new web
+page, much like a link.</p>
+</>,
 alt:<><p>Alternative text shown when the user hovers over the image.</p>
 </>,
 className:<><p>An extra CSS class name for the component.</p>

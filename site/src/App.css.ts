@@ -3,7 +3,7 @@ import {style} from '@vanilla-extract/css';
 
 export const article = style({
   width: '100%',
-  maxWidth: '64rem',
+  maxWidth: '66rem',
   margin: '1rem auto',
 });
 
