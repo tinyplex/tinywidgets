@@ -55,10 +55,6 @@ npm run dev
 
 5. The Vite server should start up. Go the URL shown and enjoy!
 
-Note that you can also create a production build with `npm run build`.
-
-The Vite server should start up. Go the URL shown and enjoy!
-
 <img width="1160" alt="image" src="https://github.com/user-attachments/assets/073a26dc-4212-4ab0-b5a0-d968ac47342c">
 
 Note that you can also create a production build with `npm run build`.
