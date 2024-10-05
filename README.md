@@ -5,6 +5,8 @@ A collection of tiny, reusable, UI components
 
 See the [website](https://tinywidgets.org/) for more details. Get started [here](https://tinywidgets.org/#installation).
 
+<img width="1214" alt="image" src="https://github.com/user-attachments/assets/14da6ca1-86b8-4bfd-8d82-8e103ea2ae37">
+
 ---
 
 ## Dependencies
