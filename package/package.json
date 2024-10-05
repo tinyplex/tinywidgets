@@ -1,6 +1,6 @@
 {
   "name": "tinywidgets",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "author": "jamesgpearce",
   "repository": "github:tinyplex/tinywidgets",
   "license": "MIT",
@@ -16,7 +16,7 @@
   ],
   "type": "module",
   "scripts": {
-    "prePublishPackage": "eslint . && cspell --quiet . && tsc"
+    "prePublishPackage": "eslint . && cspell --quiet . && tsc && cp ../README.md ./README.md"
   },
   "devDependencies": {
     "@types/react": "^18.3.11",
