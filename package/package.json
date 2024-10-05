@@ -1,13 +1,23 @@
 {
   "name": "tinywidgets",
-  "description": "A collection of tiny, reusable, React components",
-  "version": "1.0.14",
+  "version": "1.0.15",
+  "author": "jamesgpearce",
+  "repository": "github:tinyplex/tinywidgets",
+  "license": "MIT",
+  "homepage": "https://tinywidgets.org",
+  "description": "A collection of tiny, reusable, UI components - wrapped in a helpful app layout with header, side bar, dark mode, and more.",
+  "keywords": [
+    "tiny",
+    "local-first",
+    "ui",
+    "components",
+    "styling",
+    "react"
+  ],
+  "type": "module",
   "scripts": {
     "prePublishPackage": "eslint . && cspell --quiet . && tsc"
   },
-  "author": "jamesgpearce",
-  "repository": "github:tinyplex/tinywidgets",
-  "type": "module",
   "devDependencies": {
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.0",
@@ -26,7 +36,6 @@
     ".": "./src/index.ts",
     "./css": "./src/index.css.ts"
   },
-  "license": "MIT",
   "dependencies": {
     "@vanilla-extract/css": "^1.16.0",
     "lucide-react": "^0.447.0",
