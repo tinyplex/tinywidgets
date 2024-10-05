@@ -5,7 +5,7 @@ A collection of tiny, reusable, UI components
 
 See the [website](https://tinywidgets.org/) for more details. Get started [here](https://tinywidgets.org/#installation).
 
-<img width="1214" alt="image" src="https://github.com/user-attachments/assets/14da6ca1-86b8-4bfd-8d82-8e103ea2ae37">
+<img width="1213" alt="image" src="https://github.com/user-attachments/assets/22b69545-52d5-424d-ab80-084bb87237f4">
 
 ---
 
