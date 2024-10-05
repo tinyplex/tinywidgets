@@ -3,17 +3,29 @@
 A collection of tiny, reusable, UI components
 — wrapped in a helpful app layout with header, side bar, dark mode, and more.
 
-See the [website](https://tinywidgets.org/) for more details.
+See the [website](https://tinywidgets.org/) for more details. Get started [here](https://tinywidgets.org/#installation).
 
-<img width="1160" alt="image" src="https://github.com/user-attachments/assets/073a26dc-4212-4ab0-b5a0-d968ac47342c">
+---
 
-TinyWidgets uses React for DOM manipulation, Vanilla-Extract for styling and theming, Lucide for icons, and TinyBase for state management. Its philosophy is all about simplicity, decent defaults, a streamlined DOM, and concise styling.
+## Dependencies
+
+TinyWidgets uses [React](https://react.dev/) for DOM manipulation, [Vanilla-Extract](https://vanilla-extract.style/) at build-time for styling, [Lucide](https://lucide.dev/) for icons, and [TinyBase](https://tinybase.org/) for state management. Its philosophy is all about simplicity, decent defaults, a streamlined DOM, and concise styling.
 
 But, just to be clear - that doesn't mean you need to use Vanilla-Extract, Lucide, or Tinybase in the apps you build with these widgets. You can set arbitrary class names (from Tailwind, for example!) on all components if you like.
 
-Of course, this site is itself a demo of TinyWidgets, showing off the components and layout in action. But check out the individual components by navigating the API documentation in the side bar.
+## Help out!
 
-## Instructions
+This project was created because [I](https://github.com/jamesgpearce) want to be able to build lots of local-first apps quickly and without the overhead of all the app boilerplate each time.
+
+Making it open source seemed like the right thing to do, so please try and it out and get involved. I'll always be interested in issues, more style variants, new components altogether, or even some professional-grade design assistance. I'm not a designer...
+
+See you on [GitHub](https://github.com/tinyplex/tinywidgets)!
+
+## Installation
+
+The easiest way to get started with TinyWidgets is to use its [Vite template](https://github.com/tinyplex/vite-tinywidgets/). This comes with the (simple) build configuration you need to work with TinyWidgets.
+
+To create a new TinyWidgets application using this template, do the following:
 
 1. Make a copy of this template into a new directory:
 
@@ -43,9 +55,8 @@ npm run dev
 
 Note that you can also create a production build with `npm run build`.
 
-## License
+The Vite server should start up. Go the URL shown and enjoy!
 
-This template has no license, and so you can use it however you want!
-[TinyWidgets](https://github.com/tinyplex/tinywidgets/blob/main/LICENSE) and
-[Vite](https://github.com/vitejs/vite/blob/main/LICENSE) themselves are both MIT
-licensed.
+<img width="1160" alt="image" src="https://github.com/user-attachments/assets/073a26dc-4212-4ab0-b5a0-d968ac47342c">
+
+Note that you can also create a production build with `npm run build`.

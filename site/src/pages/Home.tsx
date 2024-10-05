@@ -71,6 +71,7 @@ export const Home = () => {
       </Row>
       <Hr className={hr} />
       <div className={narrower}>
+        <h2>Dependencies</h2>
         <Image
           // eslint-disable-next-line max-len
           src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg"
@@ -119,7 +120,7 @@ export const Home = () => {
         </p>
       </div>
       <Hr className={hr} />
-      <h2 id="sizes">GZipped Dependencies</h2>
+      <h2 id="sizes">GZipped Assets</h2>
       <Row variant="1|1|1|1">
         <Card>
           <Metric title="TinyWidgets (CSS)" number="2.20kB" icon={SiCss3} />
