@@ -135,7 +135,7 @@ SOFTWARE.
 ---
 
 Name: tinybase
-Version: 5.3.2
+Version: 5.4.2
 License: MIT
 Private: false
 Description: The reactive data store for local-first apps.
@@ -170,7 +170,7 @@ SOFTWARE.
 ---
 
 Name: tinywidgets
-Version: 1.0.15
+Version: 1.1.1
 License: MIT
 Private: false
 Description: A collection of tiny, reusable, UI components - wrapped in a helpful app layout with header, side bar, dark mode, and more.
@@ -181,7 +181,7 @@ Author: jamesgpearce
 ---
 
 Name: lucide-react
-Version: 0.447.0
+Version: 0.468.0
 License: ISC
 Private: false
 Description: A Lucide icon library package for React applications

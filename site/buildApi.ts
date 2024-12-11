@@ -3,8 +3,7 @@ import {Glob} from 'bun';
 import {marked} from 'marked';
 import {watch} from 'fs';
 
-const TS = /```tsx\n(.*?)(<|(\/\/))/ms;
-const TSX = /```tsx.*?\n(<.*?)\n```/ms;
+const CODE = /```tsx?\n(.*?)\n```/ms;
 
 const objEnsure = (obj: any, key: string, value: any) => {
   if (!obj[key]) {
@@ -109,6 +108,7 @@ const buildApi = async () => {
     `import type {Routes} from './index.ts';`,
     `import {ROUTES} from './index.ts';`,
     `import {Api} from './Api.tsx';`,
+    `import {ScheduleTask} from 'tinywidgets';`,
     `import * as Lucide from 'lucide-react';`,
     `export const COMPONENT_ROUTES: Routes = {};`,
     `export const HOOK_ROUTES: Routes = {};`,
@@ -122,10 +122,10 @@ const buildApi = async () => {
     .forEach((name: string) => {
       const docs = allDocs[name];
       const file = docs.file;
-      const type = file.includes('/components')
-        ? 'COMPONENT'
-        : file.includes('/stores')
-          ? 'HOOK'
+      const type = name.startsWith('use')
+        ? 'HOOK'
+        : file.includes('/components')
+          ? 'COMPONENT'
           : file.includes('/functions')
             ? 'FUNCTION'
             : file.includes('/css')
@@ -146,13 +146,24 @@ const buildApi = async () => {
         `import {${name}} from ` +
         `'tinywidgets${type == 'CSS' ? '/css' : ''}';`;
 
+      const preambles: string[] = [];
+      const codes: string[] = [];
+      (docs.example ?? []).map((example: string, e: number) => {
+        const code = example.match(CODE)?.[1].trim() ?? '';
+        const parts = code.split('// ...');
+        if (parts.length == 2) {
+          preambles[e] = parts[0].trim();
+          codes[e] = parts[1].trim();
+        } else {
+          codes[e] = parts[0].trim();
+        }
+      });
+
       apiFile.push(
         ``,
         importLine,
         `${type}_ROUTES['${type.toLowerCase()}/${name}'] = ['${name}', () => {`,
-        ...(docs.example ?? [])
-          .map((example: string) => example.match(TS)?.[1].trim())
-          .filter(Boolean),
+        ...preambles,
         `return (<Api `,
         `  type='${type}'`,
         `  importLine="${importLine}"`,
@@ -171,8 +182,8 @@ const buildApi = async () => {
         `}}`,
         `  examples={[`,
         ...(docs.example ?? []).map(
-          (example: string) =>
-            `[<>${marked(example)}</>,${example.match(TSX)?.[1]}],`,
+          (example: string, e: number) =>
+            `[<>${marked(example)}</>,${codes[e]}],`,
         ),
         `  ]}`,
         `/>);`,

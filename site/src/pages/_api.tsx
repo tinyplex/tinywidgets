@@ -4,6 +4,7 @@ import React from 'react';
 import type {Routes} from './index.ts';
 import {ROUTES} from './index.ts';
 import {Api} from './Api.tsx';
+import {ScheduleTask} from 'tinywidgets';
 import * as Lucide from 'lucide-react';
 export const COMPONENT_ROUTES: Routes = {};
 export const HOOK_ROUTES: Routes = {};
@@ -761,6 +762,87 @@ className:<><p>An extra CSS class name for the component.</p>
 />);
 }, Lucide.RectangleEllipsis];
 
+import {TasksProvider} from 'tinywidgets';
+COMPONENT_ROUTES['component/TasksProvider'] = ['TasksProvider', () => {
+const TaskButton1 = () => {
+  const scheduleTask = useScheduleTask();
+  return (<Button
+    iconRight={Lucide.Hand}
+    title="Hello"
+    onClick={() => scheduleTask('greet1')}
+  />);
+};
+const TaskButton2 = () => {
+  const scheduleTask = useScheduleTask();
+  return (<Button
+    iconRight={Lucide.Globe}
+    title="World"
+    onClick={() => scheduleTask('greet2')}
+  />);
+};
+return (<Api 
+  type='COMPONENT'
+  importLine="import {TasksProvider} from 'tinywidgets';"
+  title='TasksProvider'
+  comments={<><p>The <code>TasksProvider</code> component is a non-visual component that makes it easy to
+manage sequential tasks in your TinyWidget application.</p>
+</>}
+  icon={Lucide.FileClock}
+  params={{
+props:<>The props for the component.</>,
+}}
+  props={{
+tasks:<><p>An object listing all the tasks that can be executed, keyed by Id.</p>
+<p>Each task is a function that receives a string argument, a reference to a
+Store (each as specified when <code>scheduleTask</code> was called), and a reference
+to the <code>scheduleTask</code> function again so that tasks can be chained.</p>
+<p>A task can be asynchronous.</p>
+</>,
+interval:<><p>The interval in seconds between each task execution, defaulting to 1.</p>
+</>,
+expiry:<><p>The time in seconds from scheduling until a task expires and will not be
+started, defaulting to 5.</p>
+</>,
+children:<><p>The children of the component to be rendered.</p>
+</>,
+}}
+  examples={[
+[<><Code code={`const TaskButton1 = () => {
+  const scheduleTask = useScheduleTask();
+  return (<Button
+    iconRight={Lucide.Hand}
+    title="Hello"
+    onClick={() => scheduleTask('greet1')}
+  />);
+};
+const TaskButton2 = () => {
+  const scheduleTask = useScheduleTask();
+  return (<Button
+    iconRight={Lucide.Globe}
+    title="World"
+    onClick={() => scheduleTask('greet2')}
+  />);
+};
+// ...
+<TasksProvider tasks={{
+  greet1: () => alert('Hello'),
+  greet2: () => alert('World'),
+}}>
+  <TaskButton1 />
+  <TaskButton2 />
+</TasksProvider>`} /><p>This example shows the hook returning a function that will schedule a task to
+be run by the provider. That task in turn will call another.</p>
+</>,<TasksProvider tasks={{
+  greet1: () => alert('Hello'),
+  greet2: () => alert('World'),
+}}>
+  <TaskButton1 />
+  <TaskButton2 />
+</TasksProvider>],
+  ]}
+/>);
+}, Lucide.FileClock];
+
 import {classNames} from 'tinywidgets';
 FUNCTION_ROUTES['function/classNames'] = ['classNames', () => {
 const classes = classNames(
@@ -1061,6 +1143,91 @@ been persisted to the hash part of the browser&#39;s URL.</p>
   <Hr />
   <code>{useRoute()}</code>
 </Card>],
+  ]}
+/>);
+}, Lucide.SquareFunction];
+
+import {useScheduleTask} from 'tinywidgets';
+HOOK_ROUTES['hook/useScheduleTask'] = ['useScheduleTask', () => {
+const TaskButton = () => {
+  const scheduleTask = useScheduleTask();
+  return (<Button
+    title="Hello"
+    onClick={() => scheduleTask('greet', 'Hello')}
+  />);
+};
+const TaskButton2 = () => {
+  const scheduleTask = useScheduleTask();
+  return (<Button
+    iconRight={Lucide.Globe}
+    title="Hello"
+    onClick={() => scheduleTask('greet1', 'Hello')}
+  />);
+};
+return (<Api 
+  type='HOOK'
+  importLine="import {useScheduleTask} from 'tinywidgets';"
+  title='useScheduleTask'
+  comments={<><p>The useScheduleTask hook returns a function that can be used to schedule a
+new task.</p>
+<p>The returned function takes the following arguments:</p>
+<ul>
+<li><code>taskId</code>: a required string to identify the task by Id.</li>
+<li><code>arg</code>: an optional string that will be passed to the task when run.</li>
+<li><code>storeId</code>: an optional string that will be used to look up a Store by Id
+in the current TinyBase Provider context and be passed to the task.</li>
+</ul>
+</>}
+  icon={Lucide.SquareFunction}
+  params={{
+}}
+  props={{
+}}
+  examples={[
+[<><Code code={`const TaskButton = () => {
+  const scheduleTask = useScheduleTask();
+  return (<Button
+    title="Hello"
+    onClick={() => scheduleTask('greet', 'Hello')}
+  />);
+};
+// ...
+<TasksProvider tasks={{greet: (arg: string) => alert(arg)}}>
+  <TaskButton />
+</TasksProvider>`} /><p>This example shows the hook returning a function that will schedule a task to
+be run by the provider. Note that it may take as long as a second (the
+default interval between task executions) for the alert to appear.</p>
+</>,<TasksProvider tasks={{greet: (arg: string) => alert(arg)}}>
+  <TaskButton />
+</TasksProvider>],
+[<><Code code={`const TaskButton2 = () => {
+  const scheduleTask = useScheduleTask();
+  return (<Button
+    iconRight={Lucide.Globe}
+    title="Hello"
+    onClick={() => scheduleTask('greet1', 'Hello')}
+  />);
+};
+// ...
+<TasksProvider tasks={{
+  greet1: async (arg: string, _: unknown, scheduleTask: ScheduleTask) => {
+    scheduleTask('greet2', 'World');
+    alert(arg);
+  },
+  greet2: (arg: string) => alert(arg)
+}}>
+  <TaskButton2 />
+</TasksProvider>`} /><p>This example shows the hook returning a function that will schedule a task to
+be run by the provider. That task in turn will call another.</p>
+</>,<TasksProvider tasks={{
+  greet1: async (arg: string, _: unknown, scheduleTask: ScheduleTask) => {
+    scheduleTask('greet2', 'World');
+    alert(arg);
+  },
+  greet2: (arg: string) => alert(arg)
+}}>
+  <TaskButton2 />
+</TasksProvider>],
   ]}
 />);
 }, Lucide.SquareFunction];
