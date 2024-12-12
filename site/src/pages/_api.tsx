@@ -5,6 +5,8 @@ import type {Routes} from './index.ts';
 import {ROUTES} from './index.ts';
 import {Api} from './Api.tsx';
 import {ScheduleTask} from 'tinywidgets';
+import {Provider, useCreateStore} from 'tinybase/ui-react';
+import {Store, createStore} from 'tinybase';
 import * as Lucide from 'lucide-react';
 export const COMPONENT_ROUTES: Routes = {};
 export const HOOK_ROUTES: Routes = {};
@@ -1164,6 +1166,13 @@ const TaskButton2 = () => {
     onClick={() => scheduleTask('greet1', 'Hello')}
   />);
 };
+const TaskButton3 = () => {
+  const scheduleTask = useScheduleTask();
+  return (<Button
+    title="JSON"
+    onClick={() => scheduleTask('json', '', 'store1')}
+  />);
+};
 return (<Api 
   type='HOOK'
   importLine="import {useScheduleTask} from 'tinywidgets';"
@@ -1174,8 +1183,8 @@ new task.</p>
 <ul>
 <li><code>taskId</code>: a required string to identify the task by Id.</li>
 <li><code>arg</code>: an optional string that will be passed to the task when run.</li>
-<li><code>storeId</code>: an optional string that will be used to look up a Store by Id
-in the current TinyBase Provider context and be passed to the task.</li>
+<li><code>storeId</code>: an optional string that will be used to look up a Store by Id in
+the current TinyBase Provider context and be passed to the task.</li>
 </ul>
 </>}
   icon={Lucide.SquareFunction}
@@ -1228,6 +1237,38 @@ be run by the provider. That task in turn will call another.</p>
 }}>
   <TaskButton2 />
 </TasksProvider>],
+[<><Code code={`const TaskButton3 = () => {
+  const scheduleTask = useScheduleTask();
+  return (<Button
+    title="JSON"
+    onClick={() => scheduleTask('json', '', 'store1')}
+  />);
+};
+// ...
+<Provider storesById={{
+  store1: useCreateStore(() =>
+    createStore().setCell('pets', 'fido', 'species', 'dog')),
+  }}>
+  <TasksProvider tasks={{
+    json: (_arg: string, store: Store | undefined) =>
+      alert(store?.getJson()),
+  }}>
+    <TaskButton3 />
+  </TasksProvider>
+</Provider>`} /><p>This example shows the hook returning a function that will schedule a task to
+be run by the provider, using a Store from the current context, specified by
+Id.</p>
+</>,<Provider storesById={{
+  store1: useCreateStore(() =>
+    createStore().setCell('pets', 'fido', 'species', 'dog')),
+  }}>
+  <TasksProvider tasks={{
+    json: (_arg: string, store: Store | undefined) =>
+      alert(store?.getJson()),
+  }}>
+    <TaskButton3 />
+  </TasksProvider>
+</Provider>],
   ]}
 />);
 }, Lucide.SquareFunction];

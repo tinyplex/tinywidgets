@@ -120,8 +120,8 @@ const TaskRunner = ({
  *
  * - `taskId`: a required string to identify the task by Id.
  * - `arg`: an optional string that will be passed to the task when run.
- * - `storeId`: an optional string that will be used to look up a Store by Id
- *   in the current TinyBase Provider context and be passed to the task.
+ * - `storeId`: an optional string that will be used to look up a Store by Id in
+ *   the current TinyBase Provider context and be passed to the task.
  *
  * @example
  * ```tsx
@@ -163,6 +163,31 @@ const TaskRunner = ({
  * ```
  * This example shows the hook returning a function that will schedule a task to
  * be run by the provider. That task in turn will call another.
+ * @example
+ * ```tsx
+ * const TaskButton3 = () => {
+ *   const scheduleTask = useScheduleTask();
+ *   return (<Button
+ *     title="JSON"
+ *     onClick={() => scheduleTask('json', '', 'store1')}
+ *   />);
+ * };
+ * // ...
+ * <Provider storesById={{
+ *   store1: useCreateStore(() =>
+ *     createStore().setCell('pets', 'fido', 'species', 'dog')),
+ *   }}>
+ *   <TasksProvider tasks={{
+ *     json: (_arg: string, store: Store | undefined) =>
+ *       alert(store?.getJson()),
+ *   }}>
+ *     <TaskButton3 />
+ *   </TasksProvider>
+ * </Provider>
+ * ```
+ * This example shows the hook returning a function that will schedule a task to
+ * be run by the provider, using a Store from the current context, specified by
+ * Id.
  */
 export const useScheduleTask = () => useContext(Context);
 
