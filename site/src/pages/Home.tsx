@@ -109,7 +109,7 @@ export const Home = () => {
         </p>
         <p>
           But, just to be clear - that doesn&apos;t mean <i>you</i> need to use
-          Vanilla-Extract, Lucide, or Tinybase in the apps you build with these
+          Vanilla-Extract, Lucide, or TinyBase in the apps you build with these
           widgets. You can set arbitrary class names (from Tailwind, for
           example!) on all components if you like.
         </p>
@@ -140,6 +140,60 @@ export const Home = () => {
         </Card>
       </Row>
       <Hr className={hr} />
+
+      <div className={narrower}>
+        <h2>Meet the family</h2>
+        <p>
+          TinyWidgets is part of a group of small libraries designed to help
+          make rich client and local-first apps easier to build. Check out the
+          others!
+        </p>
+
+        <Row variant="1|1|1">
+          <div>
+            <Image
+              src="https://tinybase.org/favicon.svg"
+              href="https://tinybase.org"
+              variant="logo"
+              className={logo}
+            />
+            <br />
+            <b>
+              <a href="https://tinybase.org">TinyBase</a>
+            </b>
+            <br />
+            The reactive data store for local-first apps.
+          </div>
+
+          <div>
+            <Image
+              src="https://tinywidgets.org/favicon.svg"
+              variant="logo"
+              className={logo}
+            />
+            <br />
+            <b>TinyWidgets</b>
+            <br />A collection of tiny, reusable, UI components.
+          </div>
+
+          <div>
+            <Image
+              src="https://tinytick.org/favicon.svg"
+              href="https://tinytick.org"
+              variant="logo"
+              className={logo}
+            />
+            <br />
+            <b>
+              <a href="https://tinytick.org">TinyTick</a>
+            </b>
+            <br />A tiny but very useful task orchestrator.
+          </div>
+        </Row>
+      </div>
+
+      <Hr className={hr} />
+
       <div className={narrower}>
         <h2 id="sizes">Help out!</h2>
         <p>
