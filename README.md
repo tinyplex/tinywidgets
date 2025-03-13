@@ -15,6 +15,35 @@ TinyWidgets uses [React](https://react.dev/) for DOM manipulation, [Vanilla-Extr
 
 But, just to be clear - that doesn't mean you need to use Vanilla-Extract, Lucide, or Tinybase in the apps you build with these widgets. You can set arbitrary class names (from Tailwind, for example!) on all components if you like.
 
+## Meet the family
+
+TinyTick is part of a group of small libraries designed to help make rich client and local-first apps easier to build. Check out the others!
+
+<p>
+  <a href='https://tinybase.org' target='_blank'>
+    <img width="48" src="https://tinybase.org/favicon.svg" />
+    <br/>
+    <b>TinyBase</b>
+  </a>
+  <br />The reactive data store for local-first apps.<br />
+</p>
+
+<p>
+    <img width="48" src="https://tinywidgets.org/favicon.svg" />
+    <br/>
+    <b>TinyWidgets</b>
+  <br />A collection of tiny, reusable, UI components.<br />
+</p>
+
+<p>
+  <a href='https://tinytick.org' target='_blank'>
+  <img width="48" src="https://tinytick.org/favicon.svg" />
+  <br />
+  <b>TinyTick</b>
+  </a>
+  <br />A tiny but very useful task orchestrator.<br />
+</p>
+
 ## Help out!
 
 This project was created because [I](https://github.com/jamesgpearce) want to be able to build lots of local-first apps quickly and without the overhead of all the app boilerplate each time.
