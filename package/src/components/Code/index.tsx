@@ -81,7 +81,7 @@ export const Code = ({
    */
   readonly className?: string;
 }) => {
-  const prism = globalThis.Prism;
+  const prism = (globalThis as any).Prism;
   return (
     <pre className={classNames(pre, className)}>
       <code
