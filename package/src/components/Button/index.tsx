@@ -1,5 +1,5 @@
-import type {ComponentType, ReactNode, Ref} from 'react';
-import {forwardRef, useCallback} from 'react';
+import type {ComponentType, ReactNode} from 'react';
+import {useCallback} from 'react';
 import {classNames, renderComponentOrNode} from '../../common/functions.tsx';
 import {iconSize} from '../../css/dimensions.css.ts';
 import {
@@ -103,104 +103,101 @@ import {
  * 'current'.
  * @icon Lucide.RectangleHorizontal
  */
-export const Button = forwardRef(
-  (
-    {
-      icon: Icon,
-      title: titleComponentOrNode,
-      titleRight: titleRightComponentOrNode,
-      iconRight: IconRight,
-      onClick,
-      variant = 'default',
-      current,
-      href,
-      alt,
-      className,
-    }: {
-      /**
-       * An optional component which renders an icon for the button, and which
-       * must accept a className prop.
-       */
-      readonly icon?: ComponentType<{className?: string}>;
-      /**
-       * An optional component, element, or string which renders the title of
-       * the button.
-       */
-      readonly title?: ComponentType | ReactNode;
-      /**
-       * An optional component, element, or string which renders a second title
-       * on the right side of the button.
-       */
-      readonly titleRight?: ComponentType | ReactNode;
-      /**
-       * An optional component which renders a second icon for the button, and
-       * which must accept a className prop.
-       */
-      readonly iconRight?: ComponentType<{className?: string}>;
-      /**
-       * A handler called when the user clicks on the button.
-       */
-      readonly onClick?: () => void;
-      /**
-       * A variant of the button, one of:
-       * - `default`
-       * - `icon`
-       * - `accent`
-       * - `ghost`
-       * - `item`
-       */
-      readonly variant?: keyof typeof buttonVariants;
-      /**
-       * A flag that indicates that an `item` button is 'current' and therefore
-       * highlighted.
-       */
-      readonly current?: boolean;
-      /**
-       * A URL that can be used instead of an `onClick` to launch a new web
-       * page, much like a link.
-       */
-      readonly href?: string;
-      /**
-       * Alternative text shown when the user hovers over the button.
-       */
-      readonly alt?: string;
-      /**
-       * An extra CSS class name for the component.
-       */
-      readonly className?: string;
-    },
-    ref: Ref<HTMLButtonElement>,
-  ) => {
-    const hrefClick = useCallback(
-      () => (href ? open(href, '_blank', 'noreferrer') : null),
-      [href],
-    );
+export const Button = ({
+  icon: Icon,
+  title: titleComponentOrNode,
+  titleRight: titleRightComponentOrNode,
+  iconRight: IconRight,
+  onClick,
+  variant = 'default',
+  current,
+  href,
+  alt,
+  className,
+  ref,
+}: {
+  /**
+   * An optional component which renders an icon for the button, and which
+   * must accept a className prop.
+   */
+  readonly icon?: ComponentType<{className?: string}>;
+  /**
+   * An optional component, element, or string which renders the title of
+   * the button.
+   */
+  readonly title?: ComponentType | ReactNode;
+  /**
+   * An optional component, element, or string which renders a second title
+   * on the right side of the button.
+   */
+  readonly titleRight?: ComponentType | ReactNode;
+  /**
+   * An optional component which renders a second icon for the button, and
+   * which must accept a className prop.
+   */
+  readonly iconRight?: ComponentType<{className?: string}>;
+  /**
+   * A handler called when the user clicks on the button.
+   */
+  readonly onClick?: () => void;
+  /**
+   * A variant of the button, one of:
+   * - `default`
+   * - `icon`
+   * - `accent`
+   * - `ghost`
+   * - `item`
+   */
+  readonly variant?: keyof typeof buttonVariants;
+  /**
+   * A flag that indicates that an `item` button is 'current' and therefore
+   * highlighted.
+   */
+  readonly current?: boolean;
+  /**
+   * A URL that can be used instead of an `onClick` to launch a new web
+   * page, much like a link.
+   */
+  readonly href?: string;
+  /**
+   * Alternative text shown when the user hovers over the button.
+   */
+  readonly alt?: string;
+  /**
+   * An extra CSS class name for the component.
+   */
+  readonly className?: string;
+  ref?: React.RefObject<HTMLButtonElement>;
+}) => {
+  const hrefClick = useCallback(
+    () => (href ? open(href, '_blank', 'noreferrer') : null),
+    [href],
+  );
 
-    return (
-      <button
-        className={classNames(
-          button,
-          buttonVariants[variant],
-          current && currentStyle,
-          className,
-        )}
-        onClick={onClick ?? hrefClick}
-        title={alt}
-        ref={ref}
-      >
-        {Icon ? <Icon className={iconSize} /> : null}
-        {titleComponentOrNode ? (
-          <span className={titleStyle}>
-            {renderComponentOrNode(titleComponentOrNode)}
-          </span>
-        ) : null}
-        {titleRightComponentOrNode ? (
-          <span className={titleStyleRight}>
-            {renderComponentOrNode(titleRightComponentOrNode)}
-          </span>
-        ) : null}
-        {IconRight ? <IconRight className={iconSize} /> : null}
-      </button>
-    );
-  },
-);
+  return (
+    <button
+      className={classNames(
+        button,
+        buttonVariants[variant],
+        current && currentStyle,
+        className,
+      )}
+      onClick={onClick ?? hrefClick}
+      title={alt}
+      ref={ref}
+    >
+      {Icon ? <Icon className={iconSize} /> : null}
+      {titleComponentOrNode ? (
+        <span className={titleStyle}>
+          {renderComponentOrNode(titleComponentOrNode)}
+        </span>
+      ) : null}
+      {titleRightComponentOrNode ? (
+        <span className={titleStyleRight}>
+          {renderComponentOrNode(titleRightComponentOrNode)}
+        </span>
+      ) : null}
+      {IconRight ? <IconRight className={iconSize} /> : null}
+    </button>
+  );
+};
