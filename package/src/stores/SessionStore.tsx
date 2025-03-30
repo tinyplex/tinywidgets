@@ -1,6 +1,6 @@
-import * as UiReact from 'tinybase/ui-react/with-schemas';
 import {READY, READY_SCHEMA} from './common';
 import {createSessionPersister} from 'tinybase/persisters/persister-browser/with-schemas';
+import * as UiReact from 'tinybase/ui-react/with-schemas';
 import {createStore} from 'tinybase/with-schemas';
 
 const SESSION_STORE = 'tinywidgets/Session';

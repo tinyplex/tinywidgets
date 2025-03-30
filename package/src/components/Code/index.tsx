@@ -1,7 +1,6 @@
-/* eslint-disable max-len */
-import React from 'react';
 import {classNames} from '../../common/functions.tsx';
 import {pre} from './index.css.ts';
+import React from 'react';
 
 /**
  * The `Code` component displays a block of pre-formatted code, and uses PrismJS
@@ -85,7 +84,6 @@ export const Code = ({
   return (
     <pre className={classNames(pre, className)}>
       <code
-        // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{
           __html: (prism
             ? prism.highlight(code, prism.languages?.[language], language)

@@ -1,5 +1,6 @@
-import * as UiReact from 'tinybase/ui-react/with-schemas';
-import type {ComponentType, ReactNode} from 'react';
+import {classNames, renderComponentOrNode} from '../../common/functions.tsx';
+import {codeDark, codeLight} from '../../css/code.css.ts';
+import {colorsDark, colorsLight} from '../../css/colors.css.ts';
 import {
   LocalStore,
   useDark,
@@ -7,7 +8,6 @@ import {
   useLocalStoreIsReady,
   useToggleDarkChoiceCallback,
 } from '../../stores/LocalStore.tsx';
-import {Menu, Moon, Sun, SunMoon, X} from 'lucide-react';
 import {RouteStore, useRouteStoreIsReady} from '../../stores/RouteStore.tsx';
 import {
   SessionStore,
@@ -15,6 +15,7 @@ import {
   useSideNavIsOpen,
   useToggleSideNavIsOpenCallback,
 } from '../../stores/SessionStore.tsx';
+import {Button} from '../Button/index.tsx';
 import {
   app,
   appLayout,
@@ -27,12 +28,11 @@ import {
   title,
   topNav,
 } from './index.css.ts';
-import {classNames, renderComponentOrNode} from '../../common/functions.tsx';
-import {codeDark, codeLight} from '../../css/code.css.ts';
-import {colorsDark, colorsLight} from '../../css/colors.css.ts';
-import {Button} from '../Button/index.tsx';
-import {OptionalSchemas} from 'tinybase/with-schemas';
+import {Menu, Moon, Sun, SunMoon, X} from 'lucide-react';
+import type {ComponentType, ReactNode} from 'react';
 import React from 'react';
+import * as UiReact from 'tinybase/ui-react/with-schemas';
+import type {OptionalSchemas} from 'tinybase/with-schemas';
 
 const {Provider} = UiReact as UiReact.WithSchemas<OptionalSchemas>;
 

@@ -1,6 +1,9 @@
-import {ChevronDown, ChevronRight} from 'lucide-react';
-import type {ComponentType, ReactNode} from 'react';
-import React, {useCallback, useRef, useState} from 'react';
+import {classNames} from '../../common/functions.tsx';
+import {
+  useCollapsibleIsOpen,
+  useSetCollapsibleIsOpenCallback,
+} from '../../stores/SessionStore.tsx';
+import {Button} from '../Button/index.tsx';
 import {
   button,
   buttonOpen,
@@ -8,12 +11,9 @@ import {
   collapsibleOpen,
   content,
 } from './index.css.ts';
-import {
-  useCollapsibleIsOpen,
-  useSetCollapsibleIsOpenCallback,
-} from '../../stores/SessionStore.tsx';
-import {Button} from '../Button/index.tsx';
-import {classNames} from '../../common/functions.tsx';
+import {ChevronDown, ChevronRight} from 'lucide-react';
+import type {ComponentType, ReactNode} from 'react';
+import React, {useCallback, useRef, useState} from 'react';
 
 /**
  * The `Collapsible` component displays a titled box that can be expanded or
@@ -105,7 +105,7 @@ export const Collapsible = ({
   const setIsOpen = id ? setStoredIsOpen : setStateIsOpen;
 
   const [render, setRender] = useState(isOpen);
-  const timer = useRef<ReturnType<typeof setTimeout>>();
+  const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   const toggle = useCallback(() => {
     setIsOpen(!isOpen);

@@ -1,6 +1,6 @@
-import React from 'react';
 import {classNames} from '../../common/functions';
 import {hr} from './index.css';
+import React from 'react';
 
 /**
  * The `Hr` component displays a styled horizontal rule.
@@ -21,6 +21,4 @@ export const Hr = ({
    * An extra CSS class name for the component.
    */
   readonly className?: string;
-}) => {
-  return <hr className={classNames(hr, className)} />;
-};
+}) => <hr className={classNames(hr, className)} />;

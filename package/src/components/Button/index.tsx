@@ -1,5 +1,5 @@
-import type {ComponentType, ReactNode, Ref} from 'react';
-import React, {forwardRef, useCallback} from 'react';
+import {classNames, renderComponentOrNode} from '../../common/functions.tsx';
+import {iconSize} from '../../css/dimensions.css.ts';
 import {
   button,
   buttonVariants,
@@ -7,8 +7,8 @@ import {
   titleStyle,
   titleStyleRight,
 } from './index.css.ts';
-import {classNames, renderComponentOrNode} from '../../common/functions.tsx';
-import {iconSize} from '../../css/dimensions.css.ts';
+import type {ComponentType, ReactNode, Ref} from 'react';
+import React, {forwardRef, useCallback} from 'react';
 
 /**
  * The `Button` component displays an button, with a number of common variants.

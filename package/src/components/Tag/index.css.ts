@@ -1,5 +1,5 @@
-import {style, styleVariants} from '@vanilla-extract/css';
 import {colors} from '../../css/colors.css';
+import {style, styleVariants} from '@vanilla-extract/css';
 
 export const tag = style({
   display: 'flex',

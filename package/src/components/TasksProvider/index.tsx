@@ -1,9 +1,3 @@
-import * as UiReact from 'tinybase/ui-react/with-schemas';
-import {
-  Id,
-  Store as StoreWithSchemas,
-  createStore,
-} from 'tinybase/with-schemas';
 import React, {
   ReactNode,
   createContext,
@@ -12,14 +6,17 @@ import React, {
   useEffect,
   useRef,
 } from 'react';
+import type {Store} from 'tinybase';
+import {createLocalPersister} from 'tinybase/persisters/persister-browser/with-schemas';
+import type {Persister} from 'tinybase/persisters/with-schemas';
 import {
   Provider as UiReactProvider,
   useStore,
   useStores,
 } from 'tinybase/ui-react';
-import {Persister} from 'tinybase/persisters/with-schemas';
-import {Store} from 'tinybase';
-import {createLocalPersister} from 'tinybase/persisters/persister-browser/with-schemas';
+import * as UiReact from 'tinybase/ui-react/with-schemas';
+import type {Id, Store as StoreWithSchemas} from 'tinybase/with-schemas';
+import {createStore} from 'tinybase/with-schemas';
 
 export type Task =
   | ((
@@ -261,7 +258,7 @@ export const TasksProvider = ({
   const pendingAddedJobs = useRef<
     [taskId: string, arg?: string, storeId?: string][]
   >([]);
-  const activePersister = useRef<Persister<Schemas> | undefined>();
+  const activePersister = useRef<Persister<Schemas> | undefined>(undefined);
 
   const tasksStore = useCreateStore(() =>
     createStore().setSchema(TABLES_SCHEMA, VALUES_SCHEMA),
