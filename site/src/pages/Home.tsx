@@ -1,4 +1,5 @@
-import * as Lucide from 'lucide-react';
+import {RouteButton} from '../components/RouteLink.tsx';
+import {button, home, hr, logo, narrower, title} from './Home.css.ts';
 import {
   COMPONENT_ROUTES,
   CSS_ROUTES,
@@ -6,12 +7,11 @@ import {
   HOOK_ROUTES,
   OBJECT_ROUTES,
 } from './_api.tsx';
-import {Card, Hr, Image, Metric, Row} from 'tinywidgets';
-import {SiCss3, SiJavascript} from '@icons-pack/react-simple-icons';
-import {button, home, hr, logo, narrower, title} from './Home.css.ts';
 import {ROUTES} from './index.ts';
+import {SiCss3, SiJavascript} from '@icons-pack/react-simple-icons';
+import * as Lucide from 'lucide-react';
 import React from 'react';
-import {RouteButton} from '../components/RouteLink.tsx';
+import {Card, Hr, Image, Metric, Row} from 'tinywidgets';
 
 export const Home = () => {
   return (
@@ -73,14 +73,12 @@ export const Home = () => {
       <div className={narrower}>
         <h2>Dependencies</h2>
         <Image
-          // eslint-disable-next-line max-len
           src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg"
           variant="logo"
           href="https://react.dev/"
           className={logo}
         />
         <Image
-          // eslint-disable-next-line max-len
           src="https://raw.githubusercontent.com/vanilla-extract-css/vanilla-extract/refs/heads/master/site/logo.svg"
           variant="logo"
           href="https://vanilla-extract.style/"

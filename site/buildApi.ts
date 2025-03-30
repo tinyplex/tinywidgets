@@ -1,7 +1,7 @@
-import ts, {isVariableDeclaration} from 'typescript';
 import {Glob} from 'bun';
-import {marked} from 'marked';
 import {watch} from 'fs';
+import {marked} from 'marked';
+import ts, {isVariableDeclaration} from 'typescript';
 
 const CODE = /```tsx?\n(.*?)\n```/ms;
 

@@ -1,38 +1,42 @@
 {
   "name": "tinywidgets-site",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
     "buildApi": "bun buildApi.ts",
     "buildApiWatch": "bun --watch buildApi.ts --watch",
     "dev": "bun run buildApi && vite --force",
-    "prePublish": "bun run buildApi && eslint . && tsc && vite build"
+    "prePublish": "bun run buildApi && prettier -l . && eslint . && tsc && vite build"
   },
   "devDependencies": {
-    "@types/bun": "^1.2.5",
-    "@types/node": "^22.13.10",
-    "@types/react-dom": "^18.3.0",
-    "@typescript-eslint/eslint-plugin": "^8.26.1",
+    "@types/bun": "^1.2.8",
+    "@types/node": "^22.13.14",
+    "@types/react-dom": "^19.0.4",
+    "@typescript-eslint/eslint-plugin": "^8.28.0",
     "@vanilla-extract/vite-plugin": "^5.0.1",
     "@vitejs/plugin-react": "^4.3.4",
     "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "eslint-plugin-react": "^7.37.4",
-    "eslint": "^8.57.0",
+    "eslint": "^9.23.0",
     "rollup-plugin-license": "^3.6.0",
     "typescript": "^5.8.2",
     "vite-plugin-minify": "^2.1.0",
     "vite-plugin-prismjs": "^0.0.11",
-    "vite": "^6.2.1"
+    "vite": "^6.2.3"
   },
   "dependencies": {
-    "@icons-pack/react-simple-icons": "^12.2.0",
-    "lucide-react": "^0.479.0",
+    "@icons-pack/react-simple-icons": "^12.3.0",
+    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
+    "eslint-plugin-import": "^2.31.0",
+    "lucide-react": "^0.485.0",
     "marked": "^15.0.7",
     "prismjs": "^1.30.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-refresh": "^0.16.0",
-    "tinywidgets": "file:../package"
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-refresh": "^0.17.0",
+    "tinywidgets": "file:../package",
+    "typescript-eslint": "^8.28.0"
   }
 }

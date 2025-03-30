@@ -1,10 +1,10 @@
-import {ViteMinifyPlugin} from 'vite-plugin-minify';
-import {defineConfig} from 'vite';
+import {vanillaExtractPlugin} from '@vanilla-extract/vite-plugin';
+import react from '@vitejs/plugin-react';
 import {join} from 'path';
 import license from 'rollup-plugin-license';
+import {defineConfig} from 'vite';
+import {ViteMinifyPlugin} from 'vite-plugin-minify';
 import prismjs from 'vite-plugin-prismjs';
-import react from '@vitejs/plugin-react';
-import {vanillaExtractPlugin} from '@vanilla-extract/vite-plugin';
 
 export default defineConfig({
   optimizeDeps: {exclude: ['tinywidgets']},

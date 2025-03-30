@@ -1,11 +1,10 @@
-/* eslint-disable max-len */
-import 'prismjs';
-import * as Lucide from 'lucide-react';
-import {Code, Collapsible, Image} from 'tinywidgets';
-import {ROUTES} from './index.ts';
-import React from 'react';
 import {Title} from '../components/Title.tsx';
 import {image} from './Installation.css.ts';
+import {ROUTES} from './index.ts';
+import * as Lucide from 'lucide-react';
+import 'prismjs';
+import React from 'react';
+import {Code, Collapsible, Image} from 'tinywidgets';
 
 export const Installation = () => {
   return (

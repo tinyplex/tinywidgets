@@ -1,10 +1,9 @@
-/* eslint-disable max-len */
-import 'prismjs';
-import * as Lucide from 'lucide-react';
-import {Code} from 'tinywidgets';
-import {ROUTES} from './index.ts';
-import React from 'react';
 import {Title} from '../components/Title.tsx';
+import {ROUTES} from './index.ts';
+import * as Lucide from 'lucide-react';
+import 'prismjs';
+import React from 'react';
+import {Code} from 'tinywidgets';
 
 export const Configuration = () => {
   return (

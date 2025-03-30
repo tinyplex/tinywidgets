@@ -1,5 +1,5 @@
-import '../pages/Installation.tsx';
 import '../pages/Configuration.tsx';
+import '../pages/Installation.tsx';
 import {
   COMPONENT_ROUTES,
   CSS_ROUTES,
@@ -7,9 +7,9 @@ import {
   HOOK_ROUTES,
   OBJECT_ROUTES,
 } from '../pages/_api.tsx';
-import {Collapsible, Hr, useRoute} from 'tinywidgets';
-import React from 'react';
 import {RouteButton} from './RouteLink.tsx';
+import React from 'react';
+import {Collapsible, Hr, useRoute} from 'tinywidgets';
 
 type Navigation = readonly (
   | string

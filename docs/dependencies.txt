@@ -33,18 +33,18 @@ THE SOFTWARE.
 ---
 
 Name: react
-Version: 18.3.1
+Version: 19.1.0
 License: MIT
 Private: false
 Description: React is a JavaScript library for building user interfaces.
 Repository: https://github.com/facebook/react.git
-Homepage: https://reactjs.org/
+Homepage: https://react.dev/
 License Copyright:
 ===
 
 MIT License
 
-Copyright (c) Facebook, Inc. and its affiliates.
+Copyright (c) Meta Platforms, Inc. and affiliates.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -67,18 +67,18 @@ SOFTWARE.
 ---
 
 Name: react-dom
-Version: 18.3.1
+Version: 19.1.0
 License: MIT
 Private: false
 Description: React package for working with the DOM.
 Repository: https://github.com/facebook/react.git
-Homepage: https://reactjs.org/
+Homepage: https://react.dev/
 License Copyright:
 ===
 
 MIT License
 
-Copyright (c) Facebook, Inc. and its affiliates.
+Copyright (c) Meta Platforms, Inc. and affiliates.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -101,18 +101,18 @@ SOFTWARE.
 ---
 
 Name: scheduler
-Version: 0.23.2
+Version: 0.26.0
 License: MIT
 Private: false
 Description: Cooperative scheduler for the browser environment.
 Repository: https://github.com/facebook/react.git
-Homepage: https://reactjs.org/
+Homepage: https://react.dev/
 License Copyright:
 ===
 
 MIT License
 
-Copyright (c) Facebook, Inc. and its affiliates.
+Copyright (c) Meta Platforms, Inc. and affiliates.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -135,10 +135,10 @@ SOFTWARE.
 ---
 
 Name: tinybase
-Version: 5.4.8
+Version: 6.0.0
 License: MIT
 Private: false
-Description: The reactive data store for local-first apps.
+Description: A reactive data store and sync engine.
 Repository: undefined
 Homepage: https://tinybase.org
 Author: jamesgpearce
@@ -169,19 +169,8 @@ SOFTWARE.
 
 ---
 
-Name: tinywidgets
-Version: 1.1.3
-License: MIT
-Private: false
-Description: A collection of tiny, reusable, UI components - wrapped in a helpful app layout with header, side bar, dark mode, and more.
-Repository: undefined
-Homepage: https://tinywidgets.org
-Author: jamesgpearce
-
----
-
 Name: lucide-react
-Version: 0.479.0
+Version: 0.485.0
 License: ISC
 Private: false
 Description: A Lucide icon library package for React applications
@@ -209,8 +198,19 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 ---
 
+Name: tinywidgets
+Version: 1.1.3
+License: MIT
+Private: false
+Description: A collection of tiny, reusable, UI components - wrapped in a helpful app layout with header, side bar, dark mode, and more.
+Repository: undefined
+Homepage: https://tinywidgets.org
+Author: jamesgpearce
+
+---
+
 Name: @icons-pack/react-simple-icons
-Version: 12.2.0
+Version: 12.3.0
 License: MIT
 Private: false
 Description: This package provides the Simple Icons packaged as a set of React components.

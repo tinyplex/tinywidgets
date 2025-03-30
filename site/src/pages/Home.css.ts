@@ -1,5 +1,5 @@
-import {colors, screens} from 'tinywidgets/css';
 import {style} from '@vanilla-extract/css';
+import {colors, screens} from 'tinywidgets/css';
 
 export const home = style({
   textAlign: 'center',
