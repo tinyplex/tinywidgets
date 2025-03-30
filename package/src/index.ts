@@ -15,8 +15,8 @@ export {
   useScheduleTask,
 } from './components/TasksProvider/index.tsx';
 
-export {useRoute, useSetRouteCallback} from './stores/RouteStore.tsx';
-export {useDark} from './stores/LocalStore.tsx';
 export {classNames} from './common/functions.tsx';
+export {useDark} from './stores/LocalStore.tsx';
+export {useRoute, useSetRouteCallback} from './stores/RouteStore.tsx';
 
 export type {ScheduleTask} from './components/TasksProvider/index.tsx';

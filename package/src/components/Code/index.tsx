@@ -1,6 +1,5 @@
 import {classNames} from '../../common/functions.tsx';
 import {pre} from './index.css.ts';
-import React from 'react';
 
 /**
  * The `Code` component displays a block of pre-formatted code, and uses PrismJS

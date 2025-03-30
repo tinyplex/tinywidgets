@@ -1,7 +1,7 @@
+import {style} from '@vanilla-extract/css';
 import {large} from '../../common/functions.tsx';
 import {colors} from '../../css/colors.css.ts';
 import {dimensions, dimensionsClass} from '../../css/dimensions.css.ts';
-import {style} from '@vanilla-extract/css';
 
 export const app = style([dimensionsClass, {color: colors.foreground}]);
 

@@ -1,7 +1,6 @@
+import type {ReactNode} from 'react';
 import {classNames} from '../../common/functions';
 import {detailCell, detailRow, detailTable} from './index.css';
-import type {ReactNode} from 'react';
-import React from 'react';
 
 /**
  * The `Detail` component displays a set of key-value pairs in a two-column

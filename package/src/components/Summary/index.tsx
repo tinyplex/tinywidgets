@@ -1,8 +1,7 @@
+import type {ComponentType, ReactNode} from 'react';
 import {classNames} from '../../common/functions';
 import {Image} from '../Image';
 import {image, summary} from './index.css';
-import type {ComponentType, ReactNode} from 'react';
-import React from 'react';
 
 /**
  * The `Summary` component displays an image on the left, and other content

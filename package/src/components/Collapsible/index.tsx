@@ -1,3 +1,6 @@
+import {ChevronDown, ChevronRight} from 'lucide-react';
+import type {ComponentType, ReactNode} from 'react';
+import {useCallback, useRef, useState} from 'react';
 import {classNames} from '../../common/functions.tsx';
 import {
   useCollapsibleIsOpen,
@@ -11,9 +14,6 @@ import {
   collapsibleOpen,
   content,
 } from './index.css.ts';
-import {ChevronDown, ChevronRight} from 'lucide-react';
-import type {ComponentType, ReactNode} from 'react';
-import React, {useCallback, useRef, useState} from 'react';
 
 /**
  * The `Collapsible` component displays a titled box that can be expanded or

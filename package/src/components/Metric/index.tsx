@@ -1,8 +1,7 @@
+import type {ComponentType, ReactNode} from 'react';
 import {classNames, renderComponentOrNode} from '../../common/functions';
 import {iconSize} from '../../css/dimensions.css';
 import {metric, metricLabel, metricNumber} from './index.css';
-import type {ComponentType, ReactNode} from 'react';
-import React from 'react';
 
 /**
  * The `Metric` component displays a metric as a prominent numerical value with

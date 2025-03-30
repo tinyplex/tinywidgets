@@ -1,6 +1,6 @@
-import {screens} from '../css/screens';
 import type {StyleRule} from '@vanilla-extract/css';
-import React, {type ComponentType, type ReactNode} from 'react';
+import {type ComponentType, type ReactNode} from 'react';
+import {screens} from '../css/screens';
 
 /**
  * The `classNames` function returns a concatenated list of class names,

@@ -1,7 +1,6 @@
+import type {ReactNode} from 'react';
 import {classNames} from '../../common/functions';
 import {card} from './index.css';
-import type {ReactNode} from 'react';
-import React from 'react';
 
 /**
  * The `Card` component displays a simple rectangular container.

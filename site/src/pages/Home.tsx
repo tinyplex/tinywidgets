@@ -1,3 +1,6 @@
+import {SiCss3, SiJavascript} from '@icons-pack/react-simple-icons';
+import * as Lucide from 'lucide-react';
+import {Card, Hr, Image, Metric, Row} from 'tinywidgets';
 import {RouteButton} from '../components/RouteLink.tsx';
 import {button, home, hr, logo, narrower, title} from './Home.css.ts';
 import {
@@ -8,10 +11,6 @@ import {
   OBJECT_ROUTES,
 } from './_api.tsx';
 import {ROUTES} from './index.ts';
-import {SiCss3, SiJavascript} from '@icons-pack/react-simple-icons';
-import * as Lucide from 'lucide-react';
-import React from 'react';
-import {Card, Hr, Image, Metric, Row} from 'tinywidgets';
 
 export const Home = () => {
   return (

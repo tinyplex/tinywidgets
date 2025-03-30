@@ -1,5 +1,5 @@
-import {small} from '../common/functions';
 import {globalStyle} from '@vanilla-extract/css';
+import {small} from '../common/functions';
 
 globalStyle('*', {
   margin: 0,

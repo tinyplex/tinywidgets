@@ -1,7 +1,7 @@
-import {READY, READY_SCHEMA} from './common';
 import {createCustomPersister} from 'tinybase/persisters/with-schemas';
 import * as UiReact from 'tinybase/ui-react/with-schemas';
 import {type NoTablesSchema, createStore} from 'tinybase/with-schemas';
+import {READY, READY_SCHEMA} from './common';
 
 const ROUTE_STORE = 'tinywidgets/Route';
 const ROUTE = 'route';

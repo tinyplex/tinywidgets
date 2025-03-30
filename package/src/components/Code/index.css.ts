@@ -1,7 +1,7 @@
+import {globalStyle, style} from '@vanilla-extract/css';
 import {code} from '../../css/code.css';
 import {colors} from '../../css/colors.css';
 import {dimensions} from '../../css/dimensions.css';
-import {globalStyle, style} from '@vanilla-extract/css';
 
 export const pre = style({
   padding: dimensions.padding,

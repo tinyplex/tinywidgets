@@ -1,6 +1,5 @@
 import {classNames} from '../../common/functions';
 import {hr} from './index.css';
-import React from 'react';
 
 /**
  * The `Hr` component displays a styled horizontal rule.

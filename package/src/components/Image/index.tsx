@@ -1,6 +1,6 @@
+import {useCallback} from 'react';
 import {classNames} from '../../common/functions.tsx';
 import {clickable, image, imageVariants} from './index.css.ts';
-import React, {useCallback} from 'react';
 
 /**
  * The `Image` component displays an image, with a number of common variants.

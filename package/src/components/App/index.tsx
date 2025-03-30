@@ -1,3 +1,7 @@
+import {Menu, Moon, Sun, SunMoon, X} from 'lucide-react';
+import type {ComponentType, ReactNode} from 'react';
+import * as UiReact from 'tinybase/ui-react/with-schemas';
+import type {OptionalSchemas} from 'tinybase/with-schemas';
 import {classNames, renderComponentOrNode} from '../../common/functions.tsx';
 import {codeDark, codeLight} from '../../css/code.css.ts';
 import {colorsDark, colorsLight} from '../../css/colors.css.ts';
@@ -28,11 +32,6 @@ import {
   title,
   topNav,
 } from './index.css.ts';
-import {Menu, Moon, Sun, SunMoon, X} from 'lucide-react';
-import type {ComponentType, ReactNode} from 'react';
-import React from 'react';
-import * as UiReact from 'tinybase/ui-react/with-schemas';
-import type {OptionalSchemas} from 'tinybase/with-schemas';
 
 const {Provider} = UiReact as UiReact.WithSchemas<OptionalSchemas>;
 

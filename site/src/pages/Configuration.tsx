@@ -1,9 +1,8 @@
-import {Title} from '../components/Title.tsx';
-import {ROUTES} from './index.ts';
 import * as Lucide from 'lucide-react';
 import 'prismjs';
-import React from 'react';
 import {Code} from 'tinywidgets';
+import {Title} from '../components/Title.tsx';
+import {ROUTES} from './index.ts';
 
 export const Configuration = () => {
   return (

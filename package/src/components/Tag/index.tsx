@@ -1,7 +1,6 @@
+import type {ComponentType, ReactNode} from 'react';
 import {classNames, renderComponentOrNode} from '../../common/functions';
 import {tag, tagIcon, tagVariants} from './index.css';
-import type {ComponentType, ReactNode} from 'react';
-import React from 'react';
 
 /**
  * The `Tag` component displays a small rectangular tag, suitable for minimal
