@@ -1,6 +1,5 @@
 /* eslint-disable */
 import 'prismjs';
-import React from 'react';
 import type {Routes} from './index.ts';
 import {ROUTES} from './index.ts';
 import {Api} from './Api.tsx';
@@ -104,6 +103,7 @@ alt:<><p>Alternative text shown when the user hovers over the button.</p>
 </>,
 className:<><p>An extra CSS class name for the component.</p>
 </>,
+ref:<></>,
 }}
   examples={[
 [<><Code code={`<Button

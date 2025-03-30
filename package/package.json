@@ -1,6 +1,6 @@
 {
   "name": "tinywidgets",
-  "version": "1.1.4",
+  "version": "1.1.6",
   "author": "jamesgpearce",
   "repository": "github:tinyplex/tinywidgets",
   "license": "MIT",
@@ -16,31 +16,31 @@
   ],
   "type": "module",
   "scripts": {
-    "prePublishPackage": "prettier -l . && eslint . && cspell --quiet . && tsc && cp ../README.md ./README.md"
+    "prePublishPackage": "prettier --check . && eslint . && cspell --quiet . && tsc && cp ../README.md ./README.md"
   },
   "devDependencies": {
+    "@eslint/js": "^9.23.0",
     "@types/react": "^19.0.12",
     "cspell": "^8.18.1",
     "eslint": "^9.23.0",
+    "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-hooks": "^5.2.0",
+    "globals": "^16.0.0",
     "prettier": "^3.5.3",
     "prettier-plugin-organize-imports": "^4.1.0",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.28.0"
   },
   "exports": {
     ".": "./src/index.ts",
     "./css": "./src/index.css.ts"
   },
   "dependencies": {
-    "@eslint/js": "^9.23.0",
     "@vanilla-extract/css": "^1.17.1",
-    "eslint-plugin-import": "^2.31.0",
-    "globals": "^16.0.0",
     "lucide-react": "^0.485.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "tinybase": "^6.0.0",
-    "typescript-eslint": "^8.28.0"
+    "tinybase": "^6.0.0"
   }
 }

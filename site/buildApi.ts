@@ -104,7 +104,6 @@ const buildApi = async () => {
   const apiFile: string[] = [
     `/* eslint-disable */`,
     `import 'prismjs';`,
-    `import React from 'react';`,
     `import type {Routes} from './index.ts';`,
     `import {ROUTES} from './index.ts';`,
     `import {Api} from './Api.tsx';`,
