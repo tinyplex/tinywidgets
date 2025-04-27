@@ -3,8 +3,6 @@ import 'prismjs';
 import type {Routes} from './index.ts';
 import {ROUTES} from './index.ts';
 import {Api} from './Api.tsx';
-import {Provider, useCreateStore} from 'tinybase/ui-react';
-import {Store, createStore} from 'tinybase';
 import * as Lucide from 'lucide-react';
 export const COMPONENT_ROUTES: Routes = {};
 export const HOOK_ROUTES: Routes = {};

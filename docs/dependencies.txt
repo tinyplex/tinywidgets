@@ -135,7 +135,7 @@ SOFTWARE.
 ---
 
 Name: tinybase
-Version: 6.0.0
+Version: 6.0.4
 License: MIT
 Private: false
 Description: A reactive data store and sync engine.
@@ -170,10 +170,10 @@ SOFTWARE.
 ---
 
 Name: lucide-react
-Version: 0.485.0
+Version: 0.503.0
 License: ISC
 Private: false
-Description: A Lucide icon library package for React applications
+Description: A Lucide icon library package for React applications.
 Repository: https://github.com/lucide-icons/lucide.git
 Homepage: https://lucide.dev
 Author: Eric Fennis
@@ -199,7 +199,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 ---
 
 Name: tinywidgets
-Version: 1.1.6
+Version: 1.2.0
 License: MIT
 Private: false
 Description: A collection of tiny, reusable, UI components - wrapped in a helpful app layout with header, side bar, dark mode, and more.
