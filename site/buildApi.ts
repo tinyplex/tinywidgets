@@ -107,7 +107,6 @@ const buildApi = async () => {
     `import type {Routes} from './index.ts';`,
     `import {ROUTES} from './index.ts';`,
     `import {Api} from './Api.tsx';`,
-    `import {ScheduleTask} from 'tinywidgets';`,
     `import {Provider, useCreateStore} from 'tinybase/ui-react';`,
     `import {Store, createStore} from 'tinybase';`,
     `import * as Lucide from 'lucide-react';`,

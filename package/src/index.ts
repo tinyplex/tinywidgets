@@ -10,13 +10,7 @@ export {Metric} from './components/Metric/index.tsx';
 export {Row} from './components/Row/index.tsx';
 export {Summary} from './components/Summary/index.tsx';
 export {Tag} from './components/Tag/index.tsx';
-export {
-  TasksProvider,
-  useScheduleTask,
-} from './components/TasksProvider/index.tsx';
 
 export {classNames} from './common/functions.tsx';
 export {useDark} from './stores/LocalStore.tsx';
 export {useRoute, useSetRouteCallback} from './stores/RouteStore.tsx';
-
-export type {ScheduleTask} from './components/TasksProvider/index.tsx';
