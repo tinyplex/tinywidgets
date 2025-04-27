@@ -139,47 +139,6 @@ export default tsLint.config(
   },
 
   {
-    files: ['src/@types/**/*.js'],
-    settings: {jsdoc: {mode: 'typescript', contexts: ['any']}},
-    rules: {
-      'jsdoc/check-tag-names': [
-        2,
-        {definedTags: ['category', 'packageDocumentation']},
-      ],
-      'jsdoc/no-restricted-syntax': [
-        2,
-        {
-          contexts: [
-            {
-              comment:
-                // eslint-disable-next-line max-len
-                'JsdocBlock:not(:has(JsdocTag[tag=/category|packageDocumentation/]))',
-              message: 'Every non-module block requires a @category tag',
-            },
-            {
-              comment: 'JsdocBlock:not(:has(JsdocTag[tag=since]))',
-              message: 'Every block requires a @since tag',
-            },
-            {
-              comment:
-                'JsdocBlock:has(JsdocTag[tag=since] ~ JsdocTag[tag=since])',
-              message: 'Every block must have only one @since tag',
-            },
-          ],
-        },
-      ],
-      'jsdoc/require-jsdoc': 2,
-      'jsdoc/require-description': 2,
-      'jsdoc/require-description-complete-sentence': 2,
-      'jsdoc/require-returns-description': 2,
-      'jsdoc/no-blank-blocks': 2,
-      'jsdoc/require-param-type': 0,
-      'jsdoc/require-returns-type': 0,
-      'jsdoc/check-param-names': 0,
-    },
-  },
-
-  {
     files: ['eslint.config.js'],
     extends: [tsLint.configs.disableTypeChecked],
   },
