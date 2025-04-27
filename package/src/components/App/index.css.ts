@@ -78,3 +78,24 @@ export const mainHasSideNav = style(
     paddingLeft: `calc(${dimensions.sideNavWidth} + ${dimensions.padding})`,
   }),
 );
+
+export const mainHasFooter = style({
+  paddingBottom: `calc(${dimensions.footerHeight} + ${dimensions.padding})`,
+});
+
+export const footer = style({
+  display: 'flex',
+  justifyContent: 'right',
+  alignItems: 'center',
+  gap: dimensions.padding,
+  padding: dimensions.padding,
+  position: 'fixed',
+  bottom: 0,
+  left: 0,
+  right: 0,
+  height: dimensions.footerHeight,
+  backgroundColor: colors.backgroundHaze,
+  borderTop: colors.border,
+  boxShadow: colors.shadow,
+  backdropFilter: 'blur(8px)',
+});

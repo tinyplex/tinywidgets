@@ -45,6 +45,9 @@ of the application.</p>
 main:<><p>An optional component, element, or string which renders the main part of
 the application.</p>
 </>,
+footer:<><p>An optional component, element, or string which renders the footer of
+the application.</p>
+</>,
 className:<><p>An extra CSS class name for the component.</p>
 </>,
 }}
@@ -949,6 +952,7 @@ application.</p>
 <li><code>radius</code></li>
 <li><code>sideNavWidth</code></li>
 <li><code>topNavHeight</code></li>
+<li><code>footerHeight</code></li>
 </ul>
 <p>You can use these variables directly in React components that take style
 attributes, like this:</p>

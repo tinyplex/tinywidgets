@@ -8,6 +8,7 @@ import {
   useSetRouteCallback,
 } from 'tinywidgets';
 import {article, title} from './App.css';
+import {Footer} from './components/Footer.tsx';
 import {SideNav} from './components/SideNav.tsx';
 import {Home} from './pages/Home.tsx';
 import {ROUTES} from './pages/index.ts';
@@ -24,6 +25,7 @@ export const App = () => (
     }
     sideNav={SideNav}
     main={Main}
+    footer={Footer}
   />
 );
 

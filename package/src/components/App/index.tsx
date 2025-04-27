@@ -23,8 +23,10 @@ import {Button} from '../Button/index.tsx';
 import {
   app,
   appLayout,
+  footer,
   header,
   main,
+  mainHasFooter,
   mainHasSideNav,
   sideNav,
   sideNavButton,
@@ -84,6 +86,11 @@ export const App = (props: {
    */
   readonly main?: ComponentType | ReactNode;
   /**
+   * An optional component, element, or string which renders the footer of
+   * the application.
+   */
+  readonly footer?: ComponentType | ReactNode;
+  /**
    * An extra CSS class name for the component.
    */
   readonly className?: string;
@@ -104,6 +111,7 @@ const Layout = ({
   topNavRight: topNavRightComponentOrNode,
   sideNav: sideNavComponentOrNode,
   main: mainComponentOrNode,
+  footer: footerComponentOrNode,
   className,
 }: Parameters<typeof App>[0]) => {
   const sessionStoreIsReady = useSessionStoreIsReady();
@@ -124,8 +132,10 @@ const Layout = ({
     topNavRightComponentOrNode,
     sideNavComponentOrNode,
     mainComponentOrNode,
+    footerComponentOrNode,
   ].some((componentOrNode) => componentOrNode);
   const hasSideNav = sideNavComponentOrNode != null;
+  const hasFooter = footerComponentOrNode != null;
 
   return sessionStoreIsReady && routeStoreIsReady && localStoreIsReady ? (
     <div
@@ -169,9 +179,20 @@ const Layout = ({
               </nav>
             ) : null}
           </header>
-          <main className={classNames(main, hasSideNav && mainHasSideNav)}>
+          <main
+            className={classNames(
+              main,
+              hasSideNav && mainHasSideNav,
+              hasFooter && mainHasFooter,
+            )}
+          >
             {renderComponentOrNode(mainComponentOrNode)}
           </main>
+          {hasFooter ? (
+            <footer className={footer}>
+              {renderComponentOrNode(footerComponentOrNode)}
+            </footer>
+          ) : null}
         </>
       ) : null}
     </div>

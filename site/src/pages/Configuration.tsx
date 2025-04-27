@@ -37,6 +37,7 @@ export const Configuration = () => {
 
   --tinyWidgets-sideNavWidth: 20rem;
   --tinyWidgets-topNavHeight: 4rem;
+  --tinyWidgets-topNavHeight: 2rem;
 }
       `}
       />
