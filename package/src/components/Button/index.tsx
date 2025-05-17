@@ -167,7 +167,7 @@ export const Button = ({
    * An extra CSS class name for the component.
    */
   readonly className?: string;
-  ref?: React.RefObject<HTMLButtonElement>;
+  ref?: React.RefObject<HTMLButtonElement | null>;
 }) => {
   const hrefClick = useCallback(
     () => (href ? open(href, '_blank', 'noreferrer') : null),
