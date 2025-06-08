@@ -8,8 +8,10 @@ export {Hr} from './components/Hr/index.tsx';
 export {Image} from './components/Image/index.tsx';
 export {Metric} from './components/Metric/index.tsx';
 export {Row} from './components/Row/index.tsx';
+export {Select} from './components/Select/index.tsx';
 export {Summary} from './components/Summary/index.tsx';
 export {Tag} from './components/Tag/index.tsx';
+export {TextInput} from './components/TextInput/index.tsx';
 
 export {classNames} from './common/functions.tsx';
 export {useDark} from './stores/LocalStore.tsx';

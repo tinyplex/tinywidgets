@@ -63,7 +63,7 @@ return (<Api
   type='COMPONENT'
   importLine="import {Button} from 'tinywidgets';"
   title='Button'
-  comments={<><p>The <code>Button</code> component displays an button, with a number of common variants.</p>
+  comments={<><p>The <code>Button</code> component displays a button, with a number of common variants.</p>
 </>}
   icon={Lucide.RectangleHorizontal}
   params={{
@@ -673,6 +673,46 @@ children:<><p>The children of the component, each occupying one &#39;cell&#39;.<
 />);
 }, Lucide.Columns3];
 
+import {Select} from 'tinywidgets';
+COMPONENT_ROUTES['component/Select'] = ['Select', () => {
+return (<Api 
+  type='COMPONENT'
+  importLine="import {Select} from 'tinywidgets';"
+  title='Select'
+  comments={<><p>The <code>Select</code> component displays a managed select input with an existing
+value.</p>
+</>}
+  icon={Lucide.Combine}
+  params={{
+props:<>The props for the component.</>,
+}}
+  props={{
+options:<><p>The options and labels to show in the select widget.</p>
+</>,
+initialOption:<><p>An optional initial option.</p>
+</>,
+onChange:<><p>A handler called when the option is changed.</p>
+</>,
+alt:<><p>Alternative text shown when the user hovers over the input.</p>
+</>,
+className:<><p>An extra CSS class name for the component.</p>
+</>,
+ref:<></>,
+}}
+  examples={[
+[<><Code code={`<Select
+  initialOption="CA"
+  options={{ AL: 'Albania', BE: 'Belgium', CA: 'Canada' }}
+  onChange={(option) => console.log(option)}
+/>`} /></>,<Select
+  initialOption="CA"
+  options={{ AL: 'Albania', BE: 'Belgium', CA: 'Canada' }}
+  onChange={(option) => console.log(option)}
+/>],
+  ]}
+/>);
+}, Lucide.Combine];
+
 import {Summary} from 'tinywidgets';
 COMPONENT_ROUTES['component/Summary'] = ['Summary', () => {
 return (<Api 
@@ -763,6 +803,51 @@ className:<><p>An extra CSS class name for the component.</p>
   ]}
 />);
 }, Lucide.RectangleEllipsis];
+
+import {TextInput} from 'tinywidgets';
+COMPONENT_ROUTES['component/TextInput'] = ['TextInput', () => {
+return (<Api 
+  type='COMPONENT'
+  importLine="import {TextInput} from 'tinywidgets';"
+  title='TextInput'
+  comments={<><p>The <code>TextInput</code> component displays a managed text input with an existing
+value.</p>
+</>}
+  icon={Lucide.TextCursorInput}
+  params={{
+props:<>The props for the component.</>,
+}}
+  props={{
+initialText:<><p>An optional initial text value.</p>
+</>,
+placeholder:<><p>An optional placeholder string.</p>
+</>,
+onChange:<><p>A handler called when the text is changed.</p>
+</>,
+icon:<><p>An optional component which renders an icon on the left of the input, and
+which must accept a className prop.</p>
+</>,
+alt:<><p>Alternative text shown when the user hovers over the input.</p>
+</>,
+className:<><p>An extra CSS class name for the component.</p>
+</>,
+ref:<></>,
+}}
+  examples={[
+[<><Code code={`<TextInput
+  initialText="42"
+  onChange={(value) => console.log(value)}
+/>`} /><p>This example shows the TextInput component.</p>
+</>,<TextInput
+  initialText="42"
+  onChange={(value) => console.log(value)}
+/>],
+[<><Code code={`<TextInput icon={Lucide.Search} placeholder="Search..." />`} /><p>This example shows the TextInput component with an inset icon and
+placeholder.</p>
+</>,<TextInput icon={Lucide.Search} placeholder="Search..." />],
+  ]}
+/>);
+}, Lucide.TextCursorInput];
 
 import {classNames} from 'tinywidgets';
 FUNCTION_ROUTES['function/classNames'] = ['classNames', () => {

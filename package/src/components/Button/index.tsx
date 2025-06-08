@@ -11,7 +11,7 @@ import {
 } from './index.css.ts';
 
 /**
- * The `Button` component displays an button, with a number of common variants.
+ * The `Button` component displays a button, with a number of common variants.
  *
  * @param props The props for the component.
  * @returns The Button component.
