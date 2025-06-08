@@ -14,6 +14,7 @@ export const button = style({
   outlineOffset: '-2px',
   color: 'inherit',
   fontWeight: 'inherit',
+  fontFamily: 'inherit',
   overflow: 'hidden',
   whiteSpace: 'nowrap',
   transition: 'background-color 0.1s,border-color 0.1s',

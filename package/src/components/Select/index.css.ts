@@ -8,6 +8,7 @@ export const select = style({
   outlineOffset: '2px',
   color: 'inherit',
   fontWeight: 'inherit',
+  fontFamily: 'inherit',
   boxShadow: colors.shadow,
   border: colors.border,
   backgroundColor: colors.background,
