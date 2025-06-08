@@ -7,7 +7,7 @@ export const select = style({
   padding: '0.5rem',
   outlineOffset: '2px',
   color: 'inherit',
-  transition: 'background-color 0.1s,border-color 0.1s',
+  fontWeight: 'inherit',
   boxShadow: colors.shadow,
   border: colors.border,
   backgroundColor: colors.background,

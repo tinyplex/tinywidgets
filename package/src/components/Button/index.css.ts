@@ -13,6 +13,7 @@ export const button = style({
   padding: '0.5rem 1rem',
   outlineOffset: '-2px',
   color: 'inherit',
+  fontWeight: 'inherit',
   overflow: 'hidden',
   whiteSpace: 'nowrap',
   transition: 'background-color 0.1s,border-color 0.1s',
