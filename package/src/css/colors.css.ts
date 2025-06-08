@@ -20,9 +20,11 @@ import {
  * - `background2`
  * - `backgroundHaze`
  * - `backgroundHover`
+ * - `backgroundExtreme`
  * - `foreground`
  * - `foregroundBright`
  * - `foregroundDim`
+ * - `foregroundExtreme`
  * - `border`
  * - `shadow`
  *
@@ -72,9 +74,11 @@ export const colors = createThemeContract({
   background2: null,
   backgroundHaze: null,
   backgroundHover: null,
+  backgroundExtreme: null,
   foreground: null,
   foregroundBright: null,
   foregroundDim: null,
+  foregroundExtreme: null,
   border: null,
   shadow: null,
 });
@@ -97,9 +101,11 @@ export const colorsLight = createTheme(colors, {
   background2: `oklch(95% .01 ${colors.backgroundHue})`,
   backgroundHaze: `oklch(99% .01 ${colors.backgroundHue} / .5)`,
   backgroundHover: `oklch(90% .01 ${colors.backgroundHue})`,
+  backgroundExtreme: '#fff',
   foreground: `oklch(50% .01 ${colors.accentHue})`,
   foregroundBright: `oklch(10% .01 ${colors.accentHue})`,
   foregroundDim: `oklch(60% .01 ${colors.accentHue})`,
+  foregroundExtreme: '#000',
   border: `1px solid oklch(90% .01 ${colors.backgroundHue})`,
   shadow: '0 1px 4px 0 hsl(0 0 20 / .1)',
 });
@@ -113,9 +119,11 @@ export const colorsDark = createTheme(colors, {
   background2: `oklch(15% .01 ${colors.backgroundHue})`,
   backgroundHaze: `oklch(21% 0% ${colors.backgroundHue} / .5)`,
   backgroundHover: `oklch(25% .01 ${colors.backgroundHue})`,
+  backgroundExtreme: '#000',
   foreground: `oklch(85% .01 ${colors.accentHue})`,
   foregroundBright: `oklch(95% .01 ${colors.accentHue})`,
   foregroundDim: `oklch(60% .01 ${colors.accentHue})`,
+  foregroundExtreme: '#fff',
   border: `1px solid oklch(30% .01 ${colors.backgroundHue})`,
   shadow: '0 1px 4px 0 #000',
 });
