@@ -25,6 +25,7 @@ import {
  * - `foregroundBright`
  * - `foregroundDim`
  * - `foregroundExtreme`
+ * - `borderColor`
  * - `border`
  * - `shadow`
  *
@@ -79,6 +80,7 @@ export const colors = createThemeContract({
   foregroundBright: null,
   foregroundDim: null,
   foregroundExtreme: null,
+  borderColor: null,
   border: null,
   shadow: null,
 });
@@ -89,6 +91,7 @@ const common = {
     'var(--tinyWidgets-backgroundHue)',
     `calc(${colors.accentHue} + 180)`,
   ),
+  border: `1px solid ${colors.borderColor}`,
   accent: `oklch(50% .11 ${colors.accentHue})`,
   accentLight: `oklch(71% .16 ${colors.accentHue})`,
   accentHover: `oklch(45% .1 ${colors.accentHue})`,
@@ -106,7 +109,7 @@ export const colorsLight = createTheme(colors, {
   foregroundBright: `oklch(10% .01 ${colors.accentHue})`,
   foregroundDim: `oklch(60% .01 ${colors.accentHue})`,
   foregroundExtreme: '#000',
-  border: `1px solid oklch(90% .01 ${colors.backgroundHue})`,
+  borderColor: `oklch(90% .01 ${colors.backgroundHue})`,
   shadow: '0 1px 4px 0 hsl(0 0 20 / .1)',
 });
 globalStyle(`html:has(${colorsLight})`, {
@@ -124,7 +127,7 @@ export const colorsDark = createTheme(colors, {
   foregroundBright: `oklch(95% .01 ${colors.accentHue})`,
   foregroundDim: `oklch(60% .01 ${colors.accentHue})`,
   foregroundExtreme: '#fff',
-  border: `1px solid oklch(30% .01 ${colors.backgroundHue})`,
+  borderColor: `oklch(30% .01 ${colors.backgroundHue})`,
   shadow: '0 1px 4px 0 #000',
 });
 globalStyle(`html:has(${colorsDark})`, {

@@ -973,6 +973,7 @@ theming, so that you can use them directly in your own application.</p>
 <li><code>foregroundBright</code></li>
 <li><code>foregroundDim</code></li>
 <li><code>foregroundExtreme</code></li>
+<li><code>borderColor</code></li>
 <li><code>border</code></li>
 <li><code>shadow</code></li>
 </ul>
