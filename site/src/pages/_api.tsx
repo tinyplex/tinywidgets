@@ -218,7 +218,7 @@ props:<>The props for the component.</>,
   props={{
 className:<><p>An extra CSS class name for the component.</p>
 </>,
-children:<><p>The children of the component, that go inside the card.</p>
+children:<><p>The children of the component that go inside the card.</p>
 </>,
 }}
   examples={[
@@ -394,7 +394,7 @@ id:<><p>An Id which will allow the state to be preserved between page reloads.</
 </>,
 className:<><p>An extra CSS class name for the component.</p>
 </>,
-children:<><p>The children of the component, that go inside the collapsible section.</p>
+children:<><p>The children of the component that go inside the collapsible section.</p>
 </>,
 }}
   examples={[
@@ -477,6 +477,56 @@ className:<><p>An extra CSS class name for the component.</p>
   ]}
 />);
 }, Lucide.Table];
+
+import {Flyout} from 'tinywidgets';
+COMPONENT_ROUTES['component/Flyout'] = ['Flyout', () => {
+return (<Api 
+  type='COMPONENT'
+  importLine="import {Flyout} from 'tinywidgets';"
+  title='Flyout'
+  comments={<><p>The <code>Flyout</code> component displays a simple rectangular container that pops up
+out of an icon.</p>
+</>}
+  icon={Lucide.LucideArrowDownSquare}
+  params={{
+props:<>The props for the component.</>,
+}}
+  props={{
+icon:<><p>An icon to click on to open up the flyout, and which must accept a
+className prop.</p>
+</>,
+variant:<><p>A variant of the button used for the flyout, one of:</p>
+<ul>
+<li><code>default</code></li>
+<li><code>icon</code></li>
+<li><code>accent</code></li>
+<li><code>ghost</code></li>
+<li><code>item</code></li>
+</ul>
+</>,
+startOpen:<><p>Whether the flyout should start opened up.</p>
+</>,
+id:<><p>An Id which will allow the state to be preserved between page reloads.</p>
+</>,
+className:<><p>An extra CSS class name for the component.</p>
+</>,
+children:<><p>The children of the component that go inside the card.</p>
+</>,
+}}
+  examples={[
+[<><Code code={`<Flyout icon={Lucide.LucideHelpCircle}>
+  <h1>Welcome</h1>
+  <Hr />
+  <p>We hope you enjoy TinyWidgets</p>
+</Flyout>`} /><p>This example shows a simple card.</p>
+</>,<Flyout icon={Lucide.LucideHelpCircle}>
+  <h1>Welcome</h1>
+  <Hr />
+  <p>We hope you enjoy TinyWidgets</p>
+</Flyout>],
+  ]}
+/>);
+}, Lucide.LucideArrowDownSquare];
 
 import {Hr} from 'tinywidgets';
 COMPONENT_ROUTES['component/Hr'] = ['Hr', () => {
