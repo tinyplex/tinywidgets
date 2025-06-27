@@ -12,6 +12,7 @@ export {Metric} from './components/Metric/index.tsx';
 export {Row} from './components/Row/index.tsx';
 export {Select} from './components/Select/index.tsx';
 export {Summary} from './components/Summary/index.tsx';
+export {Table} from './components/Table/index.tsx';
 export {Tag} from './components/Tag/index.tsx';
 export {TextInput} from './components/TextInput/index.tsx';
 

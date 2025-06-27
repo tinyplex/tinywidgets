@@ -19,7 +19,7 @@ import {detailCell, detailRow, detailTable} from './index.css';
  * />
  * ```
  * This example shows the basic Collapsible component.
- * @icon Lucide.Table
+ * @icon Lucide.TableProperties
  */
 export const Detail = ({
   data,

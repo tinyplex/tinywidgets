@@ -449,7 +449,7 @@ return (<Api
   comments={<><p>The <code>Detail</code> component displays a set of key-value pairs in a two-column
 table.</p>
 </>}
-  icon={Lucide.Table}
+  icon={Lucide.TableProperties}
   params={{
 props:<>The props for the component.</>,
 }}
@@ -476,7 +476,7 @@ className:<><p>An extra CSS class name for the component.</p>
 />],
   ]}
 />);
-}, Lucide.Table];
+}, Lucide.TableProperties];
 
 import {Flyout} from 'tinywidgets';
 COMPONENT_ROUTES['component/Flyout'] = ['Flyout', () => {
@@ -838,6 +838,39 @@ children:<><p>The children of the component, shown to the right of the image.</p
   ]}
 />);
 }, Lucide.LayoutList];
+
+import {Table} from 'tinywidgets';
+COMPONENT_ROUTES['component/Table'] = ['Table', () => {
+return (<Api 
+  type='COMPONENT'
+  importLine="import {Table} from 'tinywidgets';"
+  title='Table'
+  comments={<><p>The <code>Table</code> component displays a table with some simple default styling.</p>
+</>}
+  icon={Lucide.LucideTable2}
+  params={{
+props:<>The props for the component.</>,
+}}
+  props={{
+className:<><p>An extra CSS class name for the component.</p>
+</>,
+children:<><p>The children (<code>tr</code> rows) that go inside the table.</p>
+</>,
+}}
+  examples={[
+[<><Code code={`<Table>
+  <tr><th>Column 1</th><th>Column 2</th></tr>
+  <tr><td>Cell A</td><td>Cell B</td></tr>
+  <tr><td>Cell C</td><td>Cell D</td></tr>
+</Table>`} /><p>This example shows a simple table.</p>
+</>,<Table>
+  <tr><th>Column 1</th><th>Column 2</th></tr>
+  <tr><td>Cell A</td><td>Cell B</td></tr>
+  <tr><td>Cell C</td><td>Cell D</td></tr>
+</Table>],
+  ]}
+/>);
+}, Lucide.LucideTable2];
 
 import {Tag} from 'tinywidgets';
 COMPONENT_ROUTES['component/Tag'] = ['Tag', () => {
