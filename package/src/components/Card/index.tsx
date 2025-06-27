@@ -6,7 +6,7 @@ import {card} from './index.css';
  * The `Card` component displays a simple rectangular container.
  *
  * @param props The props for the component.
- * @returns Card Row component.
+ * @returns The Card component.
  * @example
  * ```tsx
  * <Card>
