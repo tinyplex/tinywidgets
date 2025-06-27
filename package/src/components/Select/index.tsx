@@ -58,17 +58,14 @@ export const Select = ({
   );
   return (
     <select
+      value={option}
       className={classNames(select, className)}
       onChange={handleChange}
       title={alt}
       ref={ref}
     >
       {Object.entries(options).map(([eachOption, label]) => (
-        <option
-          key={eachOption}
-          value={eachOption}
-          {...(eachOption === option ? {selected: true} : {})}
-        >
+        <option key={eachOption} value={eachOption}>
           {label}
         </option>
       ))}
