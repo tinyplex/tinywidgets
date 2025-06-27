@@ -27,7 +27,7 @@ export const Card = ({
    */
   readonly className?: string;
   /**
-   * The children of the component, that go inside the card.
+   * The children of the component that go inside the card.
    */
   readonly children: ReactNode;
 }) => <div className={classNames(card, className)}>{children}</div>;

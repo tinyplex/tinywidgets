@@ -93,7 +93,7 @@ export const Collapsible = ({
    */
   readonly className?: string;
   /**
-   * The children of the component, that go inside the collapsible section.
+   * The children of the component that go inside the collapsible section.
    */
   readonly children: ReactNode;
 }) => {
