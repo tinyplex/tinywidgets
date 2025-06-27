@@ -236,6 +236,45 @@ children:<><p>The children of the component, that go inside the card.</p>
 />);
 }, Lucide.Square];
 
+import {Checkbox} from 'tinywidgets';
+COMPONENT_ROUTES['component/Checkbox'] = ['Checkbox', () => {
+return (<Api 
+  type='COMPONENT'
+  importLine="import {Checkbox} from 'tinywidgets';"
+  title='Checkbox'
+  comments={<><p>The <code>Checkbox</code> component displays a managed checkbox with an optional default
+checked state.</p>
+</>}
+  icon={Lucide.LucideCheckSquare}
+  params={{
+props:<>The props for the component.</>,
+}}
+  props={{
+initialChecked:<><p>An optional value for whether the box is checked.</p>
+</>,
+onChange:<><p>A handler called when the text is changed.</p>
+</>,
+alt:<><p>Alternative text shown when the user hovers over the input.</p>
+</>,
+className:<><p>An extra CSS class name for the component.</p>
+</>,
+ref:<></>,
+}}
+  examples={[
+[<><Code code={`<Checkbox onChange={(value) => console.log(value)} />`} /><p>This example shows the Checkbox component without a default checked state.</p>
+</>,<Checkbox onChange={(value) => console.log(value)} />],
+[<><Code code={`<Checkbox
+  initialChecked={true}
+  onChange={(value) => console.log(value)}
+/>`} /><p>This example shows the Checkbox component with a default checked state.</p>
+</>,<Checkbox
+  initialChecked={true}
+  onChange={(value) => console.log(value)}
+/>],
+  ]}
+/>);
+}, Lucide.LucideCheckSquare];
+
 import {Code} from 'tinywidgets';
 COMPONENT_ROUTES['component/Code'] = ['Code', () => {
 return (<Api 

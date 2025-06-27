@@ -1,13 +1,7 @@
 import {useCallback, useState, type ComponentType} from 'react';
 import {classNames} from '../../common/functions.tsx';
 import {iconSize} from '../../css/dimensions.css.ts';
-import {
-  icon,
-  input,
-  inputWithIcon,
-  wrapper,
-  wrapperWithIcon,
-} from './index.css.ts';
+import {icon, input, inputWithIcon, wrapper} from './index.css.ts';
 
 /**
  * The `TextInput` component displays a managed text input with an existing
@@ -76,7 +70,7 @@ export const TextInput = ({
     [onChange],
   );
   return (
-    <div className={classNames(wrapper, Icon && wrapperWithIcon)}>
+    <div className={wrapper}>
       {Icon ? <Icon className={classNames(iconSize, icon)} /> : null}
       <input
         value={text}

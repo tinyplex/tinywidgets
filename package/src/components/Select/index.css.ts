@@ -12,4 +12,6 @@ export const select = style({
   boxShadow: colors.shadow,
   border: colors.border,
   backgroundColor: colors.background,
+  boxSizing: 'content-box',
+  height: '1.5rem',
 });

@@ -6,9 +6,8 @@ export const wrapper = style({
   flexShrink: 0,
   alignSelf: 'center',
   position: 'relative',
+  display: 'inline-block',
 });
-
-export const wrapperWithIcon = style({});
 
 export const input = style({
   borderRadius: dimensions.radius,
@@ -20,6 +19,7 @@ export const input = style({
   boxShadow: colors.shadow + ' inset',
   border: colors.border,
   backgroundColor: colors.background,
+  lineHeight: '1.5rem',
 });
 
 export const inputWithIcon = style({
@@ -29,7 +29,7 @@ export const inputWithIcon = style({
 export const icon = style({
   position: 'absolute',
   left: `calc(${dimensions.icon} * .5)`,
-  top: `calc(${dimensions.icon} * .65)`,
+  top: `calc(${dimensions.icon} * .8)`,
   color: colors.foregroundDim,
   backgroundColor: colors.background,
   borderRight: `calc(${dimensions.icon} * .25) solid ${colors.background}`,
