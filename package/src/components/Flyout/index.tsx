@@ -1,12 +1,23 @@
-import {ComponentType, useCallback, useState, type ReactNode} from 'react';
+import {
+  ComponentType,
+  useCallback,
+  useMemo,
+  useState,
+  type ReactNode,
+} from 'react';
+import {createPortal} from 'react-dom';
+import {getUniqueId} from 'tinybase';
 import {classNames} from '../../common/functions';
 import {
   useCollapsibleIsOpen,
   useSetCollapsibleIsOpenCallback,
 } from '../../stores/SessionStore';
+import {usePortal} from '../App';
 import {Button} from '../Button';
 import {buttonVariants} from '../Button/index.css';
-import {flyout, wrapper} from './index.css';
+import {anchoredFlyout, flyout, wrapper} from './index.css';
+
+const supportsAnchors = CSS.supports('anchor-name', '--');
 
 /**
  * The `Flyout` component displays a simple rectangular container that pops up
@@ -76,12 +87,36 @@ export const Flyout = ({
     [setIsOpen, isOpen],
   );
 
-  return (
-    <span className={wrapper}>
-      <Button icon={icon} variant={variant} onClick={handleClick} />
+  const anchor = useMemo(() => '--' + getUniqueId(5), []);
+  const portal = usePortal();
+
+  const buttonProps = {
+    icon: icon,
+    variant: variant,
+    onClick: handleClick,
+  };
+  return supportsAnchors ? (
+    <>
+      <Button {...buttonProps} anchorName={anchor} />
+      {isOpen && portal
+        ? createPortal(
+            <div
+              className={classNames(flyout, anchoredFlyout, className)}
+              // @ts-expect-error positionAnchor not typed for React yet
+              style={{positionAnchor: anchor}}
+            >
+              {children}
+            </div>,
+            portal,
+          )
+        : null}
+    </>
+  ) : (
+    <div className={wrapper}>
+      <Button {...buttonProps} />
       {isOpen ? (
         <div className={classNames(flyout, className)}>{children}</div>
       ) : null}
-    </span>
+    </div>
   );
 };
