@@ -114,6 +114,7 @@ export const Button = ({
   href,
   alt,
   className,
+  anchorName,
   ref,
 }: {
   /**
@@ -167,6 +168,10 @@ export const Button = ({
    * An extra CSS class name for the component.
    */
   readonly className?: string;
+  /**
+   * An name for the component to be used as an anchor for other elements.
+   */
+  readonly anchorName?: string;
   ref?: React.RefObject<HTMLButtonElement | null>;
 }) => {
   const hrefClick = useCallback(
@@ -175,6 +180,7 @@ export const Button = ({
   );
 
   return (
+    // @ts-expect-error anchorName not typed for React yet
     <button
       className={classNames(
         button,
@@ -185,6 +191,7 @@ export const Button = ({
       onClick={onClick ?? hrefClick}
       title={alt}
       ref={ref}
+      {...(anchorName ? {style: {anchorName}} : {})}
     >
       {Icon ? <Icon className={iconSize} /> : null}
       {titleComponentOrNode ? (

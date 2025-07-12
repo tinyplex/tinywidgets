@@ -103,6 +103,8 @@ alt:<><p>Alternative text shown when the user hovers over the button.</p>
 </>,
 className:<><p>An extra CSS class name for the component.</p>
 </>,
+anchorName:<><p>An name for the component to be used as an anchor for other elements.</p>
+</>,
 ref:<></>,
 }}
   examples={[
