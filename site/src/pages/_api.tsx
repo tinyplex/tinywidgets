@@ -497,6 +497,12 @@ props:<>The props for the component.</>,
 icon:<><p>An icon to click on to open up the flyout, and which must accept a
 className prop.</p>
 </>,
+openIcon:<><p>An optional icon to show when the flyout is open, and which must accept a
+className prop.</p>
+</>,
+title:<><p>An optional component, element, or string which renders the title of
+the button.</p>
+</>,
 variant:<><p>A variant of the button used for the flyout, one of:</p>
 <ul>
 <li><code>default</code></li>
@@ -520,10 +526,27 @@ children:<><p>The children of the component that go inside the card.</p>
   <h1>Welcome</h1>
   <Hr />
   <p>We hope you enjoy TinyWidgets</p>
-</Flyout>`} /><p>This example shows a simple card.</p>
+</Flyout>`} /><p>This example shows a flyout from a simple button.</p>
 </>,<Flyout icon={Lucide.LucideHelpCircle}>
   <h1>Welcome</h1>
   <Hr />
+  <p>We hope you enjoy TinyWidgets</p>
+</Flyout>],
+[<><Code code={`<Flyout
+  title="Toggle"
+  icon={Lucide.LucidePanelTopOpen}
+  openIcon={Lucide.LucidePanelTopClose}
+  startOpen={true}
+>
+  <p>We hope you enjoy TinyWidgets</p>
+</Flyout>`} /><p>This example shows a flyout, starting off open, with a title on the button,
+and with a different icon for open and closed states.</p>
+</>,<Flyout
+  title="Toggle"
+  icon={Lucide.LucidePanelTopOpen}
+  openIcon={Lucide.LucidePanelTopClose}
+  startOpen={true}
+>
   <p>We hope you enjoy TinyWidgets</p>
 </Flyout>],
   ]}

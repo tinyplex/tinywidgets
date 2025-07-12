@@ -33,11 +33,26 @@ const supportsAnchors = CSS.supports('anchor-name', '--');
  *   <p>We hope you enjoy TinyWidgets</p>
  * </Flyout>
  * ```
- * This example shows a simple card.
+ * This example shows a flyout from a simple button.
+ * @example
+ * ```tsx
+ * <Flyout
+ *   title="Toggle"
+ *   icon={Lucide.LucidePanelTopOpen}
+ *   openIcon={Lucide.LucidePanelTopClose}
+ *   startOpen={true}
+ * >
+ *   <p>We hope you enjoy TinyWidgets</p>
+ * </Flyout>
+ * ```
+ * This example shows a flyout, starting off open, with a title on the button,
+ * and with a different icon for open and closed states.
  * @icon Lucide.LucideArrowDownSquare
  */
 export const Flyout = ({
   icon,
+  openIcon,
+  title,
   variant,
   startOpen,
   id = '',
@@ -49,6 +64,16 @@ export const Flyout = ({
    * className prop.
    */
   readonly icon: ComponentType<{className?: string}>;
+  /**
+   * An optional icon to show when the flyout is open, and which must accept a
+   * className prop.
+   */
+  readonly openIcon?: ComponentType<{className?: string}>;
+  /**
+   * An optional component, element, or string which renders the title of
+   * the button.
+   */
+  readonly title?: ComponentType | ReactNode;
   /**
    * A variant of the button used for the flyout, one of:
    * - `default`
@@ -91,8 +116,9 @@ export const Flyout = ({
   const portal = usePortal();
 
   const buttonProps = {
-    icon: icon,
-    variant: variant,
+    icon: isOpen ? (openIcon ?? icon) : icon,
+    title,
+    variant,
     onClick: handleClick,
   };
   return supportsAnchors ? (
