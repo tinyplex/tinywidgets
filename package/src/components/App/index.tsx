@@ -1,5 +1,11 @@
 import {Menu, Moon, Sun, SunMoon, X} from 'lucide-react';
-import type {ComponentType, ReactNode} from 'react';
+import {
+  createContext,
+  useContext,
+  useRef,
+  type ComponentType,
+  type ReactNode,
+} from 'react';
 import * as UiReact from 'tinybase/ui-react/with-schemas';
 import type {OptionalSchemas} from 'tinybase/with-schemas';
 import {classNames, renderComponentOrNode} from '../../common/functions.tsx';
@@ -105,6 +111,11 @@ export const App = (props: {
   );
 };
 
+const LayoutContext = createContext<{readonly portal: HTMLDivElement | null}>({
+  portal: null,
+});
+export const usePortal = () => useContext(LayoutContext).portal;
+
 const Layout = ({
   title: titleComponentOrNode,
   topNavLeft: topNavLeftComponentOrNode,
@@ -137,8 +148,11 @@ const Layout = ({
   const hasSideNav = sideNavComponentOrNode != null;
   const hasFooter = footerComponentOrNode != null;
 
-  return sessionStoreIsReady && routeStoreIsReady && localStoreIsReady ? (
+  const ref = useRef<HTMLDivElement>(null);
+
+  return (
     <div
+      ref={ref}
       className={classNames(
         app,
         hasLayout && appLayout,
@@ -148,53 +162,60 @@ const Layout = ({
       )}
     >
       {hasLayout ? (
-        <>
-          <header className={header}>
-            {hasSideNav ? (
-              <Button
-                variant="icon"
-                onClick={toggleSideNavIsOpen}
-                icon={sideNavIsOpen ? X : Menu}
-                className={sideNavButton}
-              />
-            ) : null}
-            <nav className={title}>
-              {renderComponentOrNode(titleComponentOrNode)}
-            </nav>
-            <nav className={topNav}>
-              {renderComponentOrNode(topNavLeftComponentOrNode, <div />)}
-              {renderComponentOrNode(topNavRightComponentOrNode, <div />)}
-            </nav>
-            <Button
-              variant="icon"
-              onClick={toggleDarkChoice}
-              icon={darkIcons[darkChoice]}
-              alt={darkChoices[darkChoice]}
-            />
-            {hasSideNav ? (
-              <nav
-                className={classNames(sideNav, sideNavIsOpen && sideNavOpen)}
+        <LayoutContext.Provider value={{portal: ref.current}}>
+          {sessionStoreIsReady && routeStoreIsReady && localStoreIsReady ? (
+            <>
+              <header className={header}>
+                {hasSideNav ? (
+                  <Button
+                    variant="icon"
+                    onClick={toggleSideNavIsOpen}
+                    icon={sideNavIsOpen ? X : Menu}
+                    className={sideNavButton}
+                  />
+                ) : null}
+                <nav className={title}>
+                  {renderComponentOrNode(titleComponentOrNode)}
+                </nav>
+                <nav className={topNav}>
+                  {renderComponentOrNode(topNavLeftComponentOrNode, <div />)}
+                  {renderComponentOrNode(topNavRightComponentOrNode, <div />)}
+                </nav>
+                <Button
+                  variant="icon"
+                  onClick={toggleDarkChoice}
+                  icon={darkIcons[darkChoice]}
+                  alt={darkChoices[darkChoice]}
+                />
+                {hasSideNav ? (
+                  <nav
+                    className={classNames(
+                      sideNav,
+                      sideNavIsOpen && sideNavOpen,
+                    )}
+                  >
+                    {renderComponentOrNode(sideNavComponentOrNode)}
+                  </nav>
+                ) : null}
+              </header>
+              <main
+                className={classNames(
+                  main,
+                  hasSideNav && mainHasSideNav,
+                  hasFooter && mainHasFooter,
+                )}
               >
-                {renderComponentOrNode(sideNavComponentOrNode)}
-              </nav>
-            ) : null}
-          </header>
-          <main
-            className={classNames(
-              main,
-              hasSideNav && mainHasSideNav,
-              hasFooter && mainHasFooter,
-            )}
-          >
-            {renderComponentOrNode(mainComponentOrNode)}
-          </main>
-          {hasFooter ? (
-            <footer className={footer}>
-              {renderComponentOrNode(footerComponentOrNode)}
-            </footer>
+                {renderComponentOrNode(mainComponentOrNode)}
+              </main>
+              {hasFooter ? (
+                <footer className={footer}>
+                  {renderComponentOrNode(footerComponentOrNode)}
+                </footer>
+              ) : null}
+            </>
           ) : null}
-        </>
+        </LayoutContext.Provider>
       ) : null}
     </div>
-  ) : null;
+  );
 };
