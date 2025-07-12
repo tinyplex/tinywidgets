@@ -4,7 +4,7 @@ export type Routes = {
   [route: string]: [
     label: string,
     component: ComponentType,
-    icon?: ComponentType,
+    icon?: ComponentType | any,
   ];
 };
 

@@ -15,7 +15,7 @@ export const flyout = style({
   overflow: 'auto',
   backgroundColor: colors.background,
   position: 'absolute',
-  top: 'calc(2rem+2px)',
+  top: 'calc(2rem + 2px)',
   left: 0,
 });
 
