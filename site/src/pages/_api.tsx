@@ -1111,6 +1111,7 @@ theming, so that you can use them directly in your own application.</p>
 <li><code>accentLight</code></li>
 <li><code>accentHover</code></li>
 <li><code>accentContrast</code></li>
+<li><code>accentBright</code></li>
 <li><code>background</code></li>
 <li><code>background2</code></li>
 <li><code>backgroundHaze</code></li>

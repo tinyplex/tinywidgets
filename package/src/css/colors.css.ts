@@ -16,6 +16,7 @@ import {
  * - `accentLight`
  * - `accentHover`
  * - `accentContrast`
+ * - `accentBright`
  * - `background`
  * - `background2`
  * - `backgroundHaze`
@@ -71,6 +72,7 @@ export const colors = createThemeContract({
   accentLight: null,
   accentHover: null,
   accentContrast: null,
+  accentBright: null,
   background: null,
   background2: null,
   backgroundHaze: null,
@@ -95,6 +97,7 @@ const common = {
   accent: `oklch(50% .11 ${colors.accentHue})`,
   accentLight: `oklch(71% .16 ${colors.accentHue})`,
   accentHover: `oklch(45% .1 ${colors.accentHue})`,
+  accentBright: `oklch(57.37% 0.2178 ${colors.accentHue})`,
   accentContrast: '#fff',
 };
 
