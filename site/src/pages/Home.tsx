@@ -164,13 +164,16 @@ export const Home = () => {
 
           <div>
             <Image
-              src="https://tinywidgets.org/favicon.svg"
+              src="https://synclets.org/favicon.svg"
               variant="logo"
               className={logo}
             />
             <br />
-            <b>TinyWidgets</b>
-            <br />A collection of tiny, reusable, UI components.
+            <b>
+              <a href="https://synclets.org">Synclets</a>
+            </b>
+            <br />
+            An open, storage-agnostic, sync engine development kit.
           </div>
 
           <div>
