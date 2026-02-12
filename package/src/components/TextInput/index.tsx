@@ -1,4 +1,4 @@
-import {useCallback, useState, type ComponentType} from 'react';
+import {useCallback, useEffect, useState, type ComponentType} from 'react';
 import {classNames} from '../../common/functions.tsx';
 import {iconSize} from '../../css/dimensions.css.ts';
 import {icon, input, inputWithIcon, wrapper} from './index.css.ts';
@@ -62,13 +62,22 @@ export const TextInput = ({
   ref?: React.RefObject<HTMLInputElement | null>;
 }) => {
   const [text, setText] = useState(initialText ?? '');
-  const handleChange = useCallback(
-    ({target: {value}}: React.ChangeEvent<HTMLInputElement>) => {
+
+  const change = useCallback(
+    (value: string) => {
       setText(value);
       onChange?.(value);
     },
     [onChange],
   );
+
+  const handleChange = useCallback(
+    ({target: {value}}: React.ChangeEvent<HTMLInputElement>) => change(value),
+    [change],
+  );
+
+  useEffect(() => change(initialText ?? ''), [change, initialText]);
+
   return (
     <div className={wrapper}>
       {Icon ? <Icon className={classNames(iconSize, icon)} /> : null}
