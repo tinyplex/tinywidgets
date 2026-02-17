@@ -21,10 +21,10 @@ export const rowVariants = styleVariants({
     gridTemplateColumns: `1fr 1fr 1fr`,
   },
   '1|3': {
-    gridTemplateColumns: `1fr calc((100% - ${dimensions.padding}*3)/4)`,
+    gridTemplateColumns: `calc((100% - ${dimensions.padding}*3)/4) 1fr`,
   },
   '3|1': {
-    gridTemplateColumns: `calc((100% - ${dimensions.padding}*3)/4) 1fr`,
+    gridTemplateColumns: `1fr calc((100% - ${dimensions.padding}*3)/4)`,
   },
   '1|1|1|1': {gridTemplateColumns: '1fr 1fr 1fr 1fr'},
 });

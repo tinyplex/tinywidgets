@@ -19,7 +19,7 @@ export const button = style({
   whiteSpace: 'nowrap',
   transition: 'background-color 0.1s,border-color 0.1s',
   flexShrink: 0,
-  border: 0,
+  border: '1px solid transparent',
   alignSelf: 'center',
   background: 'none',
   selectors: {
@@ -39,6 +39,7 @@ export const buttonVariants = styleVariants({
   accent: {
     boxShadow: colors.shadow,
     backgroundColor: colors.accent,
+    border: colors.border,
     color: colors.accentContrast,
     selectors: {
       '&:hover': {
