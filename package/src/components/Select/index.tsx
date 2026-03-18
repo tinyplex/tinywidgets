@@ -1,4 +1,4 @@
-import {useCallback, useState} from 'react';
+import {useCallback, useEffect, useState} from 'react';
 import {classNames} from '../../common/functions.tsx';
 import {select} from './index.css.ts';
 
@@ -49,13 +49,22 @@ export const Select = ({
   ref?: React.RefObject<HTMLSelectElement | null>;
 }) => {
   const [option, setOption] = useState(initialOption ?? '');
-  const handleChange = useCallback(
-    ({target: {value}}: React.ChangeEvent<HTMLSelectElement>) => {
+
+  const change = useCallback(
+    (value: string) => {
       setOption(value);
       onChange?.(value);
     },
     [onChange],
   );
+
+  const handleChange = useCallback(
+    ({target: {value}}: React.ChangeEvent<HTMLSelectElement>) => change(value),
+    [change],
+  );
+
+  useEffect(() => change(initialOption ?? ''), [change, initialOption]);
+
   return (
     <select
       value={option}

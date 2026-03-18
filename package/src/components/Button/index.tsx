@@ -180,7 +180,6 @@ export const Button = ({
   );
 
   return (
-    // @ts-expect-error anchorName not typed for React yet
     <button
       className={classNames(
         button,

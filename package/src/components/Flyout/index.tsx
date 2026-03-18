@@ -128,7 +128,6 @@ export const Flyout = ({
         ? createPortal(
             <div
               className={classNames(flyout, anchoredFlyout, className)}
-              // @ts-expect-error positionAnchor not typed for React yet
               style={{positionAnchor: anchor}}
             >
               {children}
