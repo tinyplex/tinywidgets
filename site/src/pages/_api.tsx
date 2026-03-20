@@ -74,6 +74,16 @@ remain horizontally centered.</p>
 props:<>The props for the component.</>,
 }}
   props={{
+as:<><p>The HTML element used to wrap the axis, one of:</p>
+<ul>
+<li><code>div</code></li>
+<li><code>nav</code></li>
+<li><code>span</code></li>
+<li><code>h1</code></li>
+<li><code>header</code></li>
+<li><code>footer</code></li>
+</ul>
+</>,
 variant:<><p>A variant of the axis, one of:</p>
 <ul>
 <li><code>horizontal</code></li>

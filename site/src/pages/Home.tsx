@@ -17,12 +17,10 @@ export const Home = () => {
     <div className={home}>
       <div className={narrower}>
         <Axis variant="vertical">
-          <h1>
-            <Axis className={title}>
-              <Image src="/favicon.svg" variant="logo" className={logo} />
-              TinyWidgets
-            </Axis>
-          </h1>
+          <Axis as="h1" className={title}>
+            <Image src="/favicon.svg" variant="logo" className={logo} />
+            TinyWidgets
+          </Axis>
           <p>
             A collection of <a href="#sizes">tiny</a>, reusable, UI components
             wrapped in a helpful app layout with header, side bar, dark mode,

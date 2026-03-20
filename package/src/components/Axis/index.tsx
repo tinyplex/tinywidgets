@@ -32,11 +32,22 @@ import {axis, axisVariants} from './index.css';
  * @icon Lucide.AlignCenterHorizontal
  */
 export const Axis = ({
+  as: Component = 'div',
   variant = 'horizontal',
   className,
   title,
   children,
 }: {
+  /**
+   * The HTML element used to wrap the axis, one of:
+   * - `div`
+   * - `nav`
+   * - `span`
+   * - `h1`
+   * - `header`
+   * - `footer`
+   */
+  readonly as?: 'div' | 'nav' | 'span' | 'h1' | 'header' | 'footer';
   /**
    * A variant of the axis, one of:
    * - `horizontal`
@@ -56,10 +67,10 @@ export const Axis = ({
    */
   readonly children: ReactNode;
 }) => (
-  <div
+  <Component
     className={classNames(axis, axisVariants[variant], className)}
     title={title}
   >
     {children}
-  </div>
+  </Component>
 );
