@@ -94,6 +94,8 @@ className:<><p>An extra CSS class name for the component.</p>
 </>,
 title:<><p>Alternative text shown when the user hovers over the component.</p>
 </>,
+onClick:<><p>A handler called when the user clicks on the component.</p>
+</>,
 children:<><p>The children of the component, arranged along the selected axis.</p>
 </>,
 }}

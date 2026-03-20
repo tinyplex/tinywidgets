@@ -1,4 +1,4 @@
-import type {ReactNode} from 'react';
+import type {MouseEventHandler, ReactNode} from 'react';
 import {classNames} from '../../common/functions';
 import {axis, axisVariants} from './index.css';
 
@@ -36,6 +36,7 @@ export const Axis = ({
   variant = 'horizontal',
   className,
   title,
+  onClick,
   children,
 }: {
   /**
@@ -63,6 +64,10 @@ export const Axis = ({
    */
   readonly title?: string;
   /**
+   * A handler called when the user clicks on the component.
+   */
+  readonly onClick?: MouseEventHandler<HTMLElement>;
+  /**
    * The children of the component, arranged along the selected axis.
    */
   readonly children: ReactNode;
@@ -70,6 +75,7 @@ export const Axis = ({
   <Component
     className={classNames(axis, axisVariants[variant], className)}
     title={title}
+    onClick={onClick}
   >
     {children}
   </Component>

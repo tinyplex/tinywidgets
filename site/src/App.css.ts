@@ -8,8 +8,6 @@ export const article = style({
 });
 
 export const title = style({
-  display: 'inline-flex',
-  alignItems: 'center',
   gap: '0.5rem',
   color: colors.foregroundBright,
   cursor: 'pointer',

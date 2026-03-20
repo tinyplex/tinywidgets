@@ -12,9 +12,7 @@ export const appLayout = style({
 });
 
 export const header = style({
-  display: 'flex',
   justifyContent: 'space-between',
-  alignItems: 'center',
   gap: dimensions.padding,
   padding: dimensions.padding,
   position: 'fixed',
@@ -29,9 +27,7 @@ export const header = style({
 });
 
 export const topNav = style({
-  display: 'flex',
   justifyContent: 'space-between',
-  alignItems: 'center',
   gap: dimensions.padding,
   flex: 1,
 });
@@ -82,9 +78,7 @@ export const mainHasFooter = style({
 });
 
 export const footer = style({
-  display: 'flex',
   justifyContent: 'right',
-  alignItems: 'center',
   gap: dimensions.padding,
   paddingLeft: dimensions.padding,
   paddingRight: dimensions.padding,

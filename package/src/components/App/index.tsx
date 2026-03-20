@@ -166,7 +166,7 @@ const Layout = ({
         <LayoutContext.Provider value={{portal: ref.current}}>
           {sessionStoreIsReady && routeStoreIsReady && localStoreIsReady ? (
             <>
-              <header className={header}>
+              <Axis as="header" className={header}>
                 {hasSideNav ? (
                   <Button
                     variant="icon"
@@ -178,10 +178,10 @@ const Layout = ({
                 <Axis as="nav" className={title}>
                   {renderComponentOrNode(titleComponentOrNode)}
                 </Axis>
-                <nav className={topNav}>
+                <Axis as="nav" className={topNav}>
                   {renderComponentOrNode(topNavLeftComponentOrNode, <div />)}
                   {renderComponentOrNode(topNavRightComponentOrNode, <div />)}
-                </nav>
+                </Axis>
                 <Button
                   variant="icon"
                   onClick={toggleDarkChoice}
@@ -198,7 +198,7 @@ const Layout = ({
                     {renderComponentOrNode(sideNavComponentOrNode)}
                   </nav>
                 ) : null}
-              </header>
+              </Axis>
               <main
                 className={classNames(
                   main,
@@ -209,9 +209,9 @@ const Layout = ({
                 {renderComponentOrNode(mainComponentOrNode)}
               </main>
               {hasFooter ? (
-                <footer className={footer}>
+                <Axis as="footer" className={footer}>
                   {renderComponentOrNode(footerComponentOrNode)}
-                </footer>
+                </Axis>
               ) : null}
             </>
           ) : null}

@@ -1,6 +1,9 @@
 import {ReactNode} from 'react';
+import {Axis} from 'tinywidgets';
 import {title} from './Title.css';
 
 export const Title = ({children}: {readonly children: ReactNode}) => (
-  <h1 className={title}>{children}</h1>
+  <Axis as="h1" className={title}>
+    {children}
+  </Axis>
 );
