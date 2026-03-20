@@ -57,6 +57,58 @@ website</a> you&#39;ll see one in its full glory!</p>
 />);
 }, Lucide.PanelsTopLeft];
 
+import {Axis} from 'tinywidgets';
+COMPONENT_ROUTES['component/Axis'] = ['Axis', () => {
+return (<Api 
+  type='COMPONENT'
+  importLine="import {Axis} from 'tinywidgets';"
+  title='Axis'
+  comments={<><p>The <code>Axis</code> component displays its children along a flex axis, aligning them
+in the center of the cross-axis.</p>
+<p>This is useful for compact layouts where icons, avatars, images, and text
+should share a common visual center line, or for stacked layouts that should
+remain horizontally centered.</p>
+</>}
+  icon={Lucide.AlignCenterHorizontal}
+  params={{
+props:<>The props for the component.</>,
+}}
+  props={{
+variant:<><p>A variant of the axis, one of:</p>
+<ul>
+<li><code>horizontal</code></li>
+<li><code>vertical</code></li>
+</ul>
+</>,
+className:<><p>An extra CSS class name for the component.</p>
+</>,
+title:<><p>Alternative text shown when the user hovers over the component.</p>
+</>,
+children:<><p>The children of the component, arranged along the selected axis.</p>
+</>,
+}}
+  examples={[
+[<><Code code={`<Axis>
+  <Image src="/favicon.svg" variant="logo" />
+  TinyWidgets
+</Axis>`} /><p>This example shows a logo image and text aligned along the same
+horizontal axis.</p>
+</>,<Axis>
+  <Image src="/favicon.svg" variant="logo" />
+  TinyWidgets
+</Axis>],
+[<><Code code={`<Axis variant="vertical">
+  <Image src="/favicon.svg" variant="logo" />
+  TinyWidgets
+</Axis>`} /><p>This example shows the same content arranged on a vertical axis.</p>
+</>,<Axis variant="vertical">
+  <Image src="/favicon.svg" variant="logo" />
+  TinyWidgets
+</Axis>],
+  ]}
+/>);
+}, Lucide.AlignCenterHorizontal];
+
 import {Button} from 'tinywidgets';
 COMPONENT_ROUTES['component/Button'] = ['Button', () => {
 return (<Api 

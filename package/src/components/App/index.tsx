@@ -25,6 +25,7 @@ import {
   useSideNavIsOpen,
   useToggleSideNavIsOpenCallback,
 } from '../../stores/SessionStore.tsx';
+import {Axis} from '../Axis/index.tsx';
 import {Button} from '../Button/index.tsx';
 import {
   app,
@@ -174,8 +175,10 @@ const Layout = ({
                     className={sideNavButton}
                   />
                 ) : null}
-                <nav className={title}>
-                  {renderComponentOrNode(titleComponentOrNode)}
+                <nav>
+                  <Axis className={title}>
+                    {renderComponentOrNode(titleComponentOrNode)}
+                  </Axis>
                 </nav>
                 <nav className={topNav}>
                   {renderComponentOrNode(topNavLeftComponentOrNode, <div />)}

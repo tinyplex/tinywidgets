@@ -1,6 +1,7 @@
 import type {ComponentType, ReactNode} from 'react';
 import {classNames, renderComponentOrNode} from '../../common/functions';
 import {iconSize} from '../../css/dimensions.css';
+import {Axis} from '../Axis';
 import {metric, metricLabel, metricNumber} from './index.css';
 
 /**
@@ -47,10 +48,10 @@ export const Metric = ({
   readonly className?: string;
 }) => (
   <div className={classNames(metric, className)}>
-    <div className={metricLabel}>
+    <Axis className={metricLabel}>
       {Icon ? <Icon className={iconSize} /> : null}
       {renderComponentOrNode(titleComponentOrNode)}
-    </div>
+    </Axis>
     <div className={metricNumber}>
       {renderComponentOrNode(numberComponentOrNode)}
     </div>

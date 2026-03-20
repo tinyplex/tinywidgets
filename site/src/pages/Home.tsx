@@ -1,6 +1,6 @@
 import {SiCss3, SiJavascript} from '@icons-pack/react-simple-icons';
 import * as Lucide from 'lucide-react';
-import {Card, Hr, Image, Metric, Row} from 'tinywidgets';
+import {Axis, Card, Hr, Image, Metric, Row} from 'tinywidgets';
 import {RouteButton} from '../components/RouteLink.tsx';
 import {button, home, hr, logo, narrower, title} from './Home.css.ts';
 import {
@@ -16,21 +16,24 @@ export const Home = () => {
   return (
     <div className={home}>
       <div className={narrower}>
-        <h1 className={title}>
-          <Image src="/favicon.svg" variant="logo" className={logo} />
-          TinyWidgets
-        </h1>
-        <p>
-          A collection of <a href="#sizes">tiny</a>, reusable, UI components
-          <br />
-          &mdash; wrapped in a helpful app layout with header, side bar, dark
-          mode, and more.
-        </p>
-        <RouteButton
-          title="Get Started"
-          route="installation"
-          variant="accent"
-        />{' '}
+        <Axis variant="vertical">
+          <h1>
+            <Axis className={title}>
+              <Image src="/favicon.svg" variant="logo" className={logo} />
+              TinyWidgets
+            </Axis>
+          </h1>
+          <p>
+            A collection of <a href="#sizes">tiny</a>, reusable, UI components
+            wrapped in a helpful app layout with header, side bar, dark mode,
+            and more.
+          </p>
+          <RouteButton
+            title="Get Started"
+            route="installation"
+            variant="accent"
+          />
+        </Axis>
       </div>
       <Hr className={hr} />
       <Row>

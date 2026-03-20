@@ -2,8 +2,6 @@ import {style, styleVariants} from '@vanilla-extract/css';
 import {colors} from '../../css/colors.css';
 
 export const tag = style({
-  display: 'flex',
-  alignItems: 'center',
   fontSize: '0.625rem',
   lineHeight: '0.625rem',
   padding: '0.1rem 0.25rem',

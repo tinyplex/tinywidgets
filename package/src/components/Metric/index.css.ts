@@ -7,8 +7,6 @@ export const metric = style({
 });
 
 export const metricLabel = style({
-  display: 'flex',
-  alignItems: 'center',
   gap: '0.5rem',
 });
 

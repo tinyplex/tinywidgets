@@ -1,4 +1,5 @@
 export {App} from './components/App/index.tsx';
+export {Axis} from './components/Axis/index.tsx';
 export {Button} from './components/Button/index.tsx';
 export {Card} from './components/Card/index.tsx';
 export {Checkbox} from './components/Checkbox/index.tsx';

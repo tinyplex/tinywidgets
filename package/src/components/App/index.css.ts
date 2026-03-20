@@ -39,8 +39,6 @@ export const topNav = style({
 export const sideNavButton = style(large({display: 'none!important'}));
 
 export const title = style({
-  display: 'flex',
-  alignItems: 'center',
   gap: dimensions.padding,
   ...large({
     width: `calc(${dimensions.sideNavWidth} - 2 * ${dimensions.padding})`,
