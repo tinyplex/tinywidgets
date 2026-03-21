@@ -7,10 +7,7 @@ import {ROUTES} from './index.ts';
 export const Configuration = () => {
   return (
     <>
-      <Title>
-        <Lucide.Settings />
-        Configuration
-      </Title>
+      <Title icon={Lucide.Settings} title="Configuration" />
       <p>
         Of course you can use the props (or extra CSS class names) on individual
         components to configure them, but there is also a way to make global

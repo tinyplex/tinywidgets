@@ -712,6 +712,64 @@ className:<><p>An extra CSS class name for the component.</p>
 />);
 }, Lucide.Image];
 
+import {ImageLabel} from 'tinywidgets';
+COMPONENT_ROUTES['component/ImageLabel'] = ['ImageLabel', () => {
+return (<Api 
+  type='COMPONENT'
+  importLine="import {ImageLabel} from 'tinywidgets';"
+  title='ImageLabel'
+  comments={<><p>The <code>ImageLabel</code> component displays an image and a text label along a shared
+horizontal axis.</p>
+<p>It is useful for common UI patterns such as brand marks, avatars with names,
+or any compact media-and-label combination.</p>
+</>}
+  icon={Lucide.Captions}
+  params={{
+props:<>The props for the component.</>,
+}}
+  props={{
+as:<><p>The HTML element used to wrap the image label, one of:</p>
+<ul>
+<li><code>div</code></li>
+<li><code>nav</code></li>
+<li><code>span</code></li>
+<li><code>h1</code></li>
+<li><code>header</code></li>
+<li><code>footer</code></li>
+</ul>
+</>,
+image:<><p>A component or element which renders the image for the label.</p>
+</>,
+text:<><p>A component, element, or string which renders the label text.</p>
+</>,
+className:<><p>An extra CSS class name for the component.</p>
+</>,
+onClick:<><p>A handler called when the user clicks on the component.</p>
+</>,
+}}
+  examples={[
+[<><Code code={`<ImageLabel
+  image={<Image src="/favicon.svg" variant="avatar" />}
+  text="TinyWidgets"
+/>`} /><p>This example shows a logo image with a text label.</p>
+</>,<ImageLabel
+  image={<Image src="/favicon.svg" variant="avatar" />}
+  text="TinyWidgets"
+/>],
+[<><Code code={`<ImageLabel
+  as="h1"
+  image={<Image src="/favicon.svg" variant="logo"/>}
+  text={<b>TinyWidgets</b>}
+/>`} /><p>This example shows the component used as a heading with rich text content.</p>
+</>,<ImageLabel
+  as="h1"
+  image={<Image src="/favicon.svg" variant="logo"/>}
+  text={<b>TinyWidgets</b>}
+/>],
+  ]}
+/>);
+}, Lucide.Captions];
+
 import {Metric} from 'tinywidgets';
 COMPONENT_ROUTES['component/Metric'] = ['Metric', () => {
 return (<Api 

@@ -37,6 +37,17 @@ export const renderComponentOrNode = (
     (ComponentOrNode ?? fallback)
   );
 
+export const renderComponentOrNodeWithProps = <Props extends object>(
+  ComponentOrNode: ComponentType<Props> | ReactNode,
+  props: Props,
+  fallback: ReactNode = null,
+) =>
+  ComponentOrNode instanceof Function ? (
+    <ComponentOrNode {...props} />
+  ) : (
+    (ComponentOrNode ?? fallback)
+  );
+
 export const large = (style: StyleRule) => ({
   '@media': {[`screen and (min-width: ${screens.large}px)`]: style},
 });

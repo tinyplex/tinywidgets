@@ -23,7 +23,6 @@ export const button = style({
 });
 
 export const logo = style({
-  margin: '0 1rem',
   width: '4rem',
   height: '4rem',
 });

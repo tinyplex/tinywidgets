@@ -25,10 +25,7 @@ export const Api = ({
   const exampleCount = Object.entries(examples).length;
   return (
     <>
-      <Title>
-        <Icon />
-        {title}
-      </Title>
+      <Title icon={Icon} title={title} />
       <Code code={importLine} />
       {comments}
       {type == 'CSS' ? (

@@ -2,9 +2,9 @@ import {SiGithub} from '@icons-pack/react-simple-icons';
 import {useCallback} from 'react';
 import {
   App as AppBase,
-  Axis,
   Button,
   Image,
+  ImageLabel,
   useRoute,
   useSetRouteCallback,
 } from 'tinywidgets';
@@ -34,10 +34,13 @@ const Title = () => {
   const setRoute = useSetRouteCallback();
   const setHome = useCallback(() => setRoute('home'), [setRoute]);
   return (
-    <Axis as="h1" className={title} onClick={setHome}>
-      <Image src="/favicon.svg" variant="logo" alt="TinyWidgets" />
-      TinyWidgets
-    </Axis>
+    <ImageLabel
+      as="h1"
+      className={title}
+      onClick={setHome}
+      image={<Image src="/favicon.svg" variant="logo" alt="TinyWidgets" />}
+      text="TinyWidgets"
+    />
   );
 };
 

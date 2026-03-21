@@ -8,10 +8,7 @@ import {ROUTES} from './index.ts';
 export const Installation = () => {
   return (
     <>
-      <Title>
-        <Lucide.WandSparkles />
-        Installation
-      </Title>
+      <Title icon={Lucide.WandSparkles} title="Installation" />
       <p>
         The easiest way to get started with TinyWidgets is to use its{' '}
         <a href="https://github.com/tinyplex/vite-tinywidgets/">

@@ -9,6 +9,7 @@ export {Detail} from './components/Detail/index.tsx';
 export {Flyout} from './components/Flyout/index.tsx';
 export {Hr} from './components/Hr/index.tsx';
 export {Image} from './components/Image/index.tsx';
+export {ImageLabel} from './components/ImageLabel/index.tsx';
 export {Metric} from './components/Metric/index.tsx';
 export {Row} from './components/Row/index.tsx';
 export {Select} from './components/Select/index.tsx';
