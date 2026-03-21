@@ -175,9 +175,9 @@ const Layout = ({
                     className={sideNavButton}
                   />
                 ) : null}
-                <Axis as="nav" className={title}>
+                <nav className={title}>
                   {renderComponentOrNode(titleComponentOrNode)}
-                </Axis>
+                </nav>
                 <Axis as="nav" className={topNav}>
                   {renderComponentOrNode(topNavLeftComponentOrNode, <div />)}
                   {renderComponentOrNode(topNavRightComponentOrNode, <div />)}
