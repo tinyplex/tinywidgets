@@ -1,5 +1,10 @@
 import type {StyleRule} from '@vanilla-extract/css';
-import {createElement, isValidElement, type ComponentType, type ReactNode} from 'react';
+import {
+  createElement,
+  isValidElement,
+  type ComponentType,
+  type ReactNode,
+} from 'react';
 import {screens} from '../css/screens';
 
 /**

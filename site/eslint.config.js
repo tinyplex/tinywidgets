@@ -76,6 +76,8 @@ export default tsLint.config(
             'typescript-eslint',
             'bun',
             'tinywidgets',
+            'vite',
+            '@vitejs/plugin-react',
           ],
         },
       ],

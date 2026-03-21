@@ -62,7 +62,10 @@ export const Tag = ({
 }) => {
   const icon = Icon ? <Icon className={tagIcon} /> : null;
   return (
-    <Axis className={classNames(tag, tagVariants[variant], className)} title={alt}>
+    <Axis
+      className={classNames(tag, tagVariants[variant], className)}
+      title={alt}
+    >
       {icon}
       {renderComponentOrNode(title)}
     </Axis>

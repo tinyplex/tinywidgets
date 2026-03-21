@@ -1,4 +1,4 @@
-import {SiCss3, SiJavascript} from '@icons-pack/react-simple-icons';
+import {SiCss, SiJavascript} from '@icons-pack/react-simple-icons';
 import * as Lucide from 'lucide-react';
 import {Axis, Card, Hr, Image, ImageLabel, Metric, Row} from 'tinywidgets';
 import {RouteButton} from '../components/RouteLink.tsx';
@@ -123,7 +123,7 @@ export const Home = () => {
       <h2 id="sizes">GZipped Assets</h2>
       <Row variant="1|1|1|1">
         <Card>
-          <Metric title="TinyWidgets (CSS)" number="2.20kB" icon={SiCss3} />
+          <Metric title="TinyWidgets (CSS)" number="2.20kB" icon={SiCss} />
         </Card>
         <Card>
           <Metric
