@@ -1,5 +1,5 @@
 import type {StyleRule} from '@vanilla-extract/css';
-import {type ComponentType, type ReactNode} from 'react';
+import {createElement, isValidElement, type ComponentType, type ReactNode} from 'react';
 import {screens} from '../css/screens';
 
 /**
@@ -30,23 +30,18 @@ export const classNames = (
 export const renderComponentOrNode = (
   ComponentOrNode: ComponentType | ReactNode,
   fallback: ReactNode = null,
-) =>
-  ComponentOrNode instanceof Function ? (
-    <ComponentOrNode />
-  ) : (
-    (ComponentOrNode ?? fallback)
-  );
-
-export const renderComponentOrNodeWithProps = <Props extends object>(
-  ComponentOrNode: ComponentType<Props> | ReactNode,
-  props: Props,
-  fallback: ReactNode = null,
-) =>
-  ComponentOrNode instanceof Function ? (
-    <ComponentOrNode {...props} />
-  ) : (
-    (ComponentOrNode ?? fallback)
-  );
+): ReactNode => {
+  if (ComponentOrNode == null) {
+    return fallback;
+  }
+  if (isValidElement(ComponentOrNode)) {
+    return ComponentOrNode;
+  }
+  if (['string', 'number', 'boolean'].includes(typeof ComponentOrNode)) {
+    return ComponentOrNode as string | number | boolean;
+  }
+  return createElement(ComponentOrNode as ComponentType);
+};
 
 export const large = (style: StyleRule) => ({
   '@media': {[`screen and (min-width: ${screens.large}px)`]: style},
