@@ -770,6 +770,50 @@ onClick:<><p>A handler called when the user clicks on the component.</p>
 />);
 }, Lucide.Captions];
 
+import {Loading} from 'tinywidgets';
+COMPONENT_ROUTES['component/Loading'] = ['Loading', () => {
+return (<Api 
+  type='COMPONENT'
+  importLine="import {Loading} from 'tinywidgets';"
+  title='Loading'
+  comments={<><p>The <code>Loading</code> component displays a compact spinner with optional shimmer rows
+to reserve space while content is loading.</p>
+</>}
+  icon={Lucide.LoaderCircle}
+  params={{
+props:<>The props for the component.</>,
+}}
+  props={{
+labelText:<><p>The label shown beside the spinner.</p>
+</>,
+className:<><p>An extra CSS class name for the component.</p>
+</>,
+}}
+  examples={[
+[<><Code code={`<Loading labelText="Loading dependencies" />`} /><p>This example shows the default loading panel. Add a CSS height to the
+component to fit more placeholder rows automatically.</p>
+</>,<Loading labelText="Loading dependencies" />],
+[<><Code code={`<>
+  <style>{\`
+    .tallLoading {
+      height: 12rem;
+    }
+  \`}</style>
+  <Loading className="tallLoading" labelText="Loading dependencies" />
+</>`} /><p>This example uses CSS to make the loading panel taller, allowing more
+placeholder rows to fit automatically.</p>
+</>,<>
+  <style>{`
+    .tallLoading {
+      height: 12rem;
+    }
+  `}</style>
+  <Loading className="tallLoading" labelText="Loading dependencies" />
+</>],
+  ]}
+/>);
+}, Lucide.LoaderCircle];
+
 import {Metric} from 'tinywidgets';
 COMPONENT_ROUTES['component/Metric'] = ['Metric', () => {
 return (<Api 

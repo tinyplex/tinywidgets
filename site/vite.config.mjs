@@ -8,6 +8,7 @@ import prismjs from 'vite-plugin-prismjs';
 
 export default defineConfig({
   optimizeDeps: {exclude: ['tinywidgets']},
+  resolve: {dedupe: ['react', 'react-dom']},
   build: {
     outDir: '../docs',
     emptyOutDir: true,

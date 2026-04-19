@@ -1,6 +1,6 @@
 {
   "name": "tinywidgets",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "author": "jamesgpearce",
   "repository": "github:tinyplex/tinywidgets",
   "license": "MIT",
@@ -22,26 +22,30 @@
     "@eslint/js": "^9.30.1",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "cspell": "^9.7.0",
+    "cspell": "^10.0.0",
     "eslint": "^9.30.1",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0",
-    "globals": "^17.4.0",
-    "prettier": "^3.8.1",
+    "globals": "^17.5.0",
+    "prettier": "^3.8.3",
     "prettier-plugin-organize-imports": "^4.3.0",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.57.1"
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.58.2"
   },
   "exports": {
     ".": "./src/index.ts",
     "./css": "./src/index.css.ts"
   },
   "dependencies": {
-    "@vanilla-extract/css": "^1.20.0",
-    "lucide-react": "^0.577.0",
+    "@vanilla-extract/css": "^1.20.1",
+    "lucide-react": "^1.8.0",
+    "tinybase": "^8.2.0"
+  },
+  "peerDependencies": {
     "react": "^19.2.4",
-    "react-dom": "^19.2.4",
-    "tinybase": "^8.0.2"
+    "react-dom": "^19.2.4"
   }
 }

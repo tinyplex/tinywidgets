@@ -224,7 +224,7 @@ SOFTWARE.
 ---
 
 Name: tinybase
-Version: 8.0.2
+Version: 8.2.0
 License: MIT
 Private: false
 Description: A reactive data store and sync engine.
@@ -259,7 +259,7 @@ SOFTWARE.
 ---
 
 Name: tinywidgets
-Version: 1.4.0
+Version: 1.5.0
 License: MIT
 Private: false
 Description: A collection of tiny, reusable, UI components - wrapped in a helpful app layout with header, side bar, dark mode, and more.
