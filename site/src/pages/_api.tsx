@@ -1,5 +1,5 @@
 /* eslint-disable */
-import 'prismjs';
+import '../prism.ts';
 import type {Routes} from './index.ts';
 import {ROUTES} from './index.ts';
 import {Api} from './Api.tsx';

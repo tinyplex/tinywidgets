@@ -1,5 +1,4 @@
 import * as Lucide from 'lucide-react';
-import 'prismjs';
 import {Code} from 'tinywidgets';
 import {Title} from '../components/Title.tsx';
 import {ROUTES} from './index.ts';

@@ -4,7 +4,6 @@ import {join} from 'path';
 import license from 'rollup-plugin-license';
 import {defineConfig} from 'vite';
 import {ViteMinifyPlugin} from 'vite-plugin-minify';
-import prismjs from 'vite-plugin-prismjs';
 
 export default defineConfig({
   optimizeDeps: {exclude: ['tinywidgets']},
@@ -31,7 +30,6 @@ export default defineConfig({
   esbuild: {legalComments: 'none'},
 
   plugins: [
-    prismjs({languages: ['css', 'typescript', 'tsx', 'sh']}),
     react(),
     vanillaExtractPlugin(),
     license({

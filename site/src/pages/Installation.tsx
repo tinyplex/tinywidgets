@@ -1,5 +1,4 @@
 import * as Lucide from 'lucide-react';
-import 'prismjs';
 import {Code, Collapsible, Image} from 'tinywidgets';
 import {Title} from '../components/Title.tsx';
 import {image} from './Installation.css.ts';
