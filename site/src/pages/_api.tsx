@@ -37,8 +37,15 @@ left side of the top navigation bar of the application.</p>
 topNavRight:<><p>An optional component, element, or string which renders navigation on the
 right side of the top navigation bar of the application.</p>
 </>,
-sideNav:<><p>An optional component, element, or string which renders the left side bar
-of the application.</p>
+sideNav:<><p>An optional component, element, or string which renders the left side
+navigation of the application.</p>
+</>,
+sideNavToggle:<><p>Whether the side navigation can toggle. One of:</p>
+<ul>
+<li><code>never</code>: always show the side navigation.</li>
+<li><code>responsive</code>: toggle the side navigation on narrow screens only; default.</li>
+<li><code>always</code>: toggle the side navigation at all screen widths.</li>
+</ul>
 </>,
 main:<><p>An optional component, element, or string which renders the main part of
 the application.</p>
@@ -155,6 +162,7 @@ variant:<><p>A variant of the button, one of:</p>
 <li><code>accent</code></li>
 <li><code>ghost</code></li>
 <li><code>item</code></li>
+<li><code>toolbar</code></li>
 </ul>
 </>,
 current:<><p>A flag that indicates that an <code>item</code> button is &#39;current&#39; and therefore
@@ -264,6 +272,17 @@ navigational list, such as a side bar.</p>
   icon={Lucide.Grid3x3}
   title="TinyWidgets"
   current={true}
+/>],
+[<><Code code={`<Button
+  variant="toolbar"
+  icon={Lucide.Grid3x3}
+  title="New Grid"
+/>`} /><p>This example shows the <code>toolbar</code> variant of the Button component, with the
+icon stacked above the title.</p>
+</>,<Button
+  variant="toolbar"
+  icon={Lucide.Grid3x3}
+  title="New Grid"
 />],
   ]}
 />);

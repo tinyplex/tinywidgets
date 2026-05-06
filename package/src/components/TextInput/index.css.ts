@@ -3,10 +3,10 @@ import {colors} from '../../css/colors.css';
 import {dimensions} from '../../css/dimensions.css';
 
 export const wrapper = style({
+  alignSelf: 'stretch',
   flexShrink: 0,
-  alignSelf: 'center',
   position: 'relative',
-  display: 'inline-block',
+  display: 'block',
 });
 
 export const input = style({
@@ -20,6 +20,7 @@ export const input = style({
   border: colors.border,
   backgroundColor: colors.background,
   lineHeight: '1.5rem',
+  width: '100%',
 });
 
 export const inputWithIcon = style({
