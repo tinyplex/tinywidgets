@@ -1,8 +1,11 @@
-import {style, styleVariants} from '@vanilla-extract/css';
+import {createVar, style, styleVariants} from '@vanilla-extract/css';
 import {colors} from '../../css/colors.css';
 import {dimensions} from '../../css/dimensions.css';
 
+const titleFlex = createVar();
+
 export const button = style({
+  vars: {[titleFlex]: '1 1 auto'},
   display: 'inline-flex',
   justifyContent: 'space-between',
   alignItems: 'center',
@@ -50,6 +53,17 @@ export const buttonVariants = styleVariants({
   ghost: {},
   item: {width: '100%'},
   icon: {padding: '0.25rem'},
+  toolbar: {
+    boxShadow: colors.shadow,
+    border: colors.border,
+    backgroundColor: colors.background,
+    vars: {[titleFlex]: '0 1 auto'},
+    alignItems: 'center',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    textAlign: 'center',
+    gap: '0.25rem',
+  },
 });
 
 export const currentStyle = style({
@@ -58,7 +72,7 @@ export const currentStyle = style({
 });
 
 export const titleStyle = style({
-  flex: '1 1 auto',
+  flex: titleFlex,
   overflow: 'hidden',
   textOverflow: 'ellipsis',
 });

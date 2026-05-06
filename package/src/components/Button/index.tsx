@@ -101,6 +101,16 @@ import {
  * ```
  * This example shows the `item` variant of the Button component, marked as
  * 'current'.
+ * @example
+ * ```tsx
+ * <Button
+ *   variant="toolbar"
+ *   icon={Lucide.Grid3x3}
+ *   title="New Grid"
+ * />
+ * ```
+ * This example shows the `toolbar` variant of the Button component, with the
+ * icon stacked above the title.
  * @icon Lucide.RectangleHorizontal
  */
 export const Button = ({
@@ -148,6 +158,7 @@ export const Button = ({
    * - `accent`
    * - `ghost`
    * - `item`
+   * - `toolbar`
    */
   readonly variant?: keyof typeof buttonVariants;
   /**
