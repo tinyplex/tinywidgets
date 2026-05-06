@@ -32,7 +32,7 @@ export const topNav = style({
   flex: 1,
 });
 
-export const sideNavButton = style(large({display: 'none!important'}));
+export const sideNavButtonResponsive = style(large({display: 'none!important'}));
 
 export const title = style({
   ...large({
@@ -53,10 +53,13 @@ export const sideNav = style({
   height: `calc(100dvh - ${dimensions.topNavHeight})`,
   overscrollBehavior: 'contain',
   transition: 'left .2s ease-in-out',
-  ...large({left: 0}),
 });
 
 export const sideNavOpen = style({left: 0});
+
+export const sideNavResponsive = style(large({left: 0}));
+
+export const sideNavNever = style({left: 0});
 
 export const main = style({
   flex: 1,
@@ -71,6 +74,10 @@ export const mainHasSideNav = style(
     paddingLeft: `calc(${dimensions.sideNavWidth} + ${dimensions.padding})`,
   }),
 );
+
+export const mainHasSideNavNever = style({
+  paddingLeft: `calc(${dimensions.sideNavWidth} + ${dimensions.padding})`,
+});
 
 export const mainHasFooter = style({
   paddingBottom: `calc(${dimensions.footerHeight} + ${dimensions.padding})`,

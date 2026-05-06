@@ -35,9 +35,12 @@ import {
   main,
   mainHasFooter,
   mainHasSideNav,
+  mainHasSideNavNever,
   sideNav,
-  sideNavButton,
+  sideNavButtonResponsive,
+  sideNavNever,
   sideNavOpen,
+  sideNavResponsive,
   title,
   topNav,
 } from './index.css.ts';
@@ -46,6 +49,7 @@ const {Provider} = UiReact as UiReact.WithSchemas<OptionalSchemas>;
 
 const darkIcons = [Sun, Moon, SunMoon];
 const darkChoices = ['Light always', 'Dark always', 'Auto'];
+type SideNavToggle = 'never' | 'responsive' | 'always';
 
 /**
  * The `App` component is the root component of a TinyWidgets application.
@@ -83,10 +87,17 @@ export const App = (props: {
    */
   readonly topNavRight?: ComponentType | ReactNode;
   /**
-   * An optional component, element, or string which renders the left side bar
-   * of the application.
+   * An optional component, element, or string which renders the left side
+   * navigation of the application.
    */
   readonly sideNav?: ComponentType | ReactNode;
+  /**
+   * Whether the side navigation can toggle. One of:
+   * - `never`: always show the side navigation.
+   * - `responsive`: toggle the side navigation on narrow screens only; default.
+   * - `always`: toggle the side navigation at all screen widths.
+   */
+  readonly sideNavToggle?: SideNavToggle;
   /**
    * An optional component, element, or string which renders the main part of
    * the application.
@@ -122,6 +133,7 @@ const Layout = ({
   topNavLeft: topNavLeftComponentOrNode,
   topNavRight: topNavRightComponentOrNode,
   sideNav: sideNavComponentOrNode,
+  sideNavToggle = 'responsive',
   main: mainComponentOrNode,
   footer: footerComponentOrNode,
   className,
@@ -148,6 +160,8 @@ const Layout = ({
   ].some((componentOrNode) => componentOrNode);
   const hasSideNav = sideNavComponentOrNode != null;
   const hasFooter = footerComponentOrNode != null;
+  const sideNavCanToggle = hasSideNav && sideNavToggle != 'never';
+  const sideNavIsAlwaysVisible = hasSideNav && sideNavToggle == 'never';
 
   const ref = useRef<HTMLDivElement>(null);
 
@@ -167,12 +181,16 @@ const Layout = ({
           {sessionStoreIsReady && routeStoreIsReady && localStoreIsReady ? (
             <>
               <Axis as="header" className={header}>
-                {hasSideNav ? (
+                {sideNavCanToggle ? (
                   <Button
                     variant="icon"
                     onClick={toggleSideNavIsOpen}
                     icon={sideNavIsOpen ? X : Menu}
-                    className={sideNavButton}
+                    className={
+                      sideNavToggle == 'responsive'
+                        ? sideNavButtonResponsive
+                        : undefined
+                    }
                   />
                 ) : null}
                 <nav className={title}>
@@ -192,6 +210,8 @@ const Layout = ({
                   <nav
                     className={classNames(
                       sideNav,
+                      sideNavToggle == 'responsive' && sideNavResponsive,
+                      sideNavIsAlwaysVisible && sideNavNever,
                       sideNavIsOpen && sideNavOpen,
                     )}
                   >
@@ -202,7 +222,12 @@ const Layout = ({
               <main
                 className={classNames(
                   main,
-                  hasSideNav && mainHasSideNav,
+                  hasSideNav &&
+                    (sideNavToggle == 'never'
+                      ? mainHasSideNavNever
+                      : sideNavToggle == 'responsive'
+                        ? mainHasSideNav
+                        : false),
                   hasFooter && mainHasFooter,
                 )}
               >
