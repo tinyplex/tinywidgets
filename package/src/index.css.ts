@@ -1,5 +1,6 @@
 import './css/global.css.ts';
 
+export {classes} from './css/classes.css.ts';
 export {code} from './css/code.css.ts';
 export {colors} from './css/colors.css.ts';
 export {dimensions} from './css/dimensions.css.ts';

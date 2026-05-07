@@ -1218,6 +1218,81 @@ filtering out any <code>null</code> or <code>undefined</code> values.</p>
 />);
 }, Lucide.SquarePi];
 
+import {classes} from 'tinywidgets/css';
+CSS_ROUTES['css/classes'] = ['classes', () => {
+return (<Api 
+  type='CSS'
+  importLine="import {classes} from 'tinywidgets/css';"
+  title='classes'
+  comments={<><p>The <code>classes</code> object exposes reusable TinyWidgets CSS classes so they can be
+applied to markup rendered by other libraries.</p>
+<p>The current members are:</p>
+<ul>
+<li><code>table</code></li>
+</ul>
+</>}
+  icon={Lucide.Shapes}
+  params={{
+}}
+  props={{
+}}
+  examples={[
+[<><Code code={`<table className={classes.table}>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Species</th>
+      <th>Color</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Fido</td>
+      <td>Dog</td>
+      <td>Brown</td>
+    </tr>
+    <tr>
+      <td>Felix</td>
+      <td>Cat</td>
+      <td>Black</td>
+    </tr>
+    <tr>
+      <td>Cujo</td>
+      <td>Dog</td>
+      <td>Gray</td>
+    </tr>
+  </tbody>
+</table>`} /><p>This example applies the TinyWidgets table style to existing table markup.</p>
+</>,<table className={classes.table}>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Species</th>
+      <th>Color</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Fido</td>
+      <td>Dog</td>
+      <td>Brown</td>
+    </tr>
+    <tr>
+      <td>Felix</td>
+      <td>Cat</td>
+      <td>Black</td>
+    </tr>
+    <tr>
+      <td>Cujo</td>
+      <td>Dog</td>
+      <td>Gray</td>
+    </tr>
+  </tbody>
+</table>],
+  ]}
+/>);
+}, Lucide.Shapes];
+
 import {code} from 'tinywidgets/css';
 CSS_ROUTES['css/code'] = ['code', () => {
 return (<Api 
