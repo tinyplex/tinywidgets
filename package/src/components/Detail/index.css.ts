@@ -2,9 +2,9 @@ import {style} from '@vanilla-extract/css';
 import {colors} from '../../css/colors.css';
 
 export const detailTable = style({
-  width: '100%',
   borderCollapse: 'collapse',
   margin: '-.5rem 0',
+  width: '100%',
 });
 
 export const detailRow = style({
@@ -14,6 +14,6 @@ export const detailRow = style({
 
 export const detailCell = style({
   padding: '0.5rem 1rem',
-  verticalAlign: 'top',
   selectors: {'&:is(th)': {textAlign: 'right', width: '30%'}},
+  verticalAlign: 'top',
 });

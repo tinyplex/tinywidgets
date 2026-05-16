@@ -3,10 +3,10 @@ import {colors} from '../../css/colors.css';
 import {dimensions} from '../../css/dimensions.css';
 
 export const card = style({
-  padding: dimensions.padding,
+  border: colors.border,
   borderRadius: dimensions.radius,
   boxShadow: colors.shadow,
-  border: colors.border,
   height: 'fit-content',
   overflow: 'auto',
+  padding: dimensions.padding,
 });

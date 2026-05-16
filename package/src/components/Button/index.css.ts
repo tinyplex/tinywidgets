@@ -5,44 +5,39 @@ import {dimensions} from '../../css/dimensions.css';
 const titleFlex = createVar();
 
 export const button = style({
-  vars: {[titleFlex]: '1 1 auto'},
-  display: 'inline-flex',
-  justifyContent: 'space-between',
   alignItems: 'center',
-  gap: dimensions.padding,
-  borderRadius: dimensions.radius,
-  textAlign: 'left',
-  cursor: 'pointer',
-  padding: '0.5rem 1rem',
-  outlineOffset: '-2px',
-  color: 'inherit',
-  fontWeight: 'inherit',
-  fontFamily: 'inherit',
-  overflow: 'hidden',
-  whiteSpace: 'nowrap',
-  transition: 'background-color 0.1s,border-color 0.1s',
-  flexShrink: 0,
-  border: '1px solid transparent',
   alignSelf: 'center',
   background: 'none',
+  border: '1px solid transparent',
+  borderRadius: dimensions.radius,
+  color: 'inherit',
+  cursor: 'pointer',
+  display: 'inline-flex',
+  flexShrink: 0,
+  fontFamily: 'inherit',
+  fontWeight: 'inherit',
+  gap: dimensions.padding,
+  justifyContent: 'space-between',
+  outlineOffset: '-2px',
+  overflow: 'hidden',
+  padding: '0.5rem 1rem',
   selectors: {
     '&:hover': {
       backgroundColor: colors.backgroundHover,
       color: colors.foregroundBright,
     },
   },
+  textAlign: 'left',
+  transition: 'background-color 0.1s,border-color 0.1s',
+  vars: {[titleFlex]: '1 1 auto'},
+  whiteSpace: 'nowrap',
 });
 
 export const buttonVariants = styleVariants({
-  default: {
-    boxShadow: colors.shadow,
-    border: colors.border,
-    backgroundColor: colors.background,
-  },
   accent: {
-    boxShadow: colors.shadow,
     backgroundColor: colors.accent,
     border: colors.border,
+    boxShadow: colors.shadow,
     color: colors.accentContrast,
     selectors: {
       '&:hover': {
@@ -50,19 +45,24 @@ export const buttonVariants = styleVariants({
       },
     },
   },
-  ghost: {},
-  item: {width: '100%'},
-  icon: {padding: '0.25rem'},
-  toolbar: {
-    boxShadow: colors.shadow,
-    border: colors.border,
+  default: {
     backgroundColor: colors.background,
-    vars: {[titleFlex]: '0 1 auto'},
+    border: colors.border,
+    boxShadow: colors.shadow,
+  },
+  ghost: {},
+  icon: {padding: '0.25rem'},
+  item: {width: '100%'},
+  toolbar: {
     alignItems: 'center',
+    backgroundColor: colors.background,
+    border: colors.border,
+    boxShadow: colors.shadow,
     flexDirection: 'column',
+    gap: '0.25rem',
     justifyContent: 'center',
     textAlign: 'center',
-    gap: '0.25rem',
+    vars: {[titleFlex]: '0 1 auto'},
   },
 });
 

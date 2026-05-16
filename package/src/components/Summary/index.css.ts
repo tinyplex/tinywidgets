@@ -4,9 +4,9 @@ import {dimensions} from '../../css/dimensions.css.ts';
 
 export const summary = style({
   display: 'grid',
-  width: '100%',
   gap: dimensions.padding,
   gridTemplateColumns: `6rem 1fr`,
+  width: '100%',
   ...notLarge({gridTemplateColumns: '1fr'}),
 });
 

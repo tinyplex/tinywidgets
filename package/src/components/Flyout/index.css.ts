@@ -7,19 +7,19 @@ export const wrapper = style({
 });
 
 export const flyout = style({
-  padding: dimensions.padding,
+  backgroundColor: colors.background,
+  border: colors.border,
   borderRadius: dimensions.radius,
   boxShadow: colors.shadow,
-  border: colors.border,
   height: 'fit-content',
+  left: 0,
   overflow: 'auto',
-  backgroundColor: colors.background,
+  padding: dimensions.padding,
   position: 'absolute',
   top: 'calc(2rem + 2px)',
-  left: 0,
 });
 
 export const anchoredFlyout = style({
-  top: 'anchor(bottom)',
   left: 'anchor(left)',
+  top: 'anchor(bottom)',
 });

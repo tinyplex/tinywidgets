@@ -183,6 +183,9 @@ export const Button = ({
    * An name for the component to be used as an anchor for other elements.
    */
   readonly anchorName?: string;
+  /**
+   * A ref to the underlying button element.
+   */
   ref?: React.RefObject<HTMLButtonElement | null>;
 }) => {
   const hrefClick = useCallback(

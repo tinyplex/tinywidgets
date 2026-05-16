@@ -13,31 +13,31 @@ const shimmer = keyframes({
 });
 
 export const loading = style({
-  display: 'grid',
-  gridTemplateRows: 'auto minmax(0, 1fr)',
-  gap: `calc(${dimensions.padding} / 1.5)`,
   alignContent: 'start',
+  display: 'grid',
+  gap: `calc(${dimensions.padding} / 1.5)`,
+  gridTemplateRows: 'auto minmax(0, 1fr)',
 });
 
 export const header = style({
-  display: 'flex',
   alignItems: 'center',
-  gap: `calc(${dimensions.padding} / 2)`,
   color: colors.foregroundDim,
+  display: 'flex',
+  gap: `calc(${dimensions.padding} / 2)`,
 });
 
 export const spinner = style({
-  width: dimensions.icon,
-  height: dimensions.icon,
-  borderRadius: '999px',
-  border: `2px solid ${colors.backgroundHover}`,
-  borderTopColor: colors.accent,
-  animation: `${spin} .9s linear infinite`,
   '@media': {
     '(prefers-reduced-motion: reduce)': {
       animation: 'none',
     },
   },
+  animation: `${spin} .9s linear infinite`,
+  border: `2px solid ${colors.backgroundHover}`,
+  borderRadius: '999px',
+  borderTopColor: colors.accent,
+  height: dimensions.icon,
+  width: dimensions.icon,
 });
 
 export const label = style({
@@ -45,33 +45,14 @@ export const label = style({
 });
 
 export const rows = style({
-  position: 'relative',
   display: 'grid',
   gap: `calc(${dimensions.padding} / 2)`,
   minHeight: 0,
   overflow: 'hidden',
+  position: 'relative',
 });
 
 export const row = style({
-  position: 'relative',
-  overflow: 'hidden',
-  height: '.875rem',
-  borderRadius: dimensions.radius,
-  background: colors.background2,
-  selectors: {
-    '&::after': {
-      content: '""',
-      position: 'absolute',
-      inset: 0,
-      background: `linear-gradient(
-        90deg,
-        transparent,
-        ${colors.backgroundHover},
-        transparent
-      )`,
-      animation: `${shimmer} 1.6s ease-in-out infinite`,
-    },
-  },
   '@media': {
     '(prefers-reduced-motion: reduce)': {
       selectors: {
@@ -79,6 +60,25 @@ export const row = style({
           animation: 'none',
         },
       },
+    },
+  },
+  background: colors.background2,
+  borderRadius: dimensions.radius,
+  height: '.875rem',
+  overflow: 'hidden',
+  position: 'relative',
+  selectors: {
+    '&::after': {
+      animation: `${shimmer} 1.6s ease-in-out infinite`,
+      background: `linear-gradient(
+        90deg,
+        transparent,
+        ${colors.backgroundHover},
+        transparent
+      )`,
+      content: '""',
+      inset: 0,
+      position: 'absolute',
     },
   },
 });

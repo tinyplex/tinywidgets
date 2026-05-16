@@ -1,6 +1,6 @@
 import {useCallback, useEffect, useState} from 'react';
 import {classNames} from '../../common/functions.tsx';
-import {select} from './index.css.ts';
+import {select, selectVariants} from './index.css.ts';
 
 /**
  * The `Select` component displays a managed select input with an existing
@@ -16,6 +16,15 @@ import {select} from './index.css.ts';
  *   onChange={(option) => console.log(option)}
  * />
  * ```
+ * @example
+ * ```tsx
+ * <Select
+ *   initialOption="CA"
+ *   options={{AL: 'Albania', BE: 'Belgium', CA: 'Canada'}}
+ *   variant="small"
+ * />
+ * ```
+ * This example shows the `small` variant of the Select component.
  * @icon Lucide.Combine
  */
 export const Select = ({
@@ -24,6 +33,7 @@ export const Select = ({
   onChange,
   alt,
   className,
+  variant = 'default',
   ref,
 }: {
   /**
@@ -46,6 +56,15 @@ export const Select = ({
    * An extra CSS class name for the component.
    */
   readonly className?: string;
+  /**
+   * A variant of the select, one of:
+   * - `default`
+   * - `small`
+   */
+  readonly variant?: keyof typeof selectVariants;
+  /**
+   * A ref to the underlying select element.
+   */
   ref?: React.RefObject<HTMLSelectElement | null>;
 }) => {
   const [option, setOption] = useState(initialOption ?? '');
@@ -63,12 +82,12 @@ export const Select = ({
     [change],
   );
 
-  useEffect(() => change(initialOption ?? ''), [change, initialOption]);
+  useEffect(() => setOption(initialOption ?? ''), [initialOption]);
 
   return (
     <select
       value={option}
-      className={classNames(select, className)}
+      className={classNames(select, selectVariants[variant], className)}
       onChange={handleChange}
       title={alt}
       ref={ref}

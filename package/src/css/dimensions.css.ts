@@ -1,14 +1,14 @@
 import {createTheme, fallbackVar, style} from '@vanilla-extract/css';
 
 const classAndObject = createTheme({
-  logo: fallbackVar('var(--tinyWidgets-logo)', '2rem'),
   avatar: fallbackVar('var(--tinyWidgets-avatar)', '2rem'),
+  footerHeight: fallbackVar('var(--tinyWidgets-footerHeight)', '2rem'),
   icon: fallbackVar('var(--tinyWidgets-icon)', '1rem'),
+  logo: fallbackVar('var(--tinyWidgets-logo)', '2rem'),
   padding: fallbackVar('var(--tinyWidgets-padding)', '1rem'),
   radius: fallbackVar('var(--tinyWidgets-radius)', '0.5rem'),
   sideNavWidth: fallbackVar('var(--tinyWidgets-sideNavWidth)', '20rem'),
   topNavHeight: fallbackVar('var(--tinyWidgets-topNavHeight)', '4rem'),
-  footerHeight: fallbackVar('var(--tinyWidgets-footerHeight)', '2rem'),
 });
 export const dimensionsClass = classAndObject[0];
 

@@ -12,27 +12,29 @@ export const appLayout = style({
 });
 
 export const header = style({
-  justifyContent: 'space-between',
-  gap: dimensions.padding,
-  padding: dimensions.padding,
-  position: 'fixed',
-  boxShadow: colors.shadow,
   backdropFilter: 'blur(8px)',
   backgroundColor: colors.backgroundHaze,
-  left: 0,
-  right: 0,
-  height: dimensions.topNavHeight,
   borderBottom: colors.border,
+  boxShadow: colors.shadow,
+  gap: dimensions.padding,
+  height: dimensions.topNavHeight,
+  justifyContent: 'space-between',
+  left: 0,
+  padding: dimensions.padding,
+  position: 'fixed',
+  right: 0,
   zIndex: 2,
 });
 
 export const topNav = style({
-  justifyContent: 'space-between',
-  gap: dimensions.padding,
   flex: 1,
+  gap: dimensions.padding,
+  justifyContent: 'space-between',
 });
 
-export const sideNavButtonResponsive = style(large({display: 'none!important'}));
+export const sideNavButtonResponsive = style(
+  large({display: 'none!important'}),
+);
 
 export const title = style({
   ...large({
@@ -41,18 +43,18 @@ export const title = style({
 });
 
 export const sideNav = style({
-  position: 'fixed',
-  padding: dimensions.padding,
   backgroundColor: colors.background2,
-  overflow: 'auto',
   borderRight: colors.border,
-  width: dimensions.sideNavWidth,
   bottom: 0,
-  left: `calc(-1.2 * ${dimensions.sideNavWidth})`,
-  top: dimensions.topNavHeight,
   height: `calc(100dvh - ${dimensions.topNavHeight})`,
+  left: `calc(-1.2 * ${dimensions.sideNavWidth})`,
+  overflow: 'auto',
   overscrollBehavior: 'contain',
+  padding: dimensions.padding,
+  position: 'fixed',
+  top: dimensions.topNavHeight,
   transition: 'left .2s ease-in-out',
+  width: dimensions.sideNavWidth,
 });
 
 export const sideNavOpen = style({left: 0});
@@ -62,8 +64,8 @@ export const sideNavResponsive = style(large({left: 0}));
 export const sideNavNever = style({left: 0});
 
 export const main = style({
-  flex: 1,
   backgroundColor: colors.background,
+  flex: 1,
   overflow: 'auto',
   padding: dimensions.padding,
   paddingTop: `calc(${dimensions.topNavHeight} + ${dimensions.padding})`,
@@ -84,17 +86,17 @@ export const mainHasFooter = style({
 });
 
 export const footer = style({
-  justifyContent: 'right',
+  backdropFilter: 'blur(8px)',
+  backgroundColor: colors.backgroundHaze,
+  borderTop: colors.border,
+  bottom: 0,
+  boxShadow: colors.shadow,
   gap: dimensions.padding,
+  height: dimensions.footerHeight,
+  justifyContent: 'right',
+  left: 0,
   paddingLeft: dimensions.padding,
   paddingRight: dimensions.padding,
   position: 'fixed',
-  bottom: 0,
-  left: 0,
   right: 0,
-  height: dimensions.footerHeight,
-  backgroundColor: colors.backgroundHaze,
-  borderTop: colors.border,
-  boxShadow: colors.shadow,
-  backdropFilter: 'blur(8px)',
 });

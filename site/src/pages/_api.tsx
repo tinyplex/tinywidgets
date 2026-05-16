@@ -177,7 +177,8 @@ className:<><p>An extra CSS class name for the component.</p>
 </>,
 anchorName:<><p>An name for the component to be used as an anchor for other elements.</p>
 </>,
-ref:<></>,
+ref:<><p>A ref to the underlying button element.</p>
+</>,
 }}
   examples={[
 [<><Code code={`<Button
@@ -343,7 +344,14 @@ alt:<><p>Alternative text shown when the user hovers over the input.</p>
 </>,
 className:<><p>An extra CSS class name for the component.</p>
 </>,
-ref:<></>,
+variant:<><p>A variant of the checkbox, one of:</p>
+<ul>
+<li><code>default</code></li>
+<li><code>small</code></li>
+</ul>
+</>,
+ref:<><p>A ref to the underlying button element.</p>
+</>,
 }}
   examples={[
 [<><Code code={`<Checkbox onChange={(value) => console.log(value)} />`} /><p>This example shows the Checkbox component without a default checked state.</p>
@@ -356,6 +364,8 @@ ref:<></>,
   initialChecked={true}
   onChange={(value) => console.log(value)}
 />],
+[<><Code code={`<Checkbox variant="small" />`} /><p>This example shows the <code>small</code> variant of the Checkbox component.</p>
+</>,<Checkbox variant="small" />],
   ]}
 />);
 }, Lucide.LucideCheckSquare];
@@ -996,7 +1006,14 @@ alt:<><p>Alternative text shown when the user hovers over the input.</p>
 </>,
 className:<><p>An extra CSS class name for the component.</p>
 </>,
-ref:<></>,
+variant:<><p>A variant of the select, one of:</p>
+<ul>
+<li><code>default</code></li>
+<li><code>small</code></li>
+</ul>
+</>,
+ref:<><p>A ref to the underlying select element.</p>
+</>,
 }}
   examples={[
 [<><Code code={`<Select
@@ -1007,6 +1024,16 @@ ref:<></>,
   initialOption="CA"
   options={{ AL: 'Albania', BE: 'Belgium', CA: 'Canada' }}
   onChange={(option) => console.log(option)}
+/>],
+[<><Code code={`<Select
+  initialOption="CA"
+  options={{AL: 'Albania', BE: 'Belgium', CA: 'Canada'}}
+  variant="small"
+/>`} /><p>This example shows the <code>small</code> variant of the Select component.</p>
+</>,<Select
+  initialOption="CA"
+  options={{AL: 'Albania', BE: 'Belgium', CA: 'Canada'}}
+  variant="small"
 />],
   ]}
 />);
@@ -1163,7 +1190,14 @@ alt:<><p>Alternative text shown when the user hovers over the input.</p>
 </>,
 className:<><p>An extra CSS class name for the component.</p>
 </>,
-ref:<></>,
+variant:<><p>A variant of the input, one of:</p>
+<ul>
+<li><code>default</code></li>
+<li><code>small</code></li>
+</ul>
+</>,
+ref:<><p>A ref to the underlying input element.</p>
+</>,
 }}
   examples={[
 [<><Code code={`<TextInput
@@ -1177,6 +1211,11 @@ ref:<></>,
 [<><Code code={`<TextInput icon={Lucide.Search} placeholder="Search..." />`} /><p>This example shows the TextInput component with an inset icon and
 placeholder.</p>
 </>,<TextInput icon={Lucide.Search} placeholder="Search..." />],
+[<><Code code={`<TextInput initialText="42" variant="small" />`} /><p>This example shows the <code>small</code> variant of the TextInput component.</p>
+</>,<TextInput initialText="42" variant="small" />],
+[<><Code code={`<TextInput icon={Lucide.Search} placeholder="Search..." variant="small" />`} /><p>This example shows the <code>small</code> variant of the TextInput component with an
+inset icon and placeholder.</p>
+</>,<TextInput icon={Lucide.Search} placeholder="Search..." variant="small" />],
   ]}
 />);
 }, Lucide.TextCursorInput];

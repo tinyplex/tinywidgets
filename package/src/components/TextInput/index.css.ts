@@ -1,38 +1,64 @@
-import {style} from '@vanilla-extract/css';
+import {style, styleVariants} from '@vanilla-extract/css';
 import {colors} from '../../css/colors.css';
 import {dimensions} from '../../css/dimensions.css';
 
 export const wrapper = style({
   alignSelf: 'stretch',
+  display: 'block',
   flexShrink: 0,
   position: 'relative',
-  display: 'block',
 });
 
 export const input = style({
-  borderRadius: dimensions.radius,
-  padding: '0.5rem',
-  outlineOffset: '2px',
-  color: 'inherit',
-  fontWeight: 'inherit',
-  fontFamily: 'inherit',
-  boxShadow: colors.shadow + ' inset',
-  border: colors.border,
   backgroundColor: colors.background,
-  lineHeight: '1.5rem',
+  border: colors.border,
+  borderRadius: dimensions.radius,
+  boxShadow: colors.shadow + ' inset',
+  color: 'inherit',
+  fontFamily: 'inherit',
+  fontWeight: 'inherit',
+  outlineOffset: '2px',
   width: '100%',
 });
 
-export const inputWithIcon = style({
-  textIndent: `calc(${dimensions.icon} * 1.3)`,
+export const inputVariants = styleVariants({
+  default: {
+    lineHeight: '1.5rem',
+    padding: '0.5rem',
+  },
+  small: {
+    fontSize: '0.75rem',
+    lineHeight: '0.875rem',
+    padding: '0.1875rem 0.375rem',
+  },
+});
+
+export const inputWithIconVariants = styleVariants({
+  default: {
+    textIndent: `calc(${dimensions.icon} * 1.3)`,
+  },
+  small: {
+    textIndent: '1rem',
+  },
 });
 
 export const icon = style({
-  position: 'absolute',
-  left: `calc(${dimensions.icon} * .5)`,
-  top: `calc(${dimensions.icon} * .8)`,
-  color: colors.foregroundDim,
   backgroundColor: colors.background,
   borderRight: `calc(${dimensions.icon} * .25) solid ${colors.background}`,
   boxSizing: 'content-box',
+  color: colors.foregroundDim,
+  left: `calc(${dimensions.icon} * .5)`,
+  position: 'absolute',
+  top: `calc(${dimensions.icon} * .8)`,
+});
+
+export const iconVariants = styleVariants({
+  default: {},
+  small: {
+    borderRight: `calc(${dimensions.icon} * .2) solid ${colors.background}`,
+    height: '0.75rem',
+    left: '0.375rem',
+    top: '0.4375rem',
+    width: '0.75rem',
+  },
 });

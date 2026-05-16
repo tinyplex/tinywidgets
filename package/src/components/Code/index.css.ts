@@ -4,12 +4,12 @@ import {colors} from '../../css/colors.css';
 import {dimensions} from '../../css/dimensions.css';
 
 export const pre = style({
-  padding: dimensions.padding,
-  borderRadius: dimensions.radius,
   background: colors.background2,
   border: colors.border,
+  borderRadius: dimensions.radius,
   lineHeight: '1.25rem',
   overflowX: 'auto',
+  padding: dimensions.padding,
 });
 
 globalStyle('.token.comment, .token.prolog, .token.cdata', {

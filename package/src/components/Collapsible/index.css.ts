@@ -3,21 +3,21 @@ import {colors} from '../../css/colors.css';
 import {dimensions} from '../../css/dimensions.css';
 
 export const collapsible = style({
-  width: '100%',
   alignSelf: 'start',
+  border: colors.border,
   borderRadius: dimensions.radius,
   boxShadow: colors.shadow,
-  border: colors.border,
   display: 'grid',
   gridTemplateRows: 'max-content minmax(0, 0fr)',
-  transition: '.2s grid-template-rows ease-in-out',
-  overflow: 'hidden',
   marginBottom: dimensions.padding,
+  overflow: 'hidden',
   selectors: {
     '&:last-child': {
       marginBottom: 0,
     },
   },
+  transition: '.2s grid-template-rows ease-in-out',
+  width: '100%',
 });
 
 export const collapsibleOpen = style({
@@ -25,8 +25,8 @@ export const collapsibleOpen = style({
 });
 
 export const button = style({
-  margin: '-1px',
   boxShadow: 'none',
+  margin: '-1px',
 });
 
 export const buttonOpen = style({
@@ -34,4 +34,4 @@ export const buttonOpen = style({
   borderBottomRightRadius: 0,
 });
 
-export const content = style({padding: dimensions.padding, overflow: 'hidden'});
+export const content = style({overflow: 'hidden', padding: dimensions.padding});

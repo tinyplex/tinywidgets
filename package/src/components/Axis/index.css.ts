@@ -1,8 +1,8 @@
 import {style, styleVariants} from '@vanilla-extract/css';
 
 export const axis = style({
-  display: 'flex',
   alignItems: 'center',
+  display: 'flex',
 });
 
 export const axisVariants = styleVariants({
