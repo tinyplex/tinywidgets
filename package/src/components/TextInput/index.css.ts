@@ -5,7 +5,8 @@ import {dimensions} from '../../css/dimensions.css';
 export const wrapper = style({
   alignSelf: 'stretch',
   display: 'block',
-  flexShrink: 0,
+  flex: '1 1 auto',
+  minWidth: 0,
   position: 'relative',
 });
 
@@ -13,6 +14,7 @@ export const input = style({
   backgroundColor: colors.background,
   border: colors.border,
   borderRadius: dimensions.radius,
+  boxSizing: 'border-box',
   boxShadow: colors.shadow + ' inset',
   color: 'inherit',
   fontFamily: 'inherit',
@@ -23,11 +25,13 @@ export const input = style({
 
 export const inputVariants = styleVariants({
   default: {
+    height: '2.5rem',
     lineHeight: '1.5rem',
     padding: '0.5rem',
   },
   small: {
     fontSize: '0.75rem',
+    height: '1.5rem',
     lineHeight: '0.875rem',
     padding: '0.1875rem 0.375rem',
   },
