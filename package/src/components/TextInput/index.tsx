@@ -107,7 +107,7 @@ export const TextInput = ({
   useEffect(() => setText(initialText ?? ''), [initialText]);
 
   return (
-    <div className={wrapper}>
+    <div className={classNames(wrapper, className)}>
       {Icon ? (
         <Icon className={classNames(iconSize, icon, iconVariants[variant])} />
       ) : null}
@@ -118,7 +118,6 @@ export const TextInput = ({
           input,
           inputVariants[variant],
           Icon && inputWithIconVariants[variant],
-          className,
         )}
         onChange={handleChange}
         title={alt}
