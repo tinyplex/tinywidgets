@@ -1297,7 +1297,7 @@ applied to markup rendered by other libraries.</p>
     </tr>
     <tr>
       <td>Cujo</td>
-      <td>Dog</td>
+      <td>Wolf</td>
       <td>Gray</td>
     </tr>
   </tbody>
@@ -1323,7 +1323,7 @@ applied to markup rendered by other libraries.</p>
     </tr>
     <tr>
       <td>Cujo</td>
-      <td>Dog</td>
+      <td>Wolf</td>
       <td>Gray</td>
     </tr>
   </tbody>
@@ -1600,6 +1600,39 @@ been persisted to the hash part of the browser&#39;s URL.</p>
   <Hr />
   <code>{useRoute()}</code>
 </Card>],
+  ]}
+/>);
+}, Lucide.SquareFunction];
+
+import {useRouteParts} from 'tinywidgets';
+HOOK_ROUTES['hook/useRouteParts'] = ['useRouteParts', () => {
+return (<Api 
+  type='HOOK'
+  importLine="import {useRouteParts} from 'tinywidgets';"
+  title='useRouteParts'
+  comments={<><p>The useRouteParts hook returns the current route truncated to a number of
+slash-separated parts.</p>
+<p>This hook will only cause a rerender when the relevant part of the route
+changes. For example, if the route is <code>a/b/c/d</code>, then <code>useRouteParts(2)</code> will
+return <code>[&#39;a&#39;, &#39;b&#39;]</code> and will only cause a rerender when the first or second
+part of the route changes, but not when the third or fourth part changes.</p>
+</>}
+  icon={Lucide.SquareFunction}
+  params={{
+length:<>The number of route parts to include. Use 0 for the full route.</>,
+}}
+  props={{
+}}
+  examples={[
+[<><Code code={`<ul>
+  <li>{useRouteParts(1).join(' » ')}</li>
+  <li>{useRouteParts(2).join(' » ')}</li>
+  <li>{useRouteParts(0).join(' » ')}</li>
+</ul>`} /></>,<ul>
+  <li>{useRouteParts(1).join(' » ')}</li>
+  <li>{useRouteParts(2).join(' » ')}</li>
+  <li>{useRouteParts(0).join(' » ')}</li>
+</ul>],
   ]}
 />);
 }, Lucide.SquareFunction];

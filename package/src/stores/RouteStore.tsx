@@ -1,24 +1,42 @@
 import {createCustomPersister} from 'tinybase/persisters/with-schemas';
 import * as UiReact from 'tinybase/ui-react/with-schemas';
-import {type NoTablesSchema, createStore} from 'tinybase/with-schemas';
+import {createStore, type Store} from 'tinybase/with-schemas';
 import {READY, READY_SCHEMA} from './common';
 
 const ROUTE_STORE = 'tinywidgets/Route';
-const ROUTE = 'route';
+const ROUTE_PARTS = 'routeParts';
+const PARTS = 'parts';
 
+const TABLES_SCHEMA = {
+  [ROUTE_PARTS]: {[PARTS]: {type: 'string', default: ''}},
+} as const;
 const VALUES_SCHEMA = {
   ...READY_SCHEMA,
-  [ROUTE]: {type: 'string', default: ''},
 } as const;
-type Schemas = [NoTablesSchema, typeof VALUES_SCHEMA];
+type Schemas = [typeof TABLES_SCHEMA, typeof VALUES_SCHEMA];
+type RouteStore = Store<Schemas>;
 
 const {
+  useCell,
   useCreateStore,
-  useProvideStore,
   useCreatePersister,
+  useSetTablesCallback,
+  useProvideStore,
   useValue,
-  useSetValueCallback,
 } = UiReact as UiReact.WithSchemas<Schemas>;
+
+const getRouteTables = (route: string) => {
+  const parts = route.split('/');
+  return {
+    [ROUTE_PARTS]: Object.fromEntries([
+      ['0', {[PARTS]: route}],
+      ...parts.map((_, index) => [
+        index + 1 + '',
+        {[PARTS]: parts.slice(0, index + 1).join('/')},
+      ]),
+    ]),
+  };
+};
 
 /**
  * The useRoute hook returns the current route, assuming the app is using the
@@ -37,7 +55,30 @@ const {
  * ```
  * This example shows the hook returning the current route.
  */
-export const useRoute = () => useValue(ROUTE, ROUTE_STORE);
+export const useRoute = () => useRouteParts(0).join('/');
+
+/**
+ * The useRouteParts hook returns the current route truncated to a number of
+ * slash-separated parts.
+ *
+ * This hook will only cause a rerender when the relevant part of the route
+ * changes. For example, if the route is `a/b/c/d`, then `useRouteParts(2)` will
+ * return `['a', 'b']` and will only cause a rerender when the first or second
+ * part of the route changes, but not when the third or fourth part changes.
+ *
+ * @param length The number of route parts to include. Use 0 for the full route.
+ * @returns The route path, or an empty string if it does not exist.
+ * @example
+ * ```tsx
+ * <ul>
+ *   <li>{useRouteParts(1).join(' » ')}</li>
+ *   <li>{useRouteParts(2).join(' » ')}</li>
+ *   <li>{useRouteParts(0).join(' » ')}</li>
+ * </ul>
+ * ```
+ */
+export const useRouteParts = (length: number) =>
+  useCell(ROUTE_PARTS, length + '', PARTS, ROUTE_STORE)?.split('/') ?? [];
 
 /**
  * The useSetRouteCallback hook a callback for setting the current route,
@@ -60,14 +101,14 @@ export const useRoute = () => useValue(ROUTE, ROUTE_STORE);
  * route when called as a click handler.
  */
 export const useSetRouteCallback = () =>
-  useSetValueCallback(ROUTE, (route: string) => route, [], ROUTE_STORE);
+  useSetTablesCallback(getRouteTables, [], ROUTE_STORE);
 
 export const useRouteStoreIsReady = () =>
   useValue(READY, ROUTE_STORE) as boolean;
 
 export const RouteStore = () => {
   const routeStore = useCreateStore(() =>
-    createStore().setValuesSchema(VALUES_SCHEMA),
+    createStore().setSchema(TABLES_SCHEMA, VALUES_SCHEMA),
   );
   useProvideStore(ROUTE_STORE, routeStore);
 
@@ -76,12 +117,9 @@ export const RouteStore = () => {
     (routeStore) =>
       createCustomPersister(
         routeStore,
-        async () => [{}, {route: location.hash.slice(1), ready: true}],
+        async () => [getRouteTables(location.hash.slice(1)), {ready: true}],
         async (getContent) => {
-          const route = getContent()[1].route;
-          if (route) {
-            location.hash = route;
-          }
+          location.hash = getContent()[0][ROUTE_PARTS]?.['0']?.[PARTS] ?? '';
         },
         (listener) => {
           const hashListener = () => listener();

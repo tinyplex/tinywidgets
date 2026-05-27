@@ -30,7 +30,7 @@ import {table} from '../components/Table/index.css.ts';
  *     </tr>
  *     <tr>
  *       <td>Cujo</td>
- *       <td>Dog</td>
+ *       <td>Wolf</td>
  *       <td>Gray</td>
  *     </tr>
  *   </tbody>

@@ -21,4 +21,8 @@ export {TextInput} from './components/TextInput/index.tsx';
 
 export {classNames} from './common/functions.tsx';
 export {useDark} from './stores/LocalStore.tsx';
-export {useRoute, useSetRouteCallback} from './stores/RouteStore.tsx';
+export {
+  useRoute,
+  useRouteParts,
+  useSetRouteCallback,
+} from './stores/RouteStore.tsx';
