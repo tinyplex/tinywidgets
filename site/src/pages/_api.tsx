@@ -295,13 +295,26 @@ return (<Api
   type='COMPONENT'
   importLine="import {Card} from 'tinywidgets';"
   title='Card'
-  comments={<><p>The <code>Card</code> component displays a simple rectangular container.</p>
+  comments={<><p>The <code>Card</code> component displays a simple rectangular container. If a <code>title</code>
+prop is provided, it is displayed in the same style as a <code>Collapsible</code>
+component, but without the collapsible behavior.</p>
 </>}
   icon={Lucide.Square}
   params={{
 props:<>The props for the component.</>,
 }}
   props={{
+icon:<><p>An optional component which renders an icon for the top of the card, and
+which must accept a className prop.</p>
+</>,
+title:<><p>An optional component, element, or string which renders the title of
+the top of the card.</p>
+</>,
+titleRight:<><p>An optional component, element, or string which renders a second title
+on the right side of the top of the card.</p>
+</>,
+onClose:<><p>A handler called when the user clicks on the close button.</p>
+</>,
 className:<><p>An extra CSS class name for the component.</p>
 </>,
 children:<><p>The children of the component that go inside the card.</p>
@@ -317,6 +330,30 @@ children:<><p>The children of the component that go inside the card.</p>
   <h1>Welcome</h1>
   <Hr />
   <p>We hope you enjoy TinyWidgets</p>
+</Card>],
+[<><Code code={`<Card
+  title="TinyWidgets"
+  icon={Lucide.Grid3x3}
+>
+  <p>Always open</p>
+</Card>`} /><p>This example shows a titled card.</p>
+</>,<Card
+  title="TinyWidgets"
+  icon={Lucide.Grid3x3}
+>
+  <p>Always open</p>
+</Card>],
+[<><Code code={`<Card
+  title="TinyWidgets"
+  onClose={() => console.log('Closed')}
+>
+  <p>Close me</p>
+</Card>`} /><p>This example shows a card with a close button.</p>
+</>,<Card
+  title="TinyWidgets"
+  onClose={() => console.log('Closed')}
+>
+  <p>Close me</p>
 </Card>],
   ]}
 />);
