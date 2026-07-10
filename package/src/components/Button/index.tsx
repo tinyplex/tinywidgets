@@ -27,6 +27,15 @@ import {
  * ```tsx
  * <Button
  *   title="TinyWidgets"
+ *   disabled={true}
+ * />
+ * ```
+ * This example shows the `default` variant of the Button component when it is
+ * disabled.
+ * @example
+ * ```tsx
+ * <Button
+ *   title="TinyWidgets"
  *   icon={Lucide.Grid3x3}
  * />
  * ```
@@ -48,8 +57,8 @@ import {
  *   variant="icon"
  * />
  * ```
- * This example shows the `icon` variant of the Button component. It is best
- * used without a title.
+ * This example shows the `icon` variant of the Button component, which renders
+ * no border, text, or background.
  * @example
  * ```tsx
  * <Button
@@ -111,6 +120,16 @@ import {
  * ```
  * This example shows the `toolbar` variant of the Button component, with the
  * icon stacked above the title.
+ * @example
+ * ```tsx
+ * <Button
+ *   alt="New Grid"
+ *   icon={Lucide.Grid3x3}
+ *   variant="toolbarIcon"
+ * />
+ * ```
+ * This example shows the `toolbarIcon` variant of the Button component, which
+ * is suitable for use in an icon-only toolbar.
  * @icon Lucide.RectangleHorizontal
  */
 export const Button = ({
@@ -121,6 +140,7 @@ export const Button = ({
   onClick,
   variant = 'default',
   current,
+  disabled,
   href,
   alt,
   className,
@@ -159,6 +179,7 @@ export const Button = ({
    * - `ghost`
    * - `item`
    * - `toolbar`
+   * - `toolbarIcon`
    */
   readonly variant?: keyof typeof buttonVariants;
   /**
@@ -166,6 +187,10 @@ export const Button = ({
    * highlighted.
    */
   readonly current?: boolean;
+  /**
+   * A flag that indicates that the button is disabled.
+   */
+  readonly disabled?: boolean;
   /**
    * A URL that can be used instead of an `onClick` to launch a new web
    * page, much like a link.
@@ -192,6 +217,7 @@ export const Button = ({
     () => (href ? open(href, '_blank', 'noreferrer') : null),
     [href],
   );
+  const iconOnly = variant === 'icon' || variant === 'toolbarIcon';
 
   return (
     <button
@@ -201,23 +227,24 @@ export const Button = ({
         current && currentStyle,
         className,
       )}
-      onClick={onClick ?? hrefClick}
+      disabled={disabled}
+      onClick={disabled ? undefined : (onClick ?? hrefClick)}
       title={alt}
       ref={ref}
       {...(anchorName ? {style: {anchorName}} : {})}
     >
       {Icon ? <Icon className={iconSize} /> : null}
-      {titleComponentOrNode ? (
+      {!iconOnly && titleComponentOrNode ? (
         <span className={titleStyle}>
           {renderComponentOrNode(titleComponentOrNode)}
         </span>
       ) : null}
-      {titleRightComponentOrNode ? (
+      {!iconOnly && titleRightComponentOrNode ? (
         <span className={titleStyleRight}>
           {renderComponentOrNode(titleRightComponentOrNode)}
         </span>
       ) : null}
-      {IconRight ? <IconRight className={iconSize} /> : null}
+      {!iconOnly && IconRight ? <IconRight className={iconSize} /> : null}
     </button>
   );
 };

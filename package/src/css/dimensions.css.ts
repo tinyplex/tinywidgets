@@ -9,6 +9,7 @@ const classAndObject = createTheme({
   radius: fallbackVar('var(--tinyWidgets-radius)', '0.5rem'),
   sideNavWidth: fallbackVar('var(--tinyWidgets-sideNavWidth)', '20rem'),
   topNavHeight: fallbackVar('var(--tinyWidgets-topNavHeight)', '4rem'),
+  button: fallbackVar('var(--tinyWidgets-button)', '2rem'),
 });
 export const dimensionsClass = classAndObject[0];
 
@@ -26,6 +27,7 @@ export const dimensionsClass = classAndObject[0];
  * - `sideNavWidth`
  * - `topNavHeight`
  * - `footerHeight`
+ * - `button`
  *
  * You can use these variables directly in React components that take style
  * attributes, like this:

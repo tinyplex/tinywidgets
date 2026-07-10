@@ -22,9 +22,13 @@ export const button = style({
   overflow: 'hidden',
   padding: '0.5rem 1rem',
   selectors: {
-    '&:hover': {
+    '&:not(:disabled):hover': {
       backgroundColor: colors.backgroundHover,
       color: colors.foregroundBright,
+    },
+    '&:disabled': {
+      cursor: 'default',
+      opacity: 0.45,
     },
   },
   textAlign: 'left',
@@ -40,7 +44,7 @@ export const buttonVariants = styleVariants({
     boxShadow: colors.shadow,
     color: colors.accentContrast,
     selectors: {
-      '&:hover': {
+      '&:not(:disabled):hover': {
         backgroundColor: colors.accentHover,
       },
     },
@@ -63,6 +67,17 @@ export const buttonVariants = styleVariants({
     justifyContent: 'center',
     textAlign: 'center',
     vars: {[titleFlex]: '0 1 auto'},
+  },
+  toolbarIcon: {
+    backgroundColor: colors.background,
+    border: colors.border,
+    boxShadow: colors.shadow,
+    height: dimensions.button,
+    justifyContent: 'center',
+    alignItems: 'center',
+    minHeight: dimensions.button,
+    width: dimensions.button,
+    padding: 0,
   },
 });
 

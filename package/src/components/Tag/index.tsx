@@ -26,6 +26,17 @@ import {tag, tagIcon, tagVariants} from './index.css';
  * />
  * ```
  * This example shows the `accent` variant of the Tag component with an icon.
+ * @example
+ * ```tsx
+ * <>
+ *   <Tag title="Ready" variant="success" />
+ *   <Tag title="Watch" variant="warning" />
+ *   <Tag title="Avoid" variant="danger" />
+ *   <Tag title="Info" variant="info" />
+ *   <Tag title="Muted" variant="neutral" />
+ * </>
+ * ```
+ * This example shows the semantic variants of the Tag component.
  * @icon Lucide.RectangleEllipsis
  */
 export const Tag = ({
@@ -49,6 +60,11 @@ export const Tag = ({
    * A variant of the tag, one of:
    * - `default`
    * - `accent`
+   * - `neutral`
+   * - `info`
+   * - `success`
+   * - `warning`
+   * - `danger`
    */
   readonly variant?: keyof typeof tagVariants;
   /**

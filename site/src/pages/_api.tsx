@@ -163,10 +163,13 @@ variant:<><p>A variant of the button, one of:</p>
 <li><code>ghost</code></li>
 <li><code>item</code></li>
 <li><code>toolbar</code></li>
+<li><code>toolbarIcon</code></li>
 </ul>
 </>,
 current:<><p>A flag that indicates that an <code>item</code> button is &#39;current&#39; and therefore
 highlighted.</p>
+</>,
+disabled:<><p>A flag that indicates that the button is disabled.</p>
 </>,
 href:<><p>A URL that can be used instead of an <code>onClick</code> to launch a new web
 page, much like a link.</p>
@@ -191,6 +194,15 @@ ref:<><p>A ref to the underlying button element.</p>
 />],
 [<><Code code={`<Button
   title="TinyWidgets"
+  disabled={true}
+/>`} /><p>This example shows the <code>default</code> variant of the Button component when it is
+disabled.</p>
+</>,<Button
+  title="TinyWidgets"
+  disabled={true}
+/>],
+[<><Code code={`<Button
+  title="TinyWidgets"
   icon={Lucide.Grid3x3}
 />`} /><p>This example shows the <code>default</code> variant of the Button component with a left
 icon.</p>
@@ -210,8 +222,8 @@ icon.</p>
 [<><Code code={`<Button
   icon={Lucide.Sun}
   variant="icon"
-/>`} /><p>This example shows the <code>icon</code> variant of the Button component. It is best
-used without a title.</p>
+/>`} /><p>This example shows the <code>icon</code> variant of the Button component, which renders
+no border, text, or background.</p>
 </>,<Button
   icon={Lucide.Sun}
   variant="icon"
@@ -284,6 +296,17 @@ icon stacked above the title.</p>
   variant="toolbar"
   icon={Lucide.Grid3x3}
   title="New Grid"
+/>],
+[<><Code code={`<Button
+  alt="New Grid"
+  icon={Lucide.Grid3x3}
+  variant="toolbarIcon"
+/>`} /><p>This example shows the <code>toolbarIcon</code> variant of the Button component, which
+is suitable for use in an icon-only toolbar.</p>
+</>,<Button
+  alt="New Grid"
+  icon={Lucide.Grid3x3}
+  variant="toolbarIcon"
 />],
   ]}
 />);
@@ -1170,6 +1193,11 @@ variant:<><p>A variant of the tag, one of:</p>
 <ul>
 <li><code>default</code></li>
 <li><code>accent</code></li>
+<li><code>neutral</code></li>
+<li><code>info</code></li>
+<li><code>success</code></li>
+<li><code>warning</code></li>
+<li><code>danger</code></li>
 </ul>
 </>,
 alt:<><p>Alternative text shown when the user hovers over the component.</p>
@@ -1196,6 +1224,20 @@ className:<><p>An extra CSS class name for the component.</p>
   icon={Lucide.Bell}
   alt="You have lots of notifications"
 />],
+[<><Code code={`<>
+  <Tag title="Ready" variant="success" />
+  <Tag title="Watch" variant="warning" />
+  <Tag title="Avoid" variant="danger" />
+  <Tag title="Info" variant="info" />
+  <Tag title="Muted" variant="neutral" />
+</>`} /><p>This example shows the semantic variants of the Tag component.</p>
+</>,<>
+  <Tag title="Ready" variant="success" />
+  <Tag title="Watch" variant="warning" />
+  <Tag title="Avoid" variant="danger" />
+  <Tag title="Info" variant="info" />
+  <Tag title="Muted" variant="neutral" />
+</>],
   ]}
 />);
 }, Lucide.RectangleEllipsis];
@@ -1523,6 +1565,7 @@ application.</p>
 <li><code>sideNavWidth</code></li>
 <li><code>topNavHeight</code></li>
 <li><code>footerHeight</code></li>
+<li><code>button</code></li>
 </ul>
 <p>You can use these variables directly in React components that take style
 attributes, like this:</p>
