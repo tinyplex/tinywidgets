@@ -595,6 +595,35 @@ between page reloads.</p>
 />);
 }, Lucide.PanelTopOpen];
 
+import {DarkModeButton} from 'tinywidgets';
+COMPONENT_ROUTES['component/DarkModeButton'] = ['DarkModeButton', () => {
+return (<Api 
+  type='COMPONENT'
+  importLine="import {DarkModeButton} from 'tinywidgets';"
+  title='DarkModeButton'
+  comments={<><p>The <code>DarkModeButton</code> component displays a button that cycles the application
+between light, dark, and automatic color modes.</p>
+<p>The choice is shared with the enclosing <code>App</code> component and persisted across
+reloads. Automatic mode follows the user&#39;s system color scheme preference.</p>
+</>}
+  icon={Lucide.SunMoon}
+  params={{
+props:<>The props for the component.</>,
+}}
+  props={{
+className:<><p>An extra CSS class name for the component.</p>
+</>,
+ref:<><p>A ref to the underlying button element.</p>
+</>,
+}}
+  examples={[
+[<><Code code={`<DarkModeButton />`} /><p>This example shows the dark mode control outside of the standard application
+header.</p>
+</>,<DarkModeButton />],
+  ]}
+/>);
+}, Lucide.SunMoon];
+
 import {Detail} from 'tinywidgets';
 COMPONENT_ROUTES['component/Detail'] = ['Detail', () => {
 return (<Api 

@@ -1,4 +1,4 @@
-import {Menu, Moon, Sun, SunMoon, X} from 'lucide-react';
+import {Menu, X} from 'lucide-react';
 import {
   createContext,
   useContext,
@@ -14,9 +14,7 @@ import {colorsDark, colorsLight} from '../../css/colors.css.ts';
 import {
   LocalStore,
   useDark,
-  useDarkChoice,
   useLocalStoreIsReady,
-  useToggleDarkChoiceCallback,
 } from '../../stores/LocalStore.tsx';
 import {RouteStore, useRouteStoreIsReady} from '../../stores/RouteStore.tsx';
 import {
@@ -27,6 +25,7 @@ import {
 } from '../../stores/SessionStore.tsx';
 import {Axis} from '../Axis/index.tsx';
 import {Button} from '../Button/index.tsx';
+import {DarkModeButton} from '../DarkModeButton/index.tsx';
 import {
   app,
   appLayout,
@@ -47,8 +46,6 @@ import {
 
 const {Provider} = UiReact as UiReact.WithSchemas<OptionalSchemas>;
 
-const darkIcons = [Sun, Moon, SunMoon];
-const darkChoices = ['Light always', 'Dark always', 'Auto'];
 type SideNavToggle = 'never' | 'responsive' | 'always';
 
 /**
@@ -142,12 +139,9 @@ const Layout = ({
   const routeStoreIsReady = useRouteStoreIsReady();
   const localStoreIsReady = useLocalStoreIsReady();
 
-  const toggleDarkChoice = useToggleDarkChoiceCallback();
-
   const toggleSideNavIsOpen = useToggleSideNavIsOpenCallback();
   const sideNavIsOpen = useSideNavIsOpen();
 
-  const darkChoice = useDarkChoice();
   const dark = useDark();
 
   const hasLayout = [
@@ -200,12 +194,7 @@ const Layout = ({
                   {renderComponentOrNode(topNavLeftComponentOrNode, <div />)}
                   {renderComponentOrNode(topNavRightComponentOrNode, <div />)}
                 </Axis>
-                <Button
-                  variant="icon"
-                  onClick={toggleDarkChoice}
-                  icon={darkIcons[darkChoice]}
-                  alt={darkChoices[darkChoice]}
-                />
+                <DarkModeButton />
                 {hasSideNav ? (
                   <nav
                     className={classNames(
