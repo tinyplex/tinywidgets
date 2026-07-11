@@ -1,24 +1,17 @@
 import {style} from '@vanilla-extract/css';
-import {colors} from '../../css/colors.css';
-import {dimensions} from '../../css/dimensions.css';
+import {
+  titledContainer,
+  titledContent,
+  titledHeader,
+} from '../../common/titledContainer.css';
 
-export const collapsible = style({
-  alignSelf: 'start',
-  border: colors.border,
-  borderRadius: dimensions.radius,
-  boxShadow: colors.shadow,
-  display: 'grid',
-  gridTemplateRows: 'max-content minmax(0, 0fr)',
-  marginBottom: dimensions.padding,
-  overflow: 'hidden',
-  selectors: {
-    '&:last-child': {
-      marginBottom: 0,
-    },
+export const collapsible = style([
+  titledContainer,
+  {
+    gridTemplateRows: 'max-content minmax(0, 0fr)',
+    transition: '.2s grid-template-rows ease-in-out',
   },
-  transition: '.2s grid-template-rows ease-in-out',
-  width: '100%',
-});
+]);
 
 export const collapsibleOpen = style({
   gridTemplateRows: 'max-content minmax(0, 1fr)',
@@ -29,9 +22,6 @@ export const button = style({
   margin: '-1px',
 });
 
-export const buttonOpen = style({
-  borderBottomLeftRadius: 0,
-  borderBottomRightRadius: 0,
-});
+export const buttonOpen = style([titledHeader]);
 
-export const content = style({overflow: 'hidden', padding: dimensions.padding});
+export const content = style([titledContent]);

@@ -1,12 +1,11 @@
 import {style, styleVariants} from '@vanilla-extract/css';
+import {
+  titledContainer,
+  titledContent,
+  titledHeader,
+} from '../../common/titledContainer.css';
 import {colors} from '../../css/colors.css';
 import {dimensions} from '../../css/dimensions.css';
-import {
-  buttonOpen,
-  collapsible,
-  collapsibleOpen,
-  content,
-} from '../Collapsible/index.css';
 
 export const card = style({
   border: colors.border,
@@ -17,18 +16,16 @@ export const card = style({
   padding: dimensions.padding,
 });
 
-export const titledCard = style([collapsible, collapsibleOpen]);
+export const titledCard = style([titledContainer]);
 
 const titleButtonBase = style([
-  buttonOpen,
+  titledHeader,
   {
     alignItems: 'center',
     alignSelf: 'center',
     backgroundColor: colors.backgroundHover,
     border: colors.border,
     borderRadius: dimensions.radius,
-    borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0,
     boxShadow: 'none',
     color: colors.foregroundBright,
     display: 'inline-flex',
@@ -75,4 +72,4 @@ export const titleRight = style({
   overflow: 'hidden',
 });
 
-export const titledCardContent = style([content]);
+export const titledCardContent = style([titledContent]);
