@@ -224,10 +224,10 @@ SOFTWARE.
 ---
 
 Name: tinybase
-Version: 8.2.0
+Version: 9.2.0
 License: MIT
 Private: false
-Description: A reactive data store and sync engine.
+Description: A reactive in-memory data store with persistence and synchronization for local-first JavaScript and TypeScript apps.
 Repository: undefined
 Homepage: https://tinybase.org
 Author: jamesgpearce
@@ -259,7 +259,7 @@ SOFTWARE.
 ---
 
 Name: tinywidgets
-Version: 1.7.0
+Version: 1.7.1
 License: MIT
 Private: false
 Description: A collection of tiny, reusable, UI components - wrapped in a helpful app layout with header, side bar, dark mode, and more.

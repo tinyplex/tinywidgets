@@ -56,7 +56,7 @@ type SideNavToggle = 'never' | 'responsive' | 'always';
  *
  * If none of these props are present, the TinyWidgets layout won't be used, but
  * you will still be able to enjoy its state management features, and any
- * components within it will be correctly styled.
+ * child components within it will instead be rendered.
  * @param props The props for the component.
  * @returns The App component.
  * @example
@@ -65,6 +65,14 @@ type SideNavToggle = 'never' | 'responsive' | 'always';
  * ```
  * This shows an empty App, but if you visit [the TinyWidgets
  * website](https://tinywidgets.org) you'll see one in its full glory!
+ * @example
+ * ```tsx
+ * <App>
+ *   <p>Content without the application layout</p>
+ * </App>
+ * ```
+ * This shows a bare App that provides TinyWidgets state and styling without
+ * rendering the standard header, main, or footer layout.
  * @icon Lucide.PanelsTopLeft
  */
 export const App = (props: {
@@ -106,6 +114,10 @@ export const App = (props: {
    */
   readonly footer?: ComponentType | ReactNode;
   /**
+   * Content rendered directly when no application layout props are provided.
+   */
+  readonly children?: ReactNode;
+  /**
    * An extra CSS class name for the component.
    */
   readonly className?: string;
@@ -133,6 +145,7 @@ const Layout = ({
   sideNavToggle = 'responsive',
   main: mainComponentOrNode,
   footer: footerComponentOrNode,
+  children,
   className,
 }: Parameters<typeof App>[0]) => {
   const sessionStoreIsReady = useSessionStoreIsReady();
@@ -170,66 +183,66 @@ const Layout = ({
         className,
       )}
     >
-      {hasLayout ? (
-        <LayoutContext.Provider value={{portal: ref.current}}>
-          {sessionStoreIsReady && routeStoreIsReady && localStoreIsReady ? (
-            <>
-              <Axis as="header" className={header}>
-                {sideNavCanToggle ? (
-                  <Button
-                    variant="icon"
-                    onClick={toggleSideNavIsOpen}
-                    icon={sideNavIsOpen ? X : Menu}
-                    className={
-                      sideNavToggle == 'responsive'
-                        ? sideNavButtonResponsive
-                        : undefined
-                    }
-                  />
-                ) : null}
-                <nav className={title}>
-                  {renderComponentOrNode(titleComponentOrNode)}
-                </nav>
-                <Axis as="nav" className={topNav}>
-                  {renderComponentOrNode(topNavLeftComponentOrNode, <div />)}
-                  {renderComponentOrNode(topNavRightComponentOrNode, <div />)}
-                </Axis>
-                <DarkMode />
-                {hasSideNav ? (
-                  <nav
-                    className={classNames(
-                      sideNav,
-                      sideNavToggle == 'responsive' && sideNavResponsive,
-                      sideNavIsAlwaysVisible && sideNavNever,
-                      sideNavIsOpen && sideNavOpen,
-                    )}
-                  >
-                    {renderComponentOrNode(sideNavComponentOrNode)}
-                  </nav>
-                ) : null}
-              </Axis>
-              <main
-                className={classNames(
-                  main,
-                  hasSideNav &&
-                    (sideNavToggle == 'never'
-                      ? mainHasSideNavNever
-                      : sideNavToggle == 'responsive'
-                        ? mainHasSideNav
-                        : false),
-                  hasFooter && mainHasFooter,
-                )}
-              >
-                {renderComponentOrNode(mainComponentOrNode)}
-              </main>
-              {hasFooter ? (
-                <Axis as="footer" className={footer}>
-                  {renderComponentOrNode(footerComponentOrNode)}
-                </Axis>
+      {sessionStoreIsReady && routeStoreIsReady && localStoreIsReady ? (
+        hasLayout ? (
+          <LayoutContext.Provider value={{portal: ref.current}}>
+            <Axis as="header" className={header}>
+              {sideNavCanToggle ? (
+                <Button
+                  variant="icon"
+                  onClick={toggleSideNavIsOpen}
+                  icon={sideNavIsOpen ? X : Menu}
+                  className={
+                    sideNavToggle == 'responsive'
+                      ? sideNavButtonResponsive
+                      : undefined
+                  }
+                />
               ) : null}
-            </>
-          ) : null}
-        </LayoutContext.Provider>
+              <nav className={title}>
+                {renderComponentOrNode(titleComponentOrNode)}
+              </nav>
+              <Axis as="nav" className={topNav}>
+                {renderComponentOrNode(topNavLeftComponentOrNode, <div />)}
+                {renderComponentOrNode(topNavRightComponentOrNode, <div />)}
+              </Axis>
+              <DarkMode />
+              {hasSideNav ? (
+                <nav
+                  className={classNames(
+                    sideNav,
+                    sideNavToggle == 'responsive' && sideNavResponsive,
+                    sideNavIsAlwaysVisible && sideNavNever,
+                    sideNavIsOpen && sideNavOpen,
+                  )}
+                >
+                  {renderComponentOrNode(sideNavComponentOrNode)}
+                </nav>
+              ) : null}
+            </Axis>
+            <main
+              className={classNames(
+                main,
+                hasSideNav &&
+                  (sideNavToggle == 'never'
+                    ? mainHasSideNavNever
+                    : sideNavToggle == 'responsive'
+                      ? mainHasSideNav
+                      : false),
+                hasFooter && mainHasFooter,
+              )}
+            >
+              {renderComponentOrNode(mainComponentOrNode)}
+            </main>
+            {hasFooter ? (
+              <Axis as="footer" className={footer}>
+                {renderComponentOrNode(footerComponentOrNode)}
+              </Axis>
+            ) : null}
+          </LayoutContext.Provider>
+        ) : (
+          children
+        )
       ) : null}
     </div>
   );

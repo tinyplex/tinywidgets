@@ -20,10 +20,11 @@ export default tsLint.config(
   importLint.flatConfigs.recommended,
   reactLint.configs.flat.recommended,
   reactLint.configs.flat['jsx-runtime'],
-  hooksLint.configs['recommended-latest'],
   tsLint.configs.recommended,
 
   {
+    plugins: {'react-hooks': hooksLint},
+
     settings: {
       react: {version: 'detect'},
       'import/resolver': {node: {extensions: ['.js', '.jsx', '.ts', '.tsx']}},

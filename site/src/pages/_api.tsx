@@ -21,7 +21,7 @@ return (<Api
 layout, including the top left title, the side bar and the main content.</p>
 <p>If none of these props are present, the TinyWidgets layout won&#39;t be used, but
 you will still be able to enjoy its state management features, and any
-components within it will be correctly styled.</p>
+child components within it will instead be rendered.</p>
 </>}
   icon={Lucide.PanelsTopLeft}
   params={{
@@ -53,6 +53,8 @@ the application.</p>
 footer:<><p>An optional component, element, or string which renders the footer of
 the application.</p>
 </>,
+children:<><p>Content rendered directly when no application layout props are provided.</p>
+</>,
 className:<><p>An extra CSS class name for the component.</p>
 </>,
 }}
@@ -60,6 +62,13 @@ className:<><p>An extra CSS class name for the component.</p>
 [<><Code code={`<App />`} /><p>This shows an empty App, but if you visit <a href="https://tinywidgets.org">the TinyWidgets
 website</a> you&#39;ll see one in its full glory!</p>
 </>,<App />],
+[<><Code code={`<App>
+  <p>Content without the application layout</p>
+</App>`} /><p>This shows a bare App that provides TinyWidgets state and styling without
+rendering the standard header, main, or footer layout.</p>
+</>,<App>
+  <p>Content without the application layout</p>
+</App>],
   ]}
 />);
 }, Lucide.PanelsTopLeft];
