@@ -5,7 +5,7 @@ export {Card} from './components/Card/index.tsx';
 export {Checkbox} from './components/Checkbox/index.tsx';
 export {Code} from './components/Code/index.tsx';
 export {Collapsible} from './components/Collapsible/index.tsx';
-export {DarkModeButton} from './components/DarkModeButton/index.tsx';
+export {DarkMode} from './components/DarkMode/index.tsx';
 export {Detail} from './components/Detail/index.tsx';
 export {Flyout} from './components/Flyout/index.tsx';
 export {Hr} from './components/Hr/index.tsx';

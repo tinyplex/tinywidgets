@@ -259,7 +259,7 @@ SOFTWARE.
 ---
 
 Name: tinywidgets
-Version: 1.6.1
+Version: 1.7.0
 License: MIT
 Private: false
 Description: A collection of tiny, reusable, UI components - wrapped in a helpful app layout with header, side bar, dark mode, and more.

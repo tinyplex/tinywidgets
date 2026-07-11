@@ -9,23 +9,24 @@ const darkIcons = [Sun, Moon, SunMoon];
 const darkChoices = ['Light always', 'Dark always', 'Auto'];
 
 /**
- * The `DarkModeButton` component displays a button that cycles the application
+ * The `DarkMode` component displays a button that cycles the application
  * between light, dark, and automatic color modes.
  *
- * The choice is shared with the enclosing `App` component and persisted across
- * reloads. Automatic mode follows the user's system color scheme preference.
+ * This must exist inside a TinyWidgets `App` in order to work. The choice is
+ * shared with the enclosing `App` and persisted across reloads. Automatic mode
+ * follows the user's system color scheme preference.
  *
  * @param props The props for the component.
- * @returns The DarkModeButton component.
+ * @returns The DarkMode component.
  * @example
  * ```tsx
- * <DarkModeButton />
+ * <DarkMode />
  * ```
  * This example shows the dark mode control outside of the standard application
  * header.
  * @icon Lucide.SunMoon
  */
-export const DarkModeButton = ({
+export const DarkMode = ({
   className,
   ref,
 }: {

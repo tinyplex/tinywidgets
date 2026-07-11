@@ -25,7 +25,7 @@ import {
 } from '../../stores/SessionStore.tsx';
 import {Axis} from '../Axis/index.tsx';
 import {Button} from '../Button/index.tsx';
-import {DarkModeButton} from '../DarkModeButton/index.tsx';
+import {DarkMode} from '../DarkMode/index.tsx';
 import {
   app,
   appLayout,
@@ -194,7 +194,7 @@ const Layout = ({
                   {renderComponentOrNode(topNavLeftComponentOrNode, <div />)}
                   {renderComponentOrNode(topNavRightComponentOrNode, <div />)}
                 </Axis>
-                <DarkModeButton />
+                <DarkMode />
                 {hasSideNav ? (
                   <nav
                     className={classNames(
