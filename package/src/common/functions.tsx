@@ -1,5 +1,11 @@
 import type {StyleRule} from '@vanilla-extract/css';
-import {createElement, type ComponentType, type ReactNode} from 'react';
+import {
+  createElement,
+  type ComponentType,
+  type ExoticComponent,
+  type ReactNode,
+} from 'react';
+import {isValidElementType} from 'react-is';
 import {screens} from '../css/screens';
 
 /**
@@ -28,15 +34,16 @@ export const classNames = (
 ) => classes.filter(Boolean).join(' ');
 
 export const renderComponentOrNode = (
-  ComponentOrNode: ComponentType | ReactNode,
+  ComponentOrNode: ComponentType | ExoticComponent | ReactNode,
   fallback: ReactNode = null,
 ): ReactNode => {
   if (ComponentOrNode == null) {
     return fallback;
   }
-  return typeof ComponentOrNode == 'function'
+  return typeof ComponentOrNode != 'string' &&
+    isValidElementType(ComponentOrNode)
     ? createElement(ComponentOrNode as ComponentType)
-    : ComponentOrNode;
+    : (ComponentOrNode as ReactNode);
 };
 
 export const large = (style: StyleRule) => ({
