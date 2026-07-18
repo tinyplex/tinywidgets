@@ -2,11 +2,12 @@ import {X} from 'lucide-react';
 import type {ComponentType, ReactNode} from 'react';
 import {classNames, renderComponentOrNode} from '../../common/functions';
 import {iconSize} from '../../css/dimensions.css';
+import {Button} from '../Button';
 import {
   card,
-  titleButton,
   titledCard,
   titledCardContent,
+  titleHeader,
   title as titleStyle,
   titleRight as titleStyleRight,
 } from './index.css';
@@ -90,11 +91,7 @@ export const Card = ({
 
   return hasHeader ? (
     <div className={classNames(titledCard, className)}>
-      <div
-        className={titleButton[onClose ? 'closable' : 'static']}
-        onClick={onClose}
-        {...(onClose ? {title: 'Close'} : {})}
-      >
+      <div className={titleHeader}>
         {Icon ? <Icon className={iconSize} /> : null}
         {title ? (
           <span className={titleStyle}>{renderComponentOrNode(title)}</span>
@@ -104,7 +101,9 @@ export const Card = ({
             {renderComponentOrNode(titleRight)}
           </span>
         ) : null}
-        {onClose ? <X className={iconSize} /> : null}
+        {onClose ? (
+          <Button alt="Close" icon={X} onClick={onClose} variant="icon" />
+        ) : null}
       </div>
       <div className={titledCardContent}>{children}</div>
     </div>

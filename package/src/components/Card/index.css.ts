@@ -1,4 +1,4 @@
-import {style, styleVariants} from '@vanilla-extract/css';
+import {style} from '@vanilla-extract/css';
 import {
   titledContainer,
   titledContent,
@@ -18,7 +18,7 @@ export const card = style({
 
 export const titledCard = style([titledContainer]);
 
-const titleButtonBase = style([
+export const titleHeader = style([
   titledHeader,
   {
     alignItems: 'center',
@@ -44,22 +44,6 @@ const titleButtonBase = style([
     whiteSpace: 'nowrap',
   },
 ]);
-
-export const titleButton = styleVariants({
-  closable: [
-    titleButtonBase,
-    {
-      cursor: 'pointer',
-      selectors: {
-        '&:hover': {
-          backgroundColor: colors.backgroundHover,
-          color: colors.foregroundBright,
-        },
-      },
-    },
-  ],
-  static: [titleButtonBase],
-});
 
 export const title = style({
   flex: '1 1 auto',
