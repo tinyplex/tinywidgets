@@ -21,10 +21,8 @@
     "LICENSE"
   ],
   "scripts": {
-    "prepack": "npm run verify",
-    "prePublishPackage": "npm run verify",
-    "test": "vitest run",
-    "verify": "prettier --check . && eslint . && cspell --quiet . && tsc && npm test && node scripts/checkPackageFiles.mjs"
+    "prePublishPackage": "prettier --check . && eslint . && cspell --quiet . && tsc && npm test && node scripts/checkPackageFiles.mjs",
+    "test": "vitest run"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",

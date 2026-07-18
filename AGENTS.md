@@ -85,20 +85,20 @@ This file is the local project guide for work in this repository. Use it to avoi
 - `package/README.md` and `package/LICENSE` must match their repo-root copies;
   package verification checks them byte for byte.
 - The published tarball is allowlisted to package source, README, and license.
-- `npm run verify` in `package/` runs:
+- `npm run prePublishPackage` in `package/` runs:
   - Prettier
   - ESLint
   - cspell
   - TypeScript
   - Vitest
   - README and license mirror checks
-- The standard `prepack` lifecycle runs the same verification before packaging.
+- Publishing is manual, so run this command explicitly before packaging.
 
 ## Testing And Verification
 
 - First-party component and SSR regression tests live in `package/test/`.
 - Run `npm test` from `package/` for focused behavior verification.
-- Run `npm run verify` from `package/` for the complete package gate.
+- Run `npm run prePublishPackage` from `package/` for the complete package gate.
 
 ## Site Workflow
 
