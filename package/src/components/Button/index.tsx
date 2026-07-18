@@ -143,6 +143,7 @@ export const Button = ({
   disabled,
   href,
   alt,
+  type = 'button',
   className,
   anchorName,
   ref,
@@ -197,9 +198,14 @@ export const Button = ({
    */
   readonly href?: string;
   /**
-   * Alternative text shown when the user hovers over the button.
+   * Alternative text used to label the button and shown when the user hovers
+   * over it.
    */
   readonly alt?: string;
+  /**
+   * The native button type.
+   */
+  readonly type?: 'button' | 'reset' | 'submit';
   /**
    * An extra CSS class name for the component.
    */
@@ -229,7 +235,9 @@ export const Button = ({
       )}
       disabled={disabled}
       onClick={disabled ? undefined : (onClick ?? hrefClick)}
+      aria-label={alt}
       title={alt}
+      type={type}
       ref={ref}
       {...(anchorName ? {style: {anchorName}} : {})}
     >

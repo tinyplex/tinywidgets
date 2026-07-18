@@ -183,7 +183,10 @@ disabled:<><p>A flag that indicates that the button is disabled.</p>
 href:<><p>A URL that can be used instead of an <code>onClick</code> to launch a new web
 page, much like a link.</p>
 </>,
-alt:<><p>Alternative text shown when the user hovers over the button.</p>
+alt:<><p>Alternative text used to label the button and shown when the user hovers
+over it.</p>
+</>,
+type:<><p>The native button type.</p>
 </>,
 className:<><p>An extra CSS class name for the component.</p>
 </>,
