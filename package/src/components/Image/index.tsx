@@ -72,7 +72,7 @@ export const Image = ({
    */
   readonly href?: string;
   /**
-   * Alternative text shown when the user hovers over the image.
+   * Alternative text for the image, also shown when the user hovers over it.
    */
   readonly alt?: string;
   /**
@@ -87,6 +87,7 @@ export const Image = ({
 
   return (
     <img
+      alt={alt ?? ''}
       src={src}
       onClick={onClick ?? hrefClick}
       title={alt}

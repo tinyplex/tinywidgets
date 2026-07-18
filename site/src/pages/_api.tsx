@@ -799,7 +799,7 @@ variant:<><p>A variant of the image, one of:</p>
 href:<><p>A URL that can be used instead of an <code>onClick</code> to launch a new web
 page, much like a link.</p>
 </>,
-alt:<><p>Alternative text shown when the user hovers over the image.</p>
+alt:<><p>Alternative text for the image, also shown when the user hovers over it.</p>
 </>,
 className:<><p>An extra CSS class name for the component.</p>
 </>,
