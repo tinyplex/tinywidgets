@@ -67,9 +67,7 @@ Add the Vanilla Extract plugin to your Vite config, and exclude TinyWidgets from
 dependency optimization:
 
 ```ts
-import {
-  vanillaExtractPlugin,
-} from '@vanilla-extract/vite-plugin';
+import {vanillaExtractPlugin} from '@vanilla-extract/vite-plugin';
 import react from '@vitejs/plugin-react';
 import {defineConfig} from 'vite';
 
