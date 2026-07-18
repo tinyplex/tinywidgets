@@ -1,10 +1,5 @@
 import type {StyleRule} from '@vanilla-extract/css';
-import {
-  createElement,
-  isValidElement,
-  type ComponentType,
-  type ReactNode,
-} from 'react';
+import {createElement, type ComponentType, type ReactNode} from 'react';
 import {screens} from '../css/screens';
 
 /**
@@ -39,13 +34,9 @@ export const renderComponentOrNode = (
   if (ComponentOrNode == null) {
     return fallback;
   }
-  if (isValidElement(ComponentOrNode)) {
-    return ComponentOrNode;
-  }
-  if (['string', 'number', 'boolean'].includes(typeof ComponentOrNode)) {
-    return ComponentOrNode as string | number | boolean;
-  }
-  return createElement(ComponentOrNode as ComponentType);
+  return typeof ComponentOrNode == 'function'
+    ? createElement(ComponentOrNode as ComponentType)
+    : ComponentOrNode;
 };
 
 export const large = (style: StyleRule) => ({
