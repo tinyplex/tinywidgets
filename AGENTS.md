@@ -82,22 +82,23 @@ This file is the local project guide for work in this repository. Use it to avoi
 
 ## README And Publishing
 
-- `package/README.md` is copied from the repo root README during `prePublishPackage`.
-- Do not hand-maintain separate package README content unless the workflow changes.
-- Package validation script in `package/package.json` currently runs:
+- `package/README.md` and `package/LICENSE` must match their repo-root copies;
+  package verification checks them byte for byte.
+- The published tarball is allowlisted to package source, README, and license.
+- `npm run verify` in `package/` runs:
   - Prettier
   - ESLint
   - cspell
   - TypeScript
-  - README copy
+  - Vitest
+  - README and license mirror checks
+- The standard `prepack` lifecycle runs the same verification before packaging.
 
 ## Testing And Verification
 
-- There are currently no first-party package component tests in this repo.
-- Usual verification for package changes is targeted source review plus:
-  - `npm run prePublishPackage` from `package/` when appropriate
-  - or narrower checks such as `tsc`, `eslint`, or formatting as needed
-- Be careful not to assume a test suite exists for regressions.
+- First-party component and SSR regression tests live in `package/test/`.
+- Run `npm test` from `package/` for focused behavior verification.
+- Run `npm run verify` from `package/` for the complete package gate.
 
 ## Site Workflow
 
