@@ -17,7 +17,8 @@ import {Button} from '../Button';
 import {buttonVariants} from '../Button/index.css';
 import {anchoredFlyout, flyout, wrapper} from './index.css';
 
-const supportsAnchors = CSS.supports('anchor-name', '--');
+const supportsAnchors =
+  typeof CSS != 'undefined' && CSS.supports('anchor-name', '--');
 
 /**
  * The `Flyout` component displays a simple rectangular container that pops up

@@ -4,7 +4,7 @@ import * as UiReact from 'tinybase/ui-react/with-schemas';
 import {type NoTablesSchema, createStore} from 'tinybase/with-schemas';
 import {CHANGE, READY, READY_SCHEMA} from './common';
 
-const PREFERS_DARK = matchMedia?.('(prefers-color-scheme: dark)');
+const PREFERS_DARK = globalThis.matchMedia?.('(prefers-color-scheme: dark)');
 
 const LOCAL_STORE = 'tinywidgets/Local';
 const DARK_PREFERENCE = 'darkPreference';
@@ -64,7 +64,7 @@ export const LocalStore = () => {
   );
 
   const preferenceListener = useCallback(
-    () => localStore.setValue(DARK_PREFERENCE, PREFERS_DARK.matches),
+    () => localStore.setValue(DARK_PREFERENCE, PREFERS_DARK?.matches ?? false),
     [localStore],
   );
 
@@ -82,9 +82,9 @@ export const LocalStore = () => {
   );
 
   useEffect(() => {
-    PREFERS_DARK.addEventListener(CHANGE, preferenceListener);
+    PREFERS_DARK?.addEventListener(CHANGE, preferenceListener);
     preferenceListener();
-    return () => PREFERS_DARK.removeEventListener(CHANGE, preferenceListener);
+    return () => PREFERS_DARK?.removeEventListener(CHANGE, preferenceListener);
   }, [localStore, preferenceListener]);
 
   useProvideStore(LOCAL_STORE, localStore);
