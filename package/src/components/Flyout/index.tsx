@@ -122,10 +122,10 @@ export const Flyout = ({
     variant,
     onClick: handleClick,
   };
-  return supportsAnchors ? (
+  return supportsAnchors && portal ? (
     <>
       <Button {...buttonProps} anchorName={anchor} />
-      {isOpen && portal
+      {isOpen
         ? createPortal(
             <div
               className={classNames(flyout, anchoredFlyout, className)}
