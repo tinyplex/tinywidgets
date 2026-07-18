@@ -2,6 +2,7 @@ import {Menu, X} from 'lucide-react';
 import {
   createContext,
   useContext,
+  useId,
   useRef,
   type ComponentType,
   type ReactNode,
@@ -169,6 +170,7 @@ const Layout = ({
   const hasFooter = footerComponentOrNode != null;
   const sideNavCanToggle = hasSideNav && sideNavToggle != 'never';
   const sideNavIsAlwaysVisible = hasSideNav && sideNavToggle == 'never';
+  const sideNavId = useId();
 
   const ref = useRef<HTMLDivElement>(null);
 
@@ -189,6 +191,9 @@ const Layout = ({
             <Axis as="header" className={header}>
               {sideNavCanToggle ? (
                 <Button
+                  alt={sideNavIsOpen ? 'Close navigation' : 'Open navigation'}
+                  aria-controls={sideNavId}
+                  aria-expanded={sideNavIsOpen}
                   variant="icon"
                   onClick={toggleSideNavIsOpen}
                   icon={sideNavIsOpen ? X : Menu}
@@ -199,9 +204,9 @@ const Layout = ({
                   }
                 />
               ) : null}
-              <nav className={title}>
+              <div className={title}>
                 {renderComponentOrNode(titleComponentOrNode)}
-              </nav>
+              </div>
               <Axis as="nav" className={topNav}>
                 {renderComponentOrNode(topNavLeftComponentOrNode, <div />)}
                 {renderComponentOrNode(topNavRightComponentOrNode, <div />)}
@@ -209,12 +214,14 @@ const Layout = ({
               <DarkMode />
               {hasSideNav ? (
                 <nav
+                  aria-label="Side navigation"
                   className={classNames(
                     sideNav,
                     sideNavToggle == 'responsive' && sideNavResponsive,
                     sideNavIsAlwaysVisible && sideNavNever,
                     sideNavIsOpen && sideNavOpen,
                   )}
+                  id={sideNavId}
                 >
                   {renderComponentOrNode(sideNavComponentOrNode)}
                 </nav>

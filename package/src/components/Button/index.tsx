@@ -143,6 +143,8 @@ export const Button = ({
   disabled,
   href,
   alt,
+  'aria-controls': ariaControls,
+  'aria-expanded': ariaExpanded,
   type = 'button',
   className,
   anchorName,
@@ -203,6 +205,14 @@ export const Button = ({
    */
   readonly alt?: string;
   /**
+   * The Id of the element controlled by the button.
+   */
+  readonly 'aria-controls'?: string;
+  /**
+   * Whether the element controlled by the button is expanded.
+   */
+  readonly 'aria-expanded'?: boolean;
+  /**
    * The native button type.
    */
   readonly type?: 'button' | 'reset' | 'submit';
@@ -235,6 +245,8 @@ export const Button = ({
       )}
       disabled={disabled}
       onClick={disabled ? undefined : (onClick ?? hrefClick)}
+      aria-controls={ariaControls}
+      aria-expanded={ariaExpanded}
       aria-label={alt}
       title={alt}
       type={type}

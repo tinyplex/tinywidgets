@@ -186,6 +186,10 @@ page, much like a link.</p>
 alt:<><p>Alternative text used to label the button and shown when the user hovers
 over it.</p>
 </>,
+'aria-controls':<><p>The Id of the element controlled by the button.</p>
+</>,
+'aria-expanded':<><p>Whether the element controlled by the button is expanded.</p>
+</>,
 type:<><p>The native button type.</p>
 </>,
 className:<><p>An extra CSS class name for the component.</p>

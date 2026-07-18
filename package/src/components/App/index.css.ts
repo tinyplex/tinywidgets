@@ -53,15 +53,26 @@ export const sideNav = style({
   padding: dimensions.padding,
   position: 'fixed',
   top: dimensions.topNavHeight,
-  transition: 'left .2s ease-in-out',
+  transition: 'left .2s ease-in-out, visibility 0s linear .2s',
+  visibility: 'hidden',
   width: dimensions.sideNavWidth,
 });
 
-export const sideNavOpen = style({left: 0});
+export const sideNavOpen = style({
+  left: 0,
+  transitionDelay: '0s',
+  visibility: 'visible',
+});
 
-export const sideNavResponsive = style(large({left: 0}));
+export const sideNavResponsive = style(
+  large({left: 0, transitionDelay: '0s', visibility: 'visible'}),
+);
 
-export const sideNavNever = style({left: 0});
+export const sideNavNever = style({
+  left: 0,
+  transitionDelay: '0s',
+  visibility: 'visible',
+});
 
 export const main = style({
   backgroundColor: colors.background,
