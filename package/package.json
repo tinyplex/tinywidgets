@@ -15,6 +15,11 @@
     "react"
   ],
   "type": "module",
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "prePublishPackage": "prettier --check . && eslint . && cspell --quiet . && tsc && cp ../README.md ./README.md",
     "test": "vitest run"
