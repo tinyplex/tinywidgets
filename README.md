@@ -54,9 +54,50 @@ See you on [GitHub](https://github.com/tinyplex/tinywidgets)!
 
 ## Installation
 
-The easiest way to get started with TinyWidgets is to use its [Vite template](https://github.com/tinyplex/vite-tinywidgets/). This comes with the (simple) build configuration you need to work with TinyWidgets.
+### Add TinyWidgets to an existing Vite app
 
-To create a new TinyWidgets application using this template, do the following:
+Install TinyWidgets and its Vanilla Extract build plugin:
+
+```sh
+npm install tinywidgets
+npm install --save-dev @vanilla-extract/vite-plugin
+```
+
+Add the Vanilla Extract plugin to your Vite config, and exclude TinyWidgets from
+dependency optimization:
+
+```ts
+import {
+  vanillaExtractPlugin,
+} from '@vanilla-extract/vite-plugin';
+import react from '@vitejs/plugin-react';
+import {defineConfig} from 'vite';
+
+export default defineConfig({
+  optimizeDeps: {exclude: ['tinywidgets']},
+  plugins: [react(), vanillaExtractPlugin()],
+});
+```
+
+Then import the global styles and render your first widgets:
+
+```tsx
+import 'tinywidgets/css';
+import {App, Button} from 'tinywidgets';
+
+export const Root = () => (
+  <App
+    title="My app"
+    main={<Button title="Say hello" onClick={() => alert('Hello!')} />}
+  />
+);
+```
+
+### Start a new app from the template
+
+The easiest way to start a new TinyWidgets app is with its
+[Vite template](https://github.com/tinyplex/vite-tinywidgets/). This comes with
+the build configuration you need to work with TinyWidgets.
 
 1. Make a copy of this template into a new directory:
 
@@ -82,8 +123,8 @@ npm install
 npm run dev
 ```
 
-5. The Vite server should start up. Go the URL shown and enjoy!
+5. The Vite server should start up. Go to the URL shown and enjoy!
 
 <img width="1160" alt="image" src="https://github.com/user-attachments/assets/073a26dc-4212-4ab0-b5a0-d968ac47342c">
 
-Note that you can also create a production build with `npm run build`.
+You can also create a production build with `npm run build`.

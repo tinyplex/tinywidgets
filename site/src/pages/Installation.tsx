@@ -8,12 +8,50 @@ export const Installation = () => {
   return (
     <>
       <Title icon={Lucide.WandSparkles} title="Installation" />
+      <h2>Add TinyWidgets to an existing Vite app</h2>
+      <p>Install TinyWidgets and its Vanilla Extract build plugin:</p>
+      <Code
+        language="sh"
+        code={`npm install tinywidgets
+npm install --save-dev @vanilla-extract/vite-plugin`}
+      />
       <p>
-        The easiest way to get started with TinyWidgets is to use its{' '}
+        Add the Vanilla Extract plugin to your Vite config, and exclude
+        TinyWidgets from dependency optimization:
+      </p>
+      <Code
+        language="typescript"
+        code={`import {
+  vanillaExtractPlugin,
+} from '@vanilla-extract/vite-plugin';
+import react from '@vitejs/plugin-react';
+import {defineConfig} from 'vite';
+
+export default defineConfig({
+  optimizeDeps: {exclude: ['tinywidgets']},
+  plugins: [react(), vanillaExtractPlugin()],
+});`}
+      />
+      <p>Then import the global styles and render your first widgets:</p>
+      <Code
+        language="tsx"
+        code={`import 'tinywidgets/css';
+import {App, Button} from 'tinywidgets';
+
+export const Root = () => (
+  <App
+    title="My app"
+    main={<Button title="Say hello" onClick={() => alert('Hello!')} />}
+  />
+);`}
+      />
+      <h2>Start a new app from the template</h2>
+      <p>
+        The easiest way to start a new TinyWidgets app is with its{' '}
         <a href="https://github.com/tinyplex/vite-tinywidgets/">
           Vite template
         </a>
-        . This comes with the (simple) build configuration you need to work with
+        . This comes with the build configuration you need to work with
         TinyWidgets.
       </p>
       <Image
