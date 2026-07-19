@@ -1,5 +1,5 @@
 {
-  "ignorePaths": ["bun.lockb"],
+  "ignorePaths": ["bun.lockb", "package/dist"],
   "words": [
     "atrule",
     "clike",
