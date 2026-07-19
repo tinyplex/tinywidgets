@@ -23,8 +23,9 @@
   ],
   "scripts": {
     "build": "vite build && tsc -p tsconfig.build.json",
-    "prePublishPackage": "npm i && prettier --check . && eslint . && cspell --quiet . && tsc && npm test && npm run build && node scripts/checkPackageFiles.mjs",
-    "test": "vitest run"
+    "prePublishPackage": "npm i && prettier --check . && eslint . && cspell --quiet . && tsc && npm test && npm run build && node scripts/checkPackageFiles.mjs && npm run test:package",
+    "test": "vitest run",
+    "test:package": "node scripts/testPackage.mjs"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",

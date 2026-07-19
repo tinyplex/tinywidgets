@@ -140,6 +140,11 @@ export default tsLint.config(
   },
 
   {
+    files: ['test/fixtures/package/**/*.{js,mjs,ts,tsx}'],
+    rules: {'import/no-unresolved': 0},
+  },
+
+  {
     files: ['eslint.config.js'],
     extends: [tsLint.configs.disableTypeChecked],
   },
