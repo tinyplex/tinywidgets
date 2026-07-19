@@ -1,5 +1,5 @@
 import {style} from '@vanilla-extract/css';
-import {colors} from 'tinywidgets/css';
+import {colors} from 'tinywidgets/source/css';
 
 export const footer = style({
   color: colors.foregroundDim,

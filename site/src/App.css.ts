@@ -1,5 +1,5 @@
 import {style} from '@vanilla-extract/css';
-import {colors} from 'tinywidgets/css';
+import {colors} from 'tinywidgets/source/css';
 
 export const article = style({
   width: '100%',

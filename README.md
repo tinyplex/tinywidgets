@@ -11,7 +11,7 @@ See the [website](https://tinywidgets.org/) for more details. Get started [here]
 
 ## Dependencies
 
-TinyWidgets uses [React](https://react.dev/) for DOM manipulation, [Vanilla-Extract](https://vanilla-extract.style/) at build-time for styling, [Lucide](https://lucide.dev/) for icons, and [TinyBase](https://tinybase.org/) for state management. Its philosophy is all about simplicity, decent defaults, a streamlined DOM, and concise styling.
+TinyWidgets uses [React](https://react.dev/) for DOM manipulation, [Vanilla-Extract](https://vanilla-extract.style/) for styling, [Lucide](https://lucide.dev/) for icons, and [TinyBase](https://tinybase.org/) for state management. Its philosophy is all about simplicity, decent defaults, a streamlined DOM, and concise styling. You can either compile its Vanilla Extract source with your app or use the prebuilt JavaScript and CSS.
 
 But, just to be clear - that doesn't mean you need to use Vanilla-Extract, Lucide, or Tinybase in the apps you build with these widgets. You can set arbitrary class names (from Tailwind, for example!) on all components if you like.
 
@@ -56,15 +56,46 @@ See you on [GitHub](https://github.com/tinyplex/tinywidgets)!
 
 ### Add TinyWidgets to an existing Vite app
 
-Install TinyWidgets and its Vanilla Extract build plugin:
+Install TinyWidgets:
 
 ```sh
 npm install tinywidgets
+```
+
+Then choose one of the following integration modes. Keep the component, CSS
+token, and stylesheet imports within the same mode because their generated class
+names and custom properties are compiled together.
+
+#### Prebuilt mode
+
+Use prebuilt mode for the simplest setup. It needs no Vanilla Extract plugin:
+
+```tsx
+import 'tinywidgets/prebuilt/styles.css';
+import {App, Button} from 'tinywidgets/prebuilt';
+
+export const Root = () => (
+  <App
+    title="My app"
+    main={<Button title="Say hello" onClick={() => alert('Hello!')} />}
+  />
+);
+```
+
+CSS tokens are also available from `tinywidgets/prebuilt/css` if you need them
+in inline styles or your own styling code.
+
+#### Source mode
+
+Use source mode when you want TinyWidgets' Vanilla Extract files compiled
+alongside your own. Install the build plugin:
+
+```sh
 npm install --save-dev @vanilla-extract/vite-plugin
 ```
 
-Add the Vanilla Extract plugin to your Vite config, and exclude TinyWidgets from
-dependency optimization:
+Add it to your Vite config, and exclude TinyWidgets from dependency
+optimization:
 
 ```ts
 import {vanillaExtractPlugin} from '@vanilla-extract/vite-plugin';
@@ -77,11 +108,12 @@ export default defineConfig({
 });
 ```
 
-Then import the global styles and render your first widgets:
+Your TypeScript config should set `allowImportingTsExtensions` to `true`. Then
+import the source styles and widgets:
 
 ```tsx
-import 'tinywidgets/css';
-import {App, Button} from 'tinywidgets';
+import 'tinywidgets/source/css';
+import {App, Button} from 'tinywidgets/source';
 
 export const Root = () => (
   <App
@@ -90,6 +122,11 @@ export const Root = () => (
   />
 );
 ```
+
+The original `tinywidgets` and `tinywidgets/css` imports remain aliases for
+source mode in the 1.x releases. Both modes currently include the same global
+`*` reset: border-box sizing, inherited color and font size, and zero margins
+and padding. Load exactly one styling lane.
 
 ### Start a new app from the template
 

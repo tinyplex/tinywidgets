@@ -10,11 +10,11 @@ export const FUNCTION_ROUTES: Routes = {};
 export const CSS_ROUTES: Routes = {};
 export const OBJECT_ROUTES: Routes = {};
 
-import {App} from 'tinywidgets';
+import {App} from 'tinywidgets/source';
 COMPONENT_ROUTES['component/App'] = ['App', () => {
 return (<Api 
   type='COMPONENT'
-  importLine="import {App} from 'tinywidgets';"
+  importLine="import {App} from 'tinywidgets/source';"
   title='App'
   comments={<><p>The <code>App</code> component is the root component of a TinyWidgets application.</p>
 <p>It can be provided with optional components for different parts of the app
@@ -73,11 +73,11 @@ rendering the standard header, main, or footer layout.</p>
 />);
 }, Lucide.PanelsTopLeft];
 
-import {Axis} from 'tinywidgets';
+import {Axis} from 'tinywidgets/source';
 COMPONENT_ROUTES['component/Axis'] = ['Axis', () => {
 return (<Api 
   type='COMPONENT'
-  importLine="import {Axis} from 'tinywidgets';"
+  importLine="import {Axis} from 'tinywidgets/source';"
   title='Axis'
   comments={<><p>The <code>Axis</code> component displays its children along a flex axis, aligning them
 in the center of the cross-axis.</p>
@@ -137,11 +137,11 @@ horizontal axis.</p>
 />);
 }, Lucide.AlignCenterHorizontal];
 
-import {Button} from 'tinywidgets';
+import {Button} from 'tinywidgets/source';
 COMPONENT_ROUTES['component/Button'] = ['Button', () => {
 return (<Api 
   type='COMPONENT'
-  importLine="import {Button} from 'tinywidgets';"
+  importLine="import {Button} from 'tinywidgets/source';"
   title='Button'
   comments={<><p>The <code>Button</code> component displays a button, with a number of common variants.</p>
 </>}
@@ -328,11 +328,11 @@ is suitable for use in an icon-only toolbar.</p>
 />);
 }, Lucide.RectangleHorizontal];
 
-import {Card} from 'tinywidgets';
+import {Card} from 'tinywidgets/source';
 COMPONENT_ROUTES['component/Card'] = ['Card', () => {
 return (<Api 
   type='COMPONENT'
-  importLine="import {Card} from 'tinywidgets';"
+  importLine="import {Card} from 'tinywidgets/source';"
   title='Card'
   comments={<><p>The <code>Card</code> component displays a simple rectangular container. If a <code>title</code>
 prop is provided, it is displayed in the same style as a <code>Collapsible</code>
@@ -398,11 +398,11 @@ children:<><p>The children of the component that go inside the card.</p>
 />);
 }, Lucide.Square];
 
-import {Checkbox} from 'tinywidgets';
+import {Checkbox} from 'tinywidgets/source';
 COMPONENT_ROUTES['component/Checkbox'] = ['Checkbox', () => {
 return (<Api 
   type='COMPONENT'
-  importLine="import {Checkbox} from 'tinywidgets';"
+  importLine="import {Checkbox} from 'tinywidgets/source';"
   title='Checkbox'
   comments={<><p>The <code>Checkbox</code> component displays a managed checkbox with an optional default
 checked state.</p>
@@ -446,11 +446,11 @@ ref:<><p>A ref to the underlying button element.</p>
 />);
 }, Lucide.LucideCheckSquare];
 
-import {Code} from 'tinywidgets';
+import {Code} from 'tinywidgets/source';
 COMPONENT_ROUTES['component/Code'] = ['Code', () => {
 return (<Api 
   type='COMPONENT'
-  importLine="import {Code} from 'tinywidgets';"
+  importLine="import {Code} from 'tinywidgets/source';"
   title='Code'
   comments={<><p>The <code>Code</code> component displays a block of pre-formatted code, and uses PrismJS
 to parse its syntax if you have imported it globally. The coloring is based
@@ -535,11 +535,11 @@ h1 {
 />);
 }, Lucide.SquareCode];
 
-import {Collapsible} from 'tinywidgets';
+import {Collapsible} from 'tinywidgets/source';
 COMPONENT_ROUTES['component/Collapsible'] = ['Collapsible', () => {
 return (<Api 
   type='COMPONENT'
-  importLine="import {Collapsible} from 'tinywidgets';"
+  importLine="import {Collapsible} from 'tinywidgets/source';"
   title='Collapsible'
   comments={<><p>The <code>Collapsible</code> component displays a titled box that can be expanded or
 collapsed. If the <code>id</code> prop is provided, its state is preserved between page
@@ -611,11 +611,11 @@ between page reloads.</p>
 />);
 }, Lucide.PanelTopOpen];
 
-import {DarkMode} from 'tinywidgets';
+import {DarkMode} from 'tinywidgets/source';
 COMPONENT_ROUTES['component/DarkMode'] = ['DarkMode', () => {
 return (<Api 
   type='COMPONENT'
-  importLine="import {DarkMode} from 'tinywidgets';"
+  importLine="import {DarkMode} from 'tinywidgets/source';"
   title='DarkMode'
   comments={<><p>The <code>DarkMode</code> component displays a button that cycles the application
 between light, dark, and automatic color modes.</p>
@@ -641,11 +641,11 @@ header.</p>
 />);
 }, Lucide.SunMoon];
 
-import {Detail} from 'tinywidgets';
+import {Detail} from 'tinywidgets/source';
 COMPONENT_ROUTES['component/Detail'] = ['Detail', () => {
 return (<Api 
   type='COMPONENT'
-  importLine="import {Detail} from 'tinywidgets';"
+  importLine="import {Detail} from 'tinywidgets/source';"
   title='Detail'
   comments={<><p>The <code>Detail</code> component displays a set of key-value pairs in a two-column
 table.</p>
@@ -679,11 +679,11 @@ className:<><p>An extra CSS class name for the component.</p>
 />);
 }, Lucide.TableProperties];
 
-import {Flyout} from 'tinywidgets';
+import {Flyout} from 'tinywidgets/source';
 COMPONENT_ROUTES['component/Flyout'] = ['Flyout', () => {
 return (<Api 
   type='COMPONENT'
-  importLine="import {Flyout} from 'tinywidgets';"
+  importLine="import {Flyout} from 'tinywidgets/source';"
   title='Flyout'
   comments={<><p>The <code>Flyout</code> component displays a simple rectangular container that pops up
 out of an icon.</p>
@@ -752,11 +752,11 @@ and with a different icon for open and closed states.</p>
 />);
 }, Lucide.LucideArrowDownSquare];
 
-import {Hr} from 'tinywidgets';
+import {Hr} from 'tinywidgets/source';
 COMPONENT_ROUTES['component/Hr'] = ['Hr', () => {
 return (<Api 
   type='COMPONENT'
-  importLine="import {Hr} from 'tinywidgets';"
+  importLine="import {Hr} from 'tinywidgets/source';"
   title='Hr'
   comments={<><p>The <code>Hr</code> component displays a styled horizontal rule.</p>
 </>}
@@ -775,11 +775,11 @@ className:<><p>An extra CSS class name for the component.</p>
 />);
 }, Lucide.Minus];
 
-import {Image} from 'tinywidgets';
+import {Image} from 'tinywidgets/source';
 COMPONENT_ROUTES['component/Image'] = ['Image', () => {
 return (<Api 
   type='COMPONENT'
-  importLine="import {Image} from 'tinywidgets';"
+  importLine="import {Image} from 'tinywidgets/source';"
   title='Image'
   comments={<><p>The <code>Image</code> component displays an image, with a number of common variants.</p>
 </>}
@@ -847,11 +847,11 @@ className:<><p>An extra CSS class name for the component.</p>
 />);
 }, Lucide.Image];
 
-import {ImageLabel} from 'tinywidgets';
+import {ImageLabel} from 'tinywidgets/source';
 COMPONENT_ROUTES['component/ImageLabel'] = ['ImageLabel', () => {
 return (<Api 
   type='COMPONENT'
-  importLine="import {ImageLabel} from 'tinywidgets';"
+  importLine="import {ImageLabel} from 'tinywidgets/source';"
   title='ImageLabel'
   comments={<><p>The <code>ImageLabel</code> component displays an image and a text label along a shared
 horizontal axis.</p>
@@ -905,11 +905,11 @@ onClick:<><p>A handler called when the user clicks on the component.</p>
 />);
 }, Lucide.Captions];
 
-import {Loading} from 'tinywidgets';
+import {Loading} from 'tinywidgets/source';
 COMPONENT_ROUTES['component/Loading'] = ['Loading', () => {
 return (<Api 
   type='COMPONENT'
-  importLine="import {Loading} from 'tinywidgets';"
+  importLine="import {Loading} from 'tinywidgets/source';"
   title='Loading'
   comments={<><p>The <code>Loading</code> component displays a compact spinner with optional shimmer rows
 to reserve space while content is loading.</p>
@@ -949,11 +949,11 @@ placeholder rows to fit automatically.</p>
 />);
 }, Lucide.LoaderCircle];
 
-import {Metric} from 'tinywidgets';
+import {Metric} from 'tinywidgets/source';
 COMPONENT_ROUTES['component/Metric'] = ['Metric', () => {
 return (<Api 
   type='COMPONENT'
-  importLine="import {Metric} from 'tinywidgets';"
+  importLine="import {Metric} from 'tinywidgets/source';"
   title='Metric'
   comments={<><p>The <code>Metric</code> component displays a metric as a prominent numerical value with
 a label above.</p>
@@ -990,11 +990,11 @@ className:<><p>An extra CSS class name for the component.</p>
 />);
 }, Lucide.SquareSigma];
 
-import {Row} from 'tinywidgets';
+import {Row} from 'tinywidgets/source';
 COMPONENT_ROUTES['component/Row'] = ['Row', () => {
 return (<Api 
   type='COMPONENT'
-  importLine="import {Row} from 'tinywidgets';"
+  importLine="import {Row} from 'tinywidgets/source';"
   title='Row'
   comments={<><p>The <code>Row</code> component displays a row of &#39;cell&#39; components, with a number of
 common variants representing the relative sizes of those cells within it.</p>
@@ -1088,11 +1088,11 @@ children:<><p>The children of the component, each occupying one &#39;cell&#39;.<
 />);
 }, Lucide.Columns3];
 
-import {Select} from 'tinywidgets';
+import {Select} from 'tinywidgets/source';
 COMPONENT_ROUTES['component/Select'] = ['Select', () => {
 return (<Api 
   type='COMPONENT'
-  importLine="import {Select} from 'tinywidgets';"
+  importLine="import {Select} from 'tinywidgets/source';"
   title='Select'
   comments={<><p>The <code>Select</code> component displays a managed select input with an existing
 value.</p>
@@ -1145,11 +1145,11 @@ ref:<><p>A ref to the underlying select element.</p>
 />);
 }, Lucide.Combine];
 
-import {Summary} from 'tinywidgets';
+import {Summary} from 'tinywidgets/source';
 COMPONENT_ROUTES['component/Summary'] = ['Summary', () => {
 return (<Api 
   type='COMPONENT'
-  importLine="import {Summary} from 'tinywidgets';"
+  importLine="import {Summary} from 'tinywidgets/source';"
   title='Summary'
   comments={<><p>The <code>Summary</code> component displays an image on the left, and other content
 (probably text) on the right.</p>
@@ -1182,11 +1182,11 @@ children:<><p>The children of the component, shown to the right of the image.</p
 />);
 }, Lucide.LayoutList];
 
-import {Table} from 'tinywidgets';
+import {Table} from 'tinywidgets/source';
 COMPONENT_ROUTES['component/Table'] = ['Table', () => {
 return (<Api 
   type='COMPONENT'
-  importLine="import {Table} from 'tinywidgets';"
+  importLine="import {Table} from 'tinywidgets/source';"
   title='Table'
   comments={<><p>The <code>Table</code> component displays a table with some simple default styling.</p>
 </>}
@@ -1215,11 +1215,11 @@ children:<><p>The children (<code>tr</code> rows) that go inside the table.</p>
 />);
 }, Lucide.LucideTable2];
 
-import {Tag} from 'tinywidgets';
+import {Tag} from 'tinywidgets/source';
 COMPONENT_ROUTES['component/Tag'] = ['Tag', () => {
 return (<Api 
   type='COMPONENT'
-  importLine="import {Tag} from 'tinywidgets';"
+  importLine="import {Tag} from 'tinywidgets/source';"
   title='Tag'
   comments={<><p>The <code>Tag</code> component displays a small rectangular tag, suitable for minimal
 amounts of metadata, such as a notification count.</p>
@@ -1288,11 +1288,11 @@ className:<><p>An extra CSS class name for the component.</p>
 />);
 }, Lucide.RectangleEllipsis];
 
-import {TextInput} from 'tinywidgets';
+import {TextInput} from 'tinywidgets/source';
 COMPONENT_ROUTES['component/TextInput'] = ['TextInput', () => {
 return (<Api 
   type='COMPONENT'
-  importLine="import {TextInput} from 'tinywidgets';"
+  importLine="import {TextInput} from 'tinywidgets/source';"
   title='TextInput'
   comments={<><p>The <code>TextInput</code> component displays a managed text input with an existing
 value.</p>
@@ -1345,7 +1345,7 @@ inset icon and placeholder.</p>
 />);
 }, Lucide.TextCursorInput];
 
-import {classNames} from 'tinywidgets';
+import {classNames} from 'tinywidgets/source';
 FUNCTION_ROUTES['function/classNames'] = ['classNames', () => {
 const classes = classNames(
   'class1',
@@ -1354,7 +1354,7 @@ const classes = classNames(
 );
 return (<Api 
   type='FUNCTION'
-  importLine="import {classNames} from 'tinywidgets';"
+  importLine="import {classNames} from 'tinywidgets/source';"
   title='classNames'
   comments={<><p>The <code>classNames</code> function returns a concatenated list of class names,
 filtering out any <code>null</code> or <code>undefined</code> values.</p>
@@ -1382,11 +1382,11 @@ filtering out any <code>null</code> or <code>undefined</code> values.</p>
 />);
 }, Lucide.SquarePi];
 
-import {classes} from 'tinywidgets/css';
+import {classes} from 'tinywidgets/source/css';
 CSS_ROUTES['css/classes'] = ['classes', () => {
 return (<Api 
   type='CSS'
-  importLine="import {classes} from 'tinywidgets/css';"
+  importLine="import {classes} from 'tinywidgets/source/css';"
   title='classes'
   comments={<><p>The <code>classes</code> object exposes reusable TinyWidgets CSS classes so they can be
 applied to markup rendered by other libraries.</p>
@@ -1457,11 +1457,11 @@ applied to markup rendered by other libraries.</p>
 />);
 }, Lucide.Shapes];
 
-import {code} from 'tinywidgets/css';
+import {code} from 'tinywidgets/source/css';
 CSS_ROUTES['css/code'] = ['code', () => {
 return (<Api 
   type='CSS'
-  importLine="import {code} from 'tinywidgets/css';"
+  importLine="import {code} from 'tinywidgets/source/css';"
   title='code'
   comments={<><p>The <code>code</code> object exposes the CSS variables used by TinyWidgets for coloring
 the code blocks, so that you can use them directly in your own application.</p>
@@ -1519,11 +1519,11 @@ the colors respond.</p>
 />);
 }, Lucide.Palette];
 
-import {colors} from 'tinywidgets/css';
+import {colors} from 'tinywidgets/source/css';
 CSS_ROUTES['css/colors'] = ['colors', () => {
 return (<Api 
   type='CSS'
-  importLine="import {colors} from 'tinywidgets/css';"
+  importLine="import {colors} from 'tinywidgets/source/css';"
   title='colors'
   comments={<><p>The <code>colors</code> object exposes the CSS variables used by TinyWidgets for color
 theming, so that you can use them directly in your own application.</p>
@@ -1592,11 +1592,11 @@ background respond.</p>
 />);
 }, Lucide.Palette];
 
-import {dimensions} from 'tinywidgets/css';
+import {dimensions} from 'tinywidgets/source/css';
 CSS_ROUTES['css/dimensions'] = ['dimensions', () => {
 return (<Api 
   type='CSS'
-  importLine="import {dimensions} from 'tinywidgets/css';"
+  importLine="import {dimensions} from 'tinywidgets/source/css';"
   title='dimensions'
   comments={<><p>The <code>dimensions</code> object exposes the CSS variables used by TinyWidgets for
 various sizes and lengths, so that you can use them directly in your own
@@ -1650,11 +1650,11 @@ applies some of them to a custom component.</p>
 />);
 }, Lucide.Ruler];
 
-import {screens} from 'tinywidgets/css';
+import {screens} from 'tinywidgets/source/css';
 CSS_ROUTES['css/screens'] = ['screens', () => {
 return (<Api 
   type='CSS'
-  importLine="import {screens} from 'tinywidgets/css';"
+  importLine="import {screens} from 'tinywidgets/source/css';"
   title='screens'
   comments={<><p>The <code>screens</code> object contains the media query breakpoints that TinyWidget
 uses to distinguish small, medium, and large screens.</p>
@@ -1674,11 +1674,11 @@ than the <code>small</code> number of pixels will get a slightly smaller font.</
 />);
 }, Lucide.Ruler];
 
-import {useDark} from 'tinywidgets';
+import {useDark} from 'tinywidgets/source';
 HOOK_ROUTES['hook/useDark'] = ['useDark', () => {
 return (<Api 
   type='HOOK'
-  importLine="import {useDark} from 'tinywidgets';"
+  importLine="import {useDark} from 'tinywidgets/source';"
   title='useDark'
   comments={<><p>The useDark hook returns whether the user is viewing the application in dark
 mode.</p>
@@ -1699,11 +1699,11 @@ mode.</p>
 />);
 }, Lucide.SquareFunction];
 
-import {useRoute} from 'tinywidgets';
+import {useRoute} from 'tinywidgets/source';
 HOOK_ROUTES['hook/useRoute'] = ['useRoute', () => {
 return (<Api 
   type='HOOK'
-  importLine="import {useRoute} from 'tinywidgets';"
+  importLine="import {useRoute} from 'tinywidgets/source';"
   title='useRoute'
   comments={<><p>The useRoute hook returns the current route, assuming the app is using the
 basic TinyWidgets routing system.</p>
@@ -1730,11 +1730,11 @@ been persisted to the hash part of the browser&#39;s URL.</p>
 />);
 }, Lucide.SquareFunction];
 
-import {useRouteParts} from 'tinywidgets';
+import {useRouteParts} from 'tinywidgets/source';
 HOOK_ROUTES['hook/useRouteParts'] = ['useRouteParts', () => {
 return (<Api 
   type='HOOK'
-  importLine="import {useRouteParts} from 'tinywidgets';"
+  importLine="import {useRouteParts} from 'tinywidgets/source';"
   title='useRouteParts'
   comments={<><p>The useRouteParts hook returns the current route truncated to a number of
 slash-separated parts.</p>
@@ -1763,12 +1763,12 @@ length:<>The number of route parts to include. Use 0 for the full route.</>,
 />);
 }, Lucide.SquareFunction];
 
-import {useSetRouteCallback} from 'tinywidgets';
+import {useSetRouteCallback} from 'tinywidgets/source';
 HOOK_ROUTES['hook/useSetRouteCallback'] = ['useSetRouteCallback', () => {
 const setRoute = useSetRouteCallback();
 return (<Api 
   type='HOOK'
-  importLine="import {useSetRouteCallback} from 'tinywidgets';"
+  importLine="import {useSetRouteCallback} from 'tinywidgets/source';"
   title='useSetRouteCallback'
   comments={<><p>The useSetRouteCallback hook a callback for setting the current route,
 assuming the app is using the basic TinyWidgets routing system.</p>

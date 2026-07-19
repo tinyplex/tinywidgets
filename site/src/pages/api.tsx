@@ -1,5 +1,5 @@
 import {Fragment} from 'react';
-import {Code, Collapsible, Detail, Hr, Row} from 'tinywidgets';
+import {Code, Collapsible, Detail, Hr, Row} from 'tinywidgets/source';
 import {Title} from '../components/Title.tsx';
 import {exampleComment, exampleExec} from './Api.css.ts';
 

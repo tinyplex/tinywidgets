@@ -1,4 +1,4 @@
-import {ImageLabel} from 'tinywidgets';
+import {ImageLabel} from 'tinywidgets/source';
 import {title} from './Title.css';
 
 export const Title = ({

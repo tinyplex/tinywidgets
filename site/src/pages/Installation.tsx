@@ -1,5 +1,5 @@
 import * as Lucide from 'lucide-react';
-import {Code, Collapsible, Image} from 'tinywidgets';
+import {Code, Collapsible, Image} from 'tinywidgets/source';
 import {Title} from '../components/Title.tsx';
 import {image} from './Installation.css.ts';
 import {ROUTES} from './index.ts';
@@ -9,15 +9,45 @@ export const Installation = () => {
     <>
       <Title icon={Lucide.WandSparkles} title="Installation" />
       <h2>Add TinyWidgets to an existing Vite app</h2>
-      <p>Install TinyWidgets and its Vanilla Extract build plugin:</p>
+      <p>Install TinyWidgets:</p>
+      <Code language="sh" code="npm install tinywidgets" />
+      <p>
+        Then choose one of the following integration modes. Keep the component,
+        CSS token, and stylesheet imports within the same mode because their
+        generated class names and custom properties are compiled together.
+      </p>
+      <h3>Prebuilt mode</h3>
+      <p>
+        Use prebuilt mode for the simplest setup. It needs no Vanilla Extract
+        plugin:
+      </p>
       <Code
-        language="sh"
-        code={`npm install tinywidgets
-npm install --save-dev @vanilla-extract/vite-plugin`}
+        language="tsx"
+        code={`import 'tinywidgets/prebuilt/styles.css';
+import {App, Button} from 'tinywidgets/prebuilt';
+
+export const Root = () => (
+  <App
+    title="My app"
+    main={<Button title="Say hello" onClick={() => alert('Hello!')} />}
+  />
+);`}
       />
       <p>
-        Add the Vanilla Extract plugin to your Vite config, and exclude
-        TinyWidgets from dependency optimization:
+        Get CSS tokens from <code>tinywidgets/prebuilt/css</code>.
+      </p>
+      <h3>Source mode</h3>
+      <p>
+        Use source mode when you want TinyWidgets&apos; Vanilla Extract files
+        compiled alongside your own. Install the build plugin:
+      </p>
+      <Code
+        language="sh"
+        code="npm install --save-dev @vanilla-extract/vite-plugin"
+      />
+      <p>
+        Add it to your Vite config, and exclude TinyWidgets from dependency
+        optimization:
       </p>
       <Code
         language="typescript"
@@ -32,11 +62,15 @@ export default defineConfig({
   plugins: [react(), vanillaExtractPlugin()],
 });`}
       />
-      <p>Then import the global styles and render your first widgets:</p>
+      <p>
+        Your TypeScript config should set{' '}
+        <code>allowImportingTsExtensions</code> to <code>true</code>. Then
+        import the source styles and widgets:
+      </p>
       <Code
         language="tsx"
-        code={`import 'tinywidgets/css';
-import {App, Button} from 'tinywidgets';
+        code={`import 'tinywidgets/source/css';
+import {App, Button} from 'tinywidgets/source';
 
 export const Root = () => (
   <App
@@ -45,6 +79,15 @@ export const Root = () => (
   />
 );`}
       />
+      <p>
+        <code>tinywidgets</code> stays a source alias in 1.x.{' '}
+        <code>tinywidgets/css</code> does too.
+      </p>
+      <p>
+        Both modes include the same global <code>*</code> reset: border-box
+        sizing, inherited color and font size, and zero margins and padding.
+        Load exactly one styling lane.
+      </p>
       <h2>Start a new app from the template</h2>
       <p>
         The easiest way to start a new TinyWidgets app is with its{' '}

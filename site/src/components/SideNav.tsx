@@ -1,4 +1,4 @@
-import {Collapsible, Hr, useRoute} from 'tinywidgets';
+import {Collapsible, Hr, useRoute} from 'tinywidgets/source';
 import '../pages/Configuration.tsx';
 import '../pages/Installation.tsx';
 import {

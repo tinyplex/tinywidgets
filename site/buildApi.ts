@@ -142,7 +142,7 @@ const buildApi = async () => {
                 : 'Lucide.Braces');
       const importLine =
         `import {${name}} from ` +
-        `'tinywidgets${type == 'CSS' ? '/css' : ''}';`;
+        `'tinywidgets/source${type == 'CSS' ? '/css' : ''}';`;
 
       const preambles: string[] = [];
       const codes: string[] = [];

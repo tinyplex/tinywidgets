@@ -1,6 +1,14 @@
 import {SiCss, SiJavascript} from '@icons-pack/react-simple-icons';
 import * as Lucide from 'lucide-react';
-import {Axis, Card, Hr, Image, ImageLabel, Metric, Row} from 'tinywidgets';
+import {
+  Axis,
+  Card,
+  Hr,
+  Image,
+  ImageLabel,
+  Metric,
+  Row,
+} from 'tinywidgets/source';
 import {RouteButton} from '../components/RouteLink.tsx';
 import {button, home, hr, logo, narrower, title} from './Home.css.ts';
 import {

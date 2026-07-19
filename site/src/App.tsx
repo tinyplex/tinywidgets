@@ -7,7 +7,7 @@ import {
   ImageLabel,
   useRoute,
   useSetRouteCallback,
-} from 'tinywidgets';
+} from 'tinywidgets/source';
 import {article, title} from './App.css';
 import {Footer} from './components/Footer.tsx';
 import {SideNav} from './components/SideNav.tsx';
