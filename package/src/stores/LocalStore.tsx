@@ -38,10 +38,10 @@ const {
  * ```
  * This example shows the hook returning the current mode.
  */
-export const useDark = () => {
+export const useDark = (): boolean => {
   const darkChoice = useDarkChoice();
   const darkPreference = useValue(DARK_PREFERENCE, LOCAL_STORE);
-  return darkChoice == 1 || (darkChoice == 2 && darkPreference);
+  return darkChoice == 1 || (darkChoice == 2 && darkPreference == true);
 };
 
 export const useDarkChoice = () =>
