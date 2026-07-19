@@ -1,6 +1,6 @@
 import type {MouseEventHandler, ReactNode} from 'react';
 import {classNames} from '../../common/functions';
-import {axis, axisVariants} from './index.css';
+import {axis, axisVariants} from './index.css.ts';
 
 /**
  * The `Axis` component displays its children along a flex axis, aligning them

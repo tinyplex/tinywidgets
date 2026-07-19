@@ -1,7 +1,7 @@
 import type {ComponentType, ReactNode} from 'react';
 import {classNames, renderComponentOrNode} from '../../common/functions';
 import {Axis} from '../Axis';
-import {tag, tagIcon, tagVariants} from './index.css';
+import {tag, tagIcon, tagVariants} from './index.css.ts';
 
 /**
  * The `Tag` component displays a small rectangular tag, suitable for minimal

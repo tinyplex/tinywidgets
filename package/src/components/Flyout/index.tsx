@@ -14,7 +14,7 @@ import {
 } from '../../stores/SessionStore';
 import {usePortal} from '../App';
 import {Button} from '../Button';
-import {buttonVariants} from '../Button/index.css';
+import {buttonVariants} from '../Button/index.css.ts';
 import {anchoredFlyout, flyout, wrapper} from './index.css';
 
 const supportsAnchors =

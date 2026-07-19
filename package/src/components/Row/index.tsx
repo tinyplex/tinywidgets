@@ -1,6 +1,6 @@
 import type {ReactNode} from 'react';
 import {classNames} from '../../common/functions';
-import {row, rowVariants} from './index.css';
+import {row, rowVariants} from './index.css.ts';
 
 /**
  * The `Row` component displays a row of 'cell' components, with a number of
