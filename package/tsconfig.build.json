@@ -4,6 +4,7 @@
     "declaration": true,
     "emitDeclarationOnly": true,
     "noEmit": false,
+    "noEmitOnError": true,
     "outDir": "dist/prebuilt",
     "rewriteRelativeImportExtensions": true,
     "rootDir": "src"

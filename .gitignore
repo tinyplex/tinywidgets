@@ -1,3 +1,4 @@
 node_modules
+package/dist
 .DS_Store
 tinywidgets.code-workspace

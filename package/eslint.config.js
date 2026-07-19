@@ -28,7 +28,7 @@ export default tsLint.config(
     settings: {
       react: {version: 'detect'},
       'import/resolver': {node: {extensions: ['.js', '.jsx', '.ts', '.tsx']}},
-      'import/core-modules': ['expo-sqlite', 'vitest/config'],
+      'import/core-modules': ['expo-sqlite', 'vite', 'vitest/config'],
     },
 
     languageOptions: {globals: {...globals.node, ...globals.browser}},
