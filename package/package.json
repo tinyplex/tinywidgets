@@ -51,7 +51,23 @@
   },
   "exports": {
     ".": "./src/index.ts",
-    "./css": "./src/index.css.ts"
+    "./css": "./src/index.css.ts",
+    "./source": "./src/index.ts",
+    "./source/css": "./src/index.css.ts",
+    "./prebuilt": {
+      "types": "./dist/prebuilt/index.d.ts",
+      "import": "./dist/prebuilt/index.js",
+      "default": "./dist/prebuilt/index.js"
+    },
+    "./prebuilt/css": {
+      "types": "./dist/prebuilt/index.css.d.ts",
+      "import": "./dist/prebuilt/css.js",
+      "default": "./dist/prebuilt/css.js"
+    },
+    "./prebuilt/styles.css": {
+      "types": "./dist/prebuilt/styles.css.d.ts",
+      "default": "./dist/prebuilt/styles.css"
+    }
   },
   "dependencies": {
     "@types/react-is": "^19.2.0",
