@@ -3,7 +3,9 @@ import {execFile, spawn} from 'node:child_process';
 import {cp, mkdtemp, readFile, readdir, rm, writeFile} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
+import {pathToFileURL} from 'node:url';
 import {promisify} from 'node:util';
+import ts from 'typescript';
 
 const execFileAsync = promisify(execFile);
 const npm = process.platform == 'win32' ? 'npm.cmd' : 'npm';
@@ -12,6 +14,24 @@ const packageJson = JSON.parse(
   await readFile(new URL('package.json', packageRoot), 'utf8'),
 );
 const temporaryRoot = await mkdtemp(join(tmpdir(), 'tinywidgets-package-'));
+
+const getNamedExports = async (file) => {
+  const sourceFile = ts.createSourceFile(
+    file.pathname,
+    await readFile(file, 'utf8'),
+    ts.ScriptTarget.Latest,
+    true,
+  );
+  return sourceFile.statements
+    .flatMap((statement) =>
+      ts.isExportDeclaration(statement) &&
+      statement.exportClause != null &&
+      ts.isNamedExports(statement.exportClause)
+        ? statement.exportClause.elements.map(({name}) => name.text)
+        : [],
+    )
+    .sort();
+};
 
 const run = (command, args, cwd) =>
   new Promise((resolve, reject) => {
@@ -128,6 +148,26 @@ try {
       '--prefer-offline',
     ],
     consumerRoot,
+  );
+
+  const installedPrebuiltRoot = join(
+    consumerRoot,
+    'node_modules',
+    'tinywidgets',
+    'dist',
+    'prebuilt',
+  );
+  const [prebuiltExports, prebuiltCssExports] = await Promise.all([
+    import(pathToFileURL(join(installedPrebuiltRoot, 'index.js')).href),
+    import(pathToFileURL(join(installedPrebuiltRoot, 'css.js')).href),
+  ]);
+  assert.deepEqual(
+    Object.keys(prebuiltExports).sort(),
+    await getNamedExports(new URL('src/index.ts', packageRoot)),
+  );
+  assert.deepEqual(
+    Object.keys(prebuiltCssExports).sort(),
+    await getNamedExports(new URL('src/index.css.ts', packageRoot)),
   );
 
   const bin = (name) =>
