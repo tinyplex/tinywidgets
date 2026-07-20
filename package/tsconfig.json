@@ -15,5 +15,6 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
-  }
+  },
+  "exclude": ["dist", "node_modules", "test/fixtures/package"]
 }
